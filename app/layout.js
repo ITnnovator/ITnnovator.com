@@ -28,7 +28,8 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/flaticon.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Preloader />
+        {/* <Preloader /> */}
+        <Preloader/>
         <Sidebar />
         <Search />
         <Header />

@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "bootstrap": "^5.3.5",
     "next": "15.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "swiper": "^11.2.6"
+    "swiper": "^11.2.6",
+    "wow.js": "^1.2.2"
   }
 }

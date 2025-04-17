@@ -1,8 +1,93 @@
-import Link from "next/link";
+'use client';
+
+import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
+    useEffect(() => {
+        // HEADER NAV IN MOBILE
+        const ulSidebar = document.querySelector('.ul-sidebar');
+        const ulSidebarOpener = document.querySelector('.ul-header-sidebar-opener');
+        const ulSidebarCloser = document.querySelector('.ul-sidebar-closer');
+        const ulMobileMenuContent = document.querySelector('.to-go-to-sidebar-in-mobile');
+        const ulHeaderNavMobileWrapper = document.querySelector('.ul-sidebar-header-nav-wrapper');
+        const ulHeaderNavOgWrapper = document.querySelector('.ul-header-nav-wrapper');
+
+        function updateMenuPosition() {
+            if (!ulMobileMenuContent || !ulHeaderNavMobileWrapper || !ulHeaderNavOgWrapper) return;
+
+            if (window.innerWidth < 992) {
+                ulHeaderNavMobileWrapper.appendChild(ulMobileMenuContent);
+            } else {
+                ulHeaderNavOgWrapper.appendChild(ulMobileMenuContent);
+            }
+        }
+
+        updateMenuPosition();
+        window.addEventListener('resize', updateMenuPosition);
+
+        if (ulSidebarOpener && ulSidebar) {
+            ulSidebarOpener.addEventListener('click', () => {
+                ulSidebar.classList.add('active');
+            });
+        }
+
+        if (ulSidebarCloser && ulSidebar) {
+            ulSidebarCloser.addEventListener('click', () => {
+                ulSidebar.classList.remove('active');
+            });
+        }
+
+        const ulHeaderNavMobile = document.querySelector('.ul-header-nav');
+        if (ulHeaderNavMobile) {
+            const ulHeaderNavMobileItems = ulHeaderNavMobile.querySelectorAll('.has-sub-menu');
+            ulHeaderNavMobileItems.forEach((item) => {
+                if (window.innerWidth < 992) {
+                    item.addEventListener('click', () => {
+                        item.classList.toggle('active');
+                    });
+                }
+            });
+        }
+
+        // header search in mobile
+        const ulHeaderSearchOpener = document.querySelector('.ul-header-search-opener');
+        const ulHeaderSearchCloser = document.querySelector('.ul-search-closer');
+        if (ulHeaderSearchOpener) {
+            ulHeaderSearchOpener.addEventListener('click', () => {
+                const wrapper = document.querySelector('.ul-search-form-wrapper');
+                if (wrapper) wrapper.classList.add('active');
+            });
+        }
+
+        if (ulHeaderSearchCloser) {
+            ulHeaderSearchCloser.addEventListener('click', () => {
+                const wrapper = document.querySelector('.ul-search-form-wrapper');
+                if (wrapper) wrapper.classList.remove('active');
+            });
+        }
+
+        // sticky header
+        const ulHeader = document.querySelector('.to-be-sticky');
+        if (ulHeader) {
+            const handleScroll = () => {
+                if (window.scrollY > 80) {
+                    ulHeader.classList.add('sticky');
+                } else {
+                    ulHeader.classList.remove('sticky');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+        }
+
+        return () => {
+            // Clean up listeners
+            window.removeEventListener('resize', updateMenuPosition);
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        // <!-- HEADER SECTION START -->
         <header className="ul-header">
             <div className="ul-header-bottom to-be-sticky wow animate__slideInDown">
                 <div className="ul-header-bottom-wrapper ul-header-container">
@@ -13,7 +98,6 @@ export default function Header() {
                     </div>
 
                     <div className="ul-header-bottom-right">
-                        {/* <!-- header nav --> */}
                         <div className="ul-header-nav-wrapper">
                             <div className="to-go-to-sidebar-in-mobile">
                                 <nav className="ul-header-nav">
@@ -41,6 +125,5 @@ export default function Header() {
                 </div>
             </div>
         </header>
-        // <!-- HEADER SECTION END -->
     );
 }

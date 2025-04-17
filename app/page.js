@@ -1,6 +1,28 @@
-import Link from "next/link"
+"use client";
+
+import Link from "next/link";
+import { useEffect } from "react";
+import Swiper from "swiper";
+import 'swiper/css';
 
 export default function HomePage() {
+  useEffect(() => {
+    // ✅ Swiper initialization
+    if (typeof window !== "undefined" && document.querySelector(".ul-banner-slider")) {
+      new Swiper(".ul-banner-slider", {
+        slidesPerView: 1,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        loop: true,
+        speed: 700,
+        allowTouchMove: false,
+      });
+    }
+  }, []);
+
+
   return (
     //  <!-- BANNER SECTION START -->
     <section className="ul-banner">

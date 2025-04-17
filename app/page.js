@@ -2,8 +2,16 @@
 
 import AboutSection from "@/components/Home/AboutSection";
 import Banner from "@/components/Home/Banner";
+import BlogSection from "@/components/Home/BlogSection";
+import CaseStudies from "@/components/Home/CaseStudies";
+import ClientSection from "@/components/Home/ClientSection";
+import Faq from "@/components/Home/Faq";
+import Offerings from "@/components/Home/Offerings";
 import ServiceSection from "@/components/Home/ServiceSection";
+import TestimonialSwiper from "@/components/Home/TestimonialSwiper";
 import Ticker from "@/components/Home/Ticker";
+import WhyChooseUs from "@/components/Home/WhyChooseUs";
+import WorkProcess from "@/components/Home/WorkProcess";
 
 export default function HomePage() {
   return (
@@ -19,6 +27,30 @@ export default function HomePage() {
 
       {/* Ticker Section */}
       <ServiceSection />
+
+      {/* WhyChooseUs Section */}
+      <WhyChooseUs />
+
+      {/* WorkProcess Section */}
+      <WorkProcess />
+
+      {/* Offerings Section */}
+      <Offerings />
+
+      {/* Faq Section */}
+      <Faq />
+
+      {/* CaseStudies Section */}
+      <CaseStudies />
+
+      {/* TestimonialSwiper Section */}
+      <TestimonialSwiper />
+
+      {/* BlogSection Section */}
+      <BlogSection />
+
+      {/* ClientSection Section */}
+      <ClientSection />
     </>
   );
 }

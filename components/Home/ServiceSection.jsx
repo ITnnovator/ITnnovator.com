@@ -29,138 +29,138 @@ export default function ServiceSection() {
 
     return (
         // <!-- SERVICES SECTION START -->
-        <section class="ul-services ul-section-spacing">
-            <div class="ul-container">
+        <section className="ul-services ul-section-spacing">
+            <div className="ul-container">
                 {/* <!-- single slide --> */}
-                <div class="ul-section-heading">
-                    <div class="left">
-                        <span class="ul-section-sub-title">Our Services</span>
-                        <h2 class="ul-section-title">Best Solutions</h2>
+                <div className="ul-section-heading">
+                    <div className="left">
+                        <span className="ul-section-sub-title">Our Services</span>
+                        <h2 className="ul-section-title">Best Solutions</h2>
                     </div>
-                    <div class="ul-slider-nav ul-services-slider-nav">
-                        <button class="prev"><i class="flaticon-back"></i></button>
-                        <button class="next"><i class="flaticon-next-1"></i></button>
+                    <div className="ul-slider-nav ul-services-slider-nav">
+                        <button className="prev"><i className="flaticon-back"></i></button>
+                        <button className="next"><i className="flaticon-next-1"></i></button>
                     </div>
                 </div>
 
                 {/* <!-- services slider --> */}
-                <div class="ul-services-slider swiper overflow-visible">
-                    <div class="swiper-wrapper">
+                <div className="ul-services-slider swiper overflow-visible">
+                    <div className="swiper-wrapper">
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">Digital Security</span>
-                                    <h3 class="ul-service-title">Data Guard Sentinel</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">Digital Security</span>
+                                    <h3 className="ul-service-title">Data Guard Sentinel</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-1.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">Digital Shop</span>
-                                    <h3 class="ul-service-title">Woo commerce</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">Digital Shop</span>
+                                    <h3 className="ul-service-title">Woo commerce</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-2.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">CRM solutions</span>
-                                    <h3 class="ul-service-title">CRM Solutions</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">CRM solutions</span>
+                                    <h3 className="ul-service-title">CRM Solutions</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-3.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">Web Design</span>
-                                    <h3 class="ul-service-title">Web Design</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">Web Design</span>
+                                    <h3 className="ul-service-title">Web Design</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">Digital Security</span>
-                                    <h3 class="ul-service-title">Data Guard Sentinel</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">Digital Security</span>
+                                    <h3 className="ul-service-title">Data Guard Sentinel</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-1.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">Digital Shop</span>
-                                    <h3 class="ul-service-title">Woo commerce</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">Digital Shop</span>
+                                    <h3 className="ul-service-title">Woo commerce</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-2.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">CRM solutions</span>
-                                    <h3 class="ul-service-title">CRM Solutions</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">CRM solutions</span>
+                                    <h3 className="ul-service-title">CRM Solutions</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-3.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
 
                         {/* <!-- single slide --> */}
-                        <div class="swiper-slide">
-                            <div class="ul-service">
-                                <div class="ul-service-txt">
-                                    <span class="ul-service-sub-title">Web Design</span>
-                                    <h3 class="ul-service-title">Web Design</h3>
-                                    <p class="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
-                                    <a href="service-details.html" class="ul-service-btn">Read More <i class="flaticon-right"></i></a>
+                        <div className="swiper-slide">
+                            <div className="ul-service">
+                                <div className="ul-service-txt">
+                                    <span className="ul-service-sub-title">Web Design</span>
+                                    <h3 className="ul-service-title">Web Design</h3>
+                                    <p className="ul-service-descr">Collaboratively formulate principle capital. Progressively evolve user revolutionary hosting services.</p>
+                                    <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
-                                <div class="ul-service-img">
+                                <div className="ul-service-img">
                                     <img src="webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
@@ -171,8 +171,8 @@ export default function ServiceSection() {
 
 
             <div>
-                <div class="ul-services-vector"></div>
-                <div class="ul-services-vector vector-2"></div>
+                <div className="ul-services-vector"></div>
+                <div className="ul-services-vector vector-2"></div>
             </div>
         </section>
         /* <!-- SERVICES SECTION END --> */

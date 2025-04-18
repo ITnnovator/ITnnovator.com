@@ -1,4 +1,4 @@
-import { Plus_Jakarta_Sans, Kumbh_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Kumbh_Sans, Quicksand } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 import Footer from "@/components/Footer";
@@ -25,6 +25,12 @@ const kumbh = Kumbh_Sans({
   display: "swap",
 });
 
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  variable: "--font-quicksand",
+  display: "swap",
+});
+
 export default function RootLayout({ children }) {
 
   return (
@@ -32,7 +38,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" href="/assets/css/flaticon.css" />
       </head>
-      <body className={`${plusJakarta.variable} ${kumbh.variable}`}>
+      <body className={`${plusJakarta.variable} ${kumbh.variable} ${quicksand.variable}`}>
         <BootstrapClient />
         <Preloader />
         <Sidebar />

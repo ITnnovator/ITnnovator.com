@@ -93,7 +93,7 @@ export default function Header() {
                 <div className="ul-header-bottom-wrapper ul-header-container">
                     <div className="logo-container">
                         <Link href="/" className="d-inline-block">
-                            <img src="/webImages/logo.svg" alt="logo" className="logo" />
+                            <img src="/webImages/itnnovatorLogoLight.png" alt="logo" className="logo" />
                         </Link>
                     </div>
 

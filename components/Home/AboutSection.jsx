@@ -89,20 +89,16 @@ export default function AboutSection() {
                                     <div className="ul-about-content-tab-txt">
                                         <span className="ul-section-sub-title">About Us</span>
                                         <h2 className="ul-section-title">
-                                            We Are Increasing Business Success With Technology
+                                            We Drive Business Growth Through Smart Technology
                                         </h2>
                                         <p className="ul-about-content-tab-descr">
-                                            It is a long established fact that a reader will be
-                                            distracted the readable content of a page when looking at
-                                            layout the point.
+                                            We use cutting-edge technology to streamline operations, elevate digital presence, and deliver measurable growth for your business.
                                         </p>
 
                                         <ul className="ul-about-content-tab-list">
-                                            <li>
-                                                Nam varius mauris quis magna pellentesque gravida.
-                                            </li>
-                                            <li>Phasellus porttitor dui vitae pretium ornare.</li>
-                                            <li>Maecenas suscipit nisi ac nisi tristique mattis.</li>
+                                            <li>Custom web and app solutions tailored to your goals.</li>
+                                            <li>ROI-driven marketing strategies for long-term success.</li>
+                                            <li>Expert IT support and consultancy when you need it.</li>
                                         </ul>
 
                                         <a href="about.html" className="ul-btn ul-btn--2">
@@ -133,21 +129,18 @@ export default function AboutSection() {
                                     <div className="ul-about-content-tab-txt">
                                         <span className="ul-section-sub-title">Our Mission</span>
                                         <h2 className="ul-section-title">
-                                            Creating Digital Solutions For Business Growth
+                                            Building Smart Digital Tools for Business Success
                                         </h2>
                                         <p className="ul-about-content-tab-descr">
-                                            It is a long established fact that a reader will be
-                                            distracted the readable content of a page when looking at
-                                            layout the point.
+                                            We craft innovative digital solutions that help businesses grow, streamline operations, and thrive in an ever-evolving tech landscape.
                                         </p>
 
                                         <ul className="ul-about-content-tab-list">
-                                            <li>
-                                                Nam varius mauris quis magna pellentesque gravida.
-                                            </li>
-                                            <li>Phasellus porttitor dui vitae pretium ornare.</li>
-                                            <li>Maecenas suscipit nisi ac nisi tristique mattis.</li>
+                                            <li>Driving growth through tailored tech strategies.</li>
+                                            <li>Delivering quality-focused development and design.</li>
+                                            <li>Supporting success with expert digital consultancy.</li>
                                         </ul>
+
 
                                         <a href="about.html" className="ul-btn ul-btn--2">
                                             <span>Know More</span>
@@ -177,20 +170,16 @@ export default function AboutSection() {
                                     <div className="ul-about-content-tab-txt">
                                         <span className="ul-section-sub-title">Our Vision</span>
                                         <h2 className="ul-section-title">
-                                            Empowering Businesses Through Technology
+                                            Fueling Business Success With Technology
                                         </h2>
                                         <p className="ul-about-content-tab-descr">
-                                            It is a long established fact that a reader will be
-                                            distracted the readable content of a page when looking at
-                                            layout the point.
+                                            We help businesses unlock their full potential by delivering innovative digital solutions, powered by modern technology and expert strategy.
                                         </p>
 
                                         <ul className="ul-about-content-tab-list">
-                                            <li>
-                                                Nam varius mauris quis magna pellentesque gravida.
-                                            </li>
-                                            <li>Phasellus porttitor dui vitae pretium ornare.</li>
-                                            <li>Maecenas suscipit nisi ac nisi tristique mattis.</li>
+                                            <li>Customized IT services that drive growth.</li>
+                                            <li>High-performance websites and mobile apps.</li>
+                                            <li>Scalable strategies for digital success.</li>
                                         </ul>
 
                                         <a href="about.html" className="ul-btn ul-btn--2">

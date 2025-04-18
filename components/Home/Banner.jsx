@@ -31,10 +31,10 @@ export default function Banner() {
             <div className="ul-banner-container">
                 <div className="ul-banner-txt">
                     <span className="ul-banner-sub-title">
-                        Amazing Solutions For business
+                        Innovative Solutions for Business
                     </span>
                     <h1 className="ul-banner-title">
-                        Trusted IT support Designed to Safeguard Your Business
+                        Reliable IT Solutions Designed to Power Your Business
                     </h1>
                     <Link href="/services" className="ul-banner-btn">
                         Our Services <i className="flaticon-top-right"></i>{" "}

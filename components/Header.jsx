@@ -101,8 +101,8 @@ export default function Header() {
                         <div className="ul-header-nav-wrapper">
                             <div className="to-go-to-sidebar-in-mobile">
                                 <nav className="ul-header-nav">
-                                    <Link href="/" className="active">Home</Link>
-                                    <Link href="/about">About 2</Link>
+                                    <Link href="/" className="active">Home 1</Link>
+                                    <Link href="/about">About</Link>
                                     <Link href="/services">Services</Link>
                                     <Link href="/blog">Blog</Link>
                                     <Link href="/contact">Contact</Link>

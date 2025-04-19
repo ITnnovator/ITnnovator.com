@@ -62,39 +62,39 @@ export default function Faq() {
                                 <div className="ul-single-accordion-item open">
                                     <div className="ul-single-accordion-item__header">
                                         <div className="left">
-                                            <h3 className="ul-single-accordion-item__title">Where should I incorporate my business?</h3>
+                                            <h3 className="ul-single-accordion-item__title">What services does ITnnovator offer?</h3>
                                         </div>
                                         <span className="icon"><i className="flaticon-right"></i></span>
                                     </div>
 
                                     <div className="ul-single-accordion-item__body">
-                                        <p>Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue velit in cursus leo sodales the turpis euismod quis sapien euismod quis sapien the. E-learning is suitable for students, professionals, and anyone interested.</p>
+                                        <p>We provide a wide range of digital solutions including Web & App Development, SEO, Digital Marketing, Social Media Management, UI/UX Design, Logo Designing, IT Consultancy, WordPress, Shopify, and more.</p>
                                     </div>
                                 </div>
 
                                 <div className="ul-single-accordion-item">
                                     <div className="ul-single-accordion-item__header">
                                         <div className="left">
-                                            <h3 className="ul-single-accordion-item__title">How long should a business plan be?</h3>
+                                            <h3 className="ul-single-accordion-item__title">How long does it take to complete a website or app?</h3>
                                         </div>
                                         <span className="icon"><i className="flaticon-right"></i></span>
                                     </div>
 
                                     <div className="ul-single-accordion-item__body">
-                                        <p>Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue velit in cursus leo sodales the turpis euismod quis sapien euismod quis sapien the. E-learning is suitable for students, professionals, and anyone interested.</p>
+                                        <p>Timelines vary depending on the project scope, but typically a standard website takes 2–4 weeks, while mobile or web apps may take 4–8 weeks. We always share a detailed timeline after the requirement phase.</p>
                                     </div>
                                 </div>
 
                                 <div className="ul-single-accordion-item">
                                     <div className="ul-single-accordion-item__header">
                                         <div className="left">
-                                            <h3 className="ul-single-accordion-item__title">Be Part of a Community</h3>
+                                            <h3 className="ul-single-accordion-item__title"> Can you help improve our existing website or marketing strategy?</h3>
                                         </div>
                                         <span className="icon"><i className="flaticon-right"></i></span>
                                     </div>
 
                                     <div className="ul-single-accordion-item__body">
-                                        <p>Aonsectetur adipiscing elit Aenean scelerisque augue vitae consequat Juisque eget congue velit in cursus leo sodales the turpis euismod quis sapien euismod quis sapien the. E-learning is suitable for students, professionals, and anyone interested.</p>
+                                        <p>Absolutely! Whether it’s revamping your current website, optimizing it for SEO, or creating a fresh digital marketing plan — we help you get better results with modern, data-driven strategies.</p>
                                     </div>
                                 </div>
                             </div>

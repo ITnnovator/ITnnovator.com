@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
                             <div className="ul-section-heading">
                                 <div className="left">
                                     <span className="ul-section-sub-title">Why Choose Us</span>
-                                    <h2 className="ul-section-title">Seeing The Full potential of Your Brand</h2>
+                                    <h2 className="ul-section-title">Unlock the Full Potential of Your Brand with ITnnovator</h2>
                                 </div>
                             </div>
                             <div className="ul-why-choose-us-points">
@@ -42,7 +42,7 @@ export default function WhyChooseUs() {
                                     </div>
                                     <div className="ul-why-choose-us-point-txt">
                                         <h3 className="ul-why-choose-us-point-title">Quality Result</h3>
-                                        <p className="ul-why-choose-us-point-descr">There are many variations a of passages of Digital Lorem Ipsum available, but the majority have suffered</p>
+                                        <p className="ul-why-choose-us-point-descr">We build high-performing websites, mobile apps, and marketing strategies that boost your online visibility and drive real business growth.</p>
                                     </div>
                                 </div>
 
@@ -52,8 +52,8 @@ export default function WhyChooseUs() {
                                         <i className="flaticon-teamwork"></i>
                                     </div>
                                     <div className="ul-why-choose-us-point-txt">
-                                        <h3 className="ul-why-choose-us-point-title">Best Team Members</h3>
-                                        <p className="ul-why-choose-us-point-descr">There are many variations a of passages of Digital Lorem Ipsum available, but the majority have suffered</p>
+                                        <h3 className="ul-why-choose-us-point-title">Expert Team</h3>
+                                        <p className="ul-why-choose-us-point-descr">Our experienced developers, designers, and digital marketers collaborate to craft tailored solutions that match your brand’s vision and goals.</p>
                                     </div>
                                 </div>
 
@@ -63,8 +63,8 @@ export default function WhyChooseUs() {
                                         <i className="flaticon-targeted"></i>
                                     </div>
                                     <div className="ul-why-choose-us-point-txt">
-                                        <h3 className="ul-why-choose-us-point-title">High Success Rate</h3>
-                                        <p className="ul-why-choose-us-point-descr">There are many variations a of passages of Digital Lorem Ipsum available, but the majority have suffered</p>
+                                        <h3 className="ul-why-choose-us-point-title">Proven Success Rate</h3>
+                                        <p className="ul-why-choose-us-point-descr">With a strong track record of delivering measurable results, ITnnovator ensures every project meets high standards and exceeds expectations.</p>
                                     </div>
                                 </div>
                             </div>

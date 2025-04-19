@@ -24,7 +24,7 @@ export default function WorkProcess() {
 
                             <div className="ul-work-process-single-txt">
                                 <h3 className="ul-work-process-single-title">Define Requirements</h3>
-                                <p className="ul-work-process-single-descr">In a free hour, when our power of choice is untrammelled and when nothing prevents dolor sit amet, consectetur</p>
+                                <p className="ul-work-process-single-descr">We discuss your goals in detail, understand your vision, and gather all key requirements to build a strategy aligned with your business needs.</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@ export default function WorkProcess() {
 
                             <div className="ul-work-process-single-txt">
                                 <h3 className="ul-work-process-single-title">Design & Prototyping</h3>
-                                <p className="ul-work-process-single-descr">In a free hour, when our power of choice is untrammelled and when nothing prevents dolor sit amet, consectetur</p>
+                                <p className="ul-work-process-single-descr">We design user-friendly interfaces based on your needs and present multiple tailored options to ensure the perfect fit for your vision.</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ export default function WorkProcess() {
 
                             <div className="ul-work-process-single-txt">
                                 <h3 className="ul-work-process-single-title">Final Solution</h3>
-                                <p className="ul-work-process-single-descr">In a free hour, when our power of choice is untrammelled and when nothing prevents dolor sit amet, consectetur</p>
+                                <p className="ul-work-process-single-descr">We run a full QA check, share the final product for your approval, and then launch a high-performing solution built to scale.</p>
                             </div>
                         </div>
                     </div>

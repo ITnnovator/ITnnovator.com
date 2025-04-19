@@ -22,7 +22,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const kumbh = Kumbh_Sans({
   subsets: ["latin"],
   variable: "--font-kumbh",
-  display: "swap",
+  display: "swap", 
 });
 
 const quicksand = Quicksand({

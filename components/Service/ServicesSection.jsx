@@ -17,7 +17,7 @@ export default function ServicesSection() {
                                 <div className="ul-inner-service-content">
                                     <h3 className="ul-inner-service-title"><Link href="/servicedetail">Digital Marketing</Link></h3>
                                     <p className="ul-inner-service-descr">Lorem dolor amet consectetur read adipiscing any more elit.</p>
-                                    <Link ref="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
+                                    <Link href="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
                                 </div>
                             </div>
 
@@ -35,9 +35,9 @@ export default function ServicesSection() {
                                     <i className="flaticon-seo"></i>
                                 </div>
                                 <div className="ul-inner-service-content">
-                                    <h3 className="ul-inner-service-title"><Link ref="/servicedetail">SEO Analytics</Link></h3>
+                                    <h3 className="ul-inner-service-title"><Link href="/servicedetail">SEO Analytics</Link></h3>
                                     <p className="ul-inner-service-descr">Lorem dolor amet consectetur read adipiscing any more elit.</p>
-                                    <Link ref="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
+                                    <Link href="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
                                 </div>
                             </div>
 
@@ -55,9 +55,9 @@ export default function ServicesSection() {
                                     <i className="flaticon-content-marketing"></i>
                                 </div>
                                 <div className="ul-inner-service-content">
-                                    <h3 className="ul-inner-service-title"><Link ref="/servicedetail">Social Marketing</Link></h3>
+                                    <h3 className="ul-inner-service-title"><Link href="/servicedetail">Social Marketing</Link></h3>
                                     <p className="ul-inner-service-descr">Lorem dolor amet consectetur read adipiscing any more elit.</p>
-                                    <Link ref="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
+                                    <Link href="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
                                 </div>
                             </div>
 
@@ -75,9 +75,9 @@ export default function ServicesSection() {
                                     <i className="flaticon-email-1"></i>
                                 </div>
                                 <div className="ul-inner-service-content">
-                                    <h3 className="ul-inner-service-title"><Link ref="/servicedetail">Email Marketing</Link></h3>
+                                    <h3 className="ul-inner-service-title"><Link href="/servicedetail">Email Marketing</Link></h3>
                                     <p className="ul-inner-service-descr">Lorem dolor amet consectetur read adipiscing any more elit.</p>
-                                    <Link ref="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
+                                    <Link href="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
                                 </div>
                             </div>
 
@@ -95,9 +95,9 @@ export default function ServicesSection() {
                                     <i className="flaticon-coding"></i>
                                 </div>
                                 <div className="ul-inner-service-content">
-                                    <h3 className="ul-inner-service-title"><Link ref="/servicedetail">Web Development</Link></h3>
+                                    <h3 className="ul-inner-service-title"><Link href="/servicedetail">Web Development</Link></h3>
                                     <p className="ul-inner-service-descr">Lorem dolor amet consectetur read adipiscing any more elit.</p>
-                                    <Link ref="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
+                                    <Link href="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
                                 </div>
                             </div>
 
@@ -115,9 +115,9 @@ export default function ServicesSection() {
                                     <i className="flaticon-web-design"></i>
                                 </div>
                                 <div className="ul-inner-service-content">
-                                    <h3 className="ul-inner-service-title"><Link ref="/servicedetail">UI/UX Design</Link></h3>
+                                    <h3 className="ul-inner-service-title"><Link href="/servicedetail">UI/UX Design</Link></h3>
                                     <p className="ul-inner-service-descr">Lorem dolor amet consectetur read adipiscing any more elit.</p>
-                                    <Link ref="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
+                                    <Link href="/servicedetail" className="ul-inner-service-link">Read More <i className="flaticon-next-1"></i></Link>
                                 </div>
                             </div>
 

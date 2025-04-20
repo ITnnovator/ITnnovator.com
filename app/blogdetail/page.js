@@ -1,3 +1,4 @@
+"use client";
 import InnerBlogDetail from "@/components/BlogDetail/InnerBlogDetail";
 import InnerBanner from "@/components/InnerBanner";
 

@@ -12,7 +12,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Inner Banner */}
-      <InnerBanner />
+      <InnerBanner title="Service" />
 
       {/* Services Section */}
       <ServicesSection />

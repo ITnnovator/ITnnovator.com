@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       {/* <!-- INNER BANNER SECTION --> */}
-      <InnerBanner />
+      <InnerBanner title="Contact Us" />
 
       {/* <!-- CONTACT INFO SECTION --> */}
       <ContactInfo />

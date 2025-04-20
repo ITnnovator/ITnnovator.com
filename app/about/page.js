@@ -15,7 +15,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Inner Banner */}
-      <InnerBanner />
+      <InnerBanner title="About Us" />
 
       {/* Inner About Section */}
       <InnerAboutSection />

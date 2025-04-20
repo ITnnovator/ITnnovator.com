@@ -2,8 +2,11 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'; // <-- Import this
 
 export default function Header() {
+    const pathname = usePathname(); // <-- Get current path
+
     useEffect(() => {
         // HEADER NAV IN MOBILE
         const ulSidebar = document.querySelector('.ul-sidebar');
@@ -50,7 +53,6 @@ export default function Header() {
             });
         }
 
-        // header search in mobile
         const ulHeaderSearchOpener = document.querySelector('.ul-header-search-opener');
         const ulHeaderSearchCloser = document.querySelector('.ul-search-closer');
         if (ulHeaderSearchOpener) {
@@ -67,25 +69,25 @@ export default function Header() {
             });
         }
 
-        // sticky header
         const ulHeader = document.querySelector('.to-be-sticky');
-        if (ulHeader) {
-            const handleScroll = () => {
+        const handleScroll = () => {
+            if (ulHeader) {
                 if (window.scrollY > 80) {
                     ulHeader.classList.add('sticky');
                 } else {
                     ulHeader.classList.remove('sticky');
                 }
-            };
-            window.addEventListener('scroll', handleScroll);
-        }
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            // Clean up listeners
             window.removeEventListener('resize', updateMenuPosition);
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const isActive = (href) => pathname === href;
 
     return (
         <header className="ul-header">
@@ -93,7 +95,7 @@ export default function Header() {
                 <div className="ul-header-bottom-wrapper ul-header-container">
                     <div className="logo-container">
                         <Link href="/" className="d-inline-block">
-                            <img src="/webImages/itnnovatorLogoLight.png" alt="logo" className="logo" />
+                            <img src="/webImages/itnnovatorLogoLight.png" alt="itnnovatorLogoLight" className="logo" />
                         </Link>
                     </div>
 
@@ -101,18 +103,18 @@ export default function Header() {
                         <div className="ul-header-nav-wrapper">
                             <div className="to-go-to-sidebar-in-mobile">
                                 <nav className="ul-header-nav">
-                                    <Link href="/" className="active">Home</Link>
-                                    <Link href="/about">About</Link>
-                                    <Link href="/services">Services</Link>
-                                    <Link href="/blog">Blog</Link>
-                                    <Link href="/contact">Contact</Link>
+                                    <Link href="/" className={isActive('/') ? 'active' : ''}>Home</Link>
+                                    <Link href="/about" className={isActive('/about') ? 'active' : ''}>About</Link>
+                                    <Link href="/services" className={isActive('/services') ? 'active' : ''}>Services</Link>
+                                    <Link href="/blog" className={isActive('/blog') ? 'active' : ''}>Blog</Link>
+                                    <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>Contact</Link>
                                 </nav>
                             </div>
                         </div>
-
-                        <button className="ul-header-search-opener">
+                        {/* search */}
+                        {/* <button className="ul-header-search-opener">
                             <i className="flaticon-search"></i>
-                        </button>
+                        </button> */}
                         <Link href="/contact" className="ul-btn d-sm-inline-flex d-xxs-none">
                             <span>
                                 Get in Touch <i className="flaticon-top-right"></i>

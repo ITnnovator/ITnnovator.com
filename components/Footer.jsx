@@ -10,22 +10,19 @@ export default function Footer() {
                     <div className="ul-footer-top-contact-infos">
                         {/* <!-- single info --> */}
                         <div className="ul-footer-top-logo">
-                            <a href="index-2.html">
-                                <img src="webImages/logo-white.svg" alt="logo" />
-                            </a>
+                            <Link href="/">
+                                <img src="/webImages/itnnovatorLogoDark.png" alt="itnnovatorLogoDark" />
+                            </Link>
                             <div className="ul-footer-socials">
-                                <a href="#">
+                                <Link href="https://www.facebook.com/itnnovator" target="_blank">
                                     <i className="flaticon-facebook-app-symbol"></i>
-                                </a>
-                                <a href="#">
-                                    <i className="flaticon-twitter"></i>
-                                </a>
-                                <a href="#">
+                                </Link>
+                                <Link href="https://www.linkedin.com/company/itnnovator/" target="_blank">
                                     <i className="flaticon-linkedin-big-logo"></i>
-                                </a>
-                                <a href="#">
+                                </Link>
+                                <Link href="https://www.instagram.com/itnnovator/#" target="_blank">
                                     <i className="flaticon-instagram"></i>
-                                </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -39,7 +36,7 @@ export default function Footer() {
                             <div className="ul-footer-top-contact-info-txt">
                                 <span className="ul-footer-top-contact-info-label">Call Now</span>
                                 <h5 className="ul-footer-top-contact-info-address">
-                                    <a href="tel:20866660112">+208-6666-0112</a>
+                                    <Link href="tel:923142111790">+92 314 2111790</Link>
                                 </h5>
                             </div>
                         </div>
@@ -54,7 +51,7 @@ export default function Footer() {
                             <div className="ul-footer-top-contact-info-txt">
                                 <span className="ul-footer-top-contact-info-label">Email Us</span>
                                 <h5 className="ul-footer-top-contact-info-address">
-                                    <a href="mailto:info@exmple.com">info@exmple.com</a>
+                                    <Link href="mailto:info@itnnovator.com">info@itnnovator.com</Link>
                                 </h5>
                             </div>
                         </div>
@@ -69,23 +66,22 @@ export default function Footer() {
                         <div className="ul-footer-about">
                             <h3 className="ul-footer-widget-title">About Us</h3>
                             <p className="ul-footer-about-txt">
-                                It is a long established fact that a reader will be distracted
-                                the road readable content of a page when looking at layout.
+                                It is a digital solutions company specializing in website development, SEO, and social media marketing. We help brands grow their online presence with fast, responsive websites and result-driven marketing strategies tailored to business goals.
                             </p>
-                            <a href="contact.html" className="ul-footer-about-btn">
+                            <Link href="contact" className="ul-footer-about-btn">
                                 Contact us <i className="flaticon-top-right"></i>
-                            </a>
+                            </Link>
                         </div>
 
                         <div className="ul-footer-widget">
                             <h3 className="ul-footer-widget-title">Our Best Service</h3>
 
                             <div className="ul-footer-widget-links">
-                                <a href="service-details.html">IT Management</a>
-                                <a href="service-details.html">SEO Optimization</a>
-                                <a href="service-details.html">Web Development</a>
-                                <a href="service-details.html">Cyber Security</a>
-                                <a href="service-details.html">Data Security</a>
+                                <Link href="/">IT Management</Link>
+                                <Link href="/">SEO Optimization</Link>
+                                <Link href="/">Web Development</Link>
+                                <Link href="/">Cyber Security</Link>
+                                <Link href="/">Data Security</Link>
                             </div>
                         </div>
 
@@ -137,7 +133,7 @@ export default function Footer() {
                                             <i className="flaticon-check-1"></i>
                                         </span>
                                         <span className="ul-checkbox-txt">
-                                            I agree with the <a href="#">Privacy Policy</a>
+                                            I agree with the <Link href="#">Privacy Policy</Link>
                                         </span>
                                     </label>
                                 </div>

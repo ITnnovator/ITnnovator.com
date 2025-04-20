@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 export default function InnerServiceDetail() {
@@ -8,12 +9,12 @@ export default function InnerServiceDetail() {
                 <div className="col-md-4 wow animate__fadeInUp">
                     <div className="ul-service-details-sidebar">
                         <ul className="ul-service-details-sidebar-links">
-                            <li><a href="service-details.html" className="active">Digital Marketing <i className="flaticon-top-right"></i></a></li>
-                            <li><a href="service-details.html">SEO Analytics <i className="flaticon-top-right"></i></a></li>
-                            <li><a href="service-details.html">Social Marketing <i className="flaticon-top-right"></i></a></li>
-                            <li><a href="service-details.html">Email Marketing <i className="flaticon-top-right"></i></a></li>
-                            <li><a href="service-details.html">Web Development <i className="flaticon-top-right"></i></a></li>
-                            <li><a href="service-details.html">UI/UX Design <i className="flaticon-top-right"></i></a></li>
+                            <li><Link href="/" className="active">Digital Marketing <i className="flaticon-top-right"></i></Link></li>
+                            <li><Link href="/">SEO Analytics <i className="flaticon-top-right"></i></Link></li>
+                            <li><Link href="/">Social Marketing <i className="flaticon-top-right"></i></Link></li>
+                            <li><Link href="/">Email Marketing <i className="flaticon-top-right"></i></Link></li>
+                            <li><Link href="/">Web Development <i className="flaticon-top-right"></i></Link></li>
+                            <li><Link href="/">UI/UX Design <i className="flaticon-top-right"></i></Link></li>
                         </ul>
 
 
@@ -22,7 +23,7 @@ export default function InnerServiceDetail() {
                             <div className="ul-service-details-sidebar-cta-icon"><i className="flaticon-customer-support"></i></div>
                             <h2 className="ul-service-details-sidebar-cta-title">Don't Hesitate to Contact Us</h2>
                             <p className="ul-service-details-sidebar-cta-descr">At our IT solution company, we are committed to exceptional</p>
-                            <a href="contact.html" className="ul-service-details-sidebar-cta-btn">Get in Touch <i className="flaticon-top-right"></i></a>
+                            <Link href="contact" className="ul-service-details-sidebar-cta-btn">Get in Touch <i className="flaticon-top-right"></i></Link>
                         </div>
                     </div>
                 </div>

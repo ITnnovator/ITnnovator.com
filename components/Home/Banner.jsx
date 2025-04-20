@@ -9,7 +9,7 @@ import FsLightbox from 'fslightbox-react';
 
 export default function Banner() {
     const [toggler, setToggler] = useState(false);
-    console.log(toggler)
+    // console.log(toggler)
     useEffect(() => {
         if (typeof window !== "undefined") {
             document.querySelectorAll(".ul-banner-slider").forEach((el) => {

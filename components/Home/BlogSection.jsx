@@ -4,7 +4,7 @@ export default function BlogSection() {
 
     return (
         // <!-- BLOG SECTION START -->
-        <section className="ul-blogs ul-section-spacing">
+        <section className="ul-blogs ul-section-spacing pb-0">
             <div className="ul-container">
                 {/* <!-- section heading --> */}
                 <div className="ul-section-heading">

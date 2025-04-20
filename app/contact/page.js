@@ -1,12 +1,27 @@
+import ContactForm from "@/components/Contact/ContactForm";
+import ContactInfo from "@/components/Contact/ContactInfo";
+import ContactMap from "@/components/Contact/ContactMap";
+import InnerBanner from "@/components/InnerBanner";
+
 export const metadata = {
-    title: "Our Contact | ITN",
-    description: "Discover the digital solutions we provide.",
+  title: "Our Contact | ITN",
+  description: "Discover the digital solutions we provide.",
 };
 
 export default function ContactPage() {
-    return (
-        <div>
-            <h1>Our Contact</h1>
-        </div>
-    );
+  return (
+    <>
+      {/* <!-- INNER BANNER SECTION --> */}
+      <InnerBanner />
+
+      {/* <!-- CONTACT INFO SECTION --> */}
+      <ContactInfo />
+
+      {/* <!-- CONTACT MAP SECTION --> */}
+      <ContactMap />
+
+      {/* <!-- CONTACT FORM SECTION --> */}
+      <ContactForm />
+    </>
+  );
 }

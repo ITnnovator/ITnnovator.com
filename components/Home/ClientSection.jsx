@@ -29,7 +29,7 @@ export default function ClientSection() {
     }, []);
     return (
         // <!-- CLIENTS SECTION START -->
-        <div className="ul-container ul-section-spacing pt-0">
+        <div className="ul-container ul-section-spacing ">
             <div className="ul-clients">
                 <div className="ul-clients-slider swiper">
                     <div className="swiper-wrapper">

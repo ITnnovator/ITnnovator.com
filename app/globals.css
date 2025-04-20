@@ -5992,10 +5992,10 @@ button {
 }
 
 .ul-inner-testimonial-slider {
-  --shadow-space-x: 120px;
-  --shadow-space-y: 120px;
-  padding: var(--shadow-space-y) var(--shadow-space-x);
-  margin: calc(0% - var(--shadow-space-y)) calc(0% - var(--shadow-space-x));
+  --shadow-space-x: 120px !important;
+  --shadow-space-y: 120px !important;
+  padding: var(--shadow-space-y) var(--shadow-space-x) !important;
+  margin: calc(0% - var(--shadow-space-y)) calc(0% - var(--shadow-space-x)) !important;
 }
 
 .ul-inner-testimonial-slider .swiper-slide {

@@ -46,7 +46,7 @@ export default function Offerings() {
                     <div className="col">
                         <div className="ul-offering">
                             <div className="ul-offering-icon"><i className="flaticon-simplicity"></i></div>
-                            <h3 className="ul-offering-title">Watch</h3>
+                            <h3 className="ul-offering-title">SEO</h3>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@ export default function Offerings() {
                     <div className="col">
                         <div className="ul-offering">
                             <div className="ul-offering-icon"><i className="flaticon-web-design"></i></div>
-                            <h3 className="ul-offering-title">TV</h3>
+                            <h3 className="ul-offering-title">Graphics</h3>
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@ export default function Offerings() {
                     <div className="col">
                         <div className="ul-offering">
                             <div className="ul-offering-icon"><i className="flaticon-live-chat"></i></div>
-                            <h3 className="ul-offering-title">IOT</h3>
+                            <h3 className="ul-offering-title">Marketing</h3>
                         </div>
                     </div>
                 </div>

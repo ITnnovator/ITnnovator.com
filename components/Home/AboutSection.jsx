@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function AboutSection() {
@@ -58,24 +59,24 @@ export default function AboutSection() {
             <div className="ul-about-container">
                 <div className="ul-about-content-wrapper">
                     <div className="ul-about-content-nav ul-about-sticky d-none">
-                        <a href="#about-tab-1">
+                        <Link href="#about-tab-1">
                             Problem Solving <i className="flaticon-top-right"></i>
-                        </a>
-                        <a href="#about-tab-2">
+                        </Link>
+                        <Link href="#about-tab-2">
                             Our Mission <i className="flaticon-top-right"></i>
-                        </a>
-                        <a href="#about-tab-3">
+                        </Link>
+                        <Link href="#about-tab-3">
                             Our Vision <i className="flaticon-top-right"></i>
-                        </a>
+                        </Link>
                     </div>
                     <div className="ul-about-content-tabs">
                         <div
                             className="ul-about-content-tab tab ul-about-sticky"
                             id="about-tab-1"
                         >
-                            <a href="#about-tab-1" className="tab-sticky-nav">
+                            <Link href="#about-tab-1" className="tab-sticky-nav">
                                 Problem Solving <i className="flaticon-top-right"></i>
-                            </a>
+                            </Link>
                             <div className="row row-cols-md-2 row-cols-1 align-items-center">
                                 <div className="col">
                                     <div className="ul-about-content-tab-img">
@@ -101,10 +102,10 @@ export default function AboutSection() {
                                             <li>Expert IT support and consultancy when you need it.</li>
                                         </ul>
 
-                                        <a href="about.html" className="ul-btn ul-btn--2">
+                                        <Link href="about" className="ul-btn ul-btn--2">
                                             <span>Know More</span>
                                             <i className="flaticon-up-right-arrow"></i>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -113,9 +114,9 @@ export default function AboutSection() {
                             className="ul-about-content-tab tab ul-about-sticky"
                             id="about-tab-2"
                         >
-                            <a href="#about-tab-2" className="tab-sticky-nav">
+                            <Link href="#about-tab-2" className="tab-sticky-nav">
                                 Our Mission <i className="flaticon-top-right"></i>
-                            </a>
+                            </Link>
                             <div className="row row-cols-md-2 row-cols-1 align-items-center">
                                 <div className="col">
                                     <div className="ul-about-content-tab-img">
@@ -142,10 +143,10 @@ export default function AboutSection() {
                                         </ul>
 
 
-                                        <a href="about.html" className="ul-btn ul-btn--2">
+                                        <Link href="about" className="ul-btn ul-btn--2">
                                             <span>Know More</span>
                                             <i className="flaticon-up-right-arrow"></i>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -154,9 +155,9 @@ export default function AboutSection() {
                             className="ul-about-content-tab tab ul-about-sticky"
                             id="about-tab-3"
                         >
-                            <a href="#about-tab-2" className="tab-sticky-nav">
+                            <Link href="#about-tab-2" className="tab-sticky-nav">
                                 Our Mission <i className="flaticon-top-right"></i>
-                            </a>
+                            </Link>
                             <div className="row row-cols-md-2 row-cols-1 align-items-center">
                                 <div className="col">
                                     <div className="ul-about-content-tab-img">
@@ -182,10 +183,10 @@ export default function AboutSection() {
                                             <li>Scalable strategies for digital success.</li>
                                         </ul>
 
-                                        <a href="about.html" className="ul-btn ul-btn--2">
+                                        <Link href="about" className="ul-btn ul-btn--2">
                                             <span>Know More</span>
                                             <i className="flaticon-up-right-arrow"></i>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

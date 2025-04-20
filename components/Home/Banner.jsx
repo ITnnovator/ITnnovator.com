@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Swiper from "swiper";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import FsLightbox from 'fslightbox-react';
 
 export default function Banner() {
+    const [toggler, setToggler] = useState(false);
+    console.log(toggler)
     useEffect(() => {
         if (typeof window !== "undefined") {
             document.querySelectorAll(".ul-banner-slider").forEach((el) => {
@@ -22,7 +25,7 @@ export default function Banner() {
                     allowTouchMove: false,
                 });
             });
-        }
+        };
     }, []);
 
     return (
@@ -214,13 +217,21 @@ export default function Banner() {
                     {/* <!-- single stat --> */}
                     <div className="ul-banner-stat">
                         <a
-                            href="https://youtu.be/WUB2pSkwN2M?si=mE9CqwAUIjpYiwGm"
-                            data-fslightbox="banner-video"
+                            href="#"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setToggler(!toggler);
+                            }}
                             className="ul-banner-stat-btn"
                         >
                             <span className="btn-txt">Play Reel</span>
                             <i className="flaticon-play-button-arrowhead"></i>
                         </a>
+
+                        <FsLightbox
+                            toggler={toggler}
+                            sources={['https://www.youtube.com/watch?v=WUB2pSkwN2M']}
+                        />
                     </div>
                 </div>
             </div>

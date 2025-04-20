@@ -87,7 +87,7 @@ img {
 }
 
 a {
-  text-decoration: none !important;
+  text-decoration: none !important; 
   display: inline-block;
   color: var(--black);
 }

@@ -1,4 +1,4 @@
-"use client";
+
 import Faq from "@/components/Home/Faq";
 import InnerBanner from "@/components/InnerBanner";
 import ServicesSection from "@/components/Service/ServicesSection";

@@ -1,4 +1,4 @@
-"use client";
+
 import ContactForm from "@/components/Contact/ContactForm";
 import ContactInfo from "@/components/Contact/ContactInfo";
 import ContactMap from "@/components/Contact/ContactMap";

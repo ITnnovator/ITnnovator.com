@@ -1,4 +1,4 @@
-"use client";
+
 import HistorySection from "@/components/About/HistorySection";
 import InnerAboutSection from "@/components/About/InnerAboutSection";
 import StatsSection from "@/components/About/StatsSection";

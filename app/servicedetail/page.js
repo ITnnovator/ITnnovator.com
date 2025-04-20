@@ -1,4 +1,4 @@
-"use client";
+
 import InnerBanner from "@/components/InnerBanner";
 import InnerServiceDetail from "@/components/ServiceDetail/InnerServiceDetail";
 

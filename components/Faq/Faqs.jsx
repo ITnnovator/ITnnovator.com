@@ -1,7 +1,41 @@
-"use client";
+'use client';
+
+import { useEffect } from 'react';
 import Link from "next/link";
 
 export default function Faqs() {
+  useEffect(() => {
+    const accordionContainers = document.querySelectorAll('.ul-accordion');
+
+    accordionContainers.forEach((accordionContainer) => {
+      const accordionItems = accordionContainer.querySelectorAll('.ul-single-accordion-item');
+
+      accordionItems.forEach((accordionItem) => {
+        const header = accordionItem.querySelector('.ul-single-accordion-item__header');
+
+        header.addEventListener('click', () => {
+          const isOpen = accordionItem.classList.contains('open');
+
+          accordionItems.forEach((item) => item.classList.remove('open'));
+
+          if (!isOpen) {
+            accordionItem.classList.add('open');
+          }
+        });
+      });
+    });
+
+    // Cleanup (optional, for safety)
+    return () => {
+      accordionContainers.forEach((accordionContainer) => {
+        const accordionItems = accordionContainer.querySelectorAll('.ul-single-accordion-item');
+        accordionItems.forEach((accordionItem) => {
+          const header = accordionItem.querySelector('.ul-single-accordion-item__header');
+          header.replaceWith(header.cloneNode(true)); // remove all listeners
+        });
+      });
+    };
+  }, []);
   return (
     // <!-- FAQ SECTION START -->
     <section className="ul-inner-faq ul-section-spacing">

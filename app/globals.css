@@ -7280,7 +7280,7 @@ button {
 }
 
 .ul-inner-faq .ul-single-accordion-item__title {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ul-c4);
   font-size: clamp(18px, 1.26vw, 24px);
 }

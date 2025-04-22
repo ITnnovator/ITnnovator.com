@@ -5,7 +5,7 @@ export default function ServicesSection() {
   return (
     <div className="ul-section-spacing">
       <div className="ul-case-study-container">
-        <div className="row ul-bs-row row-cols-lg-3 row-cols-sm-2 row-cols-1">
+        <div className="row ul-bs-row row-cols-lg-3 row-cols-sm-2 row-cols-1 g-5">
           {/* <!-- single case study --> */}
           <div className="col">
             <div className="ul-case-study-item ul-inner-case-study-item">

@@ -4,7 +4,7 @@ export default function InnerBlogSection() {
     return (
         <div className="ul-section-spacing">
             <div className="ul-container">
-                <div className="row ul-bs-row row-cols-md-3 row-cols-2 row-cols-xxs-1">
+                <div className="row ul-bs-row row-cols-md-3 row-cols-2 row-cols-xxs-1 g-4">
                     {/* <!-- single blog --> */}
                     <div className="col">
                         <div className="ul-inner-blog">

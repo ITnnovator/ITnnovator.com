@@ -1,6 +1,6 @@
 import { Plus_Jakarta_Sans, Kumbh_Sans, Quicksand } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Preloader from "@/components/Preloader";

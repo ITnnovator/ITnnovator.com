@@ -66,22 +66,20 @@ export default function Footer() {
                         <div className="ul-footer-about">
                             <h3 className="ul-footer-widget-title">About Us</h3>
                             <p className="ul-footer-about-txt">
-                                It is a digital solutions company specializing in website development, SEO, and social media marketing. We help brands grow their online presence with fast, responsive websites and result-driven marketing strategies tailored to business goals.
+                            ITnnovator is a digital solutions company specializing in website development, SEO, and social media marketing.
+                            We help brands strengthen their online presence with responsive websites and targeted strategies aligned with business goals.
                             </p>
-                            <Link href="contact" className="ul-footer-about-btn">
-                                Contact us <i className="flaticon-top-right"></i>
-                            </Link>
                         </div>
 
                         <div className="ul-footer-widget">
                             <h3 className="ul-footer-widget-title">Our Best Service</h3>
 
                             <div className="ul-footer-widget-links">
-                                <Link href="/">IT Management</Link>
-                                <Link href="/">SEO Optimization</Link>
                                 <Link href="/">Web Development</Link>
-                                <Link href="/">Cyber Security</Link>
-                                <Link href="/">Data Security</Link>
+                                <Link href="/">App Development</Link>
+                                <Link href="/">SEO</Link>
+                                <Link href="/">Digital Marketing</Link>
+                                <Link href="/">Social Media Management</Link>
                             </div>
                         </div>
 
@@ -99,14 +97,6 @@ export default function Footer() {
 
                         <div className="ul-footer-widget ul-nwsltr-widget">
                             <h3 className="ul-footer-widget-title">Contact Us</h3>
-                            <div className="ul-footer-widget-links">
-                                <span>
-                                    Monday – Friday : <span className="colored">8am – 4pm</span>
-                                </span>
-                                <span>
-                                    Saturday : <span className="colored">8am – 12am</span>
-                                </span>
-                            </div>
                             <form action="#" className="ul-nwsltr-form">
                                 <div className="top">
                                     <input
@@ -138,6 +128,9 @@ export default function Footer() {
                                     </label>
                                 </div>
                             </form>
+                            <Link href="contact" className="ul-footer-about-btn mt-5">
+                                Contact us <i className="flaticon-top-right"></i>
+                            </Link>
                         </div>
                     </div>
                 </div>

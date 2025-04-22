@@ -488,7 +488,7 @@ button {
 }
 
 .ul-breadcrumb-title {
-  font-weight: 900;
+  font-weight: 700;
   font-size: clamp(28px, 2.52vw, 48px);
   color: var(--white);
   line-height: 1.3;
@@ -1695,7 +1695,7 @@ button {
 .ul-banner-title {
   font-size: clamp(25px, 3.68vw, 70px);
   color: var(--white);
-  font-weight: 600;
+  font-weight: 700;
   max-width: clamp(300px, 55.6vw, 1058px);
   margin: auto;
   margin-bottom: clamp(8px, 0.84vw, 16px);

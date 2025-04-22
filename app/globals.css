@@ -457,7 +457,7 @@ button {
 }
 
 .ul-section-title {
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(25px, 2.1vw, 40px);
   color: var(--ul-c4);
   margin-bottom: 0;
@@ -1695,7 +1695,7 @@ button {
 .ul-banner-title {
   font-size: clamp(25px, 3.68vw, 70px);
   color: var(--white);
-  font-weight: 800;
+  font-weight: 600;
   max-width: clamp(300px, 55.6vw, 1058px);
   margin: auto;
   margin-bottom: clamp(8px, 0.84vw, 16px);
@@ -1984,7 +1984,7 @@ button {
 }
 
 .ul-banner-2-title {
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(28px, 4.2vw, 80px);
   margin-bottom: clamp(16px, 1.68vw, 32px);
 }
@@ -2128,7 +2128,7 @@ button {
 }
 
 .ul-banner-3-title {
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(30px, 3.36vw, 64px);
 }
 
@@ -5209,7 +5209,7 @@ button {
 
 .ul-pricing-package-2 .ul-pricing-package-price {
   font-size: clamp(28px, 2.52vw, 48px);
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .ul-pricing-package-2 .ul-pricing-package-descr {
@@ -6203,7 +6203,7 @@ button {
 
 .ul-service-details-title,
 .ul-service-details-txt h2 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: clamp(25px, 2.1vw, 40px);
   color: var(--ul-c4);
   margin-bottom: clamp(7px, 0.74vw, 14px);

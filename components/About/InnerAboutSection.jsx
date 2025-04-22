@@ -8,7 +8,7 @@ export default function InnerAboutSection() {
                     <div className="col">
                         <div className="ul-inner-about-txt-left">
                             <span className="ul-section-sub-title">About us</span>
-                            <h2 className="ul-section-title">Expertise That Drives Digital Success</h2>
+                            <h2 className="ul-section-title">Empowering Innovation Through Digital Expertise</h2>
 
                             <div className="ul-inner-about-stats">
                                 <div className="ul-inner-about-stat">

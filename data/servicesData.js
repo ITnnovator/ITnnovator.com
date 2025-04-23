@@ -2,6 +2,7 @@ export const services = [
     {
         id: "01",
         slug: "web-development",
+        type:"main_service",
         title: "Web Development",
         tags: "Mobile App",
         img: "webImages/case-study-1.jpg",
@@ -12,6 +13,7 @@ export const services = [
     {
         id: "02",
         slug: "mobile-apps",
+        type:"main_service",
         title: "Mobile Apps",
         tags: "Mobile App",
         img: "webImages/case-study-2.jpg",
@@ -22,6 +24,8 @@ export const services = [
     {
         id: "03",
         slug: "seo-optimization",
+        type:"sub_service",
+        typeof:"02",
         title: "SEO Optimization",
         tags: "Mobile App",
         img: "webImages/case-study-3.jpg",

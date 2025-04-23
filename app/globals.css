@@ -3337,6 +3337,7 @@ button {
 .ul-service-img img {
   aspect-ratio: 310/146;
   width: 100%;
+  object-fit: cover;
 }
 
 .ul-service--inner {

@@ -23,7 +23,7 @@ export const services = [
     },
     {
         id: "03",
-        slug: "seo-optimization",
+        slug: "graphics-design",
         type: "main_service",
         tags: "Creative Design",
         title: "Graphics Designing",

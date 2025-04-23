@@ -43,7 +43,7 @@ export default function HistorySection() {
 
                     <div className="col">
                         <div className="ul-history-img">
-                            <img src="webImages/history-img.jpg" alt="Image" />
+                            <img src="/webImages/history-img.jpg" alt="Image" />
                         </div>
                     </div>
                 </div>

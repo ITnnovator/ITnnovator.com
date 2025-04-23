@@ -21,7 +21,7 @@ export default function TestimonialSwiper() {
         <section className="ul-review-contact ul-section-spacing">
             {/* <!-- bg left image --> */}
             <div className="bg-img">
-                <img src="webImages/contact-review-bg-img.jpg" alt="Image" />
+                <img src="/webImages/contact-review-bg-img.jpg" alt="Image" />
             </div>
 
             <div className="ul-container">
@@ -100,7 +100,7 @@ export default function TestimonialSwiper() {
                                         <div className="ul-review">
                                             <div className="top">
                                                 <div className="ul-review-reviewer-img">
-                                                    <img src="webImages/user.jpg" alt="Reviewer Image" />
+                                                    <img src="/webImages/user.jpg" alt="Reviewer Image" />
                                                 </div>
 
                                                 <div className="ul-review-reviewer-info">
@@ -109,7 +109,7 @@ export default function TestimonialSwiper() {
                                                 </div>
 
                                                 <div className="ul-review-quotation-icon flex-shrink-0">
-                                                    <img src="webImages/quotation-icon.svg" alt="quotaion-icon" />
+                                                    <img src="/webImages/quotation-icon.svg" alt="quotaion-icon" />
                                                 </div>
                                             </div>
                                             <p className="ul-review-txt">Working with ITnnovator was a game changer for my business. They built us a stunning website that not only looks amazing but also performs great on search engines. Their attention to detail and support made the whole process smooth and enjoyable.”</p>
@@ -121,7 +121,7 @@ export default function TestimonialSwiper() {
                                         <div className="ul-review">
                                             <div className="top">
                                                 <div className="ul-review-reviewer-img">
-                                                    <img src="webImages/user.jpg" alt="Reviewer Image" />
+                                                    <img src="/webImages/user.jpg" alt="Reviewer Image" />
                                                 </div>
 
                                                 <div className="ul-review-reviewer-info">
@@ -130,7 +130,7 @@ export default function TestimonialSwiper() {
                                                 </div>
 
                                                 <div className="ul-review-quotation-icon flex-shrink-0">
-                                                    <img src="webImages/quotation-icon.svg" alt="quotaion-icon" />
+                                                    <img src="/webImages/quotation-icon.svg" alt="quotaion-icon" />
                                                 </div>
                                             </div>
                                             <p className="ul-review-txt">We hired ITnnovator for SEO and digital marketing, and the results have been fantastic. Our traffic has increased significantly, and we’re seeing a steady rise in conversions. They’re responsive, professional, and clearly know what they’re doing.”</p>
@@ -142,7 +142,7 @@ export default function TestimonialSwiper() {
                                         <div className="ul-review">
                                             <div className="top">
                                                 <div className="ul-review-reviewer-img">
-                                                    <img src="webImages/user.jpg" alt="Reviewer Image" />
+                                                    <img src="/webImages/user.jpg" alt="Reviewer Image" />
                                                 </div>
 
                                                 <div className="ul-review-reviewer-info">
@@ -151,7 +151,7 @@ export default function TestimonialSwiper() {
                                                 </div>
 
                                                 <div className="ul-review-quotation-icon flex-shrink-0">
-                                                    <img src="webImages/quotation-icon.svg" alt="quotaion-icon" />
+                                                    <img src="/webImages/quotation-icon.svg" alt="quotaion-icon" />
                                                 </div>
                                             </div>
                                             <p className="ul-review-txt">From branding to app development, ITnnovator delivered everything with creativity and expertise. They truly understood our vision and brought it to life better than we imagined. Highly recommended for startups looking for a reliable digital partner. ”</p>

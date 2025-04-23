@@ -81,7 +81,7 @@ export default function AboutSection() {
                                 <div className="col">
                                     <div className="ul-about-content-tab-img">
                                         <img
-                                            src="webImages/about-tab-img.png"
+                                            src="/webImages/about-tab-img.png"
                                             alt="About Tab Image"
                                         />
                                     </div>
@@ -121,7 +121,7 @@ export default function AboutSection() {
                                 <div className="col">
                                     <div className="ul-about-content-tab-img">
                                         <img
-                                            src="webImages/about-tab-img-2.png"
+                                            src="/webImages/about-tab-img-2.png"
                                             alt="About Tab Image"
                                         />
                                     </div>
@@ -162,7 +162,7 @@ export default function AboutSection() {
                                 <div className="col">
                                     <div className="ul-about-content-tab-img">
                                         <img
-                                            src="webImages/about-tab-img-3.png"
+                                            src="/webImages/about-tab-img-3.png"
                                             alt="About Tab Image"
                                         />
                                     </div>
@@ -196,8 +196,8 @@ export default function AboutSection() {
             </div>
 
             <div className="ul-about-vectors">
-                <img src="webImages/about-vector-1.svg" alt="" className="vector-1" />
-                <img src="webImages/about-vector-2.png" alt="" className="vector-2" />
+                <img src="/webImages/about-vector-1.svg" alt="" className="vector-1" />
+                <img src="/webImages/about-vector-2.png" alt="" className="vector-2" />
             </div>
         </section>
         // <!-- ABOUT SECTION END -->

@@ -9,7 +9,7 @@ export default function InnerBlogSection() {
                     <div className="col">
                         <div className="ul-inner-blog">
                             <div className="ul-inner-blog-img">
-                                <img src="webImages/blog-3.jpg" alt="image"/>
+                                <img src="/webImages/blog-3.jpg" alt="image"/>
                                 <span className="blog-tag">Marketing</span>
                             </div>
                             <div className="ul-inner-blog-txt">
@@ -23,7 +23,7 @@ export default function InnerBlogSection() {
                     <div className="col">
                         <div className="ul-inner-blog">
                             <div className="ul-inner-blog-img">
-                                <img src="webImages/blog-4.jpg" alt="image" />
+                                <img src="/webImages/blog-4.jpg" alt="image" />
                                 <span className="blog-tag">Marketing</span>
                             </div>
                             <div className="ul-inner-blog-txt">
@@ -37,7 +37,7 @@ export default function InnerBlogSection() {
                     <div className="col">
                         <div className="ul-inner-blog">
                             <div className="ul-inner-blog-img">
-                                <img src="webImages/blog-5.jpg" alt="image"/>
+                                <img src="/webImages/blog-5.jpg" alt="image"/>
                                 <span className="blog-tag">Marketing</span>
                             </div>
                             <div className="ul-inner-blog-txt">
@@ -51,7 +51,7 @@ export default function InnerBlogSection() {
                     <div className="col">
                         <div className="ul-inner-blog">
                             <div className="ul-inner-blog-img">
-                                <img src="webImages/blog-6.jpg" alt="image"/>
+                                <img src="/webImages/blog-6.jpg" alt="image"/>
                                 <span className="blog-tag">Marketing</span>
                             </div>
                             <div className="ul-inner-blog-txt">
@@ -65,7 +65,7 @@ export default function InnerBlogSection() {
                     <div className="col">
                         <div className="ul-inner-blog">
                             <div className="ul-inner-blog-img">
-                                <img src="webImages/blog-7.jpg" alt="image"/>
+                                <img src="/webImages/blog-7.jpg" alt="image"/>
                                 <span className="blog-tag">Marketing</span>
                             </div>
                             <div className="ul-inner-blog-txt">
@@ -79,7 +79,7 @@ export default function InnerBlogSection() {
                     <div className="col">
                         <div className="ul-inner-blog">
                             <div className="ul-inner-blog-img">
-                                <img src="webImages/blog-3.jpg" alt="image"/>
+                                <img src="/webImages/blog-3.jpg" alt="image"/>
                                 <span className="blog-tag">Marketing</span>
                             </div>
                             <div className="ul-inner-blog-txt">

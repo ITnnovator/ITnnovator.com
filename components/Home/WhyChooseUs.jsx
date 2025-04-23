@@ -10,7 +10,7 @@ export default function WhyChooseUs() {
                     {/* <!-- img --> */}
                     <div className="col">
                         <div className="ul-why-choose-us-img">
-                            <img src="webImages/why-choose-us-img.png" alt="Image" className="main-img" />
+                            <img src="/webImages/why-choose-us-img.png" alt="Image" className="main-img" />
 
                             {/* <!-- video btn --> */}
                             <div className="ul-why-choose-us-video-btn-wrapper">
@@ -19,8 +19,8 @@ export default function WhyChooseUs() {
 
                             {/* <!-- vectors --> */}
                             <div className="ul-why-choose-us-vectors">
-                                <img src="webImages/why-choose-us-vector.png" alt="vector" className="vector-1" />
-                                <img src="webImages/why-choose-us-vector-2.png" alt="vector" className="vector-2" />
+                                <img src="/webImages/why-choose-us-vector.png" alt="vector" className="vector-1" />
+                                <img src="/webImages/why-choose-us-vector-2.png" alt="vector" className="vector-2" />
                             </div>
                         </div>
                     </div>

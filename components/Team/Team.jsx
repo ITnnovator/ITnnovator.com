@@ -10,7 +10,7 @@ export default function Team() {
         <div className="col">
           <div className="ul-team-member">
             <div className="ul-team-member-img">
-              <img src="webImages/team-1.png" alt="Team Member Image" />
+              <img src="/webImages/team-1.png" alt="Team Member Image" />
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
@@ -35,7 +35,7 @@ export default function Team() {
         <div className="col">
           <div className="ul-team-member">
             <div className="ul-team-member-img">
-              <img src="webImages/team-2.png" alt="Team Member Image" />
+              <img src="/webImages/team-2.png" alt="Team Member Image" />
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
@@ -60,7 +60,7 @@ export default function Team() {
         <div className="col">
           <div className="ul-team-member">
             <div className="ul-team-member-img">
-              <img src="webImages/team-3.png" alt="Team Member Image" />
+              <img src="/webImages/team-3.png" alt="Team Member Image" />
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
@@ -85,7 +85,7 @@ export default function Team() {
         <div className="col">
           <div className="ul-team-member">
             <div className="ul-team-member-img">
-              <img src="webImages/team-4.png" alt="Team Member Image" />
+              <img src="/webImages/team-4.png" alt="Team Member Image" />
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">

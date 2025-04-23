@@ -11,7 +11,7 @@ export default function InnerBlogDetail() {
                         <div className="ul-blog-details ul-inner-blog-2 mb-0">
                             <div className="ul-blog-2 ul-blog-inner">
                                 <div className="ul-blog-img ul-inner-blog-img">
-                                    <img src="webImages/blog-b-1.jpg" alt="Blog Image" />
+                                    <img src="/webImages/blog-b-1.jpg" alt="Blog Image" />
                                     <span className="blog-tag">Marketing</span>
                                 </div>
                                 <div className="ul-blog-txt">
@@ -34,8 +34,8 @@ export default function InnerBlogDetail() {
                                         <blockquote>Mosico has been an invaluable partner to us. Any talent we've worked with ha shown a deep understanding of digital experiences. They're seamlessl integrate with or team and meet the level of craft that we hold ourselves accountable with our team and meet to. They're seamlessl integrate with our team and meet</blockquote>
                                         <p>One of the most remarkable applications of AI in healthcare is in diagnostics. Machine and learning algorithms are capable of analyzing vast amounts of medical data with speed to unprecedente speed and accuracy. This has led to earlier and more precise disease speed detection, greatly enhancing the chances of successful treatment.</p>
                                         <div className="ul-blog-details-inner-img">
-                                            <img src="webImages/blog-4.jpg" alt="image"/>
-                                            <img src="webImages/blog-5.jpg" alt="image"/>
+                                            <img src="/webImages/blog-4.jpg" alt="image"/>
+                                            <img src="/webImages/blog-5.jpg" alt="image"/>
                                         </div>
                                         <p>One of the most remarkable applications of AI in healthcare is in diagnostics. Machine and learning algorithms are capable of analyzing vast amounts of medical data with speed to unprecedente speed and accuracy. This has led to earlier and more precise disease speed detection, greatly enhancing the chances of successful treatment.</p>
                                     </div>
@@ -75,7 +75,7 @@ export default function InnerBlogDetail() {
                                     <div className="ul-blog-details-review">
                                         {/* <!-- reviewer image --> */}
                                         <div className="ul-blog-details-review-reviewer-img">
-                                            <img src="webImages/user.jpg" alt="Reviewer Image"/>
+                                            <img src="/webImages/user.jpg" alt="Reviewer Image"/>
                                         </div>
 
                                         <div className="ul-blog-details-review-txt">
@@ -96,7 +96,7 @@ export default function InnerBlogDetail() {
                                     <div className="ul-blog-details-review">
                                         {/* <!-- reviewer image --> */}
                                         <div className="ul-blog-details-review-reviewer-img">
-                                            <img src="webImages/user-5.jpg" alt="Reviewer Image"/>
+                                            <img src="/webImages/user-5.jpg" alt="Reviewer Image"/>
                                         </div>
 
                                         <div className="ul-blog-details-review-txt">
@@ -190,7 +190,7 @@ export default function InnerBlogDetail() {
                                         {/* <!-- single post --> */}
                                         <div className="ul-inner-sidebar-post">
                                             <div className="img">
-                                                <img src="webImages/blog-2.jpg" alt="Post Image"/>
+                                                <img src="/webImages/blog-2.jpg" alt="Post Image"/>
                                             </div>
 
                                             <div className="txt">
@@ -202,7 +202,7 @@ export default function InnerBlogDetail() {
                                         {/* <!-- single post --> */}
                                         <div className="ul-inner-sidebar-post">
                                             <div className="img">
-                                                <img src="webImages/blog-1.jpg" alt="Post Image"/>
+                                                <img src="/webImages/blog-1.jpg" alt="Post Image"/>
                                             </div>
 
                                             <div className="txt">
@@ -214,7 +214,7 @@ export default function InnerBlogDetail() {
                                         {/* <!-- single post --> */}
                                         <div className="ul-inner-sidebar-post">
                                             <div className="img">
-                                                <img src="webImages/blog-3.jpg" alt="Post Image"/>
+                                                <img src="/webImages/blog-3.jpg" alt="Post Image"/>
                                             </div>
 
                                             <div className="txt">

@@ -24,7 +24,7 @@ export default function BlogSection() {
                             {/* <!-- single blog --> */}
                             <div className="ul-blog ul-blog-horizontal">
                                 <div className="ul-blog-img">
-                                    <img src="webImages/blog-2.jpg" alt="Blog Image" />
+                                    <img src="/webImages/blog-2.jpg" alt="Blog Image" />
                                     <div className="date">
                                         <span className="number">20</span>
                                         <span className="txt">Dec</span>
@@ -46,7 +46,7 @@ export default function BlogSection() {
                                     <a href="blog-details.html" className="ul-blog-title">What's the Holding Back the It Solution</a>
                                     <div className="ul-blog-author">
                                         <div className="author-img">
-                                            <img src="webImages/user-2.jpg" alt="Blog Author Image" />
+                                            <img src="/webImages/user-2.jpg" alt="Blog Author Image" />
                                         </div>
                                         <div className="author-txt">
                                             <span className="title">By Admin</span>
@@ -59,7 +59,7 @@ export default function BlogSection() {
                             {/* <!-- single blog --> */}
                             <div className="ul-blog ul-blog-horizontal">
                                 <div className="ul-blog-img">
-                                    <img src="webImages/blog-1.jpg" alt="Blog Image" />
+                                    <img src="/webImages/blog-1.jpg" alt="Blog Image" />
                                     <div className="date">
                                         <span className="number">20</span>
                                         <span className="txt">Dec</span>
@@ -81,7 +81,7 @@ export default function BlogSection() {
                                     <a href="blog-details.html" className="ul-blog-title">Powerful Server and Platform</a>
                                     <div className="ul-blog-author">
                                         <div className="author-img">
-                                            <img src="webImages/user-3.jpg" alt="Blog Author Image" />
+                                            <img src="/webImages/user-3.jpg" alt="Blog Author Image" />
                                         </div>
                                         <div className="author-txt">
                                             <span className="title">By Admin</span>
@@ -98,7 +98,7 @@ export default function BlogSection() {
                         <div className="ul-blog-wrapper">
                             <div className="ul-blog">
                                 <div className="ul-blog-img">
-                                    <img src="webImages/blog-3.jpg" alt="Blog Image" />
+                                    <img src="/webImages/blog-3.jpg" alt="Blog Image" />
                                     <div className="date">
                                         <span className="number">15</span>
                                         <span className="txt">Dec</span>
@@ -121,7 +121,7 @@ export default function BlogSection() {
                                     <p className="ul-blog-excerpt">From luxury and economy cars and find out which best suits your lifestyle economy cars and find</p>
                                     <div className="ul-blog-author">
                                         <div className="author-img">
-                                            <img src="webImages/user-4.jpg" alt="Blog Author Image" />
+                                            <img src="/webImages/user-4.jpg" alt="Blog Author Image" />
                                         </div>
                                         <div className="author-txt">
                                             <span className="title">By Admin</span>
@@ -136,7 +136,7 @@ export default function BlogSection() {
             </div>
 
             {/* <!-- vector --> */}
-            <img src="webImages/blog-vector.png" alt="vector" className="ul-blogs-vector" />
+            <img src="/webImages/blog-vector.png" alt="vector" className="ul-blogs-vector" />
         </section>
         /* <!-- BLOG SECTION END --> */
     );

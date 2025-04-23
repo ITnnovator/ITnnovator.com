@@ -150,12 +150,12 @@ export default function Footer() {
             {/* <!-- vector --> */}
             <div className="ul-footer-vectors">
                 <img
-                    src="webImages/footer-vector-1.svg"
+                    src="/webImages/footer-vector-1.svg"
                     alt="Footer Image"
                     className="ul-footer-vector-1"
                 />
                 <img
-                    src="webImages/footer-vector-2.svg"
+                    src="/webImages/footer-vector-2.svg"
                     alt="Footer Image"
                     className="ul-footer-vector-2"
                 />

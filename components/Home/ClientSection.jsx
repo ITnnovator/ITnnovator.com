@@ -34,20 +34,20 @@ export default function ClientSection() {
                 <div className="ul-clients-slider swiper">
                     <div className="swiper-wrapper">
                         {/* <!-- single client --> */}
-                        <div className="swiper-slide"><img src="webImages/client-1.png" alt="Client Image" /></div>
+                        <div className="swiper-slide"><img src="/webImages/client-1.png" alt="Client Image" /></div>
                         {/* <!-- single client --> */}
-                        <div className="swiper-slide"><img src="webImages/client-2.png" alt="Client Image" /></div>
+                        <div className="swiper-slide"><img src="/webImages/client-2.png" alt="Client Image" /></div>
                         {/* <!-- single client --> */}
-                        <div className="swiper-slide"><img src="webImages/client-3.png" alt="Client Image" /></div>
+                        <div className="swiper-slide"><img src="/webImages/client-3.png" alt="Client Image" /></div>
                         {/* <!-- single client --> */}
-                        <div className="swiper-slide"><img src="webImages/client-4.png" alt="Client Image" /></div>
+                        <div className="swiper-slide"><img src="/webImages/client-4.png" alt="Client Image" /></div>
                         {/* <!-- single client --> */}
-                        <div className="swiper-slide"><img src="webImages/client-5.png" alt="Client Image" /></div>
+                        <div className="swiper-slide"><img src="/webImages/client-5.png" alt="Client Image" /></div>
                         {/* <!-- single client --> */}
-                        <div className="swiper-slide"><img src="webImages/client-1.png" alt="Client Image" /></div>
+                        <div className="swiper-slide"><img src="/webImages/client-1.png" alt="Client Image" /></div>
                     </div>
                 </div>
-                <img src="webImages/brands-vector.png" alt="vector" className="ul-clients-vector" />
+                <img src="/webImages/brands-vector.png" alt="vector" className="ul-clients-vector" />
             </div>
         </div>
         /* <!-- CLIENTS SECTION END --> */

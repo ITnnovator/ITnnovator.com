@@ -18,7 +18,7 @@ export default function WorkProcess() {
                     <div className="col">
                         <div className="ul-work-process-single">
                             <div className="ul-work-process-single-img">
-                                <img src="webImages/process-1.jpg" alt="Image" />
+                                <img src="/webImages/process-1.jpg" alt="Image" />
                                 <div className="ul-work-process-single-index"><span>1</span></div>
                             </div>
 
@@ -33,7 +33,7 @@ export default function WorkProcess() {
                     <div className="col">
                         <div className="ul-work-process-single">
                             <div className="ul-work-process-single-img">
-                                <img src="webImages/process-2.jpg" alt="Image" />
+                                <img src="/webImages/process-2.jpg" alt="Image" />
                                 <div className="ul-work-process-single-index"><span>2</span></div>
                             </div>
 
@@ -48,7 +48,7 @@ export default function WorkProcess() {
                     <div className="col">
                         <div className="ul-work-process-single">
                             <div className="ul-work-process-single-img">
-                                <img src="webImages/process-3.jpg" alt="Image" />
+                                <img src="/webImages/process-3.jpg" alt="Image" />
                                 <div className="ul-work-process-single-index"><span>3</span></div>
                             </div>
 

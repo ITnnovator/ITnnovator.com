@@ -51,7 +51,7 @@ export default function TestimonialService() {
             <div className="swiper-slide">
               <div className="ul-inner-testimony">
                 <div className="ul-inner-testimony-reviewer-img">
-                  <img src="webImages/user.jpg" alt="Reviewer Image" />
+                  <img src="/webImages/user.jpg" alt="Reviewer Image" />
                 </div>
 
                 <div className="ul-inner-testimony-txt">
@@ -91,7 +91,7 @@ export default function TestimonialService() {
             <div className="swiper-slide">
               <div className="ul-inner-testimony">
                 <div className="ul-inner-testimony-reviewer-img">
-                  <img src="webImages/user-5.jpg" alt="Reviewer Image" />
+                  <img src="/webImages/user-5.jpg" alt="Reviewer Image" />
                 </div>
 
                 <div className="ul-inner-testimony-txt">
@@ -131,7 +131,7 @@ export default function TestimonialService() {
             <div className="swiper-slide">
               <div className="ul-inner-testimony">
                 <div className="ul-inner-testimony-reviewer-img">
-                  <img src="webImages/user.jpg" alt="Reviewer Image" />
+                  <img src="/webImages/user.jpg" alt="Reviewer Image" />
                 </div>
 
                 <div className="ul-inner-testimony-txt">
@@ -171,7 +171,7 @@ export default function TestimonialService() {
             <div className="swiper-slide">
               <div className="ul-inner-testimony">
                 <div className="ul-inner-testimony-reviewer-img">
-                  <img src="webImages/user-5.jpg" alt="Reviewer Image" />
+                  <img src="/webImages/user-5.jpg" alt="Reviewer Image" />
                 </div>
 
                 <div className="ul-inner-testimony-txt">

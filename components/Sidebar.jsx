@@ -8,7 +8,7 @@ export default function Sidebar() {
             <div className="ul-sidebar-header">
                 <div className="ul-sidebar-header-logo">
                     <Link href="/">
-                        <img src="webImages/logo.svg" alt="logo" className="logo" />
+                        <img src="/webImages/logo.svg" alt="logo" className="logo" />
                     </Link>
                 </div>
                 {/* <!-- sidebar closer --> */}

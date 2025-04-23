@@ -46,7 +46,7 @@ export default function Faq() {
                     {/* <!-- img --> */}
                     <div className="col-md-5">
                         <div className="ul-faq-img d-flex justify-content-end">
-                            <img src="webImages/faq-img.png" alt="Image" />
+                            <img src="/webImages/faq-img.png" alt="Image" />
                         </div>
                     </div>
 

@@ -25,7 +25,7 @@ export default function InnerAboutSection() {
                     <div className="col">
                         <div className="ul-inner-about-points">
                             <div className="ul-inner-about-point">
-                                <img src="webImages/about-point-icon-1.png" alt="Icon" className="ul-inner-about-point-icon" />
+                                <img src="/webImages/about-point-icon-1.png" alt="Icon" className="ul-inner-about-point-icon" />
                                 <div>
                                     <h4 className="ul-inner-about-point-title">Community & Industry Involvement</h4>
                                     <p className="ul-inner-about-point-descr">
@@ -35,7 +35,7 @@ export default function InnerAboutSection() {
                             </div>
 
                             <div className="ul-inner-about-point">
-                                <img src="webImages/about-point-icon-2.png" alt="Icon" className="ul-inner-about-point-icon" />
+                                <img src="/webImages/about-point-icon-2.png" alt="Icon" className="ul-inner-about-point-icon" />
                                 <div>
                                     <h4 className="ul-inner-about-point-title">Awards & Recognition</h4>
                                     <p className="ul-inner-about-point-descr">
@@ -50,7 +50,7 @@ export default function InnerAboutSection() {
                 </div>
 
                 <div className="ul-inner-about-img">
-                    <img src="webImages/about-img.jpg" alt="Image" />
+                    <img src="/webImages/about-img.jpg" alt="Image" />
                 </div>
             </div>
         </section>

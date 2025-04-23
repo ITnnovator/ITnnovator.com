@@ -47,12 +47,12 @@ export default function Banner() {
                 {/* <!-- vectors --> */}
                 <div className="ul-banner-vectors">
                     <img
-                        src="webImages/banner-vector-2.svg"
+                        src="/webImages/banner-vector-2.svg"
                         alt="Vector"
                         className="vector-1"
                     />
                     <img
-                        src="webImages/banner-vector-3.svg"
+                        src="/webImages/banner-vector-3.svg"
                         alt="Vector"
                         className="vector-2"
                     />
@@ -70,25 +70,25 @@ export default function Banner() {
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-1.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-1.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-2.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-2.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-3.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-3.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/service-details.jpg" alt="Image" />
+                                    <img src="/webImages/service-details.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -104,25 +104,25 @@ export default function Banner() {
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-2.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-2.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-3.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-3.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/service-details.jpg" alt="Image" />
+                                    <img src="/webImages/service-details.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-1.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-1.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -138,25 +138,25 @@ export default function Banner() {
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-3.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-3.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/service-details.jpg" alt="Image" />
+                                    <img src="/webImages/service-details.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-1.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-1.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-2.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-2.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -172,25 +172,25 @@ export default function Banner() {
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/service-details.jpg" alt="Image" />
+                                    <img src="/webImages/service-details.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-1.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-1.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-2.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-2.jpg" alt="Image" />
                                 </div>
                             </div>
                             {/* <!-- single img --> */}
                             <div className="swiper-slide">
                                 <div className="ul-banner-img-slide">
-                                    <img src="webImages/blog-b-3.jpg" alt="Image" />
+                                    <img src="/webImages/blog-b-3.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>

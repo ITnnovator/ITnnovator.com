@@ -56,7 +56,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-1.jpg" alt="Image" />
+                                    <img src="/webImages/service-1.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-2.jpg" alt="Image" />
+                                    <img src="/webImages/service-2.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-3.jpg" alt="Image" />
+                                    <img src="/webImages/service-3.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-4.jpg" alt="Image" />
+                                    <img src="/webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-1.jpg" alt="Image" />
+                                    <img src="/webImages/service-1.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-2.jpg" alt="Image" />
+                                    <img src="/webImages/service-2.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-3.jpg" alt="Image" />
+                                    <img src="/webImages/service-3.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -161,7 +161,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-4.jpg" alt="Image" />
+                                    <img src="/webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -176,7 +176,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-4.jpg" alt="Image" />
+                                    <img src="/webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -191,7 +191,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-4.jpg" alt="Image" />
+                                    <img src="/webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>
@@ -206,7 +206,7 @@ export default function ServiceSection() {
                                     <a href="service-details.html" className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
                                 </div>
                                 <div className="ul-service-img">
-                                    <img src="webImages/service-4.jpg" alt="Image" />
+                                    <img src="/webImages/service-4.jpg" alt="Image" />
                                 </div>
                             </div>
                         </div>

@@ -45,7 +45,7 @@ export default function CaseStudies() {
                         {/* <!-- single case study --> */}
                         <div className="swiper-slide">
                             <div className="ul-case-study-item">
-                                <div className="img"><img src="webImages/case-study-1.jpg" alt="Case Study Image" /></div>
+                                <div className="img"><img src="/webImages/case-study-1.jpg" alt="Case Study Image" /></div>
                                 <div className="txt">
                                     <span className="ul-case-study-item-category">Mobile App</span>
                                     <h3 className="ul-case-study-item-title">Product Design</h3>
@@ -60,7 +60,7 @@ export default function CaseStudies() {
                         {/* <!-- single case study --> */}
                         <div className="swiper-slide">
                             <div className="ul-case-study-item">
-                                <div className="img"><img src="webImages/case-study-2.jpg" alt="Case Study Image" /></div>
+                                <div className="img"><img src="/webImages/case-study-2.jpg" alt="Case Study Image" /></div>
                                 <div className="txt">
                                     <span className="ul-case-study-item-category">Web App</span>
                                     <h3 className="ul-case-study-item-title">Web Development</h3>
@@ -75,7 +75,7 @@ export default function CaseStudies() {
                         {/* <!-- single case study --> */}
                         <div className="swiper-slide">
                             <div className="ul-case-study-item">
-                                <div className="img"><img src="webImages/case-study-3.jpg" alt="Case Study Image" /></div>
+                                <div className="img"><img src="/webImages/case-study-3.jpg" alt="Case Study Image" /></div>
                                 <div className="txt">
                                     <span className="ul-case-study-item-category">Technology</span>
                                     <h3 className="ul-case-study-item-title">Digital SEO Marketing</h3>
@@ -90,7 +90,7 @@ export default function CaseStudies() {
                         {/* <!-- single case study --> */}
                         <div className="swiper-slide">
                             <div className="ul-case-study-item">
-                                <div className="img"><img src="webImages/case-study-1.jpg" alt="Case Study Image" /></div>
+                                <div className="img"><img src="/webImages/case-study-1.jpg" alt="Case Study Image" /></div>
                                 <div className="txt">
                                     <span className="ul-case-study-item-category">Mobile App</span>
                                     <h3 className="ul-case-study-item-title">Product Design</h3>

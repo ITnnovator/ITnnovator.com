@@ -1,12 +1,12 @@
 import { Plus_Jakarta_Sans, Kumbh_Sans, Quicksand } from "next/font/google";
 // import "bootstrap/dist/css/bootstrap.min.css";
+import BootstrapClient from "./bootstrap-client";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Preloader from "@/components/Preloader";
 import Sidebar from "@/components/Sidebar";
 import Search from "@/components/Search";
-import BootstrapClient from "./bootstrap-client";
 
 export const metadata = {
   title: "ITnnovator",

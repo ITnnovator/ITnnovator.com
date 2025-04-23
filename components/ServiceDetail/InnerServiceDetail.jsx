@@ -3,7 +3,10 @@ import Link from "next/link";
 
 export default function InnerServiceDetail({ service, allServices }) {
     if (!service) return null;
-
+    // Filter only main services
+    const mainServices = allServices.filter(
+        (service) => service.type === "main_service"
+    );
     return (
         <section className="ul-service-details ul-section-spacing">
             <div className="ul-container">
@@ -12,7 +15,7 @@ export default function InnerServiceDetail({ service, allServices }) {
                     <div className="col-md-4 wow animate__fadeInUp">
                         <div className="ul-service-details-sidebar">
                             <ul className="ul-service-details-sidebar-links">
-                                {allServices.map((item) => (
+                                {mainServices.map((item) => (
                                     <li key={item.id}>
                                         <Link
                                             href={`/services/${item.slug}`}
@@ -62,6 +65,13 @@ export default function InnerServiceDetail({ service, allServices }) {
                                 <div className="ul-service-details-inner-block">
                                     <h3 className="ul-service-details-inner-title">Details</h3>
                                     <p className="ul-service-details-descr">{service.details}</p>
+                                    <ul className="p-0">
+                                        <li><Link href={`/services/${service.slug}`}>Creating and editing content</Link></li>
+                                        <li>Workflows, reporting, and content organization</li>
+                                        <li>User &amp; role-based administration and security</li>
+                                        <li>Flexibility, scalability, and performance and analysis</li>
+                                        <li>Multilingual content capabilities</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

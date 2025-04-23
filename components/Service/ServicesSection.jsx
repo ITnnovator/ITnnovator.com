@@ -1,26 +1,36 @@
 "use client";
 import Link from "next/link";
-import { services } from '../../data/servicesData';
+import { services } from "@/data/servicesData";
 
 export default function ServicesSection() {
+  // Filter only main services
+  const mainServices = services.filter(
+    (service) => service.type === "main_service"
+  );
+
   return (
     <div className="ul-section-spacing">
       <div className="ul-case-study-container">
         <div className="row ul-bs-row row-cols-lg-3 row-cols-sm-2 row-cols-1 g-5">
-          {/* <!-- single case study --> */}
-          {services.map((service) => (
+          {/* <!-- single service --> */}
+          {mainServices.map((service) => (
             <div className="col" key={service.id}>
               <div className="ul-case-study-item ul-inner-case-study-item">
                 <div className="img">
                   <img src={`/${service.img}`} alt="Case Study Image" />
                 </div>
                 <div className="txt">
-                  <span className="ul-case-study-item-category">{service.tags}</span>
+                  <span className="ul-case-study-item-category">
+                    {service.tags}
+                  </span>
                   <h3 className="ul-case-study-item-title">{service.title}</h3>
                 </div>
                 <div className="ul-case-study-item-bottom">
                   <span className="ul-case-study-item-index">{service.id}</span>
-                  <Link href={`/services/${service.slug}`} className="ul-case-study-item-btn">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="ul-case-study-item-btn"
+                  >
                     <i className="flaticon-next-1"></i>
                   </Link>
                 </div>

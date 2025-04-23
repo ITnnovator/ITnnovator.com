@@ -142,15 +142,114 @@ export default function Header() {
                   >
                     Blog
                   </Link>
-                 
+                  <div className="megamenu-container">
                     <Link
                       href="/contact"
                       className={isActive("/contact") ? "active" : ""}
                     >
                       Contact
                     </Link>
-                    
-                 
+                    <div className="mega-menu">
+                      <div className="container">
+                        <div className="lightbg_menu row">
+                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                            <div className="ul-mega-menu-item">
+                              <h4> <Link href="/"> <span><img src="/webImages/icons/web-development.png" alt="" /></span>  Website Development </Link></h4>
+                              <ul className="ul-mega-menu-list">
+                                <li>
+                                  <Link href="/">Static & Dynamic Websites</Link>
+                                </li>
+                                <li>
+                                  <Link href="/"> WordPress & Shopify </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">E-commerce Development</Link>
+                                </li>
+                                <li><Link href="/"> Landing Pages </Link></li>
+                                <li><Link href="/"> Website Maintenance & Support  </Link></li>
+                              </ul>
+                            </div>
+                            <div className="ul-mega-menu-item menu-padding-top">
+                              <h4>Services</h4>
+                              <ul className="ul-mega-menu-list">
+                                <li>
+                                  <Link href="/services">Service 1</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 2</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 3</Link>
+                                </li>
+                              </ul>
+                            </div>
+                            <div className="ul-mega-menu-item menu-padding-top">
+                              <h4>Services</h4>
+                              <ul className="ul-mega-menu-list">
+                                <li>
+                                  <Link href="/services">Service 1</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 2</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 3</Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                            <div className="ul-mega-menu-item">
+                              <h4>Services</h4>
+                              <ul className="ul-mega-menu-list">
+                                <li>
+                                  <Link href="/services">Service 1</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 2</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 3</Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                            <div className="ul-mega-menu-item">
+                              <h4>Services</h4>
+                              <ul className="ul-mega-menu-list">
+                                <li>
+                                  <Link href="/services">Service 1</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 2</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 3</Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                            <div className="ul-mega-menu-item">
+                              <h4>Services</h4>
+                              <ul className="ul-mega-menu-list">
+                                <li>
+                                  <Link href="/services">Service 1</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 2</Link>
+                                </li>
+                                <li>
+                                  <Link href="/services">Service 3</Link>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </nav>
               </div>
             </div>

@@ -1208,7 +1208,7 @@ button {
   padding: clamp(5px, 0.42vw, 8px) clamp(10px, 0.79vw, 15px);
 }
 
-.ul-header-nav>*:hover {
+.ul-header-nav> a:hover {
   background-color: var(--ul-primary);
   border-color: var(--ul-primary);
   color: var(--white);
@@ -7461,4 +7461,44 @@ button {
 .ul-pricing-package-btn:hover {
   background-color: var(--ul-primary);
   color: var(--white);
+}
+/* mega menu */
+
+.megamenu-wrapper {
+  position: relative;
+}
+.mega-menu {
+  position: fixed;
+  background: white;
+  right: 0;
+  left: 0;
+  top: 15%;
+  padding: 40px 0; 
+  display: none;
+}
+.ul-mega-menu-list {
+  list-style: outside;
+}
+.ul-mega-menu-item {
+  border-bottom: 1px solid #d3d3d3;
+}
+.ul-mega-menu-list li a {
+  color: var(--ul-gray);
+  font-size: 13px;
+}
+
+.menu-padding-top{
+  padding-top: .7rem;
+}
+
+.ul-mega-menu-item h4 a {
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.ul-mega-menu-item h4 a span img {
+  height: 100%;
+  width: 25px;
 }

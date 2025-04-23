@@ -142,95 +142,15 @@ export default function Header() {
                   >
                     Blog
                   </Link>
-                  <div className="megamenu-wrapper">
+                 
                     <Link
                       href="/contact"
                       className={isActive("/contact") ? "active" : ""}
                     >
                       Contact
                     </Link>
-                    <div class="mega_menu">
-                      <div class="container">
-                        <div class="lightbg_menu row">
-                          {/* <!-- Left Banner / Title Column --> */}
-                          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
-                            <div class="category_intro">
-                              <h4 class="main-title">Built to Win</h4>
-                              <p>
-                                Transforming business with our future-ready tech
-                                solutions. Get custom products for accelerated
-                                digital transformation across industries
-                                globally.
-                              </p>
-                              <div class="menu_image">
-                                <img
-                                  src="/static/your-image.webp"
-                                  alt="mobile app development company"
-                                  width="100%"
-                                  loading="lazy"
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* <!-- Menu Column Template --> */}
-                          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
-                            {/* <!-- Category Block --> */}
-                            <div class="category_block">
-                              <h4>
-                                <a href="/mobile-app-development">
-                                  Mobile App Development
-                                </a>
-                              </h4>
-                              <ul class="menu_items">
-                                <li>
-                                  <a href="/iphone-app-development">
-                                    iOS App Development
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="/android-app-development">
-                                    Android App Development
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="/cross-platform-app-development">
-                                    Cross Platform App Development
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-
-                            {/* <!-- Repeat category_block for other categories --> */}
-                            <div class="category_block">
-                              <h4>
-                                <a href="/game-development">Game Development</a>
-                              </h4>
-                              <ul class="menu_items">
-                                <li>
-                                  <a href="/2d-game-development">
-                                    2D Game Development
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="/3d-game-development">
-                                    3D Game Development
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="/web3-game-development">
-                                    Web3 Game Development
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-
-                          {/* <!-- Repeat columns as needed --> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    
+                 
                 </nav>
               </div>
             </div>

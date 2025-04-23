@@ -97,7 +97,7 @@ export const services = [
         slug: "custom-software-development",
         type: "main_service",
         tags: "Software Solutions",
-        title: "Custom Software Development",
+        title: "Software Development",
         img: "webImages/Services/service-10.jpg",
         description: "Tailored software systems including CRMs, ERPs, and cloud apps to streamline operations and accelerate your digital transformation.",
         details: ""

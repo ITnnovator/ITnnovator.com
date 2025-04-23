@@ -83,11 +83,11 @@ svg path {
 }
 
 img {
-  max-width: 100% ;
+  max-width: 100%;
 }
 
 a {
-  text-decoration: none !important; 
+  text-decoration: none !important;
   display: inline-block;
   color: var(--black);
 }
@@ -97,7 +97,7 @@ a:hover {
 }
 
 i {
-  display: inline-flex ;
+  display: inline-flex;
 }
 
 p {
@@ -3296,6 +3296,13 @@ button {
 .ul-service-descr {
   margin-bottom: clamp(20px, 1.89vw, 36px);
   font-weight: 500;
+  max-height: 90px;
+  min-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .ul-service-btn {
@@ -6656,6 +6663,10 @@ button {
   font-weight: 700;
   font-size: clamp(18px, 1.26vw, 24px);
   line-height: 1.45;
+}
+
+.ul-inner-blog-txt .title a {
+  color: #000;
 }
 
 .ul-inner-sidebar {

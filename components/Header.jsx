@@ -130,12 +130,417 @@ export default function Header() {
                   >
                     About
                   </Link>
-                  <Link
-                    href="/services"
-                    className={isActive("/services") ? "active" : ""}
-                  >
-                    Services
-                  </Link>
+                  <div className="megamenu-container-1">
+                    <Link
+                      href="/services"
+                      className={isActive("/services") ? "active" : ""}
+                    >
+                      Services
+                    </Link>
+                    <div className="megamenu-container ">
+                      <div className="mega-menu">
+                        <div className="container">
+                          <div className="lightbg_menu row">
+                            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                              <div className="ul-mega-menu-item">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/web-development.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">Website Development</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Static & Dynamic Websites
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/"> WordPress & Shopify </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">E-commerce Development</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/"> Landing Pages </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Website Maintenance & Support
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/mobile-app-development.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">Mobile App Development</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Android App Development
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/"> iOS App Development </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Cross-Platform Apps (Flutter/React Native)
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      {" "}
+                                      UI/UX for Mobile Apps{" "}
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      App Deployment & Support
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top border-0">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/graphic-design.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">Graphics Designing</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">Logo Designing</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Business Card & Stationery Design
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Social Media Post Design
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/"> Brochures & Flyers </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Banner & Poster Design</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Product Packaging Design
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                              <div className="ul-mega-menu-item">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/ui.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">UI/UX Designing</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Wireframing & Prototyping
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      {" "}
+                                      Mobile & Web UI Design
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Dashboard Interface Design
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      {" "}
+                                      User Flow Optimization
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Usability Testing</Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/search-engine.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">
+                                    Search Engine Optimization (SEO)
+                                  </Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">On-Page SEO</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/"> Off-Page SEO</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Technical SEO</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Keyword Research </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Competitor Analysis</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Local SEO</Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top border-0">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/social-media.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">Digital Marketing</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Pay-Per-Click Advertising (Google Ads)
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Social Media Ads (Meta, Instagram)
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Email Marketing</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Conversion Rate Optimization
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Retargeting Campaigns</Link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                              <div className="ul-mega-menu-item">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/web-development.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">Social Media Management</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Account Setup & Optimization
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Content Creation & Scheduling
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Monthly Calendars & Strategy
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/"> Hashtag Research</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Page Insights & Reporting
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/ecommerce.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">E-commerce Solutions</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Shopify, WooCommerce Setup
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      {" "}
+                                      Product Upload & Catalog Management
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Payment Gateway Integration
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Custom Features & Plugins
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      nventory Management Systems
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top border-0">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/branding.png"
+                                      alt="web-development"
+                                    />
+                                  </span>
+                                  <Link href="/">Branding & Identity</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">Brand Strategy</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Logo & Visual Identity</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Color Palette & Typography
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Brand Guidelines</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">Rebranding Services</Link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+                              <div className="ul-mega-menu-item">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/coding.png"
+                                      alt="custom-software-development"
+                                    />
+                                  </span>
+                                  <Link href="/">
+                                    Custom Software Development
+                                  </Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Business Automation Tools
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">CRM & ERP Systems</Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Inventory Management Systems
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Cloud-Based Applications
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      API Development & Integration
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div className="ul-mega-menu-item menu-padding-top border-0">
+                                <h4>
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/consultant.png"
+                                      alt="it-consulting"
+                                    />
+                                  </span>
+                                  <Link href="/">IT Consulting</Link>
+                                </h4>
+                                <ul className="ul-mega-menu-list">
+                                  <li>
+                                    <Link href="/">
+                                      Digital Transformation Strategy
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Tech Stack Recommendations
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Infrastructure & Security Audit
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/">
+                                      Project Planning & Roadmapping
+                                    </Link>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <Link
                     href="/blog"
                     className={isActive("/blog") ? "active" : ""}
@@ -148,126 +553,6 @@ export default function Header() {
                   >
                     Contact
                   </Link>
-                  <div className="megamenu-container d-none">
-                    <div className="mega-menu">
-                      <div className="container">
-                        <div className="lightbg_menu row">
-                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
-                            <div className="ul-mega-menu-item">
-                              <h4>
-                                <Link href="/">
-                                  <span>
-                                    <img
-                                      src="/webImages/icons/web-development.png"
-                                      alt="web-development"
-                                    />
-                                  </span>
-                                  Website Development
-                                </Link>
-                              </h4>
-                              <ul className="ul-mega-menu-list">
-                                <li>
-                                  <Link href="/">
-                                    Static & Dynamic Websites
-                                  </Link>
-                                </li>
-                                <li>
-                                  <Link href="/"> WordPress & Shopify </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">E-commerce Development</Link>
-                                </li>
-                                <li>
-                                  <Link href="/"> Landing Pages </Link>
-                                </li>
-                                <li>
-                                  <Link href="/">
-                                    Website Maintenance & Support
-                                  </Link>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="ul-mega-menu-item menu-padding-top">
-                              <h4>Services</h4>
-                              <ul className="ul-mega-menu-list">
-                                <li>
-                                  <Link href="/services">Service 1</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 2</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 3</Link>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="ul-mega-menu-item menu-padding-top">
-                              <h4>Services</h4>
-                              <ul className="ul-mega-menu-list">
-                                <li>
-                                  <Link href="/services">Service 1</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 2</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 3</Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
-                            <div className="ul-mega-menu-item">
-                              <h4>Services</h4>
-                              <ul className="ul-mega-menu-list">
-                                <li>
-                                  <Link href="/services">Service 1</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 2</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 3</Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
-                            <div className="ul-mega-menu-item">
-                              <h4>Services</h4>
-                              <ul className="ul-mega-menu-list">
-                                <li>
-                                  <Link href="/services">Service 1</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 2</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 3</Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
-                            <div className="ul-mega-menu-item">
-                              <h4>Services</h4>
-                              <ul className="ul-mega-menu-list">
-                                <li>
-                                  <Link href="/services">Service 1</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 2</Link>
-                                </li>
-                                <li>
-                                  <Link href="/services">Service 3</Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </nav>
               </div>
             </div>

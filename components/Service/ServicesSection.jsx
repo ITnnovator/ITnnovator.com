@@ -3,10 +3,10 @@ import Link from "next/link";
 import { services } from "@/data/servicesData";
 
 export default function ServicesSection() {
-  // Filter only main services
-  const mainServices = services.filter(
-    (service) => service.type === "main_service"
-  );
+  // Filter and sort main services alphabetically
+  const mainServices = services
+    .filter((service) => service.type === "main_service")
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <div className="ul-section-spacing">

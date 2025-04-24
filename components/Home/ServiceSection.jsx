@@ -6,7 +6,6 @@ import 'swiper/css/bundle';
 import { services } from "@/data/servicesData";
 import Link from 'next/link';
 
-
 export default function ServiceSection() {
     useEffect(() => {
         new Swiper('.ul-services-slider', {
@@ -29,16 +28,14 @@ export default function ServiceSection() {
         });
     }, []);
 
-    // Filter only main services
-    const mainServices = services.filter(
-        (service) => service.type === "main_service"
-    );
+    // Filter and sort main services alphabetically by title
+    const mainServices = services
+        .filter((service) => service.type === "main_service")
+        .sort((a, b) => a.title.localeCompare(b.title));
 
     return (
-        // <!-- SERVICES SECTION START -->
         <section className="ul-services ul-section-spacing">
             <div className="ul-container">
-                {/* <!-- single slide --> */}
                 <div className="ul-section-heading">
                     <div className="left">
                         <span className="ul-section-sub-title">Our Services</span>
@@ -50,18 +47,18 @@ export default function ServiceSection() {
                     </div>
                 </div>
 
-                {/* <!-- services slider --> */}
                 <div className="ul-services-slider swiper overflow-visible">
                     <div className="swiper-wrapper">
-                        {/* <!-- single slide --> */}
                         {mainServices.map((service) => (
                             <div className="swiper-slide" key={service.id}>
                                 <div className="ul-service">
                                     <div className="ul-service-txt">
-                                        <span className="ul-service-sub-title"> {service.tags}</span>
+                                        <span className="ul-service-sub-title">{service.tags}</span>
                                         <h3 className="ul-service-title">{service.title}</h3>
-                                        <p className="ul-service-descr"> {service.description}</p>
-                                        <Link href={`/services/${service.slug}`} className="ul-service-btn">Read More <i className="flaticon-right"></i></Link>
+                                        <p className="ul-service-descr">{service.description}</p>
+                                        <Link href={`/services/${service.slug}`} className="ul-service-btn">
+                                            Read More <i className="flaticon-right"></i>
+                                        </Link>
                                     </div>
                                     <div className="ul-service-img">
                                         <img src={`/${service.img}`} alt="Image" />
@@ -78,6 +75,5 @@ export default function ServiceSection() {
                 <div className="ul-services-vector vector-2"></div>
             </div>
         </section>
-        /* <!-- SERVICES SECTION END --> */
     );
 }

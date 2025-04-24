@@ -3,10 +3,12 @@ import Link from "next/link";
 
 export default function InnerServiceDetail({ service, allServices }) {
     if (!service) return null;
-    // Filter only main services
-    const mainServices = allServices.filter(
-        (service) => service.type === "main_service"
-    );
+
+    // Get and sort main services alphabetically
+    const mainServices = allServices
+        .filter((s) => s.type === "main_service")
+        .sort((a, b) => a.title.localeCompare(b.title));
+
     return (
         <section className="ul-service-details ul-section-spacing">
             <div className="ul-container">
@@ -15,16 +17,22 @@ export default function InnerServiceDetail({ service, allServices }) {
                     <div className="col-md-4 wow animate__fadeInUp">
                         <div className="ul-service-details-sidebar">
                             <ul className="ul-service-details-sidebar-links">
-                                {mainServices.map((item) => (
-                                    <li key={item.id}>
-                                        <Link
-                                            href={`/services/${item.slug}`}
-                                            className={item.slug === service.slug ? "active" : ""}
-                                        >
-                                            {item.title} <i className="flaticon-top-right"></i>
-                                        </Link>
-                                    </li>
-                                ))}
+                                {mainServices.map((item) => {
+                                    const isActive =
+                                        item.slug === service.slug || // current main
+                                        (service.type === "sub_service" &&
+                                            item.id === service.typeof); // or parent of current sub
+                                    return (
+                                        <li key={item.id}>
+                                            <Link
+                                                href={`/services/${item.slug}`}
+                                                className={isActive ? "active" : ""}
+                                            >
+                                                {item.title} <i className="flaticon-top-right"></i>
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
                             </ul>
 
                             <div className="ul-service-details-sidebar-cta">
@@ -64,14 +72,29 @@ export default function InnerServiceDetail({ service, allServices }) {
 
                                 <div className="ul-service-details-inner-block">
                                     <h3 className="ul-service-details-inner-title">Details</h3>
-                                    <p className="ul-service-details-descr">{service.details}</p>
-                                    <ul className="p-0">
-                                        <li><Link href={`/services/${service.slug}`}>Creating and editing content</Link></li>
-                                        <li>Workflows, reporting, and content organization</li>
-                                        <li>User &amp; role-based administration and security</li>
-                                        <li>Flexibility, scalability, and performance and analysis</li>
-                                        <li>Multilingual content capabilities</li>
-                                    </ul>
+                                    <p className="ul-service-details-descr">
+                                        {service.details || "More information will be available soon."}
+                                    </p>
+
+                                    {/* Show sub-services if this is a main service */}
+                                    {service.type === "main_service" && (
+                                        <ul className="p-0">
+                                            {allServices
+                                                .filter(
+                                                    (sub) =>
+                                                        sub.type === "sub_service" &&
+                                                        sub.typeof === service.id
+                                                )
+                                                .sort((a, b) => a.title.localeCompare(b.title))
+                                                .map((sub, idx) => (
+                                                    <li key={idx}>
+                                                        <Link href={`/services/${sub.slug}`}>
+                                                            {sub.title}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                        </ul>
+                                    )}
                                 </div>
                             </div>
                         </div>

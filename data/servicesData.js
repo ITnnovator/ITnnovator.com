@@ -7,8 +7,7 @@ export const services = [
         title: "Website Development",
         img: "webImages/Services/service-1.jpg",
         description: "We build responsive, fast-loading websites that reflect your brand and drive online success—from business sites to e-commerce stores.",
-        details:
-            "",
+        details: "Our web development services cover everything from front-end design to back-end programming, SEO-friendly structures, and CMS integrations like WordPress, Shopify, and custom builds. We ensure your website is mobile-optimized, secure, and scalable for future growth."
     },
     {
         id: "02",
@@ -18,8 +17,7 @@ export const services = [
         title: "App Development",
         img: "webImages/Services/service-2.jpg",
         description: "Custom Android, iOS, and cross-platform mobile apps designed for performance, user experience, and business scalability.",
-        details:
-            "",
+        details: "We build native and hybrid apps using technologies like Flutter, React Native, Kotlin, and Swift. Our end-to-end process includes planning, UI/UX design, development, testing, deployment, and post-launch support for seamless performance and scalability."
     },
     {
         id: "03",
@@ -29,8 +27,7 @@ export const services = [
         title: "Graphics Designing",
         img: "webImages/Services/service-3.jpg",
         description: "Stunning visuals that capture your brand identity—logos, business cards, banners, social media designs, and more.",
-        details:
-            "",
+        details: "From logo design to full branding packages, our team crafts visually compelling graphics using tools like Adobe Illustrator and Photoshop. We ensure consistency across digital and print media, tailored to your business goals and audience."
     },
     {
         id: "04",
@@ -40,7 +37,7 @@ export const services = [
         title: "UI/UX Design",
         img: "webImages/Services/service-4.jpg",
         description: "We create intuitive interfaces and seamless user journeys that elevate engagement and drive user satisfaction across platforms.",
-        details: ""
+        details: "Our UI/UX design process includes user research, wireframing, prototyping, and testing. We focus on creating accessible and user-friendly interfaces for web and mobile apps, using tools like Figma, Adobe XD, and Sketch."
     },
     {
         id: "05",
@@ -50,7 +47,7 @@ export const services = [
         title: "SEO Services",
         img: "webImages/Services/service-5.jpg",
         description: "Boost your visibility with powerful on-page, off-page, and technical SEO strategies that rank your business higher in search results.",
-        details: ""
+        details: "We provide full-spectrum SEO services, including keyword research, competitor analysis, technical audits, link building, and content optimization. Our strategies align with Google’s best practices for sustainable traffic growth."
     },
     {
         id: "06",
@@ -60,7 +57,7 @@ export const services = [
         title: "Digital Marketing",
         img: "webImages/Services/service-6.jpg",
         description: "Result-driven marketing solutions including PPC, social media ads, email campaigns, and CRO to increase traffic and conversions.",
-        details: ""
+        details: "Our marketing campaigns are data-driven and performance-focused. We work across platforms like Google Ads, Facebook, LinkedIn, and Instagram to deliver measurable results through analytics, split testing, and optimization."
     },
     {
         id: "07",
@@ -70,7 +67,7 @@ export const services = [
         title: "Social Media Management",
         img: "webImages/Services/service-7.jpg",
         description: "From content creation to strategy and analytics, we manage your social presence to boost engagement and build your brand.",
-        details: ""
+        details: "We handle everything from content calendars and graphic creation to community management and growth strategy. Using insights and analytics, we ensure your brand stays active and relevant on platforms like Instagram, Facebook, Twitter, and LinkedIn."
     },
     {
         id: "08",
@@ -80,7 +77,7 @@ export const services = [
         title: "E-commerce Solutions",
         img: "webImages/Services/service-8.jpg",
         description: "Scalable, secure, and user-friendly e-commerce platforms tailored to your business—from setup to payment integration.",
-        details: ""
+        details: "We develop custom e-commerce sites using Shopify, WooCommerce, Magento, and headless commerce stacks. Our solutions include inventory management, secure checkout, shipping integration, and mobile-first design for optimal user experience."
     },
     {
         id: "09",
@@ -90,7 +87,7 @@ export const services = [
         title: "Branding & Identity",
         img: "webImages/Services/service-9.jpg",
         description: "Build a memorable brand with custom logo design, visual identity systems, and brand guidelines that speak to your audience.",
-        details: ""
+        details: "We help define your brand’s voice, tone, and visual identity across all touchpoints. Deliverables include logos, color palettes, typography, style guides, and mockups for both digital and physical branding."
     },
     {
         id: "10",
@@ -100,7 +97,7 @@ export const services = [
         title: "Software Development",
         img: "webImages/Services/service-10.jpg",
         description: "Tailored software systems including CRMs, ERPs, and cloud apps to streamline operations and accelerate your digital transformation.",
-        details: ""
+        details: "We offer custom-built software solutions using the latest tech stacks (Node.js, Python, .NET, etc.). Our development includes requirements analysis, architecture planning, coding, QA testing, and cloud deployment for scalable enterprise-grade systems."
     },
     {
         id: "11",
@@ -110,7 +107,7 @@ export const services = [
         title: "IT Consulting",
         img: "webImages/Services/service-11.jpg",
         description: "Get expert advice on digital strategy, tech infrastructure, and cybersecurity to future-proof your business and scale confidently.",
-        details: ""
+        details: "Our IT consulting service provides strategic guidance on infrastructure planning, cloud migration, risk management, compliance, and digital transformation. We assess your current systems, recommend best-fit technologies, and help you implement scalable and secure IT solutions."
     },
     // Sub Services   
     // Website Development Sub-Services (typeof: "01")
@@ -123,7 +120,7 @@ export const services = [
         title: "Static & Dynamic Websites",
         img: "webImages/Services/service-1.jpg",
         description: "Custom-built static and dynamic websites tailored for speed, flexibility, and a professional online presence.",
-        details: ""
+        details: "We create static websites for fast-loading, brochure-style content and dynamic websites with real-time content updates, user interactions, and database integration. Ideal for startups, businesses, and portfolios."
     },
     {
         id: "13",
@@ -134,7 +131,7 @@ export const services = [
         title: "CMS-Based Development",
         img: "webImages/Services/service-1.jpg",
         description: "Scalable websites built on WordPress, Shopify & more—easy to manage, update, and scale with your business.",
-        details: ""
+        details: "We specialize in building user-friendly CMS websites with platforms like WordPress, Joomla, Shopify, and Webflow. Ideal for blogs, business sites, and e-commerce stores that need regular updates and easy content management."
     },
     {
         id: "14",
@@ -145,7 +142,7 @@ export const services = [
         title: "E-commerce Development",
         img: "webImages/Services/service-1.jpg",
         description: "Fully functional online stores with secure payment integration and smooth shopping experiences.",
-        details: ""
+        details: "Our e-commerce development includes custom store design, shopping cart integration, product catalogs, secure payment gateways, inventory tracking, and customer account management tailored to your target market."
     },
     {
         id: "15",
@@ -156,7 +153,7 @@ export const services = [
         title: "Landing Pages",
         img: "webImages/Services/service-1.jpg",
         description: "High-converting landing pages built to capture leads, drive campaigns, and boost online growth.",
-        details: ""
+        details: "We design and develop targeted landing pages optimized for SEO, mobile responsiveness, and conversion tracking. Perfect for PPC campaigns, product launches, and lead generation funnels."
     },
     {
         id: "16",
@@ -167,9 +164,8 @@ export const services = [
         title: "Website Maintenance & Support",
         img: "webImages/Services/service-1.jpg",
         description: "Ongoing support, updates, and security checks to keep your website running smoothly 24/7.",
-        details: ""
+        details: "Our maintenance services include performance monitoring, regular updates, backups, malware scans, and uptime checks. We ensure your website remains secure, fast, and fully functional year-round."
     },
-
     // App Development Sub-Services (typeof: "02")
     {
         id: "17",
@@ -180,7 +176,7 @@ export const services = [
         title: "Android App Development",
         img: "webImages/Services/service-2.jpg",
         description: "Robust and scalable Android applications tailored to your business and user needs.",
-        details: ""
+        details: "We build native Android apps using Kotlin and Java, optimized for speed, performance, and compatibility with the latest Android versions. Our solutions include API integration, backend connectivity, and custom features."
     },
     {
         id: "18",
@@ -191,7 +187,7 @@ export const services = [
         title: "iOS App Development",
         img: "webImages/Services/service-2.jpg",
         description: "Feature-rich iOS apps with seamless user experiences and high performance.",
-        details: ""
+        details: "We design and develop iOS apps in Swift and Objective-C, following Apple’s Human Interface Guidelines. From UI design to App Store deployment, we ensure a premium user experience and device compatibility."
     },
     {
         id: "19",
@@ -202,7 +198,7 @@ export const services = [
         title: "Cross-Platform Apps",
         img: "webImages/Services/service-2.jpg",
         description: "Apps built using Flutter or React Native for both Android & iOS—efficient and cost-effective.",
-        details: ""
+        details: "Our cross-platform apps use a single codebase to target both Android and iOS. We use Flutter and React Native to speed up development, reduce cost, and maintain a consistent user experience across platforms."
     },
     {
         id: "20",
@@ -213,7 +209,7 @@ export const services = [
         title: "UI/UX for Mobile Apps",
         img: "webImages/Services/service-2.jpg",
         description: "Designing intuitive mobile interfaces that engage users and support app functionality.",
-        details: ""
+        details: "We focus on creating visually engaging and user-friendly app designs through wireframes, interactive prototypes, and usability testing. Our designs are tailored to boost user retention and simplify in-app navigation."
     },
     {
         id: "21",
@@ -224,9 +220,8 @@ export const services = [
         title: "App Deployment & Support",
         img: "webImages/Services/service-2.jpg",
         description: "End-to-end app publishing, updates, and post-launch support for smooth operation.",
-        details: ""
+        details: "We handle everything from app store submissions (Google Play & App Store) to version updates, bug fixes, and analytics integration. Post-launch, we provide technical support to ensure your app runs flawlessly."
     },
-
     // Graphics Designing Sub-Services (typeof: "03")
     {
         id: "22",

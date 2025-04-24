@@ -148,16 +148,30 @@ export default function Header() {
                   >
                     Contact
                   </Link>
-                  <div className="megamenu-container">
+                  <div className="megamenu-container d-none">
                     <div className="mega-menu">
                       <div className="container">
                         <div className="lightbg_menu row">
                           <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
                             <div className="ul-mega-menu-item">
-                              <h4> <Link href="/"> <span><img src="/webImages/icons/web-development.png" alt="" /></span>  Website Development </Link></h4>
+                              <h4>
+                                {" "}
+                                <Link href="/">
+                                  {" "}
+                                  <span>
+                                    <img
+                                      src="/webImages/icons/web-development.png"
+                                      alt=""
+                                    />
+                                  </span>{" "}
+                                  Website Development{" "}
+                                </Link>
+                              </h4>
                               <ul className="ul-mega-menu-list">
                                 <li>
-                                  <Link href="/">Static & Dynamic Websites</Link>
+                                  <Link href="/">
+                                    Static & Dynamic Websites
+                                  </Link>
                                 </li>
                                 <li>
                                   <Link href="/"> WordPress & Shopify </Link>
@@ -165,8 +179,15 @@ export default function Header() {
                                 <li>
                                   <Link href="/">E-commerce Development</Link>
                                 </li>
-                                <li><Link href="/"> Landing Pages </Link></li>
-                                <li><Link href="/"> Website Maintenance & Support  </Link></li>
+                                <li>
+                                  <Link href="/"> Landing Pages </Link>
+                                </li>
+                                <li>
+                                  <Link href="/">
+                                    {" "}
+                                    Website Maintenance & Support{" "}
+                                  </Link>
+                                </li>
                               </ul>
                             </div>
                             <div className="ul-mega-menu-item menu-padding-top">
@@ -255,8 +276,8 @@ export default function Header() {
             </div>
             {/* search */}
             {/* <button className="ul-header-search-opener">
-                            <i className="flaticon-search"></i>
-                        </button> */}
+              <i className="flaticon-search"></i>
+            </button> */}
             <Link
               href="/contact"
               className="ul-btn d-sm-inline-flex d-xxs-none"

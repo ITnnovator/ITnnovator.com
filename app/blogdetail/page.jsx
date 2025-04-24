@@ -3,7 +3,7 @@ import InnerBlogDetail from "@/components/BlogDetail/InnerBlogDetail";
 import InnerBanner from "@/components/InnerBanner";
 
 export const metadata = {
-  title: "Blog-Detail  | ITN",
+  title: "Blog-Detail  | ITnnovator",
   description: "Learn more about our team and mission.",
 };
 

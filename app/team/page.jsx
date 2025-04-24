@@ -2,7 +2,7 @@ import InnerBanner from "@/components/InnerBanner";
 import Team from "@/components/Team/Team";
 
 export const metadata = {
-  title: "Team | ITN",
+  title: "Team | ITnnovator",
   description: "Discover the digital solutions we provide.",
 };
 

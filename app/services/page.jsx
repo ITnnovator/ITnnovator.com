@@ -5,7 +5,7 @@ import ServicesSection from "@/components/Service/ServicesSection";
 import TestimonialService from "@/components/Service/TestimonialService";
 
 export const metadata = {
-  title: "Our Services | ITN",
+  title: "Our Services | ITnnovator",
   description: "Discover the digital solutions we provide.",
 };
 

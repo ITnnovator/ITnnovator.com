@@ -8,7 +8,7 @@ import WorkProcess from "@/components/Home/WorkProcess";
 import InnerBanner from "@/components/InnerBanner";
 
 export const metadata = {
-  title: "About Us | ITN",
+  title: "About Us | ITnnovator",
   description: "Learn more about our team and mission.",
 };
 

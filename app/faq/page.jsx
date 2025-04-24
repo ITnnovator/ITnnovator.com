@@ -2,7 +2,7 @@ import Faqs from "@/components/Faq/Faqs";
 import InnerBanner from "@/components/InnerBanner";
 
 export const metadata = {
-  title: "FAQ | ITN",
+  title: "FAQ | ITnnovator",
   description: "Discover the digital solutions we provide.",
 };
 

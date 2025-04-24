@@ -2,7 +2,7 @@ import Error from "@/components/Error/Error";
 import InnerBanner from "@/components/InnerBanner";
 
 export const metadata = {
-  title: "404 | ITN",
+  title: "404 | ITnnovator",
   description: "Discover the digital solutions we provide.",
 };
 

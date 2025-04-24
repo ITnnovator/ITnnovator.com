@@ -5,7 +5,7 @@ import ContactMap from "@/components/Contact/ContactMap";
 import InnerBanner from "@/components/InnerBanner";
 
 export const metadata = {
-  title: "Our Contact | ITN",
+  title: "Our Contact | ITnnovator",
   description: "Discover the digital solutions we provide.",
 };
 

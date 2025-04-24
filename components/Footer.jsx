@@ -17,10 +17,10 @@ export default function Footer() {
                                 <Link href="https://www.facebook.com/itnnovator" target="_blank">
                                     <i className="flaticon-facebook-app-symbol"></i>
                                 </Link>
-                                <Link href="https://www.linkedin.com/company/itnnovator/" target="_blank">
+                                <Link href="https://www.linkedin.com/company/itnnovator" target="_blank">
                                     <i className="flaticon-linkedin-big-logo"></i>
                                 </Link>
-                                <Link href="https://www.instagram.com/itnnovator/#" target="_blank">
+                                <Link href="https://www.instagram.com/itnnovator" target="_blank">
                                     <i className="flaticon-instagram"></i>
                                 </Link>
                             </div>

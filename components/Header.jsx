@@ -142,13 +142,13 @@ export default function Header() {
                   >
                     Blog
                   </Link>
+                  <Link
+                    href="/contact"
+                    className={isActive("/contact") ? "active" : ""}
+                  >
+                    Contact
+                  </Link>
                   <div className="megamenu-container">
-                    <Link
-                      href="/contact"
-                      className={isActive("/contact") ? "active" : ""}
-                    >
-                      Contact
-                    </Link>
                     <div className="mega-menu">
                       <div className="container">
                         <div className="lightbg_menu row">

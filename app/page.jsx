@@ -3,7 +3,6 @@
 import AboutSection from "@/components/Home/AboutSection";
 import Banner from "@/components/Home/Banner";
 import BlogSection from "@/components/Home/BlogSection";
-import CaseStudies from "@/components/Home/CaseStudies";
 import ClientSection from "@/components/Home/ClientSection";
 import Faq from "@/components/Home/Faq";
 import Offerings from "@/components/Home/Offerings";
@@ -39,9 +38,6 @@ export default function HomePage() {
 
       {/* Faq Section */}
       <Faq />
-
-      {/* CaseStudies Section */}
-      <CaseStudies />
 
       {/* TestimonialSwiper Section */}
       <TestimonialSwiper />

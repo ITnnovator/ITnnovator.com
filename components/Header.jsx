@@ -155,16 +155,14 @@ export default function Header() {
                           <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
                             <div className="ul-mega-menu-item">
                               <h4>
-                                {" "}
                                 <Link href="/">
-                                  {" "}
                                   <span>
                                     <img
                                       src="/webImages/icons/web-development.png"
-                                      alt=""
+                                      alt="web-development"
                                     />
-                                  </span>{" "}
-                                  Website Development{" "}
+                                  </span>
+                                  Website Development
                                 </Link>
                               </h4>
                               <ul className="ul-mega-menu-list">
@@ -184,8 +182,7 @@ export default function Header() {
                                 </li>
                                 <li>
                                   <Link href="/">
-                                    {" "}
-                                    Website Maintenance & Support{" "}
+                                    Website Maintenance & Support
                                   </Link>
                                 </li>
                               </ul>

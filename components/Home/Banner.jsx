@@ -40,7 +40,7 @@ export default function Banner() {
                         Reliable IT Solutions Designed to Power Your Business
                     </h1>
                     <Link href="/services" className="ul-banner-btn">
-                        Our Services <i className="flaticon-top-right"></i>{" "}
+                        Our Services <i className="flaticon-top-right"></i>
                     </Link>
                 </div>
 

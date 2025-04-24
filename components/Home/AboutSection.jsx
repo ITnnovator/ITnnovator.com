@@ -196,8 +196,8 @@ export default function AboutSection() {
             </div>
 
             <div className="ul-about-vectors">
-                <img src="/webImages/about-vector-1.svg" alt="" className="vector-1" />
-                <img src="/webImages/about-vector-2.png" alt="" className="vector-2" />
+                <img src="/webImages/about-vector-1.svg" alt="about-vector-1" className="vector-1" />
+                <img src="/webImages/about-vector-2.png" alt="about-vector-2" className="vector-2" />
             </div>
         </section>
         // <!-- ABOUT SECTION END -->

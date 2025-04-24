@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 import { services } from "@/data/servicesData";
+import Link from 'next/link';
 
 
 export default function ServiceSection() {
@@ -60,7 +61,7 @@ export default function ServiceSection() {
                                         <span className="ul-service-sub-title"> {service.tags}</span>
                                         <h3 className="ul-service-title">{service.title}</h3>
                                         <p className="ul-service-descr"> {service.description}</p>
-                                        <a href={`/services/${service.slug}`} className="ul-service-btn">Read More <i className="flaticon-right"></i></a>
+                                        <Link href={`/services/${service.slug}`} className="ul-service-btn">Read More <i className="flaticon-right"></i></Link>
                                     </div>
                                     <div className="ul-service-img">
                                         <img src={`/${service.img}`} alt="Image" />

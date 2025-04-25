@@ -9,8 +9,11 @@ export default function ContactInfo() {
                 <div className="ul-contact-info">
                     <div className="icon"><i className="flaticon-location"></i></div>
                     <div className="txt">
-                        <h6 className="title">Our Address</h6>
-                        <p className="descr mb-0">2715 Ash Dr. San Jose, South Dakota 83475</p>
+                        <h6 className="title">Phone Number</h6>
+                        <p className="descr mb-0">
+                            <Link href="https://api.whatsapp.com/send?phone=923142111790">+92 314 2111790</Link>
+                            <Link href="https://api.whatsapp.com/send?phone=923258213946">+92 314 2111790</Link>
+                        </p>
                     </div>
                 </div>
 
@@ -20,8 +23,7 @@ export default function ContactInfo() {
                     <div className="txt">
                         <h6 className="title">Email Address</h6>
                         <p className="descr mb-0">
-                            <Link href="mailto:info@ticstube.com">info@ticstube.com</Link>
-                            <Link href="mailto:contact@ticstube.com">contact@ticstube.com</Link>
+                            <Link href="mailto:info@itnnovator.com">info@itnnovator.com</Link>
                         </p>
                     </div>
                 </div>

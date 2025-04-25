@@ -133,7 +133,7 @@ export default function Header() {
                   <div className="megamenu-container-1">
                     <Link
                       href="/services"
-                      className={isActive("/services") ? "active" : ""}
+                      className={isActive("/services") ? "active" : "" }
                     >
                       Services
                     </Link>
@@ -200,8 +200,8 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/">
-                                      {" "}
-                                      UI/UX for Mobile Apps{" "}
+                                      
+                                      UI/UX for Mobile Apps
                                     </Link>
                                   </li>
                                   <li>
@@ -268,7 +268,7 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/">
-                                      {" "}
+                                      
                                       Mobile & Web UI Design
                                     </Link>
                                   </li>
@@ -279,7 +279,7 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/">
-                                      {" "}
+                                      
                                       User Flow Optimization
                                     </Link>
                                   </li>
@@ -411,7 +411,7 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/">
-                                      {" "}
+                                      
                                       Product Upload & Catalog Management
                                     </Link>
                                   </li>

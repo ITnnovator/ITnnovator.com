@@ -48,7 +48,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        Where should I incorporate my business?
+                        What web development services do you offer?
                       </h3>
                     </div>
                     <span className="icon">
@@ -58,11 +58,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      We provide complete website solutions including static & dynamic websites, CMS development (WordPress/Shopify), e-commerce platforms, landing pages, and ongoing maintenance with 24/7 support.
                     </p>
                   </div>
                 </div>
@@ -71,7 +67,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        How long should a business plan be?
+                        Can you develop both iOS and Android apps?
                       </h3>
                     </div>
                     <span className="icon">
@@ -81,11 +77,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Absolutely! We specialize in native Android and iOS development, plus cross-platform solutions using Flutter/React Native for cost-effective apps that work seamlessly on both platforms.
                     </p>
                   </div>
                 </div>
@@ -94,7 +86,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        What is included in your services?
+                        What's included in your UI/UX design services?
                       </h3>
                     </div>
                     <span className="icon">
@@ -104,11 +96,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Our end-to-end UI/UX process includes wireframing, prototyping, mobile & web interface design, dashboard creation, user flow optimization, and usability testing to ensure exceptional digital experiences.
                     </p>
                   </div>
                 </div>
@@ -117,7 +105,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        What if I'm Not Happy With My Case?
+                        How can your AI services help my business?
                       </h3>
                     </div>
                     <span className="icon">
@@ -127,11 +115,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      We develop custom AI solutions including chatbots, predictive analytics, computer vision, and NLP systems that automate processes, enhance decision-making, and improve customer experiences.
                     </p>
                   </div>
                 </div>
@@ -140,7 +124,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        When Am I Charged for the Service?
+                        What e-commerce platforms do you work with?
                       </h3>
                     </div>
                     <span className="icon">
@@ -150,11 +134,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      We're experts in Shopify and WooCommerce development, offering complete solutions from setup to product management, payment gateway integration, and custom plugin development.
                     </p>
                   </div>
                 </div>
@@ -163,7 +143,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        How Can I Contact Your Office?
+                        How does your SEO service work?
                       </h3>
                     </div>
                     <span className="icon">
@@ -173,11 +153,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Our comprehensive SEO approach combines technical optimization, content strategy, keyword research, and link building to improve your search rankings and drive qualified traffic.
                     </p>
                   </div>
                 </div>
@@ -186,7 +162,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        Where should I incorporate my business?
+                        What graphic design services do you provide?
                       </h3>
                     </div>
                     <span className="icon">
@@ -196,11 +172,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Our design team creates logos, business cards, social media graphics, brochures, banners, and product packaging that strengthen your brand identity across all touchpoints.
                     </p>
                   </div>
                 </div>
@@ -209,7 +181,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        How long should a business plan be?
+                        Can you develop custom business software?
                       </h3>
                     </div>
                     <span className="icon">
@@ -219,11 +191,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Yes! We build tailored solutions including CRM/ERP systems, inventory management, business automation tools, and cloud applications that integrate with your existing infrastructure.
                     </p>
                   </div>
                 </div>
@@ -232,7 +200,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        What is included in your services?
+                        What's your digital marketing approach?
                       </h3>
                     </div>
                     <span className="icon">
@@ -242,11 +210,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      We combine PPC advertising, social media campaigns, email marketing, and conversion optimization to create data-driven strategies that deliver measurable ROI.
                     </p>
                   </div>
                 </div>
@@ -255,7 +219,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        What if I'm Not Happy With My Case?
+                        Do you offer branding services?
                       </h3>
                     </div>
                     <span className="icon">
@@ -265,11 +229,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Absolutely. From brand strategy and logo design to complete visual identity systems and guidelines, we help establish memorable brands that resonate with your audience.
                     </p>
                   </div>
                 </div>
@@ -278,7 +238,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        When Am I Charged for the Service?
+                        What IT consulting services do you provide?
                       </h3>
                     </div>
                     <span className="icon">
@@ -288,11 +248,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Our consultants help with digital transformation strategies, tech stack selection, infrastructure audits, and project roadmapping to align technology with your business goals.
                     </p>
                   </div>
                 </div>
@@ -301,7 +257,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        How Can I Contact Your Office?
+                        How can I get started with your services?
                       </h3>
                     </div>
                     <span className="icon">
@@ -311,11 +267,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Simply contact us for a free consultation. We'll discuss your needs, propose solutions, and create a customized plan that fits your budget and timeline.
                     </p>
                   </div>
                 </div>
@@ -330,7 +282,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        Where should I incorporate my business?
+                        What graphic design services do you provide?
                       </h3>
                     </div>
                     <span className="icon">
@@ -340,11 +292,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Our design team creates logos, business cards, social media graphics, brochures, banners, and product packaging that strengthen your brand identity across all touchpoints.
                     </p>
                   </div>
                 </div>
@@ -353,7 +301,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        How long should a business plan be?
+                        Can you develop custom business software?
                       </h3>
                     </div>
                     <span className="icon">
@@ -363,11 +311,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Yes! We build tailored solutions including CRM/ERP systems, inventory management, business automation tools, and cloud applications that integrate with your existing infrastructure.
                     </p>
                   </div>
                 </div>
@@ -376,7 +320,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        What is included in your services?
+                        What's your digital marketing approach?
                       </h3>
                     </div>
                     <span className="icon">
@@ -386,11 +330,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      We combine PPC advertising, social media campaigns, email marketing, and conversion optimization to create data-driven strategies that deliver measurable ROI.
                     </p>
                   </div>
                 </div>
@@ -399,7 +339,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        What if I'm Not Happy With My Case?
+                        Do you offer branding services?
                       </h3>
                     </div>
                     <span className="icon">
@@ -409,11 +349,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Absolutely. From brand strategy and logo design to complete visual identity systems and guidelines, we help establish memorable brands that resonate with your audience.
                     </p>
                   </div>
                 </div>
@@ -422,7 +358,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        When Am I Charged for the Service?
+                        What IT consulting services do you provide?
                       </h3>
                     </div>
                     <span className="icon">
@@ -432,11 +368,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Our consultants help with digital transformation strategies, tech stack selection, infrastructure audits, and project roadmapping to align technology with your business goals.
                     </p>
                   </div>
                 </div>
@@ -445,7 +377,7 @@ export default function Faqs() {
                   <div className="ul-single-accordion-item__header">
                     <div className="left">
                       <h3 className="ul-single-accordion-item__title">
-                        How Can I Contact Your Office?
+                        How can I get started with your services?
                       </h3>
                     </div>
                     <span className="icon">
@@ -455,11 +387,7 @@ export default function Faqs() {
 
                   <div className="ul-single-accordion-item__body">
                     <p>
-                      Aonsectetur adipiscing elit Aenean scelerisque augue vitae
-                      consequat Juisque eget congue velit in cursus leo sodales
-                      the turpis euismod quis sapien euismod quis sapien the.
-                      E-learning is suitable for students, professionals, and
-                      anyone interested.
+                      Simply contact us for a free consultation. We'll discuss your needs, propose solutions, and create a customized plan that fits your budget and timeline.
                     </p>
                   </div>
                 </div>
@@ -472,8 +400,7 @@ export default function Faqs() {
         <div className="ul-faq-cta ul-section-spacing pb-0">
           <h2 className="ul-section-title">Still Have Questions?</h2>
           <p className="ul-faq-cta-descr">
-            Each demo built with Teba will look different. You can customize
-            almost anything in the appearance of your website with only
+            We're here to help you navigate your digital transformation journey. Whether you need technical advice or want to discuss a project, our experts are ready to assist.
           </p>
           <Link href="contact.html" className="ul-btn">
             <span>

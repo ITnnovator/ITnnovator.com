@@ -1,18 +1,27 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Preloader() {
+    const pathname = usePathname();
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        const preloader = document.getElementById('preloader');
-        if (preloader) {
-            // Delay hiding for demo effect (optional)
-            setTimeout(() => {
-                preloader.style.display = 'none';
-                document.body.style.position = 'static';
-            }, 1000); // adjust delay if needed
-        }
-    }, []);
+        setLoading(true);
+
+        // Freeze scroll while loading
+        document.body.style.position = 'fixed';
+
+        const timer = setTimeout(() => {
+            setLoading(false);
+            document.body.style.position = 'static';
+        }, 800); // adjust timing as needed
+
+        return () => clearTimeout(timer);
+    }, [pathname]);
+
+    if (!loading) return null;
 
     return (
         <div className="preloader" id="preloader">

@@ -36,7 +36,7 @@ export default function Footer() {
                             <div className="ul-footer-top-contact-info-txt">
                                 <span className="ul-footer-top-contact-info-label">Call Now</span>
                                 <h5 className="ul-footer-top-contact-info-address">
-                                    <Link href="tel:923142111790">+92 314 2111790</Link>
+                                    <Link href="https://api.whatsapp.com/send?phone=923313775851" target="_blank">+92 331 3775851</Link>
                                 </h5>
                             </div>
                         </div>

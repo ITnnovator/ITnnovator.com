@@ -7472,7 +7472,7 @@ button {
 .mega-menu {
   background: #fff;
   padding: 40px 0;
-  border-radius: 10%;
+  border-radius: 30px;
 
 }
 .ul-mega-menu-list {
@@ -7529,7 +7529,7 @@ button {
   transition: all 0.3s ease;
   max-width: 1410px;
   margin: 0 auto;
-  border-radius: 5%;
+  border-radius: 30px;
 }
 
 .megamenu-container-1:hover .megamenu-container {

@@ -11,8 +11,8 @@ export default function ContactInfo() {
                     <div className="txt">
                         <h6 className="title">Phone Number</h6>
                         <p className="descr mb-0">
-                            <Link href="https://api.whatsapp.com/send?phone=923313775851">+92 331 3775851</Link>
-                            <Link href="https://api.whatsapp.com/send?phone=923258213946">+92 325 8213946</Link>
+                            <Link href="https://api.whatsapp.com/send?phone=923313775851" target="_blank">+92 331 3775851</Link>
+                            <Link href="https://api.whatsapp.com/send?phone=923258213946" target="_blank">+92 325 8213946</Link>
                         </p>
                     </div>
                 </div>

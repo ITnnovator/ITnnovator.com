@@ -7546,4 +7546,30 @@ button {
   background-color: var(--ul-primary);
   border-color: var(--ul-primary);
 }
+@media (max-width: 1327px) {
+  .ul-mega-menu-item h4 a {
+    font-size: 14px ;
+}
+}
+@media   (max-width: 1399px) {
+  .mega-menu .container {
+    max-width: 100%;
+}
+}
+@media   (max-width: 1253px) {
+  .ul-mega-menu-list li a {
+    font-size: 11px;
+}
+}
 
+@media   (max-width: 1196px) {
+  .ul-mega-menu-item h4 a {
+    font-size: 12px ;
+}
+}
+
+@media   (max-width: 990px) {
+  .megamenu-container {
+    visibility: hidden;
+}
+}

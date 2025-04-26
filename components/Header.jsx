@@ -193,11 +193,11 @@ export default function Header() {
                                   <li>
                                     <Link href="/"> iOS App Development </Link>
                                   </li>
-                                  <li>
+                                  {/* <li>
                                     <Link href="/">
                                       Cross-Platform Apps (Flutter/React Native)
                                     </Link>
-                                  </li>
+                                  </li> */}
                                   <li>
                                     <Link href="/">
                                       

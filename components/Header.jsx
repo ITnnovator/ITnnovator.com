@@ -130,13 +130,61 @@ export default function Header() {
                   >
                     About
                   </Link>
-                  <div className="megamenu-container-1">
+                  <div className="megamenu-container-1 has-sub-menu">
                     <Link
                       href="/services"
-                      className={isActive("/services") ? "active" : "" }
+                      className={
+                        isActive("/services") ? "active  " : "service-d-none"
+                      }
                     >
                       Services
                     </Link>
+                    <a
+                      className="d-lg-none d-flex justify-content-between"
+                      role="button"
+                    >
+                      Services <i className="flaticon-right-arrow"></i>
+                    </a>
+                    <div className="ul-header-submenu d-lg-none">
+                      <ul>
+                        <li>
+                          <a href="/">Website Development</a>
+                        </li>
+                        <li>
+                          <a href="/">Mobile App Development</a>
+                        </li>
+                        <li>
+                          <a href="/">Graphics Designing</a>
+                        </li>
+                        <li>
+                          <a href="/">UI/UX Designing</a>
+                        </li>
+                        <li>
+                          <a href="/">Search Engine Optimization (SEO)</a>
+                        </li>
+                        <li>
+                          <a href="/">Digital Marketing</a>
+                        </li>
+                        <li>
+                          <a href="/">Social Media Management</a>
+                        </li>
+                        <li>
+                          <a href="/">E-commerce Solutions</a>
+                        </li>
+                        <li>
+                          <a href="/">Branding & Identity</a>
+                        </li>
+                        <li>
+                          <a href="/">Custom Software Development</a>
+                        </li>
+                        <li>
+                          <a href="/">IT Consulting</a>
+                        </li>
+                        <li>
+                          <a href="/">AI & Machine Learning Services</a>
+                        </li>
+                      </ul>
+                    </div>
                     <div className="megamenu-container ">
                       <div className="mega-menu">
                         <div className="container">
@@ -193,16 +241,13 @@ export default function Header() {
                                   <li>
                                     <Link href="/"> iOS App Development </Link>
                                   </li>
-                                  {/* <li>
+                                  <li>
                                     <Link href="/">
                                       Cross-Platform Apps (Flutter/React Native)
                                     </Link>
-                                  </li> */}
+                                  </li>
                                   <li>
-                                    <Link href="/">
-                                      
-                                      UI/UX for Mobile Apps
-                                    </Link>
+                                    <Link href="/">UI/UX for Mobile Apps</Link>
                                   </li>
                                   <li>
                                     <Link href="/">
@@ -267,10 +312,7 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/">
-                                      
-                                      Mobile & Web UI Design
-                                    </Link>
+                                    <Link href="/">Mobile & Web UI Design</Link>
                                   </li>
                                   <li>
                                     <Link href="/">
@@ -278,10 +320,7 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/">
-                                      
-                                      User Flow Optimization
-                                    </Link>
+                                    <Link href="/">User Flow Optimization</Link>
                                   </li>
                                   <li>
                                     <Link href="/">Usability Testing</Link>
@@ -411,7 +450,6 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/">
-                                      
                                       Product Upload & Catalog Management
                                     </Link>
                                   </li>

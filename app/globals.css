@@ -7570,7 +7570,7 @@ button {
 }
 
 @media   (max-width: 990px) {
-  .megamenu-container {
+  .megamenu-container, .service-d-none {
     display: none;
 }
 }

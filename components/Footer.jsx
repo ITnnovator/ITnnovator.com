@@ -75,11 +75,11 @@ export default function Footer() {
                             <h3 className="ul-footer-widget-title">Our Best Service</h3>
 
                             <div className="ul-footer-widget-links">
-                                <Link href="/">Web Development</Link>
-                                <Link href="/">App Development</Link>
-                                <Link href="/">SEO</Link>
-                                <Link href="/">Digital Marketing</Link>
-                                <Link href="/">Social Media Management</Link>
+                                <Link href="/services/web-development">Web Development</Link>
+                                <Link href="/services/app-development">App Development</Link>
+                                <Link href="/services/seo-services">SEO</Link>
+                                <Link href="/services/digital-marketing">Digital Marketing</Link>
+                                <Link href="/services/social-media-management">Social Media Management</Link>
                             </div>
                         </div>
 

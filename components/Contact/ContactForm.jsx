@@ -123,7 +123,7 @@ export default function ContactForm() {
                                     type="tel"
                                     name="phone"
                                     id="phone"
-                                    placeholder="+1253 457 7840"
+                                    placeholder="+9253 457 7840"
                                     value={formData.phone}
                                     onChange={handleChange}
                                     required

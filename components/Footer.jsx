@@ -1,6 +1,45 @@
+'use client';
+
 import Link from "next/link";
+import { useState } from "react";
+import { toast, Toaster } from 'react-hot-toast';
 
 export default function Footer() {
+    const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!email) {
+            toast.error('Please enter your email!');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const res = await fetch('/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                toast.success('Subscribed successfully!');
+                setEmail('');
+            } else {
+                toast.error(data.error || 'Something went wrong.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            toast.error('Something went wrong.');
+        } finally {
+            setLoading(false);
+        }
+    };
     return (
         // <!-- FOOTER SECTION START -->
         <footer className="ul-footer">
@@ -66,8 +105,8 @@ export default function Footer() {
                         <div className="ul-footer-about">
                             <h3 className="ul-footer-widget-title">About Us</h3>
                             <p className="ul-footer-about-txt">
-                            ITnnovator is a digital solutions company specializing in website development, SEO, and social media marketing.
-                            We help brands strengthen their online presence with responsive websites and targeted strategies aligned with business goals.
+                                ITnnovator is a digital solutions company specializing in website development, SEO, and social media marketing.
+                                We help brands strengthen their online presence with responsive websites and targeted strategies aligned with business goals.
                             </p>
                         </div>
 
@@ -97,7 +136,7 @@ export default function Footer() {
 
                         <div className="ul-footer-widget ul-nwsltr-widget">
                             <h3 className="ul-footer-widget-title">Contact Us</h3>
-                            <form action="#" className="ul-nwsltr-form">
+                            <form onSubmit={handleSubmit} className="ul-nwsltr-form">
                                 <div className="top">
                                     <input
                                         type="email"
@@ -105,8 +144,11 @@ export default function Footer() {
                                         id="nwsltr-email"
                                         placeholder="Your Email Address"
                                         className="ul-nwsltr-input"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        disabled={loading}
                                     />
-                                    <button type="submit">
+                                    <button type="submit" disabled={loading}>
                                         <i className="flaticon-next-1"></i>
                                     </button>
                                 </div>
@@ -123,11 +165,14 @@ export default function Footer() {
                                             <i className="flaticon-check-1"></i>
                                         </span>
                                         <span className="ul-checkbox-txt">
-                                            I agree with the <Link href="#">Privacy Policy</Link>
+                                            I agree with the <Link href="/">Privacy Policy</Link>
                                         </span>
                                     </label>
                                 </div>
                             </form>
+
+                            {/* Toast container */}
+                            <Toaster position="top-right" reverseOrder={false} />
                             <Link href="contact" className="ul-footer-about-btn mt-5">
                                 Contact us <i className="flaticon-top-right"></i>
                             </Link>

@@ -8,17 +8,17 @@ export default function TestimonialSwiper() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(null);
 
-    useEffect(() => {
-        new Swiper(".ul-reviews-slider", {
-            slidesPerView: 1,
-            loop: true,
-            autoplay: true,
-            navigation: {
-                prevEl: ".ul-reviews-slider-nav .prev",
-                nextEl: ".ul-reviews-slider-nav .next"
-            }
-        });
-    }, []);
+    // useEffect(() => {
+    //     new Swiper(".ul-reviews-slider", {
+    //         slidesPerView: 1,
+    //         loop: true,
+    //         autoplay: true,
+    //         navigation: {
+    //             prevEl: ".ul-reviews-slider-nav .prev",
+    //             nextEl: ".ul-reviews-slider-nav .next"
+    //         }
+    //     });
+    // }, []);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -72,7 +72,7 @@ export default function TestimonialSwiper() {
             </div>
 
             <div className="ul-container">
-                <div className="row ul-review-contact-row row-cols-md-2 row-cols-1 align-items-center g-5">
+                <div className="row ul-review-contact-row row-cols-md-12 row-cols-1 align-items-center g-5">
                     {/* <!-- contact --> */}
                     <div className="col">
                         <div className="ul-contact-form-wrapper">
@@ -173,7 +173,7 @@ export default function TestimonialSwiper() {
                     </div>
 
                     {/* <!-- reviews --> */}
-                    <div className="col">
+                    {/* <div className="col">
                         <div className="ul-reviews">
                             <div>
                                 <span className="ul-section-sub-title">Client Reviews</span>
@@ -186,7 +186,7 @@ export default function TestimonialSwiper() {
 
                             <div className="swiper ul-reviews-slider">
                                 <div className="swiper-wrapper">
-                                    {/* <!-- single slide --> */}
+                                     single slide 
                                     <div className="swiper-slide">
                                         <div className="ul-review">
                                             <div className="top">
@@ -207,7 +207,7 @@ export default function TestimonialSwiper() {
                                         </div>
                                     </div>
 
-                                    {/* <!-- single slide --> */}
+                                  single slide
                                     <div className="swiper-slide">
                                         <div className="ul-review">
                                             <div className="top">
@@ -228,7 +228,7 @@ export default function TestimonialSwiper() {
                                         </div>
                                     </div>
 
-                                    {/* <!-- single slide --> */}
+                                 single slide
                                     <div className="swiper-slide">
                                         <div className="ul-review">
                                             <div className="top">
@@ -255,7 +255,7 @@ export default function TestimonialSwiper() {
                                 <button className="next"><i className="flaticon-next-2"></i></button>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

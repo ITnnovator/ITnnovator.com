@@ -46,7 +46,7 @@ export default function HomePage() {
       {/* <BlogSection /> */}
 
       {/* ClientSection Section */}
-      <ClientSection />
+      {/* <ClientSection /> */}
     </>
   );
 }

@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation"; // <-- Import this
 
 export default function Header() {
   const pathname = usePathname(); // <-- Get current path
+  const [activePath, setActivePath] = useState("");
 
+  useEffect(() => {
+    setActivePath(pathname);
+  }, [pathname]);
+  
   useEffect(() => {
     // HEADER NAV IN MOBILE
     const ulSidebar = document.querySelector(".ul-sidebar");
@@ -102,6 +107,7 @@ export default function Header() {
   }, []);
 
   const isActive = (href) => pathname === href;
+  const isServicesActive = activePath.startsWith("/services");
 
   return (
     <header className="ul-header">
@@ -130,12 +136,10 @@ export default function Header() {
                   >
                     About
                   </Link>
-                  <div className="megamenu-container-1 has-sub-menu">
-                    <Link
+                  <div className={`${isServicesActive ? "active" : ""} megamenu-container-1 has-sub-menu`}>
+                    <Link 
                       href="/services"
-                      className={
-                        isActive("/services") ? "active" : "service-d-none"
-                      }
+                      className={`service-d-none`}
                     >
                       Services
                     </Link>
@@ -148,37 +152,59 @@ export default function Header() {
                     <div className="ul-header-submenu d-lg-none">
                       <ul>
                         <li>
-                          <a href="/services/web-development">Website Development</a>
+                          <Link href="/services/web-development">
+                            Website Development
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/app-development">Mobile App Development</a>
+                          <Link href="/services/app-development">
+                            Mobile App Development
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/graphics-design">Graphics Designing</a>
+                          <Link href="/services/graphics-design">
+                            Graphics Designing
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/ui-ux-design">UI/UX Designing</a>
+                          <Link href="/services/ui-ux-design">
+                            UI/UX Designing
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/seo-services">Search Engine Optimization (SEO)</a>
+                          <Link href="/services/seo-services">
+                            Search Engine Optimization (SEO)
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/digital-marketing">Digital Marketing</a>
+                          <Link href="/services/digital-marketing">
+                            Digital Marketing
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/social-media-management">Social Media Management</a>
+                          <Link href="/services/social-media-management">
+                            Social Media Management
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/ecommerce-solutions">E-commerce Solutions</a>
+                          <Link href="/services/ecommerce-solutions">
+                            E-commerce Solutions
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/branding-identity">Branding & Identity</a>
+                          <Link href="/services/branding-identity">
+                            Branding & Identity
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/custom-software-development">Custom Software Development</a>
+                          <Link href="/services/custom-software-development">
+                            Custom Software Development
+                          </Link>
                         </li>
                         <li>
-                          <a href="/services/it-consulting">IT Consulting</a>
+                          <Link href="/services/it-consulting">
+                            IT Consulting
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -195,7 +221,9 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/web-development">Website Development</Link>
+                                  <Link href="/services/web-development">
+                                    Website Development
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -204,13 +232,19 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/cms-development">CMS-Based Development (WordPress, Shopify)</Link>
+                                    <Link href="/services/cms-development">
+                                      CMS-Based Development (WordPress, Shopify)
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/ecommerce-development">E-commerce Development</Link>
+                                    <Link href="/services/ecommerce-development">
+                                      E-commerce Development
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/landing-pages">Landing Pages </Link>
+                                    <Link href="/services/landing-pages">
+                                      Landing Pages{" "}
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/website-maintenance">
@@ -227,7 +261,9 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/app-development">Mobile App Development</Link>
+                                  <Link href="/services/app-development">
+                                    Mobile App Development
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -236,7 +272,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/ios-app-development">iOS App Development </Link>
+                                    <Link href="/services/ios-app-development">
+                                      iOS App Development{" "}
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/cross-platform-apps">
@@ -244,7 +282,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/app-ui-ux-design">UI/UX for Mobile Apps</Link>
+                                    <Link href="/services/app-ui-ux-design">
+                                      UI/UX for Mobile Apps
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/app-deployment-support">
@@ -261,11 +301,15 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/graphics-design">Graphics Designing</Link>
+                                  <Link href="/services/graphics-design">
+                                    Graphics Designing
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
-                                    <Link href="/services/logo-designing">Logo Designing</Link>
+                                    <Link href="/services/logo-designing">
+                                      Logo Designing
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/stationery-design">
@@ -278,10 +322,15 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/brochures-flyers"> Brochures & Flyers </Link>
+                                    <Link href="/services/brochures-flyers">
+                                      {" "}
+                                      Brochures & Flyers{" "}
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/">Banner & Poster Design</Link>
+                                    <Link href="/services/">
+                                      Banner & Poster Design
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/product-packaging">
@@ -300,7 +349,9 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/ui-ux-design">UI/UX Designing</Link>
+                                  <Link href="/services/ui-ux-design">
+                                    UI/UX Designing
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -309,7 +360,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/mobile-web-ui">Mobile & Web UI Design</Link>
+                                    <Link href="/services/mobile-web-ui">
+                                      Mobile & Web UI Design
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/dashboard-interface-design">
@@ -317,10 +370,14 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/user-flow-optimization">User Flow Optimization</Link>
+                                    <Link href="/services/user-flow-optimization">
+                                      User Flow Optimization
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/usability-testing">Usability Testing</Link>
+                                    <Link href="/services/usability-testing">
+                                      Usability Testing
+                                    </Link>
                                   </li>
                                 </ul>
                               </div>
@@ -338,19 +395,29 @@ export default function Header() {
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
-                                    <Link href="/services/on-page-seo">On-Page SEO</Link>
+                                    <Link href="/services/on-page-seo">
+                                      On-Page SEO
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/off-page-seo">Off-Page SEO</Link>
+                                    <Link href="/services/off-page-seo">
+                                      Off-Page SEO
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/technical-seo">Technical SEO</Link>
+                                    <Link href="/services/technical-seo">
+                                      Technical SEO
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/keyword-research">Keyword Research </Link>
+                                    <Link href="/services/keyword-research">
+                                      Keyword Research{" "}
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/competitor-analysis">Competitor Analysis</Link>
+                                    <Link href="/services/competitor-analysis">
+                                      Competitor Analysis
+                                    </Link>
                                   </li>
                                   {/* <li>
                                     <Link href="/services/">Local SEO</Link>
@@ -365,7 +432,9 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/digital-marketing">Digital Marketing</Link>
+                                  <Link href="/services/digital-marketing">
+                                    Digital Marketing
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -379,7 +448,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/email-marketing">Email Marketing</Link>
+                                    <Link href="/services/email-marketing">
+                                      Email Marketing
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/conversion-rate-optimization">
@@ -387,7 +458,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/retargeting-campaigns">Retargeting Campaigns</Link>
+                                    <Link href="/services/retargeting-campaigns">
+                                      Retargeting Campaigns
+                                    </Link>
                                   </li>
                                 </ul>
                               </div>
@@ -401,7 +474,9 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/social-media-management">Social Media Management</Link>
+                                  <Link href="/services/social-media-management">
+                                    Social Media Management
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -420,7 +495,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/hashtag-research">Hashtag Research</Link>
+                                    <Link href="/services/hashtag-research">
+                                      Hashtag Research
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/page-insights-reporting">
@@ -437,7 +514,9 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/ecommerce-solutions">E-commerce Solutions</Link>
+                                  <Link href="/services/ecommerce-solutions">
+                                    E-commerce Solutions
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -475,14 +554,20 @@ export default function Header() {
                                       alt="web-development"
                                     />
                                   </span>
-                                  <Link href="/services/branding-identity">Branding & Identity</Link>
+                                  <Link href="/services/branding-identity">
+                                    Branding & Identity
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
-                                    <Link href="/services/brand-strategy">Brand Strategy</Link>
+                                    <Link href="/services/brand-strategy">
+                                      Brand Strategy
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/logo-visual-identity">Logo & Visual Identity</Link>
+                                    <Link href="/services/logo-visual-identity">
+                                      Logo & Visual Identity
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/color-palette-typography">
@@ -490,10 +575,14 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/brand-guidelines">Brand Guidelines</Link>
+                                    <Link href="/services/brand-guidelines">
+                                      Brand Guidelines
+                                    </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/rebranding-services">Rebranding Services</Link>
+                                    <Link href="/services/rebranding-services">
+                                      Rebranding Services
+                                    </Link>
                                   </li>
                                 </ul>
                               </div>
@@ -518,7 +607,9 @@ export default function Header() {
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/services/crm-erp-systems">CRM & ERP Systems</Link>
+                                    <Link href="/services/crm-erp-systems">
+                                      CRM & ERP Systems
+                                    </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/inventory-management-software">
@@ -545,7 +636,9 @@ export default function Header() {
                                       alt="it-consulting"
                                     />
                                   </span>
-                                  <Link href="/services/it-consulting">IT Consulting</Link>
+                                  <Link href="/services/it-consulting">
+                                    IT Consulting
+                                  </Link>
                                 </h4>
                                 <ul className="ul-mega-menu-list">
                                   <li>
@@ -583,8 +676,14 @@ export default function Header() {
                     Blog
                   </Link>
                   <Link
+                    href="/careers"
+                    className={isActive("/careers") ? "active" : ""}
+                  >
+                    Careers
+                  </Link>
+                  <Link
                     href="/contact"
-                    className={isActive("/contact") ? "active" : ""}
+                    className={`${isActive("/contact") ? "active" : ""} d-lg-none `}
                   >
                     Contact
                   </Link>

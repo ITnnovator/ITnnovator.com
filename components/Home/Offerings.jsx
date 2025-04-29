@@ -1,5 +1,7 @@
 'use client';
 
+import Link from "next/link";
+
 export default function Offerings() {
 
     return (
@@ -13,7 +15,7 @@ export default function Offerings() {
                         <h2 className="ul-section-title">Enhance and Pioneer Using Technology Trends</h2>
                     </div>
 
-                    <a href="projects.html" className="ul-btn ul-btn--2"><span>Know More</span><i className="flaticon-up-right-arrow"></i></a>
+                    <Link href="services" className="ul-btn ul-btn--2"><span>Know More</span><i className="flaticon-up-right-arrow"></i></Link>
                 </div>
 
                 {/* <!-- offerings row --> */}

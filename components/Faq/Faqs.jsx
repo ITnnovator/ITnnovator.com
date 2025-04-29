@@ -402,7 +402,7 @@ export default function Faqs() {
           <p className="ul-faq-cta-descr">
             We're here to help you navigate your digital transformation journey. Whether you need technical advice or want to discuss a project, our experts are ready to assist.
           </p>
-          <Link href="contact.html" className="ul-btn">
+          <Link href="contact" className="ul-btn">
             <span>
               Ask Any Question <i className="flaticon-top-right"></i>
             </span>

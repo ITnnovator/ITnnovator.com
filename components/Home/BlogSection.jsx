@@ -1,5 +1,7 @@
 'use client';
 
+import Link from "next/link";
+
 export default function BlogSection() {
 
     return (
@@ -13,7 +15,7 @@ export default function BlogSection() {
                         <h2 className="ul-section-title">Explore News & Blog</h2>
                     </div>
 
-                    <a href="blog.html" className="ul-btn"><span>View All Blogs <i className="flaticon-top-right"></i></span></a>
+                    <Link href="blog" className="ul-btn"><span>View All Blogs <i className="flaticon-top-right"></i></span></Link>
                 </div>
 
 
@@ -43,7 +45,7 @@ export default function BlogSection() {
                                             <span className="text font-normal text-[14px] text-etGray">0 Comments</span>
                                         </div>
                                     </div>
-                                    <a href="blog-details.html" className="ul-blog-title">What's the Holding Back the It Solution</a>
+                                    <Link href="/" className="ul-blog-title">What's the Holding Back the It Solution</Link>
                                     <div className="ul-blog-author">
                                         <div className="author-img">
                                             <img src="/webImages/user-2.jpg" alt="Blog Author Image" />
@@ -78,7 +80,7 @@ export default function BlogSection() {
                                             <span className="text font-normal text-[14px] text-etGray">0 Comments</span>
                                         </div>
                                     </div>
-                                    <a href="blog-details.html" className="ul-blog-title">Powerful Server and Platform</a>
+                                    <Link href="/" className="ul-blog-title">Powerful Server and Platform</Link>
                                     <div className="ul-blog-author">
                                         <div className="author-img">
                                             <img src="/webImages/user-3.jpg" alt="Blog Author Image" />
@@ -117,7 +119,7 @@ export default function BlogSection() {
                                             <span className="text font-normal text-[14px] text-etGray">0 Comments</span>
                                         </div>
                                     </div>
-                                    <a href="blog-details.html" className="ul-blog-title">Keep Your Business Safe & Ensure High Availability.</a>
+                                    <Link href="/" className="ul-blog-title">Keep Your Business Safe & Ensure High Availability.</Link>
                                     <p className="ul-blog-excerpt">From luxury and economy cars and find out which best suits your lifestyle economy cars and find</p>
                                     <div className="ul-blog-author">
                                         <div className="author-img">

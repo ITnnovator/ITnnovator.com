@@ -14,7 +14,7 @@ export default function Team() {
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
-                <Link href="team-details.html">Leslie Alexander</Link>
+                <Link href="/">Leslie Alexander</Link>
               </h3>
               <span className="ul-team-member-position">Web Designer</span>
             </div>
@@ -39,7 +39,7 @@ export default function Team() {
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
-                <Link href="team-details.html">Leslie Alexander</Link>
+                <Link href="/">Leslie Alexander</Link>
               </h3>
               <span className="ul-team-member-position">Web Designer</span>
             </div>
@@ -64,7 +64,7 @@ export default function Team() {
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
-                <Link href="team-details.html">Leslie Alexander</Link>
+                <Link href="/">Leslie Alexander</Link>
               </h3>
               <span className="ul-team-member-position">Web Designer</span>
             </div>
@@ -89,7 +89,7 @@ export default function Team() {
             </div>
             <div className="ul-team-member-txt">
               <h3 className="ul-team-member-name">
-                <Link href="team-details.html">Leslie Alexander</Link>
+                <Link href="/">Leslie Alexander</Link>
               </h3>
               <span className="ul-team-member-position">Web Designer</span>
             </div>

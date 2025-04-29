@@ -14,7 +14,7 @@ export default function BlogPage() {
       <InnerBanner title="Blog" />
 
       {/* <!-- Inner Banner --> */}
-      <InnerBlogSection />
+      {/* <InnerBlogSection /> */}
     </>
   );
 }

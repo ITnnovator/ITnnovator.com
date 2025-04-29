@@ -173,11 +173,11 @@ export default function InnerBlogDetail() {
                                 <h3 className="ul-inner-sidebar-widget-title">Categories</h3>
                                 <div className="ul-inner-sidebar-widget-content">
                                     <div className="ul-inner-sidebar-categories">
-                                        <Link href="blog-2.html">Charity <span>(08)</span></Link>
-                                        <Link href="blog-2.html">Crowdfunding <span>(11)</span></Link>
-                                        <Link href="blog-2.html">Industries <span>(18)</span></Link>
-                                        <Link href="blog-2.html">Innovations <span>(11)</span></Link>
-                                        <Link href="blog-2.html">Technology <span>(07)</span></Link>
+                                        <Link href="/">Charity <span>(08)</span></Link>
+                                        <Link href="/">Crowdfunding <span>(11)</span></Link>
+                                        <Link href="/">Industries <span>(18)</span></Link>
+                                        <Link href="/">Innovations <span>(11)</span></Link>
+                                        <Link href="/">Technology <span>(07)</span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@ export default function InnerBlogDetail() {
                                             </div>
 
                                             <div className="txt">
-                                                <h4 className="title"><Link href="blog-details.html">There are many vario ns of passages of</Link></h4>
+                                                <h4 className="title"><Link href="/">There are many vario ns of passages of</Link></h4>
                                                 <span className="date"> <span>May 12, 2025</span></span>
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@ export default function InnerBlogDetail() {
                                             </div>
 
                                             <div className="txt">
-                                                <h4 className="title"><Link href="blog-details.html">There are many vario ns of passages of</Link></h4>
+                                                <h4 className="title"><Link href="/">There are many vario ns of passages of</Link></h4>
                                                 <span className="date"> <span>May 12, 2025</span></span>
                                             </div>
                                         </div>
@@ -218,7 +218,7 @@ export default function InnerBlogDetail() {
                                             </div>
 
                                             <div className="txt">
-                                                <h4 className="title"><Link href="blog-details.html">There are many vario ns of passages of</Link></h4>
+                                                <h4 className="title"><Link href="/">There are many vario ns of passages of</Link></h4>
                                                 <span className="date"> <span>May 12, 2025</span></span>
                                             </div>
                                         </div>
@@ -231,14 +231,14 @@ export default function InnerBlogDetail() {
                                 <h3 className="ul-inner-sidebar-widget-title">Tag Cloud</h3>
                                 <div className="ul-inner-sidebar-widget-content">
                                     <div className="ul-inner-sidebar-tags">
-                                        <Link href="blog-2.html">Crowdfunding</Link>
-                                        <Link href="blog-2.html">Innovations</Link>
-                                        <Link href="blog-2.html">Justice</Link>
-                                        <Link href="blog-2.html">Lead</Link>
-                                        <Link href="blog-2.html">Startup</Link>
-                                        <Link href="blog-2.html">Technology</Link>
-                                        <Link href="blog-2.html">Market</Link>
-                                        <Link href="blog-2.html">Court</Link>
+                                        <Link href="/">Crowdfunding</Link>
+                                        <Link href="/">Innovations</Link>
+                                        <Link href="/">Justice</Link>
+                                        <Link href="/">Lead</Link>
+                                        <Link href="/">Startup</Link>
+                                        <Link href="/">Technology</Link>
+                                        <Link href="/">Market</Link>
+                                        <Link href="/">Court</Link>
                                     </div>
                                 </div>
                             </div>

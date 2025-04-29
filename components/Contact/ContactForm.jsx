@@ -110,7 +110,7 @@ export default function ContactForm() {
                                     required
                                 />
                                 <span className="field-icon">
-                                    <i className="flaticon-writing"></i>{" "}
+                                    <i className="flaticon-writing"></i>
                                     {/* Or another icon if you want */}
                                 </span>
                             </div>

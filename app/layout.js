@@ -8,7 +8,7 @@ import Sidebar from "@/components/Sidebar";
 import Search from "@/components/Search";
 
 export const metadata = {
-  title: "Innovating the Future of Tech | ITnnovatornovator",
+  title: "Innovating the Future of Tech | ITnnovator",
   description: "ITnnovator is a cutting-edge digital agency delivering web design, development, branding, and digital marketing solutions tailored for business growth.",
   keywords: ["ITnnovator", "digital agency", "web development", "branding", "SEO services", "UI/UX", "software development"],
   authors: [{ name: "ITnnovator", url: "https://itnnovator.com" }],

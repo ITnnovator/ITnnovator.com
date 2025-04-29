@@ -233,17 +233,17 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/services/cms-development">
-                                      CMS-Based Development (WordPress, Shopify)
+                                      WordPress, Shopify
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/ecommerce-development">
-                                      E-commerce Development
+                                      E-commerce Development 
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/services/landing-pages">
-                                      Landing Pages{" "}
+                                      Landing Pages
                                     </Link>
                                   </li>
                                   <li>
@@ -273,7 +273,7 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/services/ios-app-development">
-                                      iOS App Development{" "}
+                                      iOS App Development
                                     </Link>
                                   </li>
                                   <li>
@@ -323,8 +323,8 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/services/brochures-flyers">
-                                      {" "}
-                                      Brochures & Flyers{" "}
+                                      
+                                      Brochures & Flyers
                                     </Link>
                                   </li>
                                   <li>
@@ -411,7 +411,7 @@ export default function Header() {
                                   </li>
                                   <li>
                                     <Link href="/services/keyword-research">
-                                      Keyword Research{" "}
+                                      Keyword Research
                                     </Link>
                                   </li>
                                   <li>

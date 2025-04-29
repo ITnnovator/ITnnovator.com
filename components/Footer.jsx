@@ -165,7 +165,7 @@ export default function Footer() {
                                             <i className="flaticon-check-1"></i>
                                         </span>
                                         <span className="ul-checkbox-txt">
-                                            I agree with the <Link href="/">Privacy Policy</Link>
+                                            I agree with the <Link href="/privacypolicy">Privacy Policy</Link>
                                         </span>
                                     </label>
                                 </div>

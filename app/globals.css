@@ -7602,3 +7602,12 @@ button {
     font-size: 10px;
   }
 }
+
+.privacy-policy-txt ul {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.privacy-policy-txt ul li {
+  list-style: disc;
+}

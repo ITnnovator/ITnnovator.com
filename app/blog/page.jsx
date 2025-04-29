@@ -1,5 +1,6 @@
 
 import InnerBlogSection from "@/components/Blog/InnerBlogSection";
+import ComingSoon from "@/components/ComingSoon";
 import InnerBanner from "@/components/InnerBanner";
 
 export const metadata = {
@@ -15,6 +16,9 @@ export default function BlogPage() {
 
       {/* <!-- Inner Banner --> */}
       {/* <InnerBlogSection /> */}
+
+
+      <ComingSoon />
     </>
   );
 }

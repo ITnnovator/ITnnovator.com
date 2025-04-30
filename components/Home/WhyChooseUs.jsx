@@ -26,7 +26,7 @@ export default function WhyChooseUs() {
                                     <a
                                         role="button"
                                         onClick={() => setToggler(!toggler)}
-                                        className="ul-why-choose-us-video-btn"
+                                        className="ul-why-choose-us-video-btn d-none"
                                     >
                                         <i className="flaticon-play-button-arrowhead"></i>
                                     </a>

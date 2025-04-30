@@ -1,18 +1,20 @@
 # ITnnovator – Innovating the Future of Tech 
 
-Welcome to the official repository of **ITnnovator**, a digital solutions company specializing in:
+Welcome to the codebase for **ITnnovator**, a digital solutions agency specializing in:
 
-- 🚀 **Responsive Web Development**
-- 📈 **SEO Performance Optimization**
-- 📣 **Strategic Social Media Marketing**
+- 🌐 **Responsive Website Development**
+- 📈 **Search Engine Optimization (SEO)**
+- 📣 **Social Media Marketing**
 
-This project is built with [Next.js](https://nextjs.org), bootstrapped using [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+We help businesses build a powerful online presence through fast, scalable, and visually engaging websites paired with targeted digital marketing strategies.
+
+This site was built using [Next.js](https://nextjs.org) and serves as our official agency website.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started (For Developers)
 
-To run the development server:
+To run the project locally:
 
 ```bash
 npm run dev  

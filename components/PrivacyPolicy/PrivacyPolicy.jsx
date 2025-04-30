@@ -8,134 +8,91 @@ export default function PrivacyPolicy() {
           <div className="col-lg-10 privacy-policy-txt">
             <h1 className="mb-4">Privacy Policy</h1>
             <p>
-              <strong>Effective Date:</strong> June 15th, 2022
+              <strong>Effective Date:</strong> May 1, 2025
               <br />
-              <strong>Last Updated:</strong> June 15th, 2022
+              <strong>Last Updated:</strong> May 1, 2025
             </p>
 
             <p>
-              This Privacy Policy describes <strong>Itnnovator’s</strong>{" "}
-              (“Itnnovator”, “us” or “we”) practices regarding personal
-              information collected through
-              <Link href="https://itnnovator.vercel.app/" target="_blank">
-                https://itnnovator.vercel.app/
-              </Link>{" "}
-              (the “Website”). Itnnovator is committed to protecting your
-              privacy and this Policy outlines how your data is handled.
+              This Privacy Policy outlines how <strong>ITnnovator</strong> (“ITnnovator,” “we,” “our,” or “us”) collects, uses, and protects personal information through our website,
+              <Link href="https://itnnovator.com" target="_blank"> https://itnnovator.com </Link>
+              (the “Website”). ITnnovator is a digital solutions company specializing in website development, SEO, social media marketing, and AI-powered tools. We are committed to protecting your privacy and ensuring transparency in how your data is handled.
             </p>
 
-            <h2 className="mt-5">Information Collected</h2>
+            <h2 className="mt-5">Information We Collect</h2>
             <ul>
-              <li>
-                <strong>Identifiers:</strong> such as your IP address.
-              </li>
-              <li>
-                <strong>Network Activity:</strong> OS version, browser type,
-                PHP/database versions, cookies, browsing and platform usage
-                data.
-              </li>
-              <li>
-                <strong>Geolocation Data:</strong> based on IP, MAC address, or
-                mobile device.
-              </li>
+              <li><strong>Identifiers:</strong> such as name, email address, phone number, and IP address.</li>
+              <li><strong>Technical Information:</strong> OS version, browser type, cookies, and usage data.</li>
+              <li><strong>Geolocation Data:</strong> collected through IP or device data.</li>
+              <li><strong>Communications:</strong> messages you send through our forms or email.</li>
             </ul>
 
-            <h2 className="mt-4">How Information Is Collected</h2>
+            <h2 className="mt-4">How We Collect Information</h2>
             <ul>
-              <li>
-                <strong>Information You Provide:</strong> Via forms or direct
-                contact. Not shared without consent.
-              </li>
-              <li>
-                <strong>Automatic Collection:</strong> Through cookies and
-                tracking technologies. We do not respond to Do Not Track
-                signals.
-              </li>
-              <li>
-                <strong>Other Sources:</strong> We do not collect data from
-                other sources.
-              </li>
+              <li><strong>Directly:</strong> When you fill out forms, contact us, or subscribe to newsletters.</li>
+              <li><strong>Automatically:</strong> Through cookies, analytics tools, and third-party services.</li>
+              <li><strong>Third Parties:</strong> We do not collect data from external sources unless explicitly authorized.</li>
             </ul>
 
-            <h2 className="mt-4">Use of Information</h2>
-            <p>We may use your information to:</p>
+            <h2 className="mt-4">How We Use Your Information</h2>
             <ul>
-              <li>Improve Website and service functionality</li>
-              <li>Prevent fraud and protect the system</li>
-              <li>Send you updates and respond to feedback</li>
-              <li>Analyze and understand user behavior</li>
-              <li>Comply with legal obligations and fulfill contracts</li>
+              <li>To provide and improve our digital services and AI tools</li>
+              <li>To communicate with you and respond to inquiries</li>
+              <li>To analyze traffic and usage trends for optimization</li>
+              <li>To prevent fraud and ensure platform security</li>
+              <li>To comply with legal obligations and regulatory requirements</li>
             </ul>
 
-            <h2 className="mt-4">Sharing of Information</h2>
+            <h2 className="mt-4">Sharing Your Information</h2>
             <p>
-              We do <strong>not sell</strong> your personal data. Information
-              may be shared only if:
+              We do <strong>not sell</strong> your personal information. Your data may be shared:
             </p>
             <ul>
-              <li>
-                We are involved in a business transfer such as merger or
-                acquisition
-              </li>
-              <li>Required by law, court order, or government request</li>
+              <li>With service providers under strict confidentiality agreements</li>
+              <li>If required by law, court order, or government request</li>
+              <li>In the event of a business transfer such as a merger or acquisition</li>
             </ul>
 
-            <h2 className="mt-4">Storage of Information</h2>
-            <p>We retain your information based on:</p>
+            <h2 className="mt-4">Data Retention</h2>
             <ul>
-              <li>Legal/regulatory obligations</li>
-              <li>Protection against fraud</li>
-              <li>Original purpose of collection</li>
-              <li>Data relevance and age</li>
+              <li>We retain data as long as necessary for operational, legal, or security purposes</li>
+              <li>Data no longer required will be securely deleted or anonymized</li>
             </ul>
 
-            <h2 className="mt-4">Third-Party Sites</h2>
+            <h2 className="mt-4">External Links</h2>
             <p>
-              Links to external websites are provided for convenience. We are
-              not responsible for their content or data practices. Please review
-              their policies separately.
+              Our Website may contain links to third-party sites. We are not responsible for the privacy practices of those websites. Please review their policies independently.
             </p>
 
             <h2 className="mt-4">Data Security</h2>
             <p>
-              We use reasonable security measures to protect your data. However,
-              no method is completely secure, and all transmissions are at your
-              own risk.
+              We implement appropriate technical and organizational measures to safeguard your information. However, no internet transmission is 100% secure, and we encourage caution when sharing sensitive data online.
             </p>
 
-            <h2 className="mt-4">Your Data Protection Rights</h2>
+            <h2 className="mt-4">Your Rights</h2>
             <p>You have the right to:</p>
             <ul>
-              <li>Access your personal data</li>
-              <li>Request correction of inaccurate data</li>
-              <li>Request deletion of data, where applicable</li>
+              <li>Access the personal information we hold about you</li>
+              <li>Request corrections to inaccurate information</li>
+              <li>Request deletion of your data, subject to applicable laws</li>
             </ul>
             <p>
-              To make a request, please email us at:
-              <Link href="mailto:info@itnnovator.vercel.app">
-                info@itnnovator.vercel.app
-              </Link>
-              .
+              To exercise these rights, email us at:
+              <Link href="mailto:info@itnnovator.com"> info@itnnovator.com </Link>
             </p>
 
-            <h2 className="mt-4">Children</h2>
+            <h2 className="mt-4">Children’s Privacy</h2>
             <p>
-              This Website is not intended for users under 18 without parental
-              consent. Parents must register and provide consent for minors.
+              Our services are intended for professionals and business users. We do not knowingly collect personal data from individuals under the age of 18. If we discover that we have inadvertently collected such data, we will take steps to delete it immediately.</p>
+            <h2 className="mt-4">Policy Updates</h2>
+            <p>
+              We may update this Privacy Policy from time to time. Changes will be posted here with an updated effective date. We encourage you to review it periodically.
             </p>
 
-            <h2 className="mt-4">Modifications</h2>
+            <h2 className="mt-4">Contact</h2>
             <p>
-              We may revise this Privacy Policy occasionally. Changes will be
-              posted here or otherwise communicated to you.
-            </p>
-
-            <h2 className="mt-4">Contact Us</h2>
-            <p>
-              If you have any questions, please contact us at:
-              <Link href="mailto:info@itnnovator.vercel.app">
-                info@itnnovator.vercel.app
-              </Link>
+              If you have any questions about this Privacy Policy or our data practices, please contact us at:
+              <Link href="mailto:info@itnnovator.com"> info@itnnovator.com </Link>
             </p>
           </div>
         </div>

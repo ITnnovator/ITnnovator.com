@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
+    const [agree, setAgree] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -13,6 +14,11 @@ export default function Footer() {
 
         if (!email) {
             toast.error('Please enter your email!');
+            return;
+        }
+
+        if (!agree) {
+            toast.error('Please agree to the Privacy Policy!');
             return;
         }
 
@@ -30,6 +36,7 @@ export default function Footer() {
             if (res.ok) {
                 toast.success('Subscribed successfully!');
                 setEmail('');
+                setAgree(false);
             } else {
                 toast.error(data.error || 'Something went wrong.');
             }
@@ -40,6 +47,7 @@ export default function Footer() {
             setLoading(false);
         }
     };
+
     return (
         // <!-- FOOTER SECTION START -->
         <footer className="ul-footer">
@@ -135,7 +143,7 @@ export default function Footer() {
                         </div>
 
                         <div className="ul-footer-widget ul-nwsltr-widget">
-                            <h3 className="ul-footer-widget-title">Contact Us</h3>
+                            <h3 className="ul-footer-widget-title">Stay in Touch with Us</h3>
                             <form onSubmit={handleSubmit} className="ul-nwsltr-form">
                                 <div className="top">
                                     <input
@@ -159,6 +167,8 @@ export default function Footer() {
                                             type="checkbox"
                                             name="agreement"
                                             id="nwsltr-agreement"
+                                            checked={agree}
+                                            onChange={(e) => setAgree(e.target.checked)}
                                             hidden
                                         />
                                         <span className="ul-checkbox">

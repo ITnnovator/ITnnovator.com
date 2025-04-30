@@ -1,24 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        phone: "",
-        message: "",
+        name: '',
+        email: '',
+        subject: '',
+        phone: '',
+        message: '',
     });
 
     const [loading, setLoading] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
+        setFormData((prev) => ({
+            ...prev,
             [name]: value,
         }));
     };
@@ -26,36 +25,36 @@ export default function ContactForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setSuccessMessage("");
-        setErrorMessage("");
 
         try {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
 
+            const data = await response.json();
+
             if (response.ok) {
-                setSuccessMessage("Message sent successfully!");
+                toast.success('Message sent successfully!');
                 setFormData({
-                    name: "",
-                    email: "",
-                    subject: "",
-                    phone: "",
-                    message: "",
+                    name: '',
+                    email: '',
+                    subject: '',
+                    phone: '',
+                    message: '',
                 });
             } else {
-                setErrorMessage("Something went wrong. Please try again.");
+                toast.error(data.error || 'Something went wrong. Please try again.');
             }
         } catch (error) {
-            setErrorMessage("Something went wrong. Please try again.");
+            toast.error('Something went wrong. Please try again.');
         } finally {
             setLoading(false);
         }
     };
+
     return (
-        // <!-- CONTACT FORM -->
         <div className="ul-contact-from-section">
             <div className="ul-contact-form-2-container">
                 <h3 className="ul-contact-form-2-container__title">Get in Touch</h3>
@@ -111,7 +110,6 @@ export default function ContactForm() {
                                 />
                                 <span className="field-icon">
                                     <i className="flaticon-writing"></i>
-                                    {/* Or another icon if you want */}
                                 </span>
                             </div>
                         </div>
@@ -151,14 +149,8 @@ export default function ContactForm() {
 
                     {/* Submit Button */}
                     <button type="submit" disabled={loading}>
-                        {loading ? "Sending..." : "Send Message"}
+                        {loading ? 'Sending...' : 'Send Message'}
                     </button>
-
-                    {/* Success or Error Message */}
-                    {successMessage && (
-                        <p className="success-message">{successMessage}</p>
-                    )}
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
                 </form>
             </div>
         </div>

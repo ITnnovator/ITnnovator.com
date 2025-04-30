@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { toast, Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 export default function Footer() {
     const [email, setEmail] = useState('');
@@ -171,8 +171,7 @@ export default function Footer() {
                                 </div>
                             </form>
 
-                            {/* Toast container */}
-                            <Toaster position="top-right" reverseOrder={false} />
+
                             <Link href="contact" className="ul-footer-about-btn mt-5">
                                 Contact us <i className="flaticon-top-right"></i>
                             </Link>

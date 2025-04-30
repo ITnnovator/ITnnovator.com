@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Preloader from "@/components/Preloader";
 import Sidebar from "@/components/Sidebar";
 import Search from "@/components/Search";
+import { Toaster } from 'react-hot-toast';
 
 export const metadata = {
   title: "Innovating the Future of Tech | ITnnovator",
@@ -27,7 +28,7 @@ export const metadata = {
     siteName: "ITnnovator",
     images: [
       {
-        url: "/og-image.jpg", 
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "ITnnovator Open Graph Image",
@@ -53,7 +54,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 const kumbh = Kumbh_Sans({
   subsets: ["latin"],
   variable: "--font-kumbh",
-  display: "swap", 
+  display: "swap",
 });
 
 const quicksand = Quicksand({
@@ -70,6 +71,8 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/flaticon.css" />
       </head>
       <body className={`${plusJakarta.variable} ${kumbh.variable} ${quicksand.variable}`}>
+        {/* Toast container */}
+        <Toaster position="top-right" reverseOrder={false} />
         <BootstrapClient />
         <Preloader />
         <Sidebar />

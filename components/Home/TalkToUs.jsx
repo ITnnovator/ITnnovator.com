@@ -109,7 +109,7 @@ export default function TalkToUs() {
                                         type="tel"
                                         name="phone"
                                         id="ul-contact-phone"
-                                        placeholder="+1253 457 7840"
+                                        placeholder="+9253 457 7840"
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required

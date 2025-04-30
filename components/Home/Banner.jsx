@@ -199,7 +199,7 @@ export default function Banner() {
                     </div>
 
                     {/* <!-- stats --> */}
-                    <div className="ul-banner-stats">
+                    <div className="ul-banner-stats d-none">
                         {/* <!-- single stat --> */}
                         <div className="ul-banner-stat">
                             <span className="ul-banner-stat-number">20.5K</span>

@@ -669,7 +669,7 @@ export default function Header() {
                       </div>
                     </div>
                   </div>
-                  <Link
+                  {/* <Link
                     href="/blog"
                     className={isActive("/blog") ? "active" : ""}
                   >
@@ -680,10 +680,12 @@ export default function Header() {
                     className={isActive("/careers") ? "active" : ""}
                   >
                     Careers
-                  </Link>
+                  </Link> 
+                  */}
                   <Link
                     href="/contact"
-                    className={`${isActive("/contact") ? "active" : ""} d-lg-none `}
+                    // className={`${isActive("/contact") ? "active" : ""} d-lg-none `}
+                    className={`${isActive("/contact") ? "active" : ""} `}
                   >
                     Contact
                   </Link>

@@ -3,7 +3,7 @@
 Welcome to the codebase for **ITnnovator**, a digital solutions agency specializing in:
 
 - 🌐 **Responsive Website Development**
-- 📈 **Search Engine Optimization (SEO)**
+- 📈 **Search Engine Optimization (SEO)** 
 - 📣 **Social Media Marketing**
  
 We help businesses build a powerful online presence through fast, scalable, and visually engaging websites paired with targeted digital marketing strategies.

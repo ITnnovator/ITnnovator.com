@@ -19,7 +19,7 @@ export const metadata = {
   robots: "index, follow",
   manifest: "/site.webmanifest",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {

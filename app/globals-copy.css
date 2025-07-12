@@ -46,42 +46,24 @@ CSS INDEX
 
 */
 :root {
-    /* Base Colors */
-    --black: #000000;
-    --white: #ffffff;
-
-    /* Primary Palette (From Coolors) */
-    --ul-primary: #21295C;
-    /* Deep navy (primary brand color) */
-    --ul-secondary: #065A82;
-    /* Rich teal (secondary/accent) */
-    --ul-c3: #9EB3C2;
-    /* Soft blue-gray (backgrounds) */
-    --ul-c4: #1B3B6F;
-    /* Darker navy (headings) */
-    --ul-c5: #1C7293;
-    /* Bright teal (buttons/highlights) */
-
-    /* Neutrals */
-    --ul-black: #0A0A0A;
-    /* Almost black (text) */
-    --ul-gray: #6C757D;
-    /* Neutral gray (secondary text) */
-    --ul-gray2: #E9ECEF;
-    /* Light gray (borders) */
-    --ul-gray3: #495057;
-    /* Dark gray (footers) */
-
-    /* Gradients (using palette colors) */
-    --ul-gradient: linear-gradient(105deg, var(--ul-primary) 0%, var(--ul-secondary) 100%);
-
-    /* Alternative Theme (if needed) */
-    --ul-2-primary: #1C7293;
-    /* Bright teal (alternative primary) */
-    --ul-2-black: #1B3B6F;
-    /* Dark navy */
-    --ul-2-gray: #9EB3C2;
-    /* Soft blue-gray */
+  --black: #000;
+  --white: #fff;
+  --ul-primary: #2B4DFF;
+  --ul-secondary: #731BB7;
+  --ul-c3: #F0F3FF;
+  --ul-c4: #0A165E;
+  --ul-c5: #635AD9;
+  --ul-black: #0F0D1D;
+  --ul-gray: #726B7D;
+  --ul-gray2: #D9D9D9;
+  --ul-gray3: #585858;
+  --ul-gradient: linear-gradient(105.18deg, var(--ul-primary) 0%, var(--ul-secondary) 100%);
+  --ul-2-primary: #7444FD;
+  --ul-2-black: #282C32;
+  --ul-2-gray: #585B6F;
+  --font-primary: "Plus Jakarta Sans", sans-serif;
+  --font-kumbh: "Kumbh Sans", serif;
+  --font-quicksand: "Quicksand", serif;
 }
 
 html {
@@ -386,7 +368,7 @@ button {
   gap: 8px;
   padding: 0 clamp(18px, 1.31vw, 25px);
   height: clamp(45px, 2.73vw, 52px);
-  background: linear-gradient(90deg, #21295C 0%, #065A82 100%);
+  background: linear-gradient(90deg, #2B4DFF 0%, #C700B1 100%);
   border-radius: 100px;
   color: var(--white);
   font-weight: 700;
@@ -405,7 +387,7 @@ button {
   z-index: -1;
   top: 0;
   left: 0;
-background: linear-gradient(90deg, #065A82 0%, #21295C 100%);
+  background: linear-gradient(90deg, #C700B1 0%, #2B4DFF 100%);
   transition: 0.4s ease;
 }
 
@@ -3268,8 +3250,8 @@ background: linear-gradient(90deg, #065A82 0%, #21295C 100%);
   aspect-ratio: 1/1;
   left: calc(0% - clamp(30px, 15.19vw, 289px));
   bottom: -30%;
-  background: linear-gradient(90deg, #1B3B6F 32.06%, #1C7293 158.17%);
-  border: 1px solid #1C7293;
+  background: linear-gradient(90deg, #3C72FC 32.06%, #C700B1 158.17%);
+  border: 1px solid #3C72FC;
   box-shadow: 0px 28px 23px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   transform: rotate(45deg);
@@ -3289,11 +3271,11 @@ background: linear-gradient(90deg, #065A82 0%, #21295C 100%);
 }
 
 .ul-services-slider .swiper-slide:nth-child(even) .ul-service {
-  background: linear-gradient(180deg, #21295C 0%, #1C7293 100%);
+  background: linear-gradient(180deg, #3C72FC 0%, #C700B1 100%);
 }
 
 .ul-service {
-  background: linear-gradient(180deg, #1C7293 0%, #21295C 100%);
+  background: linear-gradient(180deg, #8903F7 0%, #FF7C54 100%);
   border-radius: 20px;
   position: relative;
   z-index: 1;
@@ -3466,7 +3448,7 @@ background: linear-gradient(90deg, #065A82 0%, #21295C 100%);
   font-size: clamp(30px, 1.89vw, 36px);
   aspect-ratio: 1/1;
   background: linear-gradient(180deg, #3C72FC -210.71%, #00060C 100%);
-  color: var(--ul-2-primary);
+  color: var(--ul-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -3788,7 +3770,7 @@ background: linear-gradient(90deg, #065A82 0%, #21295C 100%);
 }
 
 .ul-contact-form-wrapper {
-  background: linear-gradient(180deg, #1B3B6F 0%, #1C7293 100%);
+  background: linear-gradient(180deg, #3C72FC 0%, #C700B1 100%);
   border-radius: 20px;
   padding: clamp(25px, 3.15vw, 60px);
 }

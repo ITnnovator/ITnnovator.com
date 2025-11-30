@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <symbol id="arrow-right-up" viewBox="0 0 13 13" fill="none">
+    <path d="M1.29688 11.7087L10.8802 2.12533M11.7135 11.7087V1.29199H1.29688" stroke="currentColor" stroke-width="1.5625" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="arrow-right" viewBox="0 0 17 17" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.563" d="m1 8.565 13.57.043m-6.218 7.31 7.399-7.306L8.398 1.26"/></symbol>
+    <symbol id="arrow-right-big" viewBox="0 0 67 37" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.56" d="m3.002 18.145 58.31.09M48.34 33.483l15.434-15.24L48.436 2.905"/></symbol>
+    <symbol id="ticker" viewBox="0 0 19 19" fill="none"><g clip-path="url(#a)" stroke="#64FFBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.417 8.771v.728a7.917 7.917 0 1 1-4.694-7.236"/><path d="M17.417 3.168 9.5 11.093 7.125 8.718"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h19v19H0z"/></clipPath></defs></symbol>
+    <symbol id="quad-line" viewBox="0 0 81 82" fill="none"><path stroke="#FFE99A" d="m.845 54.934 30.541-9.937M49.845 38.525l30.541-9.937M43.128 50.464l9.936 30.54M30.476.845l9.936 30.541"/></symbol>
+    <symbol id="blue-rect" viewBox="0 0 100 58" fill="none"><path stroke="#3E62E2" d="M.526 6.473 96.65 1.397l2.683 50.8-96.124 5.076z"/></symbol>
+    <symbol id="two-circle" viewBox="0 0 106 74" fill="none"><circle cx="33.5" cy="33.5" r="33" stroke="#9AFFD5" opacity=".8"/><circle cx="91.5" cy="59.5" r="14" stroke="#F3C5EE" opacity=".8"/></symbol>
+    <symbol id="square" viewBox="0 0 131 131" fill="none"><path stroke="#DABCFF" d="M.707 66 65.999.706l63.637 63.637-65.292 65.292z"/></symbol>
+    <symbol id="icon-tick" viewBox="0 0 19 19" width="19" height="19" fill="none"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#a)"><path d="M17.417 8.771v.728a7.916 7.916 0 1 1-4.695-7.236"/><path d="M17.417 3.168 9.5 11.093 7.125 8.718"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h19v19H0z"/></clipPath></defs></symbol>
+
+  <symbol id="case-icon" fill="none" viewBox="0 0 26 26">
+    <path fill="currentColor" fill-rule="evenodd" d="M.22 1C.22.57.57.22 1 .22h9.334c.43 0 .78.35.78.78v9.334c0 .43-.35.78-.78.78H1.001a.78.78 0 0 1-.78-.78V1.001Zm1.56.78v7.774h7.774V1.781H1.781ZM14.888 1c0-.43.35-.78.78-.78h9.334c.43 0 .78.35.78.78v9.334c0 .43-.35.78-.78.78h-9.334a.78.78 0 0 1-.78-.78V1.001Zm1.56.78v7.774h7.774V1.781h-7.774ZM.221 15.668a.78.78 0 0 1 .78-.78h9.333c.43 0 .78.349.78.78V25c0 .43-.35.78-.78.78H1.001A.78.78 0 0 1 .22 25v-9.333Zm1.56.78v7.773h7.773v-7.773H1.781Zm13.107-.78a.78.78 0 0 1 .78-.78H25c.43 0 .78.349.78.78V25c0 .43-.35.78-.78.78h-9.334a.78.78 0 0 1-.78-.78v-9.333Zm1.56.78v7.773h7.773v-7.773h-7.773Z" clip-rule="evenodd"/>
+  </symbol>
+  <symbol id="star" viewBox="0 0 24 24" fill="none">
+    <path d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="team-icon-two-rectangle" viewBox="0 0 200 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.707107" y="93.127" width="130.701" height="69.2405" transform="rotate(-45 0.707107 93.127)" stroke="#3E62E2"/>
+    <rect opacity="0.5" x="181.664" y="62.8583" width="62.1659" height="24.3152" transform="rotate(-135 181.664 62.8583)" stroke="#3E62E2"/>
+    </symbol>
+    <symbol id="team-icon-star" viewBox="0 0 94 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M52.0008 38.1633L73.7457 0.5L72.8797 0L51.1348 37.6633L52.0008 38.1633ZM21.0008 91.1633L42.7457 53.5L41.8797 53L20.1348 90.6633L21.0008 91.1633ZM92.6633 72.245L55 50.5L55.5 49.634L93.1633 71.379L92.6633 72.245ZM0 19.5001L37.6633 41.245L38.1633 40.379L0.5 18.634L0 19.5001Z" fill="#FFE99A"/>
+    </symbol>
+    <symbol id="team-icon-square" viewBox="0 0 94 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.707107" y="48" width="66.2256" height="64.5395" transform="rotate(-45 0.707107 48)" stroke="#DABCFF"/>
+    </symbol>
+    <symbol id="team-icon-rectangle" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.707107" y="33.5635" width="46.4659" height="24.3152" transform="rotate(-45 0.707107 33.5635)" stroke="#3E62E2"/>
+    </symbol>
+    <symbol id="team-icon-two-circle" viewBox="0 0 106 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="33.5" cy="33.5" r="33" stroke="#9AFFD5"/>
+    <circle opacity="0.8" cx="91.5" cy="59.5" r="14" stroke="#F3C5EE"/>
+    </symbol>
+    <symbol id="star-outline" viewBox="0 0 25 25" fill="none"><path fill="currentColor" d="M24.82 10.231h-8.978L12.5.821l-3.344 9.41H.179l7.325 5.526-2.62 9.7 7.616-5.815 7.613 5.816-2.616-9.701 7.323-5.526ZM12.5 16.896l-4.22 3.5 1.74-4.986-3.99-3.22 4.93.141 1.54-5.656 1.539 5.656 4.93-.141-3.992 3.22 1.74 4.986-4.217-3.5Z"/></symbol>
+
+</svg>

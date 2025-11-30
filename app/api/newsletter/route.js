@@ -27,10 +27,10 @@ export async function POST(req) {
 
         // Also send a thank-you email to the subscriber
         await transporter.sendMail({
-            from: `"ITnnovator" <${process.env.SMTP_RECEIVER}>`,
+            from: `"Itnnovator" <${process.env.SMTP_RECEIVER}>`,
             to: email, // to customer
             subject: 'Thank you for subscribing!',
-            html: `<p>Hi there,</p><p>Thanks for subscribing to ITnnovator! We’re excited to have you.</p><p>Stay tuned for updates!</p><p>- ITnnovator Team</p>`,
+            html: `<p>Hi there,</p><p>Thanks for subscribing to Itnnovator! We’re excited to have you.</p><p>Stay tuned for updates!</p><p>- Itnnovator Team</p>`,
         });
 
         return NextResponse.json({ message: 'Subscription successful' }, { status: 200 });

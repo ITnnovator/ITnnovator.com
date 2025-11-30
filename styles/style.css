@@ -1,0 +1,295 @@
+/* ===== Panel (purple backdrop with rounded corners) ===== */
+.bm-card {
+    margin: 28px auto;
+    padding: clamp(16px, 3vw, 28px);
+    background: #922c83;
+    /* panel purple */
+    border-radius: 28px;
+    max-width: 1280px;
+}
+
+.home_case_viewimage .bm-card {
+    padding: clamp(16px, 3vw, 16px);
+}
+
+.bm-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* ===== Desktop “browser” mockup ===== */
+.bm-browser {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    width: 85%;
+    margin: 0 0 0 auto;
+}
+
+.bm-chrome {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 16px;
+    background: #fff;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red {
+    background: #e56b5e;
+}
+
+.yellow {
+    background: #e6c75e;
+}
+
+.green {
+    background: #64c36c;
+}
+
+.chrome-search {
+    margin-left: 16px;
+    flex: 1;
+    height: 24px;
+    border-radius: 8px;
+    background: #e5e7ebcc;
+}
+
+.chrome-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background: #e5e7ebcc;
+}
+
+/* Desktop viewport height: tweak to taste */
+.bm-viewport.desktop {
+    position: relative;
+    height: clamp(420px, 52vw, 620px);
+    overflow: hidden;
+}
+
+.home_case_viewimage .bm-viewport.desktop {
+    height: clamp(420px, 52vw, 420px);
+}
+
+/* ===== Mobile phone mockup ===== */
+.bm-phone {
+    position: absolute;
+    left: clamp(0, 3vw, 24px);
+    bottom: clamp(-24px, -4vw, -36px);
+    width: clamp(180px, 24vw, 280px);
+    background: #111;
+    border-radius: 32px;
+    /* phone outer curve */
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    border: 6px solid #111;
+    /* phone bezel */
+}
+
+.home_case_viewimage .bm-phone {
+    left: clamp(0, 3vw, 0);
+    bottom: clamp(-24px, -4vw, -24px);
+    width: clamp(180px, 24vw, 180px);
+}
+
+.bm-phone-notch {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 8px;
+    width: 42%;
+    height: 16px;
+    background: #000;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 2;
+}
+
+.bm-viewport.mobile {
+    position: relative;
+    height: clamp(340px, 42vw, 520px);
+    overflow: hidden;
+    background: #000;
+    border-radius: 18px;
+    margin: 18px 8px 10px;
+    /* notch + side bezels */
+}
+
+.home_case_viewimage .bm-viewport.mobile {
+    height: clamp(340px, 42vw, 340px);
+}
+
+/* ===== Shared image rules (we animate translateY) ===== */
+.bm-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(0);
+    will-change: transform;
+    animation: bmScroll var(--bmDur, 20s) linear infinite alternate;
+    /* down↔up loop */
+}
+
+@keyframes bmScroll {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(-1 * var(--bmDist, 0px)));
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .bm-img {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* ===== Responsive layout tweaks ===== */
+@media (min-width: 900px) {
+    .bm-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .bm-phone {
+        left: clamp(-30px, -2vw, -12px);
+        bottom: clamp(-32px, -3vw, -44px);
+    }
+
+    .home_case_viewimage .bm-phone {
+        left: clamp(-30px, -2vw, -30px);
+        bottom: clamp(-32px, -3vw, -32px);
+    }
+}
+
+/* @media (max-width: 700px) { */
+
+/* On narrow screens, stack: phone first then desktop */
+/* .bm-inner {
+        gap: 18px;
+    } */
+
+/* .bm-phone {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        margin: 0 auto;
+    } */
+/* } */
+
+@media (max-width: 600px) {
+    .bm-chrome {
+        height: 30px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .chrome-search {
+        height: 20px;
+    }
+
+    .chrome-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bm-viewport.desktop {
+        height: clamp(360px, 52vw, 620px);
+    }
+
+    .home_case_viewimage .bm-viewport.desktop {
+        height: clamp(360px, 52vw, 360px);
+    }
+
+    .bm-viewport.mobile {
+        height: clamp(305px, 42vw, 520px);
+    }
+
+    .home_case_viewimage .bm-viewport.mobile {
+        height: clamp(305px, 42vw, 305px);
+    }
+
+    .bm-phone {
+        width: clamp(170px, 24vw, 280px);
+        border: 5px solid #111;
+    }
+
+    .home_case_viewimage .bm-phone {
+        width: clamp(170px, 24vw, 170px);
+    }
+
+    .bm-phone-notch {
+        height: 14px;
+    }
+
+    .case_viewimage {
+        padding: 1rem;
+    }
+    
+    .main_logo{
+        margin-top: 2rem;
+        width: 10rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .case_viewimage {
+        padding: 1rem 0.6rem;
+    }
+
+    .bm-browser {
+        border-radius: 20px;
+        width: 90%;
+    }
+
+    .bm-viewport.desktop {
+        height: clamp(320px, 52vw, 620px);
+    }
+
+    .home_case_viewimage .bm-viewport.desktop {
+        height: clamp(320px, 52vw, 320px);
+    }
+
+    .bm-phone {
+        width: clamp(140px, 24vw, 280px);
+        border: 4px solid #111;
+        border-radius: 30px;
+    }
+
+    .home_case_viewimage .bm-phone {
+        width: clamp(140px, 24vw, 140px);
+    }
+
+    .bm-phone-notch {
+        height: 12px;
+    }
+
+    .bm-viewport.mobile {
+        height: clamp(270px, 42vw, 520px);
+    }
+
+    .home_case_viewimage .bm-viewport.mobile {
+        height: clamp(270px, 42vw, 270px);
+    }
+
+    .js-scroll-block-content{
+        padding: 1rem;
+    }
+}

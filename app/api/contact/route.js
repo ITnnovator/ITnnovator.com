@@ -14,12 +14,13 @@ export async function POST(req) {
         pass: process.env.SMTP_PASS,
       },
     }); 
-console.log("Receiver email:", process.env.CONTACT_RECEIVER_EMAIL);
+// console.log("Receiver email:", process.env.CONTACT_RECEIVER_EMAIL);
 
     // Send email to admin
     await transporter.sendMail({
       from: `"${input_1} ${input_3}" <${input_4}>`,
-      to: process.env.CONTACT_RECEIVER_EMAIL,
+      // to: process.env.CONTACT_RECEIVER_EMAIL,
+      to: "itnnovator@gmail.com",
       subject: "New Contact Form Submission",
       html: `
         <h3>New Contact Form Message</h3>

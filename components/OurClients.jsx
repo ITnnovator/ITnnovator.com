@@ -3,7 +3,7 @@ export default function OurClients() {
         <section className="pb-14 lg:pb-20 xl:pb-32 lg:pt-20">
             <div className="max-w-7xl px-5 xl:px-8 mx-auto flex text-center flex-col gap-y-10 md:gap-y-20">
                 <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white text-center">
-                    Trusted by 250+ clients
+                    Built on Client Trust
                 </h2>
 
                 <div className="js-logo-ticker flex items-center gap-x-10 md:gap-y-20 opacity-0 md:gap-x-0 md:flex-wrap md:justify-center md:opacity-100">

@@ -167,7 +167,7 @@ export default function team() {
                     <h2 className="mb-0.5 text-2xl font-bold text-white">Ahmed Ali</h2>
                     <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Developer</span>
                     <span className="block text-lg">
-                      <a href="mailto:sanjay@itnnovator.com" className="text-malibu">
+                      <a href="mailto:ahmed@itnnovator.com" className="text-malibu">
                         ahmed@itnnovator.com
                       </a>
                     </span>
@@ -221,7 +221,7 @@ export default function team() {
                     <h2 className="mb-0.5 text-2xl font-bold text-white">Basit Abbas</h2>
                     <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Developer</span>
                     <span className="block text-lg">
-                      <a href="mailto:arish@itnnovator.com" className="text-malibu">
+                      <a href="mailto:basit@itnnovator.com" className="text-malibu">
                         basit@itnnovator.com
                       </a>
                     </span>
@@ -248,7 +248,7 @@ export default function team() {
                     <h2 className="mb-0.5 text-2xl font-bold text-white">Hiba Kanwal</h2>
                     <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Designer</span>
                     <span className="block text-lg">
-                      <a href="mailto:saif@itnnovator.com" className="text-malibu">
+                      <a href="mailto:hiba@itnnovator.com" className="text-malibu">
                         hiba@itnnovator.com
                       </a>
                     </span>

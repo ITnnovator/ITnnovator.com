@@ -184,7 +184,7 @@ export default function team() {
                     <img
                       width="329"
                       height="354"
-                      src="/webImages/t2.jpg"
+                      src="/webImages/t5.jpg"
                       className="w-full h-auto"
                       alt="team-member"
                     />

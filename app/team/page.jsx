@@ -138,7 +138,7 @@ export default function team() {
                   </div>
                   <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
                     <h2 className="mb-0.5 text-2xl font-bold text-white">Muhammad Saif</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Business Development Representative</span>
+                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Automation Engineer</span>
                     <span className="block text-lg">
                       <a href="mailto:saif@itnnovator.com" className="text-malibu">
                         saif@itnnovator.com

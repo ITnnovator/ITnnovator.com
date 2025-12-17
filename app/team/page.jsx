@@ -191,11 +191,11 @@ export default function team() {
                     <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
                   </div>
                   <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Sanjay Andani</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">COO</span>
+                    <h2 className="mb-0.5 text-2xl font-bold text-white">Ahmed Ali</h2>
+                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Developer</span>
                     <span className="block text-lg">
                       <a href="mailto:sanjay@itnnovator.com" className="text-malibu">
-                        sanjay@itnnovator.com
+                        ahmed@itnnovator.com
                       </a>
                     </span>
                   </div>
@@ -211,18 +211,18 @@ export default function team() {
                     <img
                       width="329"
                       height="354"
-                      src="/webImages/t3.jpg"
+                      src="/webImages/t7.jpg"
                       className="w-full h-auto"
                       alt="team-member"
                     />
                     <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
                   </div>
                   <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Arish Ali</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Managing Director</span>
+                    <h2 className="mb-0.5 text-2xl font-bold text-white">Basit Abbas</h2>
+                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Developer</span>
                     <span className="block text-lg">
                       <a href="mailto:arish@itnnovator.com" className="text-malibu">
-                        arish@itnnovator.com
+                        basit@itnnovator.com
                       </a>
                     </span>
                   </div>
@@ -238,18 +238,18 @@ export default function team() {
                     <img
                       width="329"
                       height="354"
-                      src="/webImages/t4.jpg"
+                      src="/webImages/t8.jpg"
                       className="w-full h-auto"
                       alt="team-member"
                     />
                     <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
                   </div>
                   <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Muhammad Saif</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Business Development Representative</span>
+                    <h2 className="mb-0.5 text-2xl font-bold text-white">Hiba Kanwal</h2>
+                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Graphics Designer</span>
                     <span className="block text-lg">
                       <a href="mailto:saif@itnnovator.com" className="text-malibu">
-                        saif@itnnovator.com
+                        hiba@itnnovator.com
                       </a>
                     </span>
                   </div>

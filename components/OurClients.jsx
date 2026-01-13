@@ -39,10 +39,10 @@ export default function OurClients() {
 
                     <div className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%]">
                         <img
-                            width="101"
-                            height="59"
-                            src="/webImages/customers/sfd-101x59.png"
-                            className="object-contain max-w-[5rem] max-h-[2.5rem] md:max-w-[6rem] md:max-h-[2.925rem] xl:max-w-[6.5rem]"
+                            width="200"
+                            height="80"
+                            src="/webImages/customers/edschool.webp"
+                            className="edscholfilter max-w-[5rem] max-h-[2.5rem] md:max-w-[6rem] md:max-h-[2.925rem] xl:max-w-[8.5rem]"
                             alt="Client logo: SFD"
                         />
                     </div>

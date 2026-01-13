@@ -161,11 +161,11 @@ export default function Home() {
           <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
             <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
               <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                End-to-End Web Development
+                Smarter Learning for Modern Schools
               </h2>
 
               <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
-                <p>From strategy to launch, we build fast, secure, and scalable custom websites on WordPress, Shopify, and modern frameworks. Unlock your digital potential with Itnnovator as your technical partner.</p>
+                <p>Deliver engaging digital classrooms with a secure and scalable Learning Management System designed for schools. Manage courses, students, teachers, and progress—all in one platform.</p>
               </div>
 
               <a
@@ -173,7 +173,7 @@ export default function Home() {
                 target="_self"
                 className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
               >
-                <span> See Our Development Process </span>
+                <span> Explore Learning</span>
                 <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
                   <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
                     <use href="/webImages/icons.svg#arrow-right"></use>

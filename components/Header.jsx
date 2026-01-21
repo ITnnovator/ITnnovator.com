@@ -47,7 +47,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <nav className="hidden md:flex fixed h-[8rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: " 99;" }}>
+            <nav className="hidden md:flex fixed h-[8rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: 99 }}>
                 <ul className="flex justify-end text-normal text-lg">
                     <li className="px-5 relative">
                         <a

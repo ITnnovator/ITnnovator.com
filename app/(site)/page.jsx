@@ -9,16 +9,32 @@ import TypoAnimation from "@/components/TypoAnimation";
 
 export const dynamic = 'force-dynamic';
 
+// ... imports
+import HeroModel from '@/models/Hero';
+import dbConnect from '@/lib/db';
+
+async function getHeroData() {
+  await dbConnect();
+  // Fetch active hero, fallback to default if none
+  const hero = await HeroModel.findOne({ isActive: true }).sort({ createdAt: -1 });
+  if (!hero) {
+    return { type: 'video', url: '/webImages/pixel-intro-dark.mp4' };
+  }
+  return { type: hero.type, url: hero.url };
+}
+
 export default async function Home() {
   const services = await getServices();
   const cases = await getCases();
   const testimonials = await getTestimonials();
   const clients = await getClients();
+  const hero = await getHeroData();
 
   return (
     <main className="font-outfit antialiased text-white selection:bg-[#ff0033] selection:text-white pb-32">
-      {/* Video Banner */}
+      {/* Dynamic Hero Section */}
       <section className="js-animate-fadein js-hero-block flex items-end min-h-[calc(100svh-5rem)] py-[5.125rem] md:min-h-screen md:h-full md:pt-[6.5rem] md:pb-[8.5rem] lg:pb-[8.5rem] 2xl:pb-[14.5rem]">
+        {/* ... (existing content wrapper) ... */}
         <div className="js-hero-block--content relative w-[94%] wider:max-w-[90rem] wider:max-w-[90rem] px-5 xl:px-8 mx-auto">
           {/* Hero headline */}
           <h2
@@ -60,11 +76,17 @@ export default async function Home() {
           </div>
         </div>
 
+        {/* Dynamic Background Media */}
         <div className="js-hero-block--bg absolute inset-0 h-full w-full -z-10">
-          <video loop autoPlay muted playsInline className="object-cover object-center w-full h-full">
-            <source src="/webImages/pixel-intro-dark.mp4" type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
+          {hero.type === 'video' ? (
+            <video loop autoPlay muted playsInline className="object-cover object-center w-full h-full">
+              <source src={hero.url} type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          ) : (
+            <img src={hero.url} alt="Hero Banner" className="object-cover object-center w-full h-full" />
+          )}
+
           <div
             className="pointer-events-none overlay absolute inset-0"
             style={{ background: 'linear-gradient(to top, black, transparent)' }}

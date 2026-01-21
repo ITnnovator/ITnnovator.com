@@ -1,25 +1,18 @@
-import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: [true, "Please provide an email"],
+    required: [true, 'Please provide an email for this user.'],
     unique: true,
   },
   password: {
     type: String,
-    required: [true, "Please provide a password"],
-    select: false,
-  },
-  name: {
-    type: String,
-    required: [true, "Please provide a name"],
+    required: [true, 'Please provide a password for this user.'],
   },
   role: {
     type: String,
-    enum: ["admin", "editor"],
-    default: "admin",
+    default: 'admin',
   },
   createdAt: {
     type: Date,
@@ -27,19 +20,4 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-// Hash password before saving
-UserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-  next();
-});
-
-// Method to check password
-UserSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
-
-export default mongoose.models.User || mongoose.model("User", UserSchema);
+export default mongoose.models.User || mongoose.model('User', UserSchema);

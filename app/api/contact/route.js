@@ -1,9 +1,21 @@
 import nodemailer from "nodemailer";
+import dbConnect from "@/lib/db";
+import Contact from "@/models/Contact";
 
 export async function POST(req) {
   try {
     const formData = await req.json();
     const { name, email, phone, subject, message } = formData;
+
+    // Connect to DB and Save
+    await dbConnect();
+    await Contact.create({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    });
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",

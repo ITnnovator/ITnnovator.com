@@ -1,4 +1,4 @@
-// import '../globals.css';
+import '../globals.css';
 import "../../styles/main.css";
 import "../../styles/style.css";
 import Header from "../../components/Header";

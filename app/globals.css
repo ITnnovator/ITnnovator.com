@@ -28,8 +28,6 @@ body {
 
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -41,4 +39,15 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+/* =========================================
+   SCROLL ANIMATIONS (Disabled for immediate visibility)
+   ========================================= */
+
+.js-animate-fadein,
+.js-animate-fadeinup {
+  opacity: 1 !important;
+  transform: none !important;
 }

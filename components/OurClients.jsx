@@ -9,16 +9,17 @@ export default function OurClients({ clients = [] }) {
                 <div className="js-logo-ticker flex items-center gap-x-10 md:gap-y-20 opacity-0 md:gap-x-0 md:flex-wrap md:justify-center md:opacity-100">
                     {clients.length > 0 ? (
                         clients.map((client) => (
-                             <div key={client._id} className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%]">
+                            <div key={client._id} className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%]">
                                 <img
                                     src={client.logo}
                                     className="object-contain max-w-[5rem] max-h-[2.5rem] md:max-w-[6rem] md:max-h-[2.925rem] xl:max-w-[6.5rem]"
+                                    style={{ filter: 'brightness(0) invert(1)' }}
                                     alt={`Client logo: ${client.name}`}
                                 />
                             </div>
                         ))
                     ) : (
-                         <div className="text-white">No clients found.</div>
+                        <div className="text-white">No clients found.</div>
                     )}
                 </div>
             </div>

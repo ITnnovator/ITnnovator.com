@@ -2,24 +2,36 @@
 
 import NotFound from "@/app/not-found";
 import CTA from "@/components/CTA";
-import { CASES } from "@/data/casesData";
-import { use, useEffect } from "react"; 
+import { use, useEffect, useState } from "react";
+import { Loader2 } from 'lucide-react';
 
 export default function CaseDetail({ params }) {
   const { slug } = use(params);
+  const [caseData, setCaseData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const caseIndex = CASES.findIndex((c) => c.slug === slug);
-  const caseData = CASES[caseIndex];
-
-  if (!caseData) {
-    return <NotFound />;
-  }
-
-  // Prev / Next
-  const prevCase = CASES[caseIndex - 1] || null;
-  const nextCase = CASES[caseIndex + 1] || null;
-
+  // 1. Data Fetching Effect
   useEffect(() => {
+    async function fetchCase() {
+      try {
+        const res = await fetch(`/api/cases/${slug}`);
+        if (!res.ok) throw new Error("Not found");
+        const data = await res.json();
+        setCaseData(data);
+      } catch (e) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCase();
+  }, [slug]);
+
+  // 2. Visual Effects (Must be unconditional to satisfy Rules of Hooks)
+  useEffect(() => {
+    if (!caseData) return; // Guard clause: only run if data exists
+
     // helper: generate random dark color
     function randomColor() {
       const hue = Math.floor(Math.random() * 360); // any hue
@@ -30,43 +42,36 @@ export default function CaseDetail({ params }) {
 
     // helper: generate random light color
     function randomLightColor() {
-      const hue = Math.floor(Math.random() * 360); // any hue
-      const saturation = Math.floor(Math.random() * 30) + 70; // 70–100%
-      const lightness = Math.floor(Math.random() * 20) + 80; // 80–100% (light)
+      const hue = Math.floor(Math.random() * 360);
+      const saturation = Math.floor(Math.random() * 30) + 70;
+      const lightness = Math.floor(Math.random() * 20) + 80;
       return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-    }
-
-    // select all containers (your markup)
-    const caseContainers = document.querySelectorAll(".cases_container > div");
-    if (caseContainers.length > 0) {
-      caseContainers.forEach((el) => {
-        el.style.background = randomColor();
-      });
     }
 
     const caseInnerColor = document.querySelector(".case_inner_color");
     if (caseInnerColor) {
       caseInnerColor.style.background = randomLightColor();
     }
-  }, []); // run once on mount
+  }, [caseData]);
 
   useEffect(() => {
+    if (!caseData) return; // Guard clause
+
     const SPEED = 42; // px/sec — tweak to taste
     const imgs = Array.from(document.querySelectorAll('img[data-auto-scroll]'));
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     function setup(img) {
-      const vp = img.parentElement; // the viewport (overflow hidden)
+      if (!img.parentElement) return;
+      const vp = img.parentElement;
       const scale = img.clientWidth / img.naturalWidth || 1;
-      const rendered = img.naturalHeight * scale; // rendered pixel height
+      const rendered = img.naturalHeight * scale;
       const distance = Math.max(0, rendered - vp.clientHeight);
       const duration = distance > 0 ? distance / SPEED : 0;
 
-      // push vars to CSS animation
       img.style.setProperty('--bmDist', distance + 'px');
       img.style.setProperty('--bmDur', duration + 's');
 
-      // retrigger animation after variable changes
       img.style.animation = 'none';
       void img.offsetWidth; // reflow
       img.style.animation = '';
@@ -85,11 +90,14 @@ export default function CaseDetail({ params }) {
     });
 
     window.addEventListener('resize', setupAll);
-
     return () => {
       window.removeEventListener('resize', setupAll);
     };
-  }, []);
+  }, [caseData]);
+
+  // 3. Conditional Rendering (JSX)
+  if (loading) return <div className="h-screen flex items-center justify-center bg-black text-white"><Loader2 className="animate-spin w-10 h-10 text-blue-500" /></div>;
+  if (error || !caseData) return <NotFound />;
 
   return (
     <>
@@ -111,7 +119,7 @@ export default function CaseDetail({ params }) {
               width="1700"
               height="697"
               src={caseData.hero}
-              className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-y-1/2 -translate-x-1/2 object-cover"
+              className="absolute min-w-full min-h-full object-cover"
               alt={caseData.title}
               loading="eager"
               decoding="async"
@@ -132,38 +140,31 @@ export default function CaseDetail({ params }) {
         <div className="flex flex-col mx-auto md:flex-row justify-items-center px-6 lg:px-8 xl:px-12 2xl:px-8 gap-x-8 text-white max-w-7xl">
           <div className="md:w-[calc(66.6666%_-_(1.5rem))] js-animate-fadeinup">
             <p className="font-bold text-white text-2xl md:text-3xl xl:text-4xl !leading-snug w-full max-w-xl mb-6 md:mb-8">
-              {caseData.sectionone.heading}
+              {caseData.sectionone?.heading}
             </p>
             <div className="prose max-w-xl text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit">
-              <p>{caseData.sectionone.text}</p>
+              <p>{caseData.sectionone?.text}</p>
             </div>
           </div>
 
           <aside className="sidebar mt-8 md:mt-[0.2rem] md:w-[calc(33.3333%_-_(1.5rem))] max-w-sm js-animate-fadeinup">
             <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white prose-a:text-inherit prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit prose-h2:text-inherit prose-h2:text-3xl prose-h2:leading-tight md:prose-h2:text-[3.25rem] md:prose-h2:leading-[1.23] prose-h2:font-bold prose-h2:mb-[0.5em] prose-h3:text-inherit prose-h3:text-2xl prose-h3:leading-tight md:prose-h3:text-[2.18rem] md:prose-h3:leading-[1.4] prose-h3:font-bold prose-h3:mb-[0.9em] prose-h4:text-inherit prose-h4:text-xl prose-h4:leading-tight md:prose-h4:text-2xl md:prose-h4:leading-tight prose-h4:font-bold prose-h4:mb-0 prose-h5:text-inherit prose-h5:text-lg prose-h5:leading-tight md:prose-h5:text-xl md:prose-h5:leading-tight prose-h5:font-bold prose-h5:mb-[0.9em] prose-h6:text-inherit prose-h6:text-base prose-h6:leading-tight md:prose-h6:text-lg md:prose-h6:leading-tight prose-h6:font-bold prose-h6:mb-[0.9em]">
-              <h4>{caseData.Sidebar[0].title}</h4>
-              <p>{caseData.Sidebar[0].text}</p>
-              <h4>{caseData.Sidebar[1].title}</h4>
-              <p>{caseData.Sidebar[1].year}</p>
-              <h4>{caseData.Sidebar[2].title}</h4>
+              <h4>Client</h4>
+              <p>{caseData.client}</p>
+              <h4>Year</h4>
+              <p>{caseData.year}</p>
+              <h4>Services</h4>
               <div>
-                <div>{caseData.sidebarr.vad[0]}</div>
-                <div>
-                  {caseData.sidebarr.vad[1]}
-                  <br />
-                  {caseData.sidebarr.vad[2]}
-                  <br />
-                  {caseData.sidebarr.vad[3]}
-                  <br />
-                  {caseData.sidebarr.vad[4]}
-                  <br />
-                  {caseData.sidebarr.vad[5]}
-                  <br />
-                  {caseData.sidebarr.vad[6]}
-                </div>
+                {caseData.services && caseData.services.length > 0 ? (
+                  caseData.services.map((svc, i) => (
+                    <div key={i}>{svc}</div>
+                  ))
+                ) : (
+                  <div>N/A</div>
+                )}
               </div>
-              <h4>{caseData.Sidebar[3].title}</h4>
-              <p><a href={caseData.Sidebar[3].link} target="_blank" rel="noopener">{caseData.Sidebar[3].link}</a></p>
+              <h4>Visit</h4>
+              <p><a href={caseData.link} target="_blank" rel="noopener">{caseData.link}</a></p>
             </div>
           </aside>
         </div>
@@ -178,7 +179,7 @@ export default function CaseDetail({ params }) {
           <img
             width="1200"
             height="1247"
-            src={caseData.sectiontwo.img}
+            src={caseData.sectiontwo?.img}
             className="w-full h-auto rounded-xl"
             alt={caseData.title}
             decoding="async"
@@ -186,10 +187,10 @@ export default function CaseDetail({ params }) {
         </picture>
         <div className="w-full max-w-xl mx-auto px-6 xl:px-8 js-animate-fadeinup">
           <h3 className="mb-[0.7em] text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-black">
-            {caseData.sectiontwo.heading}
+            {caseData.sectiontwo?.heading}
           </h3>
           <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-black prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit">
-            <p>{caseData.sectiontwo.text}</p>
+            <p>{caseData.sectiontwo?.text}</p>
           </div>
         </div>
       </section>
@@ -200,12 +201,12 @@ export default function CaseDetail({ params }) {
           <div className="bm-inner py-6">
             <figure
               className="bm-phone block z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden w-full"
-              style={{ position: "relative;" }}
+              style={{ position: "relative" }}
             >
               <div className="bm-phone-notch"></div>
               <div className="bm-viewport mobile">
                 <img
-                  src={caseData.sectionthree.img}
+                  src={caseData.sectionthree?.img}
                   alt={caseData.title}
                   className="bm-img"
                   data-auto-scroll
@@ -218,10 +219,10 @@ export default function CaseDetail({ params }) {
           <div className="py-6 md:py-16 mx-auto w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
             <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-black">
               <h3 className="0 text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-black">
-                Responsiv design
+                {caseData.sectionthree?.heading || "Responsive design"}
               </h3>
               <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-black prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit">
-                {caseData.sectionthree.text}
+                <p>{caseData.sectionthree?.text}</p>
               </div>
             </div>
           </div>
@@ -231,29 +232,12 @@ export default function CaseDetail({ params }) {
       {/* CTA */}
       <CTA />
 
-      {/* Prev / Next */}
+      {/* Prev / Next (Hidden for dynamic for now, or implement fetch logic) */}
       <section className="flex flex-col w-full px-6 mx-auto mb-12 text-white md:flex-row justify-items-center max-w-7xl xl:px-8 gap-x-8 md:mb-16 xl:mb-24">
         <div className="flex flex-col md:flex-row gap-4 w-full pt-3 mt-10">
-          {prevCase && (
-            <a
-              href={`/cases/${prevCase.slug}`}
-              className="flex items-center justify-center border border-white/40 text-base md:text-lg py-6 pr-6 xl:pr-8 md:py-8 lg:py-12 w-full md:w-[calc(33.3333%_-_(2rem/3))] group hover:text-malibu hover:border-malibu/70 transition-colors"
-            >
-              <svg
-                width="15"
-                height="15"
-                className="mr-4 rotate-180"
-                aria-label="false"
-              >
-                <use href="/webImages/icons.svg#arrow-right"></use>
-              </svg>
-              <span>Föregående Case</span>
-            </a>
-          )}
-
           <a
             href="/cases"
-            className="flex items-center justify-center border border-white/40 text-base md:text-lg py-6 md:py-8 lg:py-12 w-full md:w-[calc(33.3333%_-_(2rem/3))] hover:text-malibu hover:border-malibu/70 transition-colors"
+            className="flex items-center justify-center border border-white/40 text-base md:text-lg py-6 md:py-8 lg:py-12 w-full md:w-[calc(33.3333%_-_(2rem/3))] hover:text-malibu hover:border-malibu/70 transition-colors mx-auto"
           >
             <svg
               width="15"
@@ -265,18 +249,6 @@ export default function CaseDetail({ params }) {
             </svg>
             <span>All Case</span>
           </a>
-
-          {nextCase && (
-            <a
-              href={`/cases/${nextCase.slug}`}
-              className="flex items-center justify-center border border-white/40 text-base md:text-lg py-6 pl-6 xl:pl-8 md:py-8 lg:py-12 w-full md:w-[calc(33.3333%_-_(2rem/3))] group hover:text-malibu hover:border-malibu/70 transition-colors"
-            >
-              <span>Nästa Case</span>
-              <svg width="15" height="15" className="ml-4" aria-label="false">
-                <use href="/webImages/icons.svg#arrow-right"></use>
-              </svg>
-            </a>
-          )}
         </div>
       </section>
     </>

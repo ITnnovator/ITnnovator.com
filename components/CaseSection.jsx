@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState, useCallback } from "react";
 import Link from "next/link";
-import { CASES, CATEGORIES } from "@/data/casesData";
+import { CATEGORIES } from "@/data/casesData";
+import { Loader2 } from "lucide-react";
 
 const HASH_PREFIX = "#";
 const DEFAULT_HASH = "#cases_all";
@@ -20,12 +21,31 @@ function toHashFromCategory(cat) {
 }
 
 export default function CaseSection() {
+    const [cases, setCases] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     // derive initial from current hash
     const [activeCat, setActiveCat] = useState(() =>
         typeof window === "undefined"
             ? "all"
             : normalizeCategoryId(window.location.hash || DEFAULT_HASH)
     );
+
+    // Fetch Cases
+    useEffect(() => {
+        async function fetchCases() {
+            try {
+                const res = await fetch('/api/cases');
+                const data = await res.json();
+                setCases(data);
+            } catch (error) {
+                console.error("Failed to fetch cases", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchCases();
+    }, []);
 
     // keep state in sync with hash changes (back/forward)
     useEffect(() => {
@@ -44,9 +64,12 @@ export default function CaseSection() {
     }, []);
 
     const filtered = useMemo(() => {
-        if (activeCat === "all") return CASES;
-        return CASES.filter((c) => c.categories.includes(activeCat));
-    }, [activeCat]);
+        if (!cases) return [];
+        if (activeCat === "all") return cases;
+        return cases.filter((c) => c.categories && c.categories.includes(activeCat));
+    }, [activeCat, cases]);
+
+    if (loading) return <div className="py-20 flex justify-center"><Loader2 className="animate-spin text-white" /></div>;
 
     return (
         <section className="case w-full pb-14 lg:pb-20 xl:pb-32 js-case-filtering">
@@ -106,6 +129,9 @@ export default function CaseSection() {
 }
 
 function CaseCard({ item }) {
+    // Ensure fallback for topImg from imageDesktop if needed
+    const coverImg = item.imageDesktop || item.topImg;
+
     return (
         <div className="flex flex-col">
             <a
@@ -114,7 +140,7 @@ function CaseCard({ item }) {
             >
                 {/* Background/cover image */}
                 <img
-                    src={item.topImg}
+                    src={coverImg}
                     width={868}
                     height={640}
                     className="absolute h-full w-full left-0 top-0 object-cover transition duration-500 blur-[0px] grayscale opacity-10 group-hover/img:opacity-20 group-hover/img:grayscale-0 group-hover/img:blur-[0px] transform scale-[1.1] group-hover/img:scale-[1.3]"
@@ -129,11 +155,14 @@ function CaseCard({ item }) {
                         {item.title}
                     </h3>
                     <ul className="flex flex-wrap font-bold text-[0.8125rem]" style={{ color: "#829dff" }}>
-                        {item.tags.map((t) => (
+                        {item.categories && item.categories.map((t) => (
                             <li className="mr-3" key={t}>
                                 {t}
                             </li>
                         ))}
+                        {/* Fallback for tags if categories not present in existing data format? 
+                            The model logic uses categories.
+                        */}
                     </ul>
                 </div>
 

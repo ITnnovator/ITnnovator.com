@@ -17,11 +17,11 @@ const ServiceSchema = new mongoose.Schema({
     required: [true, 'Please provide a description'],
   },
   icon: {
-    type: String,
+    type: String, // SVG or PNG icon
     required: [true, 'Please provide an icon path'],
   },
   image: {
-    type: String,
+    type: String, // Main Cover Image
     required: [true, 'Please provide an image path'],
   },
   points: [{
@@ -44,7 +44,7 @@ const ServiceSchema = new mongoose.Schema({
   },
 });
 
-ServiceSchema.pre('save', function(next) {
+ServiceSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   next();
 });

@@ -1,8 +1,8 @@
-// import './globals.css';
-import "../styles/main.css";
-import "../styles/style.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+// import '../globals.css';
+import "../../styles/main.css";
+import "../../styles/style.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Script from "next/script";
 import SparkCursor from "@/components/SparkCursor";
 import { Toaster } from "react-hot-toast";
@@ -45,7 +45,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function SiteLayout({ children }) {
 
   return (
     <html lang="en">

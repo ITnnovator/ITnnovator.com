@@ -1,14 +1,22 @@
 import CTA from "@/components/CTA";
 import HomeCases from "@/components/HomeCases";
 import OurClients from "@/components/OurClients";
+import { getServices, getCases, getTestimonials, getClients } from '@/app/lib/data';
 import OurOffer from "@/components/OurOffer";
 import OurServices from "@/components/OurServices";
 import Testimonial from "@/components/Testimonial";
 import TypoAnimation from "@/components/TypoAnimation";
 
-export default function Home() {
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const services = await getServices();
+  const cases = await getCases();
+  const testimonials = await getTestimonials();
+  const clients = await getClients();
+
   return (
-    <>
+    <main className="font-outfit antialiased text-white selection:bg-[#ff0033] selection:text-white pb-32">
       {/* Video Banner */}
       <section className="js-animate-fadein js-hero-block flex items-end min-h-[calc(100svh-5rem)] py-[5.125rem] md:min-h-screen md:h-full md:pt-[6.5rem] md:pb-[8.5rem] lg:pb-[8.5rem] 2xl:pb-[14.5rem]">
         <div className="js-hero-block--content relative w-[94%] wider:max-w-[90rem] wider:max-w-[90rem] px-5 xl:px-8 mx-auto">
@@ -135,13 +143,13 @@ export default function Home() {
       </section>
 
       {/* Cases */}
-      <HomeCases />
+      <HomeCases cases={cases} />
 
       {/* Our Clients */}
-      <OurClients />
+      <OurClients clients={clients} />
 
       {/* Testimonial */}
-      <Testimonial />
+      <Testimonial testimonials={testimonials} />
 
       {/* Everything in Web development */}
       <section className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
@@ -360,8 +368,8 @@ export default function Home() {
       <CTA />
 
       {/* Our services */}
-      <OurServices />
+      <OurServices services={services} />
 
-    </>
+    </main>
   );
 }

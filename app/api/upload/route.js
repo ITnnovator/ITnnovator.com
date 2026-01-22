@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
-import { existsSync, mkdirSync } from 'fs';
+import { put } from '@vercel/blob';
 
 export async function POST(req) {
     try {
@@ -12,26 +10,21 @@ export async function POST(req) {
             return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
         }
 
-        const bytes = await file.arrayBuffer();
-        const buffer = Buffer.from(bytes);
-
-        // Ensure uploads directory exists
-        const uploadDir = join(process.cwd(), 'public/uploads');
-        if (!existsSync(uploadDir)) {
-            mkdirSync(uploadDir, { recursive: true });
-        }
-
-        // Generate unique filename to prevent browser caching issues on update
+        // Generate unique filename
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         const filename = uniqueSuffix + '-' + file.name.replace(/\s+/g, '-');
-        const path = join(uploadDir, filename);
 
-        await writeFile(path, buffer);
-        console.log(`Uploaded file to ${path}`);
+        // Upload to Vercel Blob
+        const blob = await put(filename, file, {
+            access: 'public',
+            token: process.env.itnnovator_READ_WRITE_TOKEN // Using the specific env var from your .env
+        });
+
+        console.log(`Uploaded file to ${blob.url}`);
 
         return NextResponse.json({
             success: true,
-            url: `/uploads/${filename}`
+            url: blob.url
         });
 
     } catch (error) {

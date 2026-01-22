@@ -80,14 +80,14 @@ export default function HomeCases({ cases = [] }) {
                                                             <div className="chrome-icon"></div>
                                                         </div>
                                                         <div className="bm-viewport desktop">
-                                                            <img src={item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                            <img src={item.imageDesktop || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                         </div>
                                                     </figure>
                                                     {/* Mobile */}
                                                     <figure className="bm-phone">
                                                         <div className="bm-phone-notch"></div>
                                                         <div className="bm-viewport mobile">
-                                                            <img src={item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                            <img src={item.imageMobile || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                         </div>
                                                     </figure>
                                                 </div>
@@ -144,14 +144,14 @@ export default function HomeCases({ cases = [] }) {
                                                         <div className="chrome-icon"></div>
                                                     </div>
                                                     <div className="bm-viewport desktop">
-                                                        <img src={item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                        <img src={item.imageDesktop || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                     </div>
                                                 </figure>
                                                 {/* Mobile */}
                                                 <figure className="bm-phone">
                                                     <div className="bm-phone-notch"></div>
                                                     <div className="bm-viewport mobile">
-                                                        <img src={item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                        <img src={item.imageMobile || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                     </div>
                                                 </figure>
                                             </div>
@@ -184,7 +184,7 @@ export default function HomeCases({ cases = [] }) {
                                 </div>
                             ))
                         ) : (
-                             <div className="p-10 text-white md:hidden">No cases found.</div>
+                            <div className="p-10 text-white md:hidden">No cases found.</div>
                         )}
                     </div>
                 </div>

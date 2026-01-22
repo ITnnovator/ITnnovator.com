@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
-import { put } from '@vercel/blob';
+import { writeFile } from 'fs/promises';
+import { join } from 'path';
+import { existsSync, mkdirSync } from 'fs';
 
 export async function POST(req) {
     try {
@@ -14,18 +16,42 @@ export async function POST(req) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         const filename = uniqueSuffix + '-' + file.name.replace(/\s+/g, '-');
 
-        // Upload to Vercel Blob
-        const blob = await put(filename, file, {
-            access: 'public',
-            token: process.env.itnnovator_READ_WRITE_TOKEN // Using the specific env var from your .env
-        });
+        if (process.env.VERCEL) {
+            // Vercel Environment: Use Blob Storage
+            // Dynamically import to separate build dependencies if needed
+            const { put } = await import('@vercel/blob');
 
-        console.log(`Uploaded file to ${blob.url}`);
+            const blob = await put(filename, file, {
+                access: 'public',
+                token: process.env.itnnovator_READ_WRITE_TOKEN
+            });
 
-        return NextResponse.json({
-            success: true,
-            url: blob.url
-        });
+            console.log(`Uploaded to Blob: ${blob.url}`);
+
+            return NextResponse.json({
+                success: true,
+                url: blob.url
+            });
+        } else {
+            // Local Environment: Use Filesystem
+            const bytes = await file.arrayBuffer();
+            const buffer = Buffer.from(bytes);
+
+            // Ensure uploads directory exists
+            const uploadDir = join(process.cwd(), 'public/uploads');
+            if (!existsSync(uploadDir)) {
+                mkdirSync(uploadDir, { recursive: true });
+            }
+
+            const path = join(uploadDir, filename);
+            await writeFile(path, buffer);
+            console.log(`Uploaded locally to ${path}`);
+
+            return NextResponse.json({
+                success: true,
+                url: `/uploads/${filename}`
+            });
+        }
 
     } catch (error) {
         console.error('Upload Error:', error);

@@ -2,8 +2,17 @@ import CaseSection from "@/components/CaseSection";
 import CTA from "@/components/CTA";
 import OurServices from "@/components/OurServices";
 import Link from "next/link";
+import dbConnect from "@/lib/db";
+import Case from "@/models/Case";
 
-export default function cases() {
+export const revalidate = 0;
+
+export default async function CasesPage() {
+  await dbConnect();
+  const casesData = await Case.find({}).sort({ createdAt: -1 }).lean();
+  // Serialize for Client Component
+  const cases = JSON.parse(JSON.stringify(casesData));
+
   return (
     <>
       {/* Hero Section */}
@@ -25,7 +34,7 @@ export default function cases() {
       </section>
 
       {/* Case Section */}
-      <CaseSection />
+      <CaseSection cases={cases} />
 
       {/* Contact Section */}
       <section className="pb-14 lg:pb-20 xl:pb-32">
@@ -48,137 +57,12 @@ export default function cases() {
       {/* CTA */}
       <CTA />
 
-      {/* Blog Section */}
+      {/* Blog Section (Hidden as per original) */}
       <section className="js-animate-fadeinup max-w-7xl mx-auto lg:rounded-[1.25rem] px-6 xl:px-8 pb-12 md:pb-16 py-14 lg:py-20 xl:py-32 hidden">
         <h2 className="mb-[0.7em] lg:mb-[0.9em] text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
           Senaste från vår blogg
         </h2>
-        <div className="sm:flex sm:flex-wrap sm:-mx-3 md:-mx-4 lg:-mx-5 xl:-mx-[1.375rem]">
-          <div className="sm:w-1/2 lg:w-1/3 sm:px-3 md:px-4 lg:px-5 xl:px-[1.375rem] mb-10">
-            <div className="sm:max-w-[23.5rem">
-              <a href="#">
-                <img
-                  width="374"
-                  height="304"
-                  src="/webImages/cases/pigment-insights-juni-juli-2025-hero-banner-v1-374x304.webp"
-                  className="rounded-[1.25rem] w-full hover:opacity-60 transition-opacity duration-300 ease-linear wp-post-image"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <div className="pl-5 pt-5">
-                <ul
-                  className="flex flex-wrap font-bold text-[0.8rem] mb-2"
-                  style={{ color: "#ffeed4" }}
-                >
-                  <li className="mr-3 uppercase">
-                    <a
-                      className="hover:underline"
-                      href="#"
-                    >
-                      Insights
-                    </a>
-                  </li>
-                </ul>
-                <h4 className="mb-[0.7em] text-xl md:text-2xl leading-tight md:leading-tight font-bold text-white">
-                  <a href="#">
-                    Pigment Insights &#8211; Juli/Augusti 2025
-                  </a>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div className="sm:w-1/2 lg:w-1/3 sm:px-3 md:px-4 lg:px-5 xl:px-[1.375rem] mb-10">
-            <div className="sm:max-w-[23.5rem">
-              <a href="#">
-                <img
-                  width="374"
-                  height="304"
-                  src="/webImages/cases/figma-payload-gar-samman-374x304.webp"
-                  className="rounded-[1.25rem] w-full hover:opacity-60 transition-opacity duration-300 ease-linear wp-post-image"
-                  alt="Figma och Payload går samman"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <div className="pl-5 pt-5">
-                <ul
-                  className="flex flex-wrap font-bold text-[0.8rem] mb-2"
-                  style={{ color: "#ffeed4" }}
-                >
-                  <li className="mr-3 uppercase">
-                    <a
-                      className="hover:underline"
-                      href="#"
-                    >
-                      Teknik
-                    </a>
-                  </li>
-                </ul>
-                <h4 className="mb-[0.7em] text-xl md:text-2xl leading-tight md:leading-tight font-bold text-white">
-                  <a href="#">
-                    Payload blir en del av Figma
-                  </a>
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div className="sm:w-1/2 lg:w-1/3 sm:px-3 md:px-4 lg:px-5 xl:px-[1.375rem] mb-10">
-            <div className="sm:max-w-[23.5rem">
-              <a href="#">
-                <img
-                  width="374"
-                  height="304"
-                  src="/webImages/cases/payload-cms-headless-374x304.webp"
-                  className="rounded-[1.25rem] w-full hover:opacity-60 transition-opacity duration-300 ease-linear wp-post-image"
-                  alt="Payload Headless CMS"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <div className="pl-5 pt-5">
-                <ul
-                  className="flex flex-wrap font-bold text-[0.8rem] mb-2"
-                  style={{ color: "#ffeed4" }}
-                >
-                  <li className="mr-3 uppercase">
-                    <a
-                      className="hover:underline"
-                      href="#"
-                    >
-                      Teknik
-                    </a>
-                  </li>
-                </ul>
-                <h4 className="mb-[0.7em] text-xl md:text-2xl leading-tight md:leading-tight font-bold text-white">
-                  <a href="#">
-                    Hittat: Ett rikitgt bra Headless CMS
-                  </a>
-                </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="text-center">
-          <a
-            href="#"
-            target="_self"
-            className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
-          >
-            <span> See all Cases </span>
-            <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-              <svg
-                className="inline-block"
-                preserveAspectRatio="none"
-                width="22"
-                height="15"
-                aria-hidden="true"
-              >
-                <use href="/webImages/icons.svg#arrow-right"></use>
-              </svg>
-            </span>
-          </a>
-        </div>
+        {/* ... (Blog content hidden) ... */}
       </section>
 
       {/* Our services */}

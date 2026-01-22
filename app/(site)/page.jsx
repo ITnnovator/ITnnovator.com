@@ -38,10 +38,10 @@ export default async function Home() {
         <div className="js-hero-block--content relative w-[94%] wider:max-w-[90rem] wider:max-w-[90rem] px-5 xl:px-8 mx-auto">
           {/* Hero headline */}
           <h2
-            className="w-full leading-none tracking-tight text-[4.375rem] font-[900] mb-4 -ml-[4px] md:mb-6 md:text-[5rem] lg:[font-size:_clamp(16px,calc(12vw),15.5rem)] lg:-ml-[9px]"
+            className="w-full leading-none tracking-tight text-[4.375rem] font-[800] mb-4 opacity-70 -ml-[4px] md:mb-6 md:text-[5rem] lg:[font-size:_clamp(16px,calc(12vw),15.5rem)] lg:-ml-[9px]"
             style={{ mixBlendMode: "difference" }}
           >
-            <span className="bg-gradient-to-t from-[#FFE99A] to-[#A1BDE7] bg-clip-text text-transparent mix-blend-difference sm:whitespace-nowrap [&_.typed-cursor]:font-normal [&_.typed-cursor.typed-cursor--blink]:text-[0]">
+            <span className="bg-gradient-to-t from-[#FFE99A] to-[#A1BDE7] bg-clip-text mix-blend-difference sm:whitespace-nowrap [&_.typed-cursor]:font-normal [&_.typed-cursor.typed-cursor--blink]:text-[0]">
               Dare to <br className="block sm:hidden" />
               <TypoAnimation />
             </span>

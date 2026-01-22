@@ -23,14 +23,15 @@ export async function POST(request) {
 
     await dbConnect();
     const body = await request.json();
-    
+
     if (!body.name || !body.quote) {
-        return NextResponse.json({ error: 'Name and Quote are required' }, { status: 400 });
+      return NextResponse.json({ error: 'Name and Quote are required' }, { status: 400 });
     }
 
     const testimonial = await Testimonial.create(body);
     return NextResponse.json(testimonial, { status: 201 });
   } catch (error) {
+    console.error("Testimonial Create Error:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

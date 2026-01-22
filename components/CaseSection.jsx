@@ -20,9 +20,9 @@ function toHashFromCategory(cat) {
     return cat === "all" ? "#cases_all" : `#cases_${cat}`;
 }
 
-export default function CaseSection() {
-    const [cases, setCases] = useState([]);
-    const [loading, setLoading] = useState(true);
+export default function CaseSection({ cases: initialCases = [] }) {
+    const [cases, setCases] = useState(initialCases);
+    const [loading, setLoading] = useState(false);
 
     // derive initial from current hash
     const [activeCat, setActiveCat] = useState(() =>
@@ -31,21 +31,7 @@ export default function CaseSection() {
             : normalizeCategoryId(window.location.hash || DEFAULT_HASH)
     );
 
-    // Fetch Cases
-    useEffect(() => {
-        async function fetchCases() {
-            try {
-                const res = await fetch('/api/cases');
-                const data = await res.json();
-                setCases(data);
-            } catch (error) {
-                console.error("Failed to fetch cases", error);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchCases();
-    }, []);
+    // No client-side fetch needed if data is passed from server
 
     // keep state in sync with hash changes (back/forward)
     useEffect(() => {

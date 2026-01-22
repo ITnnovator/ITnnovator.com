@@ -1,8 +1,15 @@
 import CTA from "@/components/CTA";
 import OurClients from "@/components/OurClients";
 import Link from "next/link";
+import dbConnect from "@/lib/db";
+import Service from "@/models/Service";
 
-export default function Service() {
+export const revalidate = 0; // Ensure dynamic data fetching
+
+export default async function ServicePage() {
+  await dbConnect();
+  const services = await Service.find({}).sort({ createdAt: -1 }).lean();
+
   return (
     <>
       {/*  */}
@@ -51,7 +58,7 @@ export default function Service() {
                 height="810"
                 src="/webImages/services-hero-750x810.jpg"
                 className="w-full h-full lg:h-auto object-cover"
-                alt="Itnnovator Digital Services - Web development, SEO, e-commerce, and growth marketing solutions"
+                alt="Itnnovator Digital Services"
                 loading="eager"
                 decoding="async"
                 sizes="(max-width: 750px) 100vw, 750px"
@@ -66,493 +73,66 @@ export default function Service() {
       {/* Services grid */}
       <section className="w-full py-14 lg:py-20 xl:py-32">
         <div className="max-w-7xl px-5 xl:px-8 mx-auto">
-          <ul className="w-full grid gap-12 sm:grid-cols-2 md:grid-cols-3">
-            {/* Strategy */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="32"
-                height="32"
-                src="/webImages/services/analys.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Strategy – In-depth analysis & planning"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/strategy">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Strategy
-                </h3>
-              </a>
+          {services.length === 0 ? (
+             <div className="text-white text-center text-xl">No services found. Please add services in the admin panel.</div>
+          ) : (
+            <ul className="w-full grid gap-12 sm:grid-cols-2 md:grid-cols-3">
+              {services.map((service) => (
+                <li key={service._id} className="mb-6 md:mb-20">
+                  {/* Icon */}
+                  {service.icon && (
+                    <img
+                      width="32"
+                      height="32"
+                      src={service.icon}
+                      className="w-6 sm:w-[2.25rem] mb-6 object-contain"
+                      alt={`${service.title} icon`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  )}
+                  
+                  {/* Title Link */}
+                  <a className="js-hover-circle-animation" target="_self" href={`/services/${service.slug}`}>
+                    <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
+                      {service.title}
+                    </h3>
+                  </a>
 
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                In-depth analysis and planning that turn business goals into an actionable roadmap. We prioritize high-impact work using market research, analytics, and technical audits.
-              </div>
+                  {/* Description */}
+                  <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 line-clamp-3">
+                    {service.description}
+                  </div>
 
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Market & competitor research
+                  {/* Features Bullets */}
+                  {service.features && service.features.length > 0 && (
+                    <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
+                      {service.features.slice(0, 3).map((feature, i) => (
+                        <li key={i} className="flex font-bold mb-3 text-base md:text-lg">
+                          <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
+                            <use href="/webImages/icons.svg#ticker"></use>
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Read More Link */}
+                  <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
+                    <a href={`/services/${service.slug}`} target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
+                      <span>Explore {service.title}</span>
+                      <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
+                        <svg className="inline-block" width="22" height="15" aria-hidden="true">
+                          <use href="/webImages/icons.svg#arrow-right"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
                 </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Analytics & KPI framework
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Technical & SEO audit
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/strategy" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Explore Strategy</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* Web Development */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="35"
-                height="35"
-                src="/webImages/services/webbutveckling.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Web Development – Custom website development"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/web-development">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Web Development
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Custom website development built for speed, security, and SEO. We deliver clean architecture, intuitive CMS workflows, and a flawless experience on every device.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Frontend development
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Backend & APIs
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  CMS & headless
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/web-development" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Explore Development</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* Product Design */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="35"
-                height="35"
-                src="/webImages/services/uiuxdesign.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Product Design – Intuitive UX & UI design"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/product-design">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Product Design
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Intuitive UX and polished UI that turn complex workflows into simple, conversion-focused experiences—validated with research and usability testing.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Wireframing & prototyping
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Design systems
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Usability testing
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/product-design" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Discover Product Design</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* Brand Systems */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="35"
-                height="35"
-                src="/webImages/services/branding.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Brand Systems – Scalable logos & visual identity"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/brand-systems">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Brand Systems
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Scalable logo systems, color, type, and guidelines that keep your brand consistent across web, mobile, and print—built digital-first.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Brand strategy
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Visual identity system
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" viewBox="0 0 19 19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Brand guidelines
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/brand-systems" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>View Brand Systems</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* E-commerce */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="34"
-                height="34"
-                src="/webImages/services/ecommerce.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator E-commerce – Online store development"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/ecommerce">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  E-commerce
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Online store development that’s fast, secure, and conversion-focused. We streamline product discovery, checkout, and integrations to grow revenue.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  WooCommerce / Shopify
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Custom commerce platforms
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Conversion optimization
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/ecommerce" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>View E-commerce</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* SEO */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="35"
-                height="35"
-                src="/webImages/services/seo.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator SEO – Search engine optimization"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/seo">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  SEO
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Search engine optimization that improves crawl health, targets intent-led keywords, and builds authority for sustainable organic growth.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Technical SEO audit
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Keyword strategy
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  On-page & off-page SEO
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/seo" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Learn About SEO</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* Content */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="32"
-                height="32"
-                src="/webImages/services/content.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Content – Strategic storytelling & copywriting"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/content">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Content
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Strategic storytelling and SEO copywriting that build authority and convert—delivered with a consistent voice across web, email, and ads.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Content planning
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  SEO content creation
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Multi-channel content
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/content" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Explore Content</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* Growth */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="35"
-                height="36"
-                src="/webImages/services/growth-1.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Growth – Data-driven marketing & leads"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/growth">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Growth
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Data-driven marketing that scales traffic, leads, and revenue. We combine PPC, paid social, and CRO with clear attribution and reporting.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w/full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  PPC & paid social
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  CRO & experiments
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Attribution & dashboards
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/growth" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Explore Growth</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-
-            {/* Management */}
-            <li className="mb-6 md:mb-20">
-              <img
-                width="32"
-                height="32"
-                src="/webImages/services/forvaltning.svg"
-                className="w-6 sm:w-[2.25rem] mb-6"
-                alt="Itnnovator Management – Ongoing support & management"
-                loading="lazy"
-                decoding="async"
-              />
-              <a className="js-hover-circle-animation" target="_self" href="/services/management">
-                <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
-                  Management
-                </h3>
-              </a>
-
-              <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80">
-                Ongoing support and management that keep your site fast, secure, and reliable. We handle updates, uptime, backups, and incident response.
-              </div>
-
-              <ul className="relative mt-6 after:absolute after:content-[''] after:w-full after:h-[6rem] after:bg-gradient-to-t from-black after:bottom-0">
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Technical maintenance
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Security & backups
-                </li>
-                <li className="flex font-bold mb-3 text-base md:text-lg">
-                  <svg className="inline-block min-w-[1.2rem] mt-[0.3rem] mr-4" width="19" height="19" aria-hidden="true">
-                    <use href="/webImages/icons.svg#ticker"></use>
-                  </svg>
-                  Priority support
-                </li>
-              </ul>
-
-              <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                <a href="/services/management" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                  <span>Learn About Management</span>
-                  <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                    <svg className="inline-block" width="22" height="15" aria-hidden="true">
-                      <use href="/webImages/icons.svg#arrow-right"></use>
-                    </svg>
-                  </span>
-                </a>
-              </div>
-            </li>
-          </ul>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
@@ -565,7 +145,7 @@ export default function Service() {
               src="/webImages/pixelhenrik.jpg"
               width={2000}
               height={1137}
-              alt="Itnnovator Digital Solutions Team - Experts in web development, SEO, and digital growth strategies"
+              alt="Itnnovator Digital Solutions Team"
               className="w-full h-full object-cover aspect-[2000/1137]"
               loading="eager"
               decoding="async"

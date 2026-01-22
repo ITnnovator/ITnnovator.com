@@ -15,7 +15,7 @@ export default function OurServices({ services = [] }) {
                         >
                             <div className="flex items-center w-full px-[7%] md:px-[10%]">
                                 <div className="js-hover-circle-animation flex flex-row items-center justify-center">
-                                    {service.name}
+                                    {service.title}
                                 </div>
                             </div>
                         </a>

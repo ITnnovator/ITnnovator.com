@@ -20,6 +20,7 @@ export default function TestimonialForm() {
     company: '',
     quote: '',
     avatar: '',
+    title: '',
     rating: 5,
     isFeatured: true,
   });
@@ -72,17 +73,28 @@ export default function TestimonialForm() {
       <h1 className="text-2xl font-bold mb-6">{isNew ? 'New Testimonial' : 'Edit Testimonial'}</h1>
       
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 space-y-6">
-        <div className="grid grid-cols-2 gap-4">
-            <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+        <div className="space-y-4">
+             <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Title <span className="text-gray-400 font-normal">(Optional header for review)</span></label>
                 <input
                     type="text"
-                    required
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Excellent Service!"
+                    value={formData.title || ''}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 />
             </div>
+            <div className="grid grid-cols-2 gap-4">
+                <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input
+                        type="text"
+                        required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    />
+                </div>
             <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Role/Title</label>
                 <input
@@ -93,6 +105,7 @@ export default function TestimonialForm() {
                 />
             </div>
         </div>
+      </div>
 
         <div className="grid grid-cols-2 gap-4">
             <div>

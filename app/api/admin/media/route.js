@@ -12,9 +12,6 @@ export async function POST(request) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
     // Create unique filename
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     const ext = path.extname(file.name);
@@ -26,22 +23,37 @@ export async function POST(request) {
     if (isProduction && process.env.BLOB_READ_WRITE_TOKEN) {
       // PRODUCTION: Use Vercel Blob Storage
       try {
-        const blob = await put(filename, buffer, {
+        console.log('🔵 Attempting Vercel Blob upload...');
+        console.log('Token exists:', !!process.env.BLOB_READ_WRITE_TOKEN);
+        console.log('Filename:', filename);
+
+        // Upload file directly to Vercel Blob (pass the file, not buffer)
+        const blob = await put(filename, file, {
           access: 'public',
-          token: process.env.BLOB_READ_WRITE_TOKEN,
         });
 
         console.log('✅ Uploaded to Vercel Blob:', blob.url);
         return NextResponse.json({ url: blob.url, success: true });
       } catch (blobError) {
         console.error('❌ Vercel Blob upload failed:', blobError);
+        console.error('Error details:', {
+          message: blobError.message,
+          stack: blobError.stack,
+          tokenExists: !!process.env.BLOB_READ_WRITE_TOKEN
+        });
+
         return NextResponse.json({
           error: 'Blob upload failed',
-          details: blobError.message
+          details: blobError.message,
+          hint: 'Check Vercel function logs for more details'
         }, { status: 500 });
       }
     } else {
       // DEVELOPMENT: Use local filesystem
+      console.log('🟢 Using local filesystem...');
+
+      const bytes = await file.arrayBuffer();
+      const buffer = Buffer.from(bytes);
       const uploadDir = path.join(process.cwd(), 'public/uploads');
 
       try {
@@ -63,7 +75,8 @@ export async function POST(request) {
     console.error('❌ Upload error:', error);
     return NextResponse.json({
       error: 'Upload failed',
-      details: error.message
+      details: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     }, { status: 500 });
   }
 }

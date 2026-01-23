@@ -41,10 +41,10 @@ export default async function blog() {
                 </div>
 
                 <div className="max-w-[94rem] mx-auto px-6 xl:px-8 pb-12 md:pb-16">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {blogs.length > 0 ? (
                             blogs.map((item) => (
-                                <Link href={`/blog/${item.slug}`} key={item._id} className="group block mb-12 sm:mb-16 md:mb-20 lg:mb-40">
+                                <Link href={`/blog/${item.slug}`} key={item._id} className="group block">
                                     <div className="js-decoration-holder decoration-holder relative z-[1]">
                                         <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center transition-transform duration-500 group-hover:-translate-y-2">
                                             <div className="relative z-[1]">

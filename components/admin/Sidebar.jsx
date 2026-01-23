@@ -2,149 +2,157 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-    LayoutDashboard,
-    Users,
-    MessageSquare,
-    Settings,
-    LogOut,
-    Briefcase,
-    Layers,
-    ChevronLeft,
-    ChevronRight,
-    Menu,
-    Image
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useAdmin } from '../../app/admin/context/AdminContext';
+import { useState } from 'react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
-const sidebarItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/admin' },
-    { icon: MessageSquare, label: 'Messages', href: '/admin/contacts' },
-    { icon: Users, label: 'Team', href: '/admin/team' },
-    { icon: Briefcase, label: 'Services', href: '/admin/services' },
-    { icon: Layers, label: 'Cases', href: '/admin/cases' },
-    { icon: Users, label: 'Clients', href: '/admin/clients' },
-    { icon: MessageSquare, label: 'Testimonials', href: '/admin/testimonials' },
-    { icon: Image, label: 'Hero Banner', href: '/admin/hero' },
-    { icon: Settings, label: 'Settings', href: '/admin/settings' },
+// Categorized Menu Items
+const menuCategories = [
+    {
+        title: "Main",
+        items: [
+            { name: 'Dashboard', href: '/admin', icon: 'ph-squares-four' },
+            { name: 'Leads', href: '/admin/leads', icon: 'ph-users-three' },
+            { name: 'Messages', href: '/admin/messages', icon: 'ph-chat-text' },
+        ]
+    },
+    {
+        title: "Content",
+        items: [
+            { name: 'Services', href: '/admin/services', icon: 'ph-briefcase' },
+            { name: 'Blogs', href: '/admin/blogs', icon: 'ph-newspaper' }, // Renamed to Blogs
+            { name: 'Case Studies', href: '/admin/cases', icon: 'ph-folder-notch-open' },
+            { name: 'Testimonials', href: '/admin/testimonials', icon: 'ph-star' },
+        ]
+    },
+    {
+        title: "System",
+        items: [
+            { name: 'Team', href: '/admin/team', icon: 'ph-users' },
+            { name: 'Settings', href: '/admin/settings', icon: 'ph-gear' },
+            { name: 'Clients', href: '/admin/clients', icon: 'ph-users' },
+            { name: 'Hero Banner', href: '/admin/hero', icon: 'ph-image' },
+        ]
+    }
 ];
 
-export default function Sidebar({ isCollapsed, toggleSidebar }) {
+export default function Sidebar() {
     const pathname = usePathname();
+    const { sidebarOpen } = useAdmin();
 
-    const handleLogout = async () => {
-        try {
-            await fetch('/api/auth/logout', { method: 'POST' });
-            window.location.href = '/admin/login';
-        } catch (error) {
-            console.error('Logout failed', error);
-        }
+    // State for accordions (default all closed)
+    const [openCategories, setOpenCategories] = useState({
+        Main: false,
+        Content: false,
+        System: false
+    });
+
+    const toggleCategory = (title) => {
+        setOpenCategories(prev => ({ ...prev, [title]: !prev[title] }));
     };
 
     return (
-        <motion.div
-            animate={{ width: isCollapsed ? 80 : 280 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="bg-[#0a0a0c] border-r border-white/5 h-screen flex flex-col relative shrink-0 z-50 shadow-2xl"
+        <aside
+            className={`fixed left-0 top-0 z-50 h-screen bg-[#0a0a0c] border-r border-slate-800 text-slate-300 transition-all duration-300 flex flex-col
+        ${sidebarOpen ? 'w-64' : 'w-20'}
+        `}
         >
-            {/* Header / Logo */}
-            <div className={cn("p-6 flex items-center h-20", isCollapsed ? "justify-center" : "justify-between")}>
-                {!isCollapsed && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="flex flex-col justify-center"
-                    >
-                        <img
-                            src="/webImages/logo.png"
-                            alt="ITnnovator Logo"
-                            className="h-10 w-auto object-contain"
-                        />
-                    </motion.div>
-                )}
-
-                {/* Toggle Button */}
-                <button
-                    onClick={toggleSidebar}
-                    className={cn(
-                        "p-1.5 rounded-lg bg-gray-900/50 hover:bg-blue-600/20 text-gray-400 hover:text-blue-400 transition-all border border-transparent hover:border-blue-500/30",
-                        isCollapsed && "mx-auto"
+            {/* Brand */}
+            <div className={`h-20 flex items-center border-b border-slate-800 transition-all duration-300 ${sidebarOpen ? 'px-6' : 'justify-center px-0'}`}>
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 shrink-0">
+                        <i className="ph-bold ph-rocket-launch text-lg"></i>
+                    </div>
+                    {sidebarOpen && (
+                        <span className="text-lg font-bold text-white tracking-wide animate-fade-in">Admin</span>
                     )}
-                >
-                    {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
-                </button>
+                </div>
             </div>
 
-            {/* Navigation */}
-            <nav className="flex-1 px-3 space-y-2 overflow-y-auto overflow-x-hidden content-start py-4">
-                {sidebarItems.map((item) => {
-                    const isActive = pathname === item.href;
-                    return (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block group"
-                        >
-                            <div
-                                className={cn(
-                                    "flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 min-h-[48px] relative",
-                                    isActive
-                                        ? "bg-gradient-to-r from-blue-600/10 to-purple-600/10 text-blue-400 border border-blue-500/20"
-                                        : "text-gray-400 hover:bg-white/5 hover:text-gray-100 border border-transparent"
-                                )}
+            {/* Nav */}
+            <nav className="flex-1 py-6 px-3 space-y-4 overflow-y-auto custom-scrollbar overflow-x-hidden">
+
+                {menuCategories.map((category) => (
+                    <div key={category.title} className="overflow-hidden">
+
+                        {/* Category Header (Accordion Toggle) */}
+                        {sidebarOpen ? (
+                            <button
+                                onClick={() => toggleCategory(category.title)}
+                                className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-slate-500 uppercase tracking-wider hover:text-slate-300 transition-colors rounded-lg hover:bg-white/5"
+                                title={`Toggle ${category.title}`}
                             >
-                                {/* Icon */}
-                                <item.icon className={cn(
-                                    "shrink-0 transition-colors",
-                                    isActive ? "text-blue-400" : "text-gray-500 group-hover:text-gray-300",
-                                    isCollapsed ? "h-6 w-6 mx-auto" : "h-5 w-5"
-                                )} />
+                                <span>{category.title}</span>
+                                <div className={`transition-transform duration-300 ${openCategories[category.title] ? 'rotate-180' : ''}`}>
+                                    <ChevronDown size={14} />
+                                </div>
+                            </button>
+                        ) : (
+                            // Divider for collapsed state
+                            <div className="h-px bg-slate-800 mx-3 mb-3"></div>
+                        )}
 
-                                {/* Label - Only show if not collapsed */}
-                                {!isCollapsed && (
-                                    <motion.span
-                                        initial={{ opacity: 0, x: -10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.1 }}
-                                        className="font-medium text-sm whitespace-nowrap"
-                                    >
-                                        {item.label}
-                                    </motion.span>
-                                )}
+                        {/* Items Container with Transition */}
+                        <div
+                            className={`transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden
+                    ${!sidebarOpen ? 'max-h-[500px] opacity-100' : (openCategories[category.title] ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0')}
+                `}
+                        >
+                            <div className="pt-1 space-y-1">
+                                {category.items.map((item) => {
+                                    const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href));
+                                    return (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            title={!sidebarOpen ? item.name : ''}
+                                            className={`flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200 group relative
+                          ${isActive
+                                                    ? 'bg-blue-600/10 text-blue-400 border border-blue-600/20 shadow-sm'
+                                                    : 'hover:bg-slate-800 hover:text-white border border-transparent'}
+                          ${!sidebarOpen ? 'justify-center' : ''}
+                        `}
+                                        >
+                                            <i className={`ph ${item.icon} text-xl transition-colors ${isActive ? 'text-blue-400' : 'text-slate-400 group-hover:text-white'}`}></i>
 
-                                {/* Active Indicator Line (Left) */}
-                                {isActive && (
-                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-blue-500 rounded-r-full shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
-                                )}
+                                            {sidebarOpen && (
+                                                <span className="ml-3 truncate animate-fade-in">{item.name}</span>
+                                            )}
 
-                                {/* Tooltip for Collapsed State */}
-                                {isCollapsed && (
-                                    <div className="absolute left-full ml-4 px-3 py-2 bg-gray-900 text-white text-xs rounded-md shadow-xl border border-white/10 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
-                                        {item.label}
-                                    </div>
-                                )}
+                                            {/* Tooltip for collapsed state */}
+                                            {!sidebarOpen && (
+                                                <div className="absolute left-full ml-2 px-2 py-1 bg-slate-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50 transition-opacity border border-white/10">
+                                                    {item.name}
+                                                </div>
+                                            )}
+                                        </Link>
+                                    );
+                                })}
                             </div>
-                        </Link>
-                    );
-                })}
+                        </div>
+                    </div>
+                ))}
             </nav>
 
-            {/* Footer / Logout */}
-            <div className="p-3 border-t border-white/5">
-                <button
-                    onClick={handleLogout}
-                    className={cn(
-                        "flex items-center gap-3 px-3 py-3 w-full text-left rounded-xl transition-colors group",
-                        "text-gray-400 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/20 border border-transparent",
-                        isCollapsed && "justify-start" // Icon alignment
+            {/* Footer */}
+            <div className="p-4 border-t border-slate-800 bg-[#0a0a0c]">
+                <div className={`flex items-center gap-3 ${!sidebarOpen ? 'justify-center' : ''}`}>
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-xs shrink-0 cursor-pointer">
+                        AD
+                    </div>
+                    {sidebarOpen && (
+                        <div className="flex-1 min-w-0 animate-fade-in">
+                            <p className="text-sm font-medium text-white truncate">Admin User</p>
+                            <p className="text-xs text-slate-500 truncate">Super Admin</p>
+                        </div>
                     )}
-                >
-                    <LogOut className={cn("shrink-0 transition-colors", isCollapsed && "mx-auto")} size={20} />
-                    {!isCollapsed && <span className="font-medium text-sm">Logout</span>}
-                </button>
+                    {sidebarOpen && (
+                        <button className="text-slate-400 hover:text-white transition-colors animate-fade-in">
+                            <i className="ph ph-sign-out text-lg"></i>
+                        </button>
+                    )}
+                </div>
             </div>
-        </motion.div>
+        </aside>
     );
 }

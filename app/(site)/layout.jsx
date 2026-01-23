@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import Script from "next/script";
 import SparkCursor from "@/components/SparkCursor";
 import { Toaster } from "react-hot-toast";
+import ScriptRefresh from "@/components/ScriptRefresh";
 
 export const metadata = {
   metadataBase: new URL("https://itnnovator.com"),
@@ -64,6 +65,7 @@ export default function SiteLayout({ children }) {
           <br />
           <br />
           <Toaster position="top-right" reverseOrder={false} />
+          <ScriptRefresh />
 
           <main className="grow">{children}</main>
 

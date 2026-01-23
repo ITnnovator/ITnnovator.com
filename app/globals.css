@@ -51,3 +51,7 @@ a {
   opacity: 1 !important;
   transform: none !important;
 }
+
+.p-4 {
+  padding: 10px;
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Header() {
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function Header() {
         <>
             <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex justify-between pl-5 md:pl-12 text-white mix-blend-difference">
                 <div className="lg:flex lg:items-center">
-                    <a
+                    <Link
                         href="/"
                         className="block w-52 main_logo animated-lg heart-svg-large-wrapper"
                     >
@@ -37,7 +38,7 @@ export default function Header() {
                             width="82"
                             height="47"
                         />
-                    </a>
+                    </Link>
                     <h1
                         id="js-heading-one-scroll"
                         className="leading-none relative lg:top-0.5 mt-3 lg:ml-4 ml-1"
@@ -50,12 +51,20 @@ export default function Header() {
             <nav className="hidden md:flex fixed h-[8rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: 99 }}>
                 <ul className="flex justify-end text-normal text-lg">
                     <li className="px-5 relative">
-                        <a
+                        <Link
+                            className="transition-colors duration-300 ease-in-out hover:text-gray-300"
+                            href="/estimate"
+                        >
+                            Get Estimate
+                        </Link>
+                    </li>
+                    <li className="px-5 relative">
+                        <Link
                             className="transition-colors duration-300 ease-in-out hover:text-gray-300"
                             href="/contact"
                         >
                             Contact us
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>
@@ -95,23 +104,23 @@ export default function Header() {
                                 >
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
-                                            <a
+                                            <Link
                                                 href="/cases"
                                                 className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
                                             >
                                                 Cases
-                                            </a>
+                                            </Link>
                                         </div>
                                     </li>
 
                                     <li className="js-menu-item flex has-children group py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
-                                            <a
+                                            <Link
                                                 href="/services"
                                                 className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
                                             >
                                                 Services
-                                            </a>
+                                            </Link>
                                             <span className="js-submenu-toggler text-royal-blue ml-auto md:ml-0 md:opacity-0 pl-0 group-[.hover]:opacity-100 group-[.hover]:pl-6 transition-all duration-500 ease-in-out">
                                                 <svg
                                                     className="inline-block w-10 h-auto md:w-full"
@@ -147,83 +156,92 @@ export default function Header() {
 
                                             <ul className="w-full ml-[8rem] md:ml-0 py-0">
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/web-development" className="hover:text-white">
+                                                    <Link href="/services/web-development" className="hover:text-white">
                                                         Web Devlopment
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Custom website development
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/ecommerce" className="hover:text-white">
+                                                    <Link href="/services/ecommerce" className="hover:text-white">
                                                         E-commerce
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Online store development
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/seo" className="hover:text-white">
+                                                    <Link href="/services/seo" className="hover:text-white">
                                                         SEO
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Search engine optimization
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/product-design" className="hover:text-white">
+                                                    <Link href="/services/product-design" className="hover:text-white">
                                                         Product Design
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Intuitive UX & UI design
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/brand-systems" className="hover:text-white">
+                                                    <Link href="/services/brand-systems" className="hover:text-white">
                                                         Brand Systems
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transitionall duration-500 ease-in-out">
                                                         – Scalable logos & visual identity
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/strategy" className="hover:text-white">
+                                                    <Link href="/services/strategy" className="hover:text-white">
                                                         Strategy
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – In-depth analysis & planning
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/content" className="hover:text-white">
+                                                    <Link href="/services/content" className="hover:text-white">
                                                         Content
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Strategic storytelling & copywriting
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/growth" className="hover:text-white">
+                                                    <Link href="/services/growth" className="hover:text-white">
                                                         Growth
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Data-driven marketing & leads
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <a href="/services/management" className="hover:text-white">
+                                                    <Link href="/services/management" className="hover:text-white">
                                                         Management
-                                                    </a>
+                                                    </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Ongoing support & management
+                                                    </span>
+                                                </li>
+
+                                                <li className="py-1 group/item">
+                                                    <Link href="/services/automation" className="hover:text-white">
+                                                        n8n Automation
+                                                    </Link>
+                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
+                                                        – Workflows & AI integration
                                                     </span>
                                                 </li>
                                             </ul>
@@ -232,34 +250,45 @@ export default function Header() {
 
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
-                                            <a
+                                            <Link
                                                 href="/about"
                                                 className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
                                             >
                                                 About Us
-                                            </a>
+                                            </Link>
                                         </div>
                                     </li>
 
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
-                                            <a
+                                            <Link
                                                 href="/team"
                                                 className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
                                             >
                                                 Our Team
-                                            </a>
+                                            </Link>
                                         </div>
                                     </li>
 
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
-                                            <a
+                                            <Link
                                                 href="/contact"
                                                 className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
                                             >
                                                 Contact
-                                            </a>
+                                            </Link>
+                                        </div>
+                                    </li>
+
+                                    <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
+                                        <div className="js-menu-item--wrapper flex w-full">
+                                            <Link
+                                                href="/estimate"
+                                                className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
+                                            >
+                                                Get Estimate
+                                            </Link>
                                         </div>
                                     </li>
 
@@ -352,7 +381,7 @@ export default function Header() {
                                         <br />
                                         working together?
                                     </span>
-                                    <a
+                                    <Link
                                         href="/contact"
                                         className="js-hover-circle-animation inline-block py-2 text-malibu relative after:absolute after:content-['_'] after:w-full after:h-px after:bg-malibu after:left-0 after:bottom-0"
                                     >
@@ -369,7 +398,7 @@ export default function Header() {
                                                 <use href="/webImages/icons.svg#arrow-right"></use>
                                             </svg>
                                         </span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

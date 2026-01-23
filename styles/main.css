@@ -3992,29 +3992,29 @@ div#CybotCookiebotDialogPoweredByText {
 }
 
 .from-\[\#FFE99A\] {
-    --tw-gradient-from: #ffe99a var(--tw-gradient-from-position);
-    --tw-gradient-to: rgba(255, 233, 154, 0) var(--tw-gradient-to-position);
+    --tw-gradient-from: #ffe99a;
+    --tw-gradient-to: rgba(255, 233, 154, 0);
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-black {
-    --tw-gradient-from: #000 var(--tw-gradient-from-position);
-    --tw-gradient-to: transparent var(--tw-gradient-to-position);
+    --tw-gradient-from: #000;
+    --tw-gradient-to: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .via-transparent {
-    --tw-gradient-to: transparent var(--tw-gradient-to-position);
+    --tw-gradient-to: transparent;
     --tw-gradient-stops: var(--tw-gradient-from),
-        transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
+        transparent, var(--tw-gradient-to);
 }
 
 .to-\[\#A1BDE7\] {
-    --tw-gradient-to: #a1bde7 var(--tw-gradient-to-position);
+    --tw-gradient-to: #a1bde7;
 }
 
 .to-transparent {
-    --tw-gradient-to: transparent var(--tw-gradient-to-position);
+    --tw-gradient-to: transparent;
 }
 
 .bg-clip-text {

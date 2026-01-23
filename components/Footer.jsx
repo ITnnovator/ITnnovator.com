@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <footer className="pt-10 bg-black">
             <div className="text-white max-w-7xl px-6 xl:px-8 mx-auto mb-12 mb:mb-20 leading-relaxed">
-                <div className="relative border-b md:border-b-2 border-white">
+                <div className="relative border-b md:border-b-2 border-white/20">
                     <Image
                         className="w-full h-auto block"
                         src="/webImages/footer_logo.png"
@@ -57,28 +57,28 @@ export default function Footer() {
                     <nav className="w-1/2 md:w-auto md:max-w-[20%] md:ml-20 text-base md:text-lg pt-1 md:pt-11">
                         <ul>
                             <li className="mb-1.5">
-                                <a
+                                <Link
                                     className="hover-underline-animation inline-block relative"
                                     href="/about"
                                 >
                                     About Itnnovator
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-1.5">
-                                <a
+                                <Link
                                     className="hover-underline-animation inline-block relative"
                                     href="/careers"
                                 >
                                     Careers
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-1.5">
-                                <a
+                                <Link
                                     className="hover-underline-animation inline-block relative"
                                     href="/blog"
                                 >
                                     Blog
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>

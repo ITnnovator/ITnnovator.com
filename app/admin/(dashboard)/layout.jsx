@@ -9,10 +9,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="flex h-screen bg-[#050507] overflow-hidden text-gray-100">
       {/* Sidebar - layout handles width via the Sidebar component's motion div, but we verify here */}
-      <Sidebar
-        isCollapsed={isSidebarCollapsed}
-        toggleSidebar={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-      />
+      <Sidebar />
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col h-screen overflow-hidden relative transition-all duration-300">

@@ -23,7 +23,7 @@ export default function AdminLayout({ children }) {
     <div className='min-h-screen bg-gray-100 flex'>
       {/* Mobile menu button */}
       <div className='lg:hidden fixed top-0 left-0 w-full bg-white z-50 px-4 py-3 border-b flex justify-between items-center'>
-        <div className='font-bold text-xl'>ITnnovator Admin</div>
+        <div className='font-bold text-xl'>Itnnovator Admin</div>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className='p-2 bg-gray-100 rounded-md'>
           {isMobileMenuOpen ? (
             <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M6 18L18 6M6 6l12 12' /></svg>
@@ -37,7 +37,7 @@ export default function AdminLayout({ children }) {
       <aside className={`fixed inset-y-0 left-0 z-40 w-64 bg-[#0a0a0a] text-white transition-transform transform lg:translate-x-0 lg:static lg:inset-0 ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className='h-full flex flex-col'>
           <div className='h-16 flex items-center justify-center border-b border-gray-800 text-2xl font-bold tracking-wider'>
-            ITnnovator
+            Itnnovator
           </div>
 
           <div className='flex-1 overflow-y-auto py-4'>
@@ -48,11 +48,10 @@ export default function AdminLayout({ children }) {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className={`flex items-center px-4 py-3 rounded-lg transition-colors ${
-                        isActive
+                      className={`flex items-center px-4 py-3 rounded-lg transition-colors ${isActive
                           ? 'bg-malibu text-black font-medium'
                           : 'text-gray-400 hover:bg-gray-900 hover:text-white'
-                      }`}
+                        }`}
                     >
                       <svg className={`w-5 h-5 mr-3 ${isActive ? 'text-black' : 'text-gray-500 group-hover:text-white'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                         <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d={item.icon} />

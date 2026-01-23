@@ -120,7 +120,7 @@ export default function AdminLogin() {
           {/* Footer Decoration */}
           <div className="mt-8 pt-6 border-t border-white/5 text-center">
             <p className="text-xs text-gray-600">
-              Secured by ITnnovator Admin System
+              Secured by Itnnovator Admin System
             </p>
           </div>
         </div>

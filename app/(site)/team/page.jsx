@@ -1,5 +1,18 @@
 import Link from "next/link";
-export default function team() {
+import dbConnect from "@/lib/db";
+import Team from "@/models/Team";
+
+export const revalidate = 0; // Ensure fresh data on every request
+
+async function getTeamMembers() {
+  await dbConnect();
+  // Sort by creation date or you could add a 'order' field later
+  return await Team.find({}).sort({ createdAt: 1 });
+}
+
+export default async function team() {
+  const teamMembers = await getTeamMembers();
+
   return (
     <>
       <main className="grow">
@@ -7,7 +20,7 @@ export default function team() {
           <div className="block md:text-lg mb-6">
             <span>
               <span>
-                <a href="/"> Home </a>
+                <Link href="/"> Home </Link>
               </span>
               /
               <span className="breadcrumb_last" aria-current="page">
@@ -41,227 +54,45 @@ export default function team() {
         <div className="max-w-[94rem] mx-auto px-6 xl:px-8 pb-12 md:pb-16">
           <div className="group sm:flex sm:flex-wrap -mx-5 xl:-mx-5 pt-20">
 
-            {/* <!-- TEAM MEMBER (Replace image and details with your actual team content when needed) --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t1.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">M Saim Raza</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Software Engineer</span>
-                    <span className="block text-lg">
-                      <a href="mailto:saim@itnnovator.com" className="text-malibu">
-                        saim@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <!-- Duplicate and modify blocks below for more team members --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t2.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Sanjay Andani</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Vibe Coder</span>
-                    <span className="block text-lg">
-                      <a href="mailto:sanjay@itnnovator.com" className="text-malibu">
-                        sanjay@itnnovator.com
-                      </a>
-                    </span>
+            {teamMembers.length > 0 ? (
+              teamMembers.map((member) => (
+                <div key={member._id} className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
+                  <div className="js-decoration-holder decoration-holder relative z-[1]">
+                    <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
+                      <div className="relative z-[1]">
+                        <img
+                          width="329"
+                          height="354"
+                          src={member.image || "/webImages/t1.jpg"} // Fallback image if none provided
+                          className="w-full h-auto aspect-[329/354] object-cover"
+                          alt={member.name}
+                        />
+                        <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
+                      </div>
+                      <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
+                        <h2 className="mb-0.5 text-2xl font-bold text-white">{member.name}</h2>
+                        <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">{member.role}</span>
+                        {member.email && (
+                          <span className="block text-lg">
+                            <a href={`mailto:${member.email}`} className="text-malibu">
+                              {member.email}
+                            </a>
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="w-full text-center text-gray-500 text-lg">
+                No team members found.
               </div>
-            </div>
-
-            {/* <!-- Duplicate and modify blocks below for more team members --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t3.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Arish Ali</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Project Lead</span>
-                    <span className="block text-lg">
-                      <a href="mailto:arish@itnnovator.com" className="text-malibu">
-                        arish@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <!-- Duplicate and modify blocks below for more team members --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t4.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Muhammad Saif</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Automation Engineer</span>
-                    <span className="block text-lg">
-                      <a href="mailto:saif@itnnovator.com" className="text-malibu">
-                        saif@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <!-- Duplicate and modify blocks below for more team members --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t6.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Ahmed Ali</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Developer</span>
-                    <span className="block text-lg">
-                      <a href="mailto:ahmed@itnnovator.com" className="text-malibu">
-                        ahmed@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* <!-- TEAM MEMBER (Replace image and details with your actual team content when needed) --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t5.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Alisha Reza</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Marketing Lead</span>
-                    <span className="block text-lg">
-                      <a href="mailto:alisha@itnnovator.com" className="text-malibu">
-                        alisha@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <!-- Duplicate and modify blocks below for more team members --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t7.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Basit Abbas</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Developer</span>
-                    <span className="block text-lg">
-                      <a href="mailto:basit@itnnovator.com" className="text-malibu">
-                        basit@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <!-- Duplicate and modify blocks below for more team members --> */}
-            <div className="sm:w-1/2 lg:w-1/3 xl:w-1/4 px-4 xl:px-5 mb-12 sm:mb-16 md:mb-20 lg:mb-40 xl:mb-48 [&:nth-child(4n-2)]:lg:-translate-y-11 [&:nth-child(4n-1)]:lg:translate-y-9">
-              <div className="js-decoration-holder decoration-holder relative z-[1]">
-                <div className="border border-[#303030] rounded-[1.25rem] overflow-hidden text-center">
-                  <div className="relative z-[1]">
-                    <img
-                      width="329"
-                      height="354"
-                      src="/webImages/t8.jpg"
-                      className="w-full h-auto"
-                      alt="team-member"
-                    />
-                    <span className="absolute w-full bottom-0 h-[82px] left-0 bg-gradient-to-t from-black"></span>
-                  </div>
-                  <div className="relative z-10 pb-6 md:pb-7 lg:pb-8 xl:pb-10 px-2 -mt-[68px]">
-                    <h2 className="mb-0.5 text-2xl font-bold text-white">Hiba Kanwal</h2>
-                    <span className="text-lg xl:text-xl block mb-4 md:mb-6 lg:mb-8">Designer</span>
-                    <span className="block text-lg">
-                      <a href="mailto:hiba@itnnovator.com" className="text-malibu">
-                        hiba@itnnovator.com
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            )}
 
           </div>
         </div>
       </main>
-
     </>
   );
 }

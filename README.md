@@ -1,6 +1,6 @@
-# ITnnovator – Innovating the Future of Tech 
-  
-Welcome to the codebase for **ITnnovator**, a digital solutions agency specializing in: 
+# Itnnovator – Innovating the Future of Tech 
+   
+Welcome to the codebase for **Itnnovator**, a digital solutions agency specializing in: 
 
 - 🌐 **Responsive Website Development**
 - 📈 **Search Engine Optimization (SEO)** 

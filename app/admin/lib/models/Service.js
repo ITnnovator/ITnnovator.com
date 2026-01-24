@@ -7,17 +7,73 @@ const ServiceSchema = new mongoose.Schema({
         trim: true,
         maxlength: [100, 'Title cannot be more than 100 characters'],
     },
-    description: {
+    slug: {
         type: String,
-        required: [true, 'Please provide a description'],
+        required: [true, 'Please provide a slug'],
+        unique: true,
+        trim: true,
     },
     icon: {
         type: String,
         required: [false, 'Icon class or URL'],
     },
-    image: {
+    alt: {
         type: String,
-        required: [false, 'Service image URL'],
+        required: [false, 'Alt text for icon/image'],
+    },
+    description: {
+        type: String,
+        required: [true, 'Please provide a short description'],
+    },
+    points: [{
+        type: String,
+        trim: true,
+    }],
+    cta: {
+        type: String,
+        default: 'Explore Services',
+    },
+    heroImg: {
+        type: String,
+    },
+    herotitle: {
+        type: String,
+        required: [false, 'Hero Title'],
+    },
+    color: {
+        type: String,
+        default: '#000000',
+    },
+    intro: {
+        heading: String,
+        text: String,
+        bullets: [String],
+    },
+    process: [{
+        title: String,
+        color: String,
+        img: String,
+        text: String,
+    }],
+    blockImg: {
+        type: String,
+    },
+    blocktext: [{
+        title: String,
+        text: String,
+        bullets: [String],
+    }],
+    heropromisetitle: {
+        type: String,
+    },
+    promisedescription: {
+        type: String,
+    },
+    exploretitile: {
+        type: String,
+    },
+    explorepoints: {
+        points: [String],
     },
     active: {
         type: Boolean,

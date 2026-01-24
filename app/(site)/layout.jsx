@@ -57,6 +57,9 @@ export default function SiteLayout({ children }) {
 
         <SparkCursor />
 
+        {/* Missing heart-svg required by main.js */}
+        <div id="heart-svg" className="heart-svg"></div>
+
         <div
           id="page-wrapper"
           className="w-full flex flex-col min-h-screen overflow-hidden !filter-none"

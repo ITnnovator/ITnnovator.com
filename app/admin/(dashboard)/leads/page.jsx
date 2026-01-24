@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Eye, Loader2 } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import Link from 'next/link';
+import AdminList from '@/components/admin/AdminList';
+import toast from 'react-hot-toast';
 
 export default function LeadsManager() {
     const [leads, setLeads] = useState([]);
@@ -20,8 +22,30 @@ export default function LeadsManager() {
             setLeads(data);
         } catch (error) {
             console.error('Error fetching leads:', error);
+            toast.error('Failed to load leads');
         } finally {
             setIsLoading(false);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        if (!confirm('Permanently delete this lead?')) return;
+        try {
+            await fetch(`/api/leads/${id}`, { method: 'DELETE' });
+            setLeads(prev => prev.filter(l => l._id !== id));
+            toast.success('Lead deleted');
+        } catch (error) {
+            toast.error('Failed to delete lead');
+        }
+    };
+
+    const handleBulkDelete = async (ids) => {
+        try {
+            await Promise.all(ids.map(id => fetch(`/api/leads/${id}`, { method: 'DELETE' })));
+            setLeads(prev => prev.filter(l => !ids.includes(l._id)));
+            toast.success(`${ids.length} leads deleted`);
+        } catch (error) {
+            toast.error('Failed to delete leads');
         }
     };
 
@@ -36,72 +60,92 @@ export default function LeadsManager() {
         }
     };
 
-    return (
-        <div className="space-y-8 animate-in fade-in duration-500">
-            <div className="flex items-center justify-between">
+    // Table Columns Configuration
+    const columns = [
+        {
+            header: 'Status',
+            render: (lead) => (
+                <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(lead.status)}`}>
+                    {lead.status}
+                </span>
+            )
+        },
+        {
+            header: 'Name',
+            accessor: 'contact.name',
+            render: (lead) => (
                 <div>
-                    <h1 className="text-3xl font-bold text-white tracking-tight">Project Leads</h1>
-                    <p className="text-gray-400 mt-2 text-sm">Manage submissions from the Project Estimator.</p>
+                    <div className="text-white font-medium">{lead.contact.name}</div>
+                    <div className="text-xs opacity-70">{lead.contact.email}</div>
+                </div>
+            )
+        },
+        { header: 'Project Type', accessor: 'projectDetails.type' },
+        {
+            header: 'Estimate',
+            render: (lead) => (
+                <div>
+                    <div className="text-white">{lead.estimate?.costRange}</div>
+                    <div className="text-xs opacity-70">{lead.estimate?.timelineRange}</div>
+                </div>
+            )
+        },
+        {
+            header: 'Date',
+            render: (lead) => new Date(lead.createdAt).toLocaleDateString()
+        }
+    ];
+
+    // Mobile Card View
+    const LeadCard = ({ item }) => (
+        <div className="flex flex-col gap-2">
+            <div className="flex justify-between items-start">
+                <div>
+                    <h3 className="text-white font-bold">{item.contact.name}</h3>
+                    <p className="text-xs text-gray-500">{item.contact.email}</p>
+                </div>
+                <span className={`px-2 py-0.5 rounded text-[10px] border ${getStatusColor(item.status)}`}>
+                    {item.status}
+                </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-sm mt-1">
+                <div className="bg-white/5 p-2 rounded">
+                    <p className="text-[10px] text-gray-500 uppercase">Type</p>
+                    <p className="text-gray-300">{item.projectDetails.type}</p>
+                </div>
+                <div className="bg-white/5 p-2 rounded">
+                    <p className="text-[10px] text-gray-500 uppercase">Est. Cost</p>
+                    <p className="text-blue-400 font-medium">{item.estimate?.costRange}</p>
                 </div>
             </div>
 
-            {isLoading ? (
-                <div className="flex justify-center py-20">
-                    <Loader2 className="animate-spin text-blue-500" size={32} />
-                </div>
-            ) : leads.length === 0 ? (
-                <div className="text-center py-20 bg-[#111116] border border-white/5 rounded-2xl">
-                    <p className="text-gray-400">No leads found.</p>
-                </div>
-            ) : (
-                <div className="bg-[#111116] border border-white/5 rounded-2xl overflow-hidden">
-                    <table className="w-full text-left text-sm text-gray-400">
-                        <thead className="bg-white/5 text-white uppercase font-bold">
-                            <tr>
-                                <th className="px-6 py-4">Status</th>
-                                <th className="px-6 py-4">Name</th>
-                                <th className="px-6 py-4">Project Type</th>
-                                <th className="px-6 py-4">Estimate</th>
-                                <th className="px-6 py-4">Date</th>
-                                <th className="px-6 py-4 text-right">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-white/5">
-                            {leads.map((lead) => (
-                                <tr key={lead._id} className="hover:bg-white/5 transition-colors">
-                                    <td className="px-6 py-4">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(lead.status)}`}>
-                                            {lead.status}
-                                        </span>
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <div className="text-white font-medium">{lead.contact.name}</div>
-                                        <div className="text-xs opacity-70">{lead.contact.email}</div>
-                                    </td>
-                                    <td className="px-6 py-4 text-white">
-                                        {lead.projectDetails.type}
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <div className="text-white">{lead.estimate?.costRange}</div>
-                                        <div className="text-xs opacity-70">{lead.estimate?.timelineRange}</div>
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        {new Date(lead.createdAt).toLocaleDateString()}
-                                    </td>
-                                    <td className="px-6 py-4 text-right">
-                                        <Link
-                                            href={`/admin/leads/${lead._id}`}
-                                            className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white rounded-lg transition-all"
-                                        >
-                                            <Eye size={16} /> View
-                                        </Link>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+            <div className="flex justify-between items-center mt-2 pt-2 border-t border-white/5">
+                <span className="text-xs text-gray-600">{new Date(item.createdAt).toLocaleDateString()}</span>
+                <Link href={`/admin/leads/${item._id}`} className="text-xs font-bold text-blue-400 hover:text-white uppercase tracking-wider flex items-center gap-1">
+                    View Details <Eye size={12} />
+                </Link>
+            </div>
+        </div>
+    );
+
+    return (
+        <div className="space-y-8 animate-in fade-in duration-500">
+            <AdminList
+                header={
+                    <div>
+                        <h1 className="text-3xl font-bold text-white tracking-tight">Project Leads</h1>
+                        <p className="text-gray-400 mt-2 text-sm">Manage submissions from the Project Estimator.</p>
+                    </div>
+                }
+                data={leads}
+                isLoading={isLoading}
+                columns={columns}
+                CardComponent={LeadCard}
+                onDelete={handleDelete}
+                onBulkDelete={handleBulkDelete}
+                searchKeys={['contact.name', 'contact.email', 'projectDetails.type']}
+            />
         </div>
     );
 }

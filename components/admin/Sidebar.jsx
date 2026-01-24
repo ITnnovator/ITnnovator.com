@@ -27,7 +27,7 @@ const menuCategories = [
         items: [
             { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
             { name: 'Leads', href: '/admin/leads', icon: Users },
-            { name: 'Messages', href: '/admin/messages', icon: MessageSquare },
+            { name: 'Messages', href: '/admin/contacts', icon: MessageSquare }, // Fixed link to match Quick Actions
         ]
     },
     {
@@ -79,7 +79,7 @@ export default function Sidebar() {
             {!sidebarOpen && (
                 <button
                     onClick={() => setSidebarOpen(true)}
-                    className="fixed bottom-6 left-6 z-50 p-3 bg-blue-600 text-white rounded-full shadow-2xl md:hidden hover:bg-blue-700 transition-colors"
+                    className="fixed top-6 right-6 z-50 p-3 bg-blue-600 text-white rounded-full shadow-2xl md:hidden hover:bg-blue-700 transition-colors"
                 >
                     <Menu size={20} />
                 </button>
@@ -110,7 +110,6 @@ export default function Sidebar() {
                         className={`hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 bg-[#0a0a0c] border border-slate-800 text-slate-400 hover:text-white hover:border-slate-600 transition-all p-1.5 rounded-full shadow-xl z-50
                 ${!sidebarOpen ? 'rotate-180' : ''}
             `}
-                        style={{ top: '40px' }} // Align with header center roughly
                         title="Toggle Sidebar"
                     >
                         <PanelLeftClose size={14} />

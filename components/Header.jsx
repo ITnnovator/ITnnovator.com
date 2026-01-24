@@ -1,9 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from 'next/navigation';
 import Link from "next/link";
 
 export default function Header() {
+    const pathname = usePathname();
+
+    // Close menu when route changes by triggering the GSAP toggle if active
+    useEffect(() => {
+        const toggler = document.getElementById('js-menu-toggler');
+        if (toggler && toggler.classList.contains('is-active')) {
+            toggler.click();
+        }
+    }, [pathname]);
+
     useEffect(() => {
         const nav = document.querySelector("#page-header");
         if (!nav) return;
@@ -23,10 +34,11 @@ export default function Header() {
             window.removeEventListener("scroll", toggleStick);
         };
     }, []);
+
     return (
         <>
-            <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex justify-between pl-5 md:pl-12 text-white mix-blend-difference">
-                <div className="lg:flex lg:items-center">
+            <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
+                <div className="lg:flex lg:items-center pointer-events-auto">
                     <Link
                         href="/"
                         className="block w-52 main_logo animated-lg heart-svg-large-wrapper"
@@ -48,7 +60,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <nav className="hidden md:flex fixed h-[8rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: 99 }}>
+            <nav className="hidden md:flex fixed h-[8rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: "99" }}>
                 <ul className="flex justify-end text-normal text-lg">
                     <li className="px-5 relative">
                         <Link
@@ -69,7 +81,7 @@ export default function Header() {
                 </ul>
             </nav>
 
-            <div className="fixed h-[4rem] md:h-[8rem] right-6 md:right-12 top-0 z-[70] flex justify-between items-center py-10 text-white mix-blend-difference">
+            <div className="fixed h-[4rem] md:h-[8rem] right-6 md:right-12 top-0 z-[70] flex justify-between items-center py-10 text-white mix-blend-difference pointer-events-auto">
                 <button
                     type="button"
                     id="js-menu-toggler"
@@ -89,12 +101,12 @@ export default function Header() {
 
             <header
                 id="page-header"
-                className="fixed left-0 top-0 z-[60] w-full flex justify-between items-center pointer-events-none group-[.nav-active]:pointer-events-auto"
+                className="fixed left-0 top-0 z-[60] w-full flex justify-between items-center pointer-events-none group-[.nav-active]:pointer-events-auto [&.is-active]:pointer-events-auto"
             >
                 <nav className="w-full flex justify-between items-center relative px-12 py-10">
                     <div
                         id="js-menu-holder"
-                        className="-translate-y-full bg-black border-b-2 border-gray-900 absolute top-0 left-0 w-full h-[100dvh] md:h-screen z-50  pt-[8.3rem] flex text-white"
+                        className="-translate-y-full bg-black border-b-2 border-gray-900 absolute top-0 left-0 w-full h-[100dvh] md:h-screen z-50  pt-[8.3rem] flex text-white pointer-events-auto"
                     >
                         <div className="w-full flex flex-col justify-between">
                             <div className="flex-1 flex items-center max-h-full overflow-y-visible px-12 xl:pl-0 lg:pr-[5rem] 2xl:pr-[20rem]">
@@ -235,15 +247,6 @@ export default function Header() {
                                                         – Ongoing support & management
                                                     </span>
                                                 </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/automation" className="hover:text-white">
-                                                        n8n Automation
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Workflows & AI integration
-                                                    </span>
-                                                </li>
                                             </ul>
                                         </div>
                                     </li>
@@ -277,17 +280,6 @@ export default function Header() {
                                                 className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
                                             >
                                                 Contact
-                                            </Link>
-                                        </div>
-                                    </li>
-
-                                    <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
-                                        <div className="js-menu-item--wrapper flex w-full">
-                                            <Link
-                                                href="/estimate"
-                                                className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
-                                            >
-                                                Get Estimate
                                             </Link>
                                         </div>
                                     </li>

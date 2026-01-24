@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Trash2, X, Loader2, Image as ImageIcon, FileText, Edit, Calendar } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
+import AdminList from '@/components/admin/AdminList';
 
 const initialForm = {
     title: '', slug: '', excerpt: '', content: '', coverImage: '', tags: '', author: 'Itnnovator Team'
@@ -82,6 +83,49 @@ export default function BlogManager() {
         }
     };
 
+    const handleBulkDelete = async (ids) => {
+        try {
+            await Promise.all(ids.map(id => fetch(`/api/blogs/${id}`, { method: 'DELETE' })));
+            setBlogs(prev => prev.filter(b => !ids.includes(b._id)));
+            toast.success(`${ids.length} posts deleted`);
+        } catch (e) {
+            toast.error('Failed to delete posts');
+        }
+    };
+
+    // Card Component
+    const BlogCard = ({ item }) => (
+        <div className="group bg-[#111116] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all flex flex-col h-full">
+            <div className="h-48 bg-gray-900 relative overflow-hidden">
+                {item.coverImage ? (
+                    <img src={item.coverImage} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                ) : (
+                    <div className="w-full h-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+                        <FileText size={48} />
+                    </div>
+                )}
+                <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                    <button onClick={(e) => { e.stopPropagation(); handleEdit(item); }} className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-500"><Edit size={16} /></button>
+                </div>
+            </div>
+
+            <div className="p-5 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-2">
+                    <span className="text-[10px] text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-1 rounded font-mono">
+                        {new Date(item.createdAt).toLocaleDateString()}
+                    </span>
+                    {item.tags && item.tags.length > 0 && <span className="text-[10px] text-gray-500">{item.tags[0]}</span>}
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">{item.title}</h3>
+                <p className="text-sm text-gray-400 line-clamp-3 mb-4 flex-1">{item.excerpt}</p>
+
+                <div className="mt-auto pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-gray-500">
+                    <span>By {item.author}</span>
+                </div>
+            </div>
+        </div>
+    );
+
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
             <Toaster />
@@ -93,45 +137,15 @@ export default function BlogManager() {
                 <button onClick={() => { setFormData(initialForm); setIsFormOpen(true); }} className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all font-medium"><Plus size={18} /> Add Post</button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {blogs.length > 0 ? blogs.map(item => (
-                    <div key={item._id} className="group bg-[#111116] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all flex flex-col">
-                        <div className="h-48 bg-gray-900 relative overflow-hidden">
-                            {item.coverImage ? (
-                                <img src={item.coverImage} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                            ) : (
-                                <div className="w-full h-full bg-blue-500/10 flex items-center justify-center text-blue-500">
-                                    <FileText size={48} />
-                                </div>
-                            )}
-                            <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <button onClick={() => handleEdit(item)} className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-500"><Edit size={16} /></button>
-                                <button onClick={() => handleDelete(item._id)} className="p-2 bg-red-500/80 text-white rounded-lg hover:bg-red-500"><Trash2 size={16} /></button>
-                            </div>
-                        </div>
-
-                        <div className="p-5 flex-1 flex flex-col">
-                            <div className="flex justify-between items-start mb-2">
-                                <span className="text-[10px] text-blue-400 border border-blue-500/20 bg-blue-500/5 px-2 py-1 rounded font-mono">
-                                    {new Date(item.createdAt).toLocaleDateString()}
-                                </span>
-                                {item.tags && item.tags.length > 0 && <span className="text-[10px] text-gray-500">{item.tags[0]}</span>}
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">{item.title}</h3>
-                            <p className="text-sm text-gray-400 line-clamp-3 mb-4 flex-1">{item.excerpt}</p>
-
-                            <div className="mt-auto pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-gray-500">
-                                <span>By {item.author}</span>
-                            </div>
-                        </div>
-                    </div>
-                )) : (
-                    <div className="col-span-full py-12 text-center border-2 border-dashed border-white/5 rounded-2xl bg-white/[0.01]">
-                        <FileText className="h-12 w-12 text-gray-700 mx-auto mb-4" />
-                        <h3 className="text-gray-400 font-medium">No blog posts found</h3>
-                    </div>
-                )}
-            </div>
+            <AdminList
+                data={blogs}
+                isLoading={isLoading}
+                layout="grid"
+                CardComponent={BlogCard}
+                onDelete={handleDelete}
+                onBulkDelete={handleBulkDelete}
+                searchKeys={['title', 'author', 'tags']}
+            />
 
             {isFormOpen && (
                 <BlogModal

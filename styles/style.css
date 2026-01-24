@@ -17,7 +17,7 @@
     display: grid;
     grid-template-columns: 1fr;
 }
-
+ 
 /* ===== Desktop “browser” mockup ===== */
 .bm-browser {
     background: #fff;

@@ -4,7 +4,7 @@ import Case from '@/models/Case';
 
 export async function GET() {
     await dbConnect();
-    const cases = await Case.find({}).sort({ createdAt: -1 });
+    const cases = await Case.find({}).sort({ order: 1, createdAt: -1 });
     return NextResponse.json(cases);
 }
 

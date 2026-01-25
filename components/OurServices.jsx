@@ -1,9 +1,10 @@
 export default function OurServices({ services = [] }) {
     return (
         <section className="js-animate-fadeinup w-full px-6 mx-auto md:flex-row justify-items-center max-w-7xl xl:px-8 gap-x-8 js-animate-fadein py-14 lg:py-20 xl:py-32">
-            <h4 className="mb-[0.7em] text-xl md:text-2xl leading-tight md:leading-tight font-bold text-white">
-                Our services
-            </h4>
+            <div className="pt-20 pb-4 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Our Expertise</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto">Comprehensive software development services tailored to your needs.</p>
+            </div>
 
             <div className="flex [@media(min-width:375px)]:flex-row w-full rounded-2xl border border-[#151515] overflow-hidden mt-8 flex-wrap">
                 {services.length > 0 ? (

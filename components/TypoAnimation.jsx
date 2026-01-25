@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useEffect } from "react";
 import Typed from "typed.js";
@@ -10,7 +10,7 @@ const TypoAnimation = () => {
         if (!el) return;
 
         const typed = new Typed(el, {
-            strings: ["innovate!", "scale!"],
+            strings: ["Build!", "Scale!", "Innovate!"],
             typeSpeed: 100,
             backSpeed: 100,
             startDelay: 150,

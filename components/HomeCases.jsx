@@ -46,11 +46,10 @@ export default function HomeCases({ cases = [] }) {
 
     return (
         <>
-            <div className="js-scroll-heading-bg">
-                <h2 className="mb-[0.7em] lg:mb-[0.9em] text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                    Selected work
-                </h2>
-            </div>
+            <section className="pt-10 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Our Success Stories</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto">Explore how we help businesses grow with custom software and digital strategy.</p>
+            </section>
 
             <section className="js-scroll-block js-scroll-block-bg">
                 <div className="js-scroll-block-pin flex absolute h-screen w-full flex-col justify-center">
@@ -80,14 +79,14 @@ export default function HomeCases({ cases = [] }) {
                                                             <div className="chrome-icon"></div>
                                                         </div>
                                                         <div className="bm-viewport desktop">
-                                                            <img src={item.imageDesktop || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                            <img src={item.imageDesktop || item.topImg || null} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                         </div>
                                                     </figure>
                                                     {/* Mobile */}
                                                     <figure className="bm-phone">
                                                         <div className="bm-phone-notch"></div>
                                                         <div className="bm-viewport mobile">
-                                                            <img src={item.imageMobile || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                            <img src={item.imageMobile || item.topImg || null} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                         </div>
                                                     </figure>
                                                 </div>
@@ -144,14 +143,14 @@ export default function HomeCases({ cases = [] }) {
                                                         <div className="chrome-icon"></div>
                                                     </div>
                                                     <div className="bm-viewport desktop">
-                                                        <img src={item.imageDesktop || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                        <img src={item.imageDesktop || item.topImg || null} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                     </div>
                                                 </figure>
                                                 {/* Mobile */}
                                                 <figure className="bm-phone">
                                                     <div className="bm-phone-notch"></div>
                                                     <div className="bm-viewport mobile">
-                                                        <img src={item.imageMobile || item.topImg} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
+                                                        <img src={item.imageMobile || item.topImg || null} alt={item.title} className="bm-img" data-auto-scroll loading="lazy" />
                                                     </div>
                                                 </figure>
                                             </div>

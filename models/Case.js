@@ -9,6 +9,8 @@ const CaseSchema = new mongoose.Schema({
   title: { type: String, required: true },
   slug: { type: String, required: true, unique: true },
   description: { type: String }, // Used for list view
+  status: { type: String, enum: ['published', 'draft'], default: 'published' },
+  order: { type: Number, default: 0 },
 
   // Images
   imageDesktop: { type: String }, // Used for list view desktop

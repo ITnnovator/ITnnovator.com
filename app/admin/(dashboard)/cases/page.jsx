@@ -1,13 +1,55 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Plus, Trash2, Edit, X, Loader2, Image as ImageIcon } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Plus, Trash2, Edit, X, Loader2, Image as ImageIcon, GripVertical } from 'lucide-react';
+// import { upload } from '@vercel/blob/client'; // Unused
 import toast from 'react-hot-toast';
+import { Reorder, useDragControls } from 'framer-motion';
+
+// Separate SortableItem to handle drag controls properly
+const SortableItem = ({ item, index }) => {
+  const controls = useDragControls();
+
+  return (
+    <Reorder.Item
+      value={item}
+      id={item._id}
+      className="relative"
+      layout
+      dragListener={false}
+      dragControls={controls}
+      whileDrag={{ scale: 1.02, zIndex: 50, cursor: 'grabbing' }}
+    >
+      <div className="bg-[#111116] border border-white/5 rounded-xl p-4 flex items-center gap-4 hover:border-white/20 transition-colors select-none">
+        <div
+          className="text-white/30 cursor-grab active:cursor-grabbing p-2 hover:text-white hover:bg-white/5 rounded transition-colors touch-none"
+          onPointerDown={(e) => controls.start(e)}
+        >
+          <GripVertical size={20} />
+        </div>
+        <div className="h-12 w-12 bg-gray-900 rounded-lg overflow-hidden shrink-0">
+          <img src={item.imageDesktop || item.topImg} className="w-full h-full object-cover pointer-events-none" />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-bold text-white">{item.title}</h3>
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-xs text-gray-500">{item.year}</span>
+            {item.status === 'draft' && <span className="text-[10px] bg-yellow-500/10 text-yellow-500 px-1.5 py-0.5 rounded uppercase">Draft</span>}
+          </div>
+        </div>
+        <div className="text-xs text-gray-500 font-mono">
+          Order: {Number(index) + 1}
+        </div>
+      </div>
+    </Reorder.Item>
+  );
+};
 
 export default function CasesManager() {
   const [cases, setCases] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'sort'
 
   // Track files to be uploaded on save: { fieldName: File }
   const [pendingUploads, setPendingUploads] = useState({});
@@ -15,7 +57,7 @@ export default function CasesManager() {
   // Form State
   const initialFormState = {
     _id: null, // Track ID for edits
-    title: '', slug: '', description: '',
+    title: '', slug: '', description: '', status: 'published',
     imageDesktop: '', imageMobile: '', innerImg: '', hero: '',
     client: '', year: '', link: '', categories: '', services: '',
     s1_heading: '', s1_text: '',
@@ -25,6 +67,7 @@ export default function CasesManager() {
 
   const [formData, setFormData] = useState(initialFormState);
 
+  // Load cases on mount
   useEffect(() => {
     fetchCases();
   }, []);
@@ -58,6 +101,7 @@ export default function CasesManager() {
       title: item.title,
       slug: item.slug,
       description: item.description || '',
+      status: item.status || 'published',
       imageDesktop: item.imageDesktop || item.topImg || '',
       imageMobile: item.imageMobile || item.topImg || '',
       innerImg: item.innerImg || '',
@@ -106,6 +150,9 @@ export default function CasesManager() {
 
   // Helper to actually upload a single file
   const uploadFile = async (file) => {
+    // Universal Server-Side Upload (FormData)
+    // NOTE: This limits uploads to ~4.5MB on Vercel Serverless Functions.
+    // Client-side uploads (unlimited size) are currently disabled due to library incompatibility (missing handleUpload).
     const form = new FormData();
     form.append('file', file);
     const res = await fetch('/api/upload', { method: 'POST', body: form });
@@ -124,8 +171,6 @@ export default function CasesManager() {
       const uploadFields = Object.keys(pendingUploads);
 
       if (uploadFields.length > 0) {
-        // Toast or indicator here if desired
-        // await Promise.all(...) can be faster but sequential is safer for error handling/debugging
         for (const field of uploadFields) {
           const file = pendingUploads[field];
           if (file) {
@@ -136,8 +181,6 @@ export default function CasesManager() {
       }
 
       // 2. Prepare Final Data (merge uploaded URLs into formData)
-      // Note: formData currently holds blob:URLs for these fields, so we MUST overwrite them with real URLs.
-      // If no new upload, we keep existing formData (which holds the OLD real URL).
       const finalData = { ...formData, ...uploadedUrls };
 
       // Construct payload to match schema
@@ -145,6 +188,7 @@ export default function CasesManager() {
         title: finalData.title,
         slug: finalData.slug,
         description: finalData.description,
+        status: finalData.status,
 
         imageDesktop: finalData.imageDesktop,
         imageMobile: finalData.imageMobile,
@@ -166,12 +210,12 @@ export default function CasesManager() {
         sectiontwo: {
           heading: finalData.s2_heading,
           text: finalData.s2_text,
-          img: finalData.s2_img // This might be one of the uploaded fields
+          img: finalData.s2_img
         },
         sectionthree: {
           heading: finalData.s3_heading,
           text: finalData.s3_text,
-          img: finalData.s3_img // This too
+          img: finalData.s3_img
         }
       };
 
@@ -201,47 +245,116 @@ export default function CasesManager() {
     }
   };
 
+  // 1. Update local state immediately (fast)
+  const handleReorder = (newOrder) => {
+    setCases(newOrder);
+  };
+
+  // 2. Debounced Auto-Save
+  const isFirstRun = useRef(true);
+  useEffect(() => {
+    // Skip initial render to avoid double-save
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      if (cases.length > 0) {
+        saveOrder(cases);
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [cases]);
+
+  const saveOrder = async (orderToSave) => {
+    try {
+      const payload = {
+        items: orderToSave.map((item, index) => ({
+          _id: item._id,
+          order: index
+        }))
+      };
+      // Silent save
+      await fetch('/api/cases/reorder', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (error) {
+      console.error('Failed to save order', error);
+    }
+  };
+
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white tracking-tight">Selected Work (Cases)</h1>
           <p className="text-gray-400 mt-2 text-sm">Manage your portfolio projects shown on the homepage.</p>
         </div>
-        <button
-          onClick={() => { setIsFormOpen(true); setFormData(initialFormState); setPendingUploads({}); }}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all font-medium"
-        >
-          <Plus size={18} /> Add New Case
-        </button>
+        <div className="flex gap-3">
+          <div className="bg-[#111116] border border-white/10 rounded-lg p-1 flex">
+            <button onClick={() => setViewMode('grid')} className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'grid' ? 'bg-white text-black shadow' : 'text-gray-400 hover:text-white'}`}>Grid</button>
+            <button onClick={() => setViewMode('sort')} className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${viewMode === 'sort' ? 'bg-white text-black shadow' : 'text-gray-400 hover:text-white'}`}>Sort Order</button>
+          </div>
+          <button
+            onClick={() => { setIsFormOpen(true); setFormData(initialFormState); setPendingUploads({}); }}
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-all font-medium"
+          >
+            <Plus size={18} /> Add New Case
+          </button>
+        </div>
       </div>
 
-      {/* Case List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cases.map((item) => (
-          <div key={item._id} className="group bg-[#111116] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all flex flex-col">
-            <div className="h-48 bg-gray-900 relative overflow-hidden">
-              <img src={item.imageDesktop || item.topImg} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button onClick={() => handleEdit(item)} className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-500"><Edit size={16} /></button>
-                <button onClick={() => handleDelete(item._id)} className="p-2 bg-red-500/80 text-white rounded-lg hover:bg-red-500"><Trash2 size={16} /></button>
+      {/* View Content */}
+      {viewMode === 'grid' ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cases.map((item) => (
+            <div key={item._id} className="group bg-[#111116] border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all flex flex-col h-full relative">
+              <div className="h-48 bg-gray-900 relative overflow-hidden">
+                <img src={item.imageDesktop || item.topImg} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+
+                <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button onClick={() => handleEdit(item)} className="p-2 bg-blue-500/80 text-white rounded-lg hover:bg-blue-500"><Edit size={16} /></button>
+                  <button onClick={() => handleDelete(item._id)} className="p-2 bg-red-500/80 text-white rounded-lg hover:bg-red-500"><Trash2 size={16} /></button>
+                </div>
+
+                {/* Draft Badge */}
+                {item.status === 'draft' && (
+                  <div className="absolute bottom-2 left-2 bg-yellow-500/20 text-yellow-500 border border-yellow-500/20 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider backdrop-blur-md">
+                    Draft
+                  </div>
+                )}
+              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold text-lg text-white">{item.title}</h3>
+                  <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded-full">{item.year}</span>
+                </div>
+                <p className="text-gray-400 text-sm line-clamp-2 mb-4 flex-1">{item.description}</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {item.categories && item.categories.map((cat, i) => (
+                    <span key={i} className="text-[10px] text-gray-500 border border-white/10 px-2 py-0.5 rounded-md">{cat}</span>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="p-5 flex-1 flex flex-col">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-bold text-lg text-white">{item.title}</h3>
-                <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded-full">{item.year}</span>
-              </div>
-              <p className="text-gray-400 text-sm line-clamp-2 mb-4 flex-1">{item.description}</p>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {item.categories && item.categories.map((cat, i) => (
-                  <span key={i} className="text-[10px] text-gray-500 border border-white/10 px-2 py-0.5 rounded-md">{cat}</span>
-                ))}
-              </div>
-            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="max-w-3xl mx-auto min-h-[80vh] pb-20">
+          <div className="bg-blue-500/10 border border-blue-500/20 text-blue-400 px-4 py-3 rounded-lg mb-6 text-sm flex items-center gap-2">
+            <GripVertical size={18} />
+            Drag items using the handle <GripVertical size={14} className="inline" /> to reorder. Changes saved automatically.
           </div>
-        ))}
-      </div>
+          <Reorder.Group axis="y" values={cases} onReorder={handleReorder} className="space-y-4 pb-40">
+            {cases.map((item, i) => (
+              <SortableItem key={item._id} item={item} index={i} />
+            ))}
+          </Reorder.Group>
+        </div>
+      )}
 
       {/* Add Case Modal Sidepanel */}
       {isFormOpen && (
@@ -266,6 +379,13 @@ export default function CasesManager() {
                   <div className="space-y-2">
                     <label className="text-xs font-semibold text-gray-400 uppercase">Slug</label>
                     <input required type="text" value={formData.slug} onChange={e => setFormData({ ...formData, slug: e.target.value })} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-blue-500/50 outline-none" placeholder="project-slug" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-semibold text-gray-400 uppercase">Status</label>
+                    <select value={formData.status} onChange={e => setFormData({ ...formData, status: e.target.value })} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-blue-500/50 outline-none">
+                      <option value="published">Published</option>
+                      <option value="draft">Draft</option>
+                    </select>
                   </div>
                 </div>
                 <div className="space-y-2">

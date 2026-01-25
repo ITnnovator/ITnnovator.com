@@ -1,4 +1,10 @@
-export default function OurClients({ clients = [] }) {
+import { getClients } from '@/app/lib/data';
+
+export default async function OurClients({ clients }) {
+    // If clients prop is not provided (undefined), fetch from DB.
+    // If provided (even distinct from empty array? No, usually just undefined if missing), use it.
+    const displayClients = clients || await getClients();
+
     return (
         <section className="pb-14 lg:pb-20 xl:pb-32 lg:pt-20">
             <div className="max-w-7xl px-5 xl:px-8 mx-auto flex text-center flex-col gap-y-10 md:gap-y-20">
@@ -7,8 +13,8 @@ export default function OurClients({ clients = [] }) {
                 </h2>
 
                 <div className="js-logo-ticker flex items-center gap-x-10 md:gap-y-20 opacity-0 md:gap-x-0 md:flex-wrap md:justify-center md:opacity-100">
-                    {clients.length > 0 ? (
-                        clients.map((client) => (
+                    {displayClients && displayClients.length > 0 ? (
+                        displayClients.map((client) => (
                             <div key={client._id} className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%]">
                                 <img
                                     src={client.logo}

@@ -10,9 +10,9 @@ import ScriptRefresh from "@/components/ScriptRefresh";
 
 export const metadata = {
   metadataBase: new URL("https://itnnovator.com"),
-  title: "Innovating the Future of Tech | Itnnovator",
-  description: "Itnnovator is a cutting-edge digital agency delivering web design, development, branding, and digital marketing solutions tailored for business growth.",
-  keywords: ["Itnnovator", "digital agency", "web development", "branding", "SEO services", "UI/UX", "software development"],
+  title: "Software Development Agency | Itnnovator",
+  description: "Itnnovator is a leading software development agency specializing in custom web applications, e-commerce, and digital transformation for growing businesses.",
+  keywords: ["software development agency", "web development agency", "custom software development services", "e-commerce website development", "SEO services", "UI/UX"],
   authors: [{ name: "Itnnovator", url: "https://itnnovator.com" }],
   creator: "Itnnovator",
   publisher: "Itnnovator",
@@ -23,8 +23,8 @@ export const metadata = {
     // apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Itnnovator | Innovating the Future of Tech",
-    description: "Transforming brands with design, development, and marketing expertise.",
+    title: "Software Development Agency | Itnnovator",
+    description: "We build high-performance websites, apps, and growth systems that turn clicks into customers.",
     url: "https://itnnovator.com",
     siteName: "Itnnovator",
     images: [
@@ -32,19 +32,38 @@ export const metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Itnnovator Open Graph Image",
+        alt: "Itnnovator - Software Development Agency",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Itnnovator | Innovating the Future of Tech",
-    description: "A top-tier agency delivering innovative digital solutions.",
+    title: "Software Development Agency | Itnnovator",
+    description: "Custom software tailored for business growth.",
     creator: "@itnnovator",
     images: ["/og-image.jpg"],
   },
 };
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Itnnovator",
+  "url": "https://itnnovator.com",
+  "logo": "https://itnnovator.com/webImages/logo.png",
+  "sameAs": [
+    "https://facebook.com/itnnovator",
+    "https://instagram.com/itnnovator",
+    "https://linkedin.com/company/itnnovator"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-555-0123", // Replace with actual if known, otherwise omitted or placeholder
+    "contactType": "customer service"
+  }
+};
+
 
 export default function SiteLayout({ children }) {
 
@@ -56,6 +75,11 @@ export default function SiteLayout({ children }) {
       >
 
         <SparkCursor />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
         {/* Missing heart-svg required by main.js */}
         <div id="heart-svg" className="heart-svg"></div>

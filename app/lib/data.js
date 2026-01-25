@@ -10,9 +10,18 @@ export async function getServices() {
   return services.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined, updatedAt: undefined }));
 }
 
-export async function getCases() {
+export async function getCases(limit = null) {
   await dbConnect();
-  const cases = await Case.find({}).sort({ createdAt: -1 }).lean();
+  // Include 'published' AND documents where status is undefined/null (legacy support)
+  let query = Case.find({
+    $or: [{ status: 'published' }, { status: { $exists: false } }, { status: null }]
+  }).sort({ order: 1, createdAt: -1 });
+
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  const cases = await query.lean();
   return cases.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined, updatedAt: undefined }));
 }
 

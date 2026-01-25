@@ -1,271 +1,170 @@
+"use client";
+
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
 export default function OurOffer() {
+    const containerRef = useRef(null);
+    const pinRef = useRef(null);
+    const spacingRef = useRef(null);
+
+    // Use a separate ref to track the active index to avoid unnecessary re-renders or logic loop
+    const activeIndex = useRef(0);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            const container = containerRef.current;
+
+            // Colors for background
+            const colors = ["#829dff", "#d86aaa", "#8c6dc4"];
+
+            // Initial State setup
+            gsap.set(".js-offer-bg", { backgroundColor: colors[0] });
+            gsap.set(".offer-item-content", { autoAlpha: 0, display: "none", y: 20 });
+            gsap.set(".offer-item-image", { autoAlpha: 0, rotation: 10, scale: 0.9 });
+
+            // Set Slide 1 as active initially
+            gsap.set(".offer-item-content-0", { autoAlpha: 1, display: "flex", y: 0 });
+            gsap.set(".offer-item-image-0", { autoAlpha: 1, rotation: -2, scale: 1 });
+
+            // Main Timeline
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: container,
+                    start: "center center",
+                    end: "+=300%", // Scroll distance (3x height)
+                    pin: true,
+                    scrub: 1, // Smooth scrubbing
+                    snap: 1 / 2, // Snap to 0, 0.5, 1 (3 points)
+                }
+            });
+
+            // Transition 1 -> 2
+            tl.to(".offer-item-content-0", { autoAlpha: 0, display: "none", y: -20, duration: 1 })
+                .to(".offer-item-image-0", { autoAlpha: 0, rotation: -10, scale: 0.9, duration: 1 }, "<")
+                .to(".js-offer-bg", { backgroundColor: colors[1], duration: 1 }, "<")
+
+                .to(".offer-item-content-1", { autoAlpha: 1, display: "flex", y: 0, duration: 1 }, "-=0.2")
+                .to(".offer-item-image-1", { autoAlpha: 1, rotation: 1, scale: 1, duration: 1 }, "<")
+
+                // Hold Slide 2 briefly by adding a dummy tween or just spacing the next start
+
+                // Transition 2 -> 3
+                .to(".offer-item-content-1", { autoAlpha: 0, display: "none", y: -20, duration: 1 }, "+=0.5")
+                .to(".offer-item-image-1", { autoAlpha: 0, rotation: 10, scale: 0.9, duration: 1 }, "<")
+                .to(".js-offer-bg", { backgroundColor: colors[2], duration: 1 }, "<")
+
+                .to(".offer-item-content-2", { autoAlpha: 1, display: "flex", y: 0, duration: 1 }, "-=0.2")
+                .to(".offer-item-image-2", { autoAlpha: 1, rotation: -1, scale: 1, duration: 1 }, "<");
+
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <>
-            <div className="js-scroll-heading-bg">
-                <h2 className="mb-[0.7em] lg:mb-[0.9em] text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
+        <div ref={containerRef} className="relative h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden">
+
+            <div className="absolute top-10 lg:top-16 z-20 text-center w-full">
+                <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] font-bold text-white leading-tight">
                     Our Offer
                 </h2>
             </div>
 
-            <section className="js-scroll-block js-scroll-block-bg">
-                <div className="js-scroll-block-pin flex absolute h-screen w-full flex-col justify-center">
-                    <div className="w-full h-[100%] relative">
-                        <div className="hidden md:flex fixed top-[50%] right-[2rem] transform translate-x-[-50%] translate-y-[-50%]">
-                            <svg width="50" height="45" viewBox="0 0 50 130">
-                                <rect
-                                    className="scroll"
-                                    x="0"
-                                    y="5"
-                                    rx="35"
-                                    ry="35"
-                                    width="70"
-                                    height="120"
-                                    stroke="#ffffff"
-                                    fill="none"
-                                    strokeWidth="4"
-                                ></rect>
-                                <circle
-                                    className="circle--shape"
-                                    cx="35"
-                                    cy="32"
-                                    r="8"
-                                    fill="#FFFFFF"
-                                ></circle>
-                            </svg>
-                        </div>
+            {/* The Card Window */}
+            <div className="relative w-[94%] max-w-[80rem] aspect-[16/9] md:aspect-[2.2/1] min-h-[500px] h-[60vh] md:h-[70vh] rounded-[2.5rem] overflow-hidden shadow-2xl z-10">
 
-                        <div className="relative h-screen mr-auto md:px-20 flex items-center justify-center md:w-[60%]">
-                            {/* 1 - Strategy & Analysis */}
-                            <div className="js-scroll-block-photo hidden md:block md:absolute md:w-[100%] h-[100%]">
-                                <div className="flex items-center flex-col justify-center h-full pr-12 pt-12 pb-12 pl-20">
-                                    <div className="relative js-scroll-img-no-bg-wrap js-scroll-img-wide-bg-wrap">
-                                        <picture className="block mx-auto px-6 xl:px-8">
-                                            <img
-                                                width="950"
-                                                height="699"
-                                                src="/webImages/webbyra-ui-ux-design-950x699.jpg"
-                                                className="js-scroll-img-no-bg"
-                                                alt="Itnnovator Strategy & Analysis - Data-driven digital strategy and research services"
-                                                loading="lazy"
-                                                decoding="async"
-                                            />
-                                        </picture>
-                                        <div
-                                            className="image-shadow-top"
-                                            style={{ background: "#d86aaa" }}
-                                        ></div>
-                                        <div
-                                            className="image-shadow-bottom"
-                                            style={{ background: "#d86aaa" }}
-                                        ></div>
-                                    </div>
-                                </div>
+                {/* Background Layer */}
+                <div className="js-offer-bg absolute inset-0 w-full h-full"></div>
+
+                {/* Content Container */}
+                <div className="absolute inset-0 flex flex-col md:flex-row items-center p-6 md:p-12 gap-8 md:gap-16">
+
+                    {/* Left: Images */}
+                    <div className="w-full md:w-1/2 h-1/2 md:h-full relative flex items-center justify-center">
+                        <div className="relative w-full aspect-[4/3] max-w-md">
+                            {/* Image 1 */}
+                            <div className="offer-item-image offer-item-image-0 absolute inset-0 w-full h-full">
+                                <img
+                                    src="/webImages/webbyra-ui-ux-design-950x699.jpg"
+                                    className="w-full h-full object-cover rounded-2xl shadow-lg border-2 border-white/10"
+                                    alt="Strategy & Analysis"
+                                />
                             </div>
-
-                            {/* 2 - Web Development */}
-                            <div className="js-scroll-block-photo hidden md:block md:absolute md:w-[100%] h-[100%]">
-                                <div className="flex items-center flex-col justify-center h-full pr-12 pt-12 pb-12 pl-20">
-                                    <div className="relative js-scroll-img-no-bg-wrap js-scroll-img-wide-bg-wrap">
-                                        <picture className="block mx-auto px-6 xl:px-8">
-                                            <img
-                                                width="950"
-                                                height="699"
-                                                src="/webImages/webbyra-e-commerce-950x699.jpg"
-                                                className="js-scroll-img-no-bg"
-                                                alt="Itnnovator Web Development - Custom websites and e-commerce solutions"
-                                                loading="lazy"
-                                                decoding="async"
-                                            />
-                                        </picture>
-                                        <div
-                                            className="image-shadow-top"
-                                            style={{ background: "#8c6dc4" }}
-                                        ></div>
-                                        <div
-                                            className="image-shadow-bottom"
-                                            style={{ background: "#8c6dc4" }}
-                                        ></div>
-                                    </div>
-                                </div>
+                            {/* Image 2 */}
+                            <div className="offer-item-image offer-item-image-1 absolute inset-0 w-full h-full">
+                                <img
+                                    src="/webImages/webbyra-e-handel-950x699.jpg"
+                                    className="w-full h-full object-cover rounded-2xl shadow-lg border-2 border-white/10"
+                                    alt="Web Development"
+                                />
                             </div>
-
-                            {/* 3 - Growth & Optimization */}
-                            <div className="js-scroll-block-photo hidden md:block md:absolute md:w-[100%] h-[100%]">
-                                <div className="flex items-center flex-col justify-center h-full pr-12 pt-12 pb-12 pl-20">
-                                    <div className="relative js-scroll-img-no-bg-wrap js-scroll-img-wide-bg-wrap">
-                                        <picture className="block mx-auto px-6 xl:px-8">
-                                            <img
-                                                width="950"
-                                                height="699"
-                                                src="/webImages/webbyra-growth-950x699.jpg"
-                                                className="js-scroll-img-no-bg"
-                                                alt="Itnnovator Growth Marketing - SEO and conversion rate optimization services"
-                                                loading="lazy"
-                                                decoding="async"
-                                            />
-                                        </picture>
-                                        <div
-                                            className="image-shadow-top"
-                                            style={{ background: "#ba7ccc" }}
-                                        ></div>
-                                        <div
-                                            className="image-shadow-bottom"
-                                            style={{ background: "#ba7ccc" }}
-                                        ></div>
-                                    </div>
-                                </div>
+                            {/* Image 3 */}
+                            <div className="offer-item-image offer-item-image-2 absolute inset-0 w-full h-full">
+                                <img
+                                    src="/webImages/webbyra-growth-950x699.jpg"
+                                    className="w-full h-full object-cover rounded-2xl shadow-lg border-2 border-white/10"
+                                    alt="Growth Marketing"
+                                />
                             </div>
                         </div>
                     </div>
 
-                    {/* bg colors */}
-                    <div className="w-screen h-screen z-[-2]">
-                        <span
-                            className="js-scroll-block-bg-color"
-                            style={{ background: "rgba(130, 157, 255, var(--tw-text-opacity))" }}
-                        ></span>
-                        <span
-                            className="js-scroll-block-bg-color"
-                            style={{ background: "rgba(130, 157, 255, var(--tw-text-opacity))" }}
-                        ></span>
-                        <span
-                            className="js-scroll-block-bg-color"
-                            style={{ background: "rgba(130, 157, 255, var(--tw-text-opacity))" }}
-                        ></span>
-                    </div>
-                </div>
+                    {/* Right: Text Content */}
+                    <div className="w-full md:w-1/2 h-1/2 md:h-full relative flex items-center">
 
-                {/* progress + overlays */}
-                <div className="js-scroll-block-progress-bar-wrapper bg-gray-800 w-md h-[0.1rem] fixed z-50 w-[20rem] bottom-[1.25rem] rounded-full left-1/2 transform -translate-x-1/2 opacity-0">
-                    <div className="js-scroll-block-progress-bar bg-white w-0 h-[0.1rem] relative z-100"></div>
-                </div>
-                <div className="js-scroll-block-fixed-top pointer-events-none js-scroll-block-fixed-top-bg"></div>
-                <div className="js-scroll-block-fixed-bottom pointer-events-none js-scroll-block-fixed-bottom-bg"></div>
-
-                {/* content rail */}
-                <div className="relative md:w-[40%] w-full md:ml-auto z-[1]">
-                    <div className="js-scroll-block-content-wrapper js-scroll-block-content-wrapper-bg w-full md:w-[80%] mr-32">
-
-                        {/* 01 - Complete Web Solution with Company Presentation */}
-                        <div className="js-scroll-block-content">
-                            <div className="max-w-md">
-                                <div className="md:hidden relative block mx-auto">
-                                    <div className="image-shadow-top" style={{ background: "#d86aaa" }}></div>
-                                    <div className="image-shadow-bottom" style={{ background: "#d86aaa" }}></div>
-                                    <img
-                                        width="950"
-                                        height="699"
-                                        src="/webImages/webbyra-ui-ux-design-950x699.jpg"
-                                        className="w-full h-auto rounded-[0.9rem] md:rounded-[1.25rem] lg:rounded-[1.75rem]"
-                                        alt="Complete Web Solution with Company Presentation"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mt-4 mb-2 md:mb-8 text-base md:text-lg" style={{ color: "#fff" }}>
-                                01<span className="opacity-50">/03</span>
-                            </div>
-                            <h3 className="leading-[1.28] md:leading-[1.1] break-words hyphens-auto text-3xl md:text-[2.5rem] lg:text-[3rem] xl:text-[3rem]" style={{ color: "#fff" }}>
+                        {/* Item 1 */}
+                        <div className="offer-item-content offer-item-content-0 absolute inset-0 flex flex-col justify-center">
+                            <span className="text-white/60 font-medium tracking-widest mb-4">01/03</span>
+                            <h3 className="text-3xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 text-white">
                                 Complete Web Solution with Company Presentation
                             </h3>
-                            <p className="mt-3 md:mt-4 text-base text-100 md:text-xl" style={{ color: "#fff" }}>
-                                We offer comprehensive web solutions that not only provide a sleek and functional website but also effectively showcase your company’s identity. From brand presentation to seamless navigation, we craft a user-friendly experience that speaks to your target audience.
+                            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
+                                We offer comprehensive web solutions that not only provide a sleek and functional website but also effectively showcase your company’s identity.
                             </p>
-                            <div className="mt-4 mb-5 md:mb-0 md:mt-10" style={{ color: "#fff" }}>
-                                <a href="/complete-web-solution" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-inherit">
-                                    <span>Learn More about Our Web Solutions</span>
-                                    <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                                        <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                                            <use href="/webImages/icons.svg#arrow-right"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
+                            <a href="/complete-web-solution" className="inline-flex items-center text-lg font-semibold hover:gap-2 transition-all">
+                                Learn More about Our Web Solutions
+                                <svg className="ml-2 w-5 h-5" viewBox="0 0 13 13" fill="currentColor"><use href="/webImages/icons.svg#arrow-right"></use></svg>
+                            </a>
                         </div>
 
-                        {/* 02 - Interactive Webshops */}
-                        <div className="js-scroll-block-content">
-                            <div className="max-w-md">
-                                <div className="md:hidden relative block mx-auto">
-                                    <div className="image-shadow-top" style={{ background: "#8c6dc4" }}></div>
-                                    <div className="image-shadow-bottom" style={{ background: "#8c6dc4" }}></div>
-                                    <img
-                                        width="950"
-                                        height="699"
-                                        src="/webImages/webbyra-e-commerce-950x699.jpg"
-                                        className="w-full h-auto rounded-[0.9rem] md:rounded-[1.25rem] lg:rounded-[1.75rem]"
-                                        alt="Interactive Webshops"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mt-4 mb-2 md:mb-8 text-base md:text-lg" style={{ color: "#fff" }}>
-                                02<span className="opacity-50">/03</span>
-                            </div>
-                            <h3 className="leading-[1.28] md:leading-[1.1] break-words hyphens-auto text-3xl md:text-[2.5rem] lg:text-[3rem] xl:text-[3rem]" style={{ color: "#fff" }}>
+                        {/* Item 2 */}
+                        <div className="offer-item-content offer-item-content-1 absolute inset-0 hidden flex-col justify-center">
+                            <span className="text-white/60 font-medium tracking-widest mb-4">02/03</span>
+                            <h3 className="text-3xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 text-white">
                                 Interactive Webshops
                             </h3>
-                            <p className="mt-3 md:mt-4 text-base text-100 md:text-xl" style={{ color: "#fff" }}>
-                                We build interactive and high-performing e-commerce platforms that engage customers and drive conversions. Whether you're starting an online store or expanding your product offerings, we deliver secure, scalable, and user-friendly webshops designed to maximize your business potential.
+                            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
+                                We build interactive and high-performing e-commerce platforms that engage customers and drive conversions. Secure, scalable, and user-friendly.
                             </p>
-                            <div className="mt-4 mb-5 md:mb-0 md:mt-10" style={{ color: "#fff" }}>
-                                <a href="/webshops" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-inherit">
-                                    <span>Explore Our Webshop Solutions</span>
-                                    <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                                        <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                                            <use href="/webImages/icons.svg#arrow-right"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
+                            <a href="/webshops" className="inline-flex items-center text-lg font-semibold hover:gap-2 transition-all">
+                                Explore Our Webshop Solutions
+                                <svg className="ml-2 w-5 h-5" viewBox="0 0 13 13" fill="currentColor"><use href="/webImages/icons.svg#arrow-right"></use></svg>
+                            </a>
                         </div>
 
-                        {/* 03 - Advertising that Captures Customers with META and GOOGLE */}
-                        <div className="js-scroll-block-content">
-                            <div className="max-w-md">
-                                <div className="md:hidden relative block mx-auto">
-                                    <div className="image-shadow-top" style={{ background: "#ba7ccc" }}></div>
-                                    <div className="image-shadow-bottom" style={{ background: "#ba7ccc" }}></div>
-                                    <img
-                                        width="950"
-                                        height="699"
-                                        src="/webImages/webbyra-growth-950x699.jpg"
-                                        className="w-full h-auto rounded-[0.9rem] md:rounded-[1.25rem] lg:rounded-[1.75rem]"
-                                        alt="Advertising that Captures Customers with META and GOOGLE"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="mt-4 mb-2 md:mb-8 text-base md:text-lg" style={{ color: "#fff" }}>
-                                03<span className="opacity-50">/03</span>
-                            </div>
-                            <h3 className="leading-[1.28] md:leading-[1.1] break-words hyphens-auto text-3xl md:text-[2.5rem] lg:text-[3rem] xl:text-[3rem]" style={{ color: "#fff" }}>
-                                Advertising that Captures Customers with META and GOOGLE
+                        {/* Item 3 */}
+                        <div className="offer-item-content offer-item-content-2 absolute inset-0 hidden flex-col justify-center">
+                            <span className="text-white/60 font-medium tracking-widest mb-4">03/03</span>
+                            <h3 className="text-3xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 text-white">
+                                Advertising that Captures Customers
                             </h3>
-                            <p className="mt-3 md:mt-4 text-base text-100 md:text-xl" style={{ color: "#fff" }}>
-                                We specialize in creating targeted advertising campaigns through META (Facebook, Instagram) and Google Ads that drive high-quality traffic to your website. With data-driven strategies, we ensure your business captures the attention of potential customers and converts them into loyal clients.
+                            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6 max-w-lg">
+                                Targeted advertising campaigns through META and Google Ads that drive high-quality traffic. Data-driven strategies to convert views into loyal clients.
                             </p>
-                            <div className="mt-4 mb-5 md:mb-0 md:mt-10" style={{ color: "#fff" }}>
-                                <a href="/advertising" target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-inherit">
-                                    <span>Learn More about Our Advertising Services</span>
-                                    <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                                        <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                                            <use href="/webImages/icons.svg#arrow-right"></use>
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
+                            <a href="/advertising" className="inline-flex items-center text-lg font-semibold hover:gap-2 transition-all">
+                                Learn More about Advertising
+                                <svg className="ml-2 w-5 h-5" viewBox="0 0 13 13" fill="currentColor"><use href="/webImages/icons.svg#arrow-right"></use></svg>
+                            </a>
                         </div>
+
                     </div>
                 </div>
-
-            </section>
-        </>
+            </div>
+        </div>
     );
 }

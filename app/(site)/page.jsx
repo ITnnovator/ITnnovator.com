@@ -25,7 +25,7 @@ async function getHeroData() {
 
 export default async function Home() {
   const services = await getServices();
-  const cases = await getCases();
+  const cases = await getCases(5);
   const testimonials = await getTestimonials();
   const clients = await getClients();
   const hero = await getHeroData();
@@ -37,25 +37,37 @@ export default async function Home() {
         {/* ... (existing content wrapper) ... */}
         <div className="js-hero-block--content relative w-[94%] wider:max-w-[90rem] wider:max-w-[90rem] px-5 xl:px-8 mx-auto">
           {/* Hero headline */}
-          <h2
-            className="w-full leading-none tracking-tight text-[4.375rem] font-[800] mb-4 opacity-70 -ml-[4px] md:mb-6 md:text-[5rem] lg:[font-size:_clamp(16px,calc(12vw),15.5rem)] lg:-ml-[9px]"
+          {/* Hero headline */}
+          <h1
+            className="w-full leading-[1.1] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] xl:text-[6rem] font-[800] mb-4 opacity-70 -ml-[2px] md:mb-6 lg:-ml-[4px]"
             style={{ mixBlendMode: "difference" }}
           >
             <span className="bg-gradient-to-t from-[#FFE99A] to-[#A1BDE7] bg-clip-text mix-blend-difference sm:whitespace-nowrap [&_.typed-cursor]:font-normal [&_.typed-cursor.typed-cursor--blink]:text-[0]">
-              Dare to <br className="block sm:hidden" />
+              Software Development Agency That Helps You <br className="block sm:hidden" />
               <TypoAnimation />
             </span>
+          </h1>
+
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 block text-left lg:text-left">
+            Building Digital Futures with Custom Web & Mobile Solutions
           </h2>
 
           <p className="w-full max-w-[57.4375rem] text-white m-0 font-200 text-lg/[1.39] md:text-xl lg:text-[1.4375rem]">
-            We build websites, apps, and growth systems that turn clicks into customers.
+            We are a full-service software development agency. We build custom websites, scalable apps, and growth systems that turn clicks into customers.
           </p>
 
-          <div className="flex flex-wrap gap-x-10 gap-y-8 pt-[1.625rem] lg:block lg:pt-[2.125rem]">
+          {/* Trust Microcopy */}
+          <div className="flex gap-4 text-sm text-gray-400 mt-4 mb-2">
+            <span className="flex items-center gap-1">✓ Transparent Pricing</span>
+            <span className="flex items-center gap-1">✓ Human-Reviewed Estimates</span>
+            <span className="flex items-center gap-1">✓ Expert Developers</span>
+          </div>
+
+          <div className="flex flex-wrap gap-x-10 gap-y-8 pt-[1rem] lg:pt-[1.5rem]">
             <a
-              href="/case"
+              href="/estimate"
               className="lg:min-w-[10rem] inline-flex items-center font-[400] md:text-[1.375rem] rounded-[1.25rem] md:text-xl text-malibu js-hover-circle-animation hover-child-underline-animation">
-              <span className="relative inline-block child after:!bg-malibu">See our work</span>
+              <span className="relative inline-block child after:!bg-malibu">Get Estimate</span>
               <span className="pl-4">
                 <svg preserveAspectRatio="none" width="13" height="13" viewBox="0 0 13 13" aria-hidden="true">
                   <use href="/webImages/icons.svg#arrow-right"></use>
@@ -98,9 +110,9 @@ export default async function Home() {
       <section className="py-14 lg:py-20 xl:py-32">
         <div className="w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto flex flex-wrap gap-10 justify-between">
           <div className="flex flex-col gap-y-6 w-full max-w-[50rem] md:gap-y-11">
-            <h1 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
+            <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
               Your End-to-End Digital Solutions Partner | Itnnovator
-            </h1>
+            </h2>
 
             <div
               className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit">
@@ -171,6 +183,10 @@ export default async function Home() {
       <OurClients clients={clients} />
 
       {/* Testimonial */}
+      <section className="pt-5 pb-4 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">What Our Partners Say</h2>
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto">Trusted by growing brands for reliable software development services.</p>
+      </section>
       <Testimonial testimonials={testimonials} />
 
       {/* Everything in Web development */}

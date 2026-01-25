@@ -7,20 +7,17 @@ export default function Testimonial({ testimonials = [] }) {
                     aria-label="Previous testimonial"
                 >
                     <svg
-                        className="rotate-180 inline-block w-10 h-auto md:w-full"
+                        className="inline-block w-10 h-auto md:w-full"
                         preserveAspectRatio="none"
                         width="37"
                         height="20"
                         viewBox="0 0 67 37"
                         aria-hidden="true"
+                        style={{ transform: 'rotate(180deg)' }}
                     >
                         <use href="/webImages/icons.svg#arrow-right-big"></use>
                     </svg>
                 </button>
-
-                <h4 className="text-center mb-[2em]">
-                    Client Success Stories: Why Businesses Choose Itnnovator
-                </h4>
 
                 <div className="js-review-carousel review-carousel pb-20 md:pb-10">
                     {testimonials.length > 0 ? (
@@ -63,7 +60,7 @@ export default function Testimonial({ testimonials = [] }) {
                             </div>
                         ))
                     ) : (
-                         <div className="w-full text-center py-20">No testimonials yet.</div>
+                        <div className="w-full text-center py-20">No testimonials yet.</div>
                     )}                    {/* /slides */}
                 </div>
 

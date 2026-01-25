@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CTA() {
     return (
-        <section className="js-animate-fadeinup mx-auto px-6 xl:px-8 max-w-4xl text-center py-14 lg:py-20 xl:py-32">
+        <section className="js-animate-fadeinup mx-auto px-6 xl:px-8 max-w-4xl text-center py-14 lg:py-10 xl:py-10">
             <div className="w-[12rem] md:w-[15rem] lg:w-[18rem] mx-auto mb-10 ">
                 <img
                     width="296"

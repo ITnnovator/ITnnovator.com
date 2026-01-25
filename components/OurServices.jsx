@@ -1,6 +1,6 @@
 export default function OurServices({ services = [] }) {
     return (
-        <section className="js-animate-fadeinup w-full px-6 mx-auto md:flex-row justify-items-center max-w-7xl xl:px-8 gap-x-8 js-animate-fadein py-14 lg:py-20 xl:py-32">
+        <section className="js-animate-fadeinup w-full px-6 mx-auto md:flex-row justify-items-center max-w-7xl xl:px-8 gap-x-8 js-animate-fadein py-14 lg:py-10 xl:py-10">
             <div className="pt-20 pb-4 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Our Expertise</h2>
                 <p className="text-xl text-gray-400 max-w-2xl mx-auto">Comprehensive software development services tailored to your needs.</p>

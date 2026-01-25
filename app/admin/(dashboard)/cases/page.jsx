@@ -156,7 +156,13 @@ export default function CasesManager() {
     const form = new FormData();
     form.append('file', file);
     const res = await fetch('/api/upload', { method: 'POST', body: form });
-    if (!res.ok) throw new Error('Upload failed');
+
+    if (!res.ok) {
+      if (res.status === 413) {
+        throw new Error('Image too large (Max 4.5MB for server uploads). Please optimize it.');
+      }
+      throw new Error('Upload failed');
+    }
     const data = await res.json();
     return data.url;
   };

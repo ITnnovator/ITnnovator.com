@@ -69,7 +69,7 @@ export default function OurOffer() {
     return (
         <div ref={containerRef} className="relative h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden">
 
-            <div className="absolute top-10 lg:top-16 z-20 text-center w-full">
+            <div className="absolute top-0 lg:top-0 z-20 text-center w-full">
                 <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] font-bold text-white leading-tight">
                     Our Offer
                 </h2>

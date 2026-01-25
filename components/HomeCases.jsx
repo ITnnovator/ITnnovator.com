@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function HomeCases({ cases = [] }) {
+    const pathname = usePathname();
+
     useEffect(() => {
         const SPEED = 42; // px/sec — tweak to taste
         const imgs = Array.from(document.querySelectorAll('img[data-auto-scroll]'));
@@ -30,6 +33,7 @@ export default function HomeCases({ cases = [] }) {
         }
 
         imgs.forEach((img) => {
+            // Attempt setup immediately
             if (img.complete) {
                 setup(img);
             } else {
@@ -37,12 +41,26 @@ export default function HomeCases({ cases = [] }) {
             }
         });
 
-        window.addEventListener('resize', setupAll);
+        // Use ResizeObserver for robust layout detection (fires when elements actually get size)
+        const resizeObserver = new ResizeObserver(() => {
+            setupAll();
+        });
+
+        imgs.forEach(img => {
+            if (img.parentElement) {
+                resizeObserver.observe(img.parentElement);
+            }
+        });
+
+        // Also keep one delayed check for safety
+        const safetyCheck = setTimeout(() => setupAll(), 1000);
 
         return () => {
-            window.removeEventListener('resize', setupAll);
+            clearTimeout(safetyCheck);
+            resizeObserver.disconnect();
         };
-    }, []);
+
+    }, [cases, pathname]); // Re-run on route change (pathname) or data update
 
     return (
         <>

@@ -14,12 +14,12 @@ export default function EstimatePage() {
                 </h1>
 
                 {/* Static SEO & Trust Section */}
-                <div className="max-w-3xl mx-auto space-y-6">
+                <div className="mx-auto space-y-6">
                     <p className="text-lg text-gray-300 leading-relaxed">
                         Looking for a precise <strong>software development cost estimator</strong>? Our intelligent calculator gives you an instant, data-driven range for your next custom web or mobile project.
                     </p>
 
-                    <div className="bg-white/5 rounded-2xl p-6 md:p-8 text-left border border-white/10">
+                    <div className="bg-white/5 rounded-2xl p-6 md:p-8 text-left border border-white/10 mt-10">
                         <h2 className="text-xl md:text-2xl font-bold text-white mb-4">How Our Estimator Works</h2>
                         <ul className="text-gray-300 space-y-3 list-disc list-inside">
                             <li><strong>Select Your Needs:</strong> Choose from web development, e-commerce, or custom app features.</li>

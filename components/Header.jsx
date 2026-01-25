@@ -39,7 +39,7 @@ export default function Header() {
         <>
             <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
                 <div className="lg:flex lg:items-center pointer-events-auto">
-                    <Link
+                    <a
                         href="/"
                         className="block w-52 main_logo animated-lg heart-svg-large-wrapper"
                     >
@@ -50,7 +50,7 @@ export default function Header() {
                             width="82"
                             height="47"
                         />
-                    </Link>
+                    </a>
                     <h1
                         id="js-heading-one-scroll"
                         className="leading-none relative lg:top-0.5 mt-3 lg:ml-4 ml-1"
@@ -67,7 +67,7 @@ export default function Header() {
                             className="transition-colors duration-300 ease-in-out hover:text-gray-300"
                             href="/estimate"
                         >
-                            Get Estimate
+                            Get estimate
                         </Link>
                     </li>
                     <li className="px-5 relative">

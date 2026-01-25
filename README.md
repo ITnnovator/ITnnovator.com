@@ -16,7 +16,7 @@ This site was built using [Next.js](https://nextjs.org) and serves as our offici
 
 To run the project locally: 
  
-```bash
+```bash 
 npm run dev  
 # or
 yarn dev

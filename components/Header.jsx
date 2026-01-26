@@ -169,16 +169,16 @@ export default function Header() {
                                             <ul className="w-full ml-[8rem] md:ml-0 py-0">
                                                 <li className="py-1 group/item">
                                                     <Link href="/services/web-development" className="hover:text-white">
-                                                        Web Devlopment
+                                                        Web Development
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Custom website development
+                                                        – Core flagship service
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/ecommerce" className="hover:text-white">
-                                                        E-commerce
+                                                    <Link href="/services/ecommerce-solutions" className="hover:text-white">
+                                                        E-commerce Solutions
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
                                                         – Online store development
@@ -186,65 +186,56 @@ export default function Header() {
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/seo" className="hover:text-white">
-                                                        SEO
+                                                    <Link href="/services/seo-digital-marketing" className="hover:text-white">
+                                                        SEO & Digital Marketing
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Search engine optimization
+                                                        – Growth & visibility
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/product-design" className="hover:text-white">
-                                                        Product Design
+                                                    <Link href="/services/mobile-app-development" className="hover:text-white">
+                                                        Mobile App Development
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Intuitive UX & UI design
+                                                        – iOS & Android apps
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/brand-systems" className="hover:text-white">
-                                                        Brand Systems
+                                                    <Link href="/services/ui-ux-product-design" className="hover:text-white">
+                                                        UI/UX & Product Design
                                                     </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transitionall duration-500 ease-in-out">
-                                                        – Scalable logos & visual identity
+                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
+                                                        – Intuitive design systems
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/strategy" className="hover:text-white">
-                                                        Strategy
+                                                    <Link href="/services/growth-performance-marketing" className="hover:text-white">
+                                                        Growth & Performance
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – In-depth analysis & planning
+                                                        – Data-driven customer acquisition
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/content" className="hover:text-white">
-                                                        Content
+                                                    <Link href="/services/content-marketing" className="hover:text-white">
+                                                        Content Marketing
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Strategic storytelling & copywriting
+                                                        – Strategic storytelling
                                                     </span>
                                                 </li>
 
                                                 <li className="py-1 group/item">
-                                                    <Link href="/services/growth" className="hover:text-white">
-                                                        Growth
+                                                    <Link href="/services/strategy-analytics" className="hover:text-white">
+                                                        Strategy & Analytics
                                                     </Link>
                                                     <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Data-driven marketing & leads
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/management" className="hover:text-white">
-                                                        Management
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Ongoing support & management
+                                                        – In-depth business intelligence
                                                     </span>
                                                 </li>
                                             </ul>

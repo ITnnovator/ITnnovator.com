@@ -258,7 +258,7 @@ export default function Footer() {
                         </ul>
                     </nav> */}
 
-                    <p>&copy; {currentYear}, <a href="https://itnnovator.com/" target="_blank">Itnnovator</a>, All Rights Reserved.</p>
+                    <p>&copy; Itnnovator — Digital Services for Web, Product, and Growth</p>
 
                     {/* Optional award badges — replace/remove as needed */}
                     <div className="flex items-center justify-end flex-wrap gap-y-6 gap-x-5 md:gap-x-6 mt-10 lg:mt-0 hidden">

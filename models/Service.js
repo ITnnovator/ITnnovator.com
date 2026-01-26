@@ -59,6 +59,7 @@ const ServiceSchema = new mongoose.Schema({
 
   // --- Content Blocks ---
   overview: { type: String }, // Rich Text HTML
+  features: [{ type: String }], // List of features for the main listing page
 
   whoIsFor: [
     {
@@ -180,7 +181,7 @@ ServiceSchema.pre('save', function (next) {
   if (wordCount < 800 && this.serviceType === 'primary') {
     this.noindex = true;
   }
-  
+
   next();
 });
 

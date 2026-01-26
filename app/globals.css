@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand: #f36c4a;
+  --color-brand-secondary: #7c3aed;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -677,4 +682,28 @@ screen and (max-height: 800px) {
   .process-scroll-block-content:last-child {
     padding-bottom: 5rem;
   }
+}
+
+
+/* =========================================
+   MARQUEE ANIMATION (For Mobile Clients)
+   ========================================= */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

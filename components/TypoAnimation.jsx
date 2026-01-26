@@ -10,7 +10,7 @@ const TypoAnimation = () => {
         if (!el) return;
 
         const typed = new Typed(el, {
-            strings: ["Build!", "Scale!", "Innovate!"],
+            strings: ["Build", "Scale", "Innovate"],
             typeSpeed: 100,
             backSpeed: 100,
             startDelay: 150,

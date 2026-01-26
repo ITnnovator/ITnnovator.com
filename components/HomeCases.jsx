@@ -65,8 +65,8 @@ export default function HomeCases({ cases = [] }) {
     return (
         <>
             <section className="pt-10 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Our Success Stories</h2>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto">Explore how we help businesses grow with custom software and digital strategy.</p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Selected Work</h2>
+                <p className="text-xl text-gray-400 max-w-2xl mx-auto">A selection of projects where Itnnovator delivered reliable outcomes across design, development, and growth.</p>
             </section>
 
             <section className="js-scroll-block js-scroll-block-bg">
@@ -190,7 +190,7 @@ export default function HomeCases({ cases = [] }) {
                                             href={`/cases/${item.slug}`}
                                             target="_self"
                                             className="js-hover-circle-animation group/link-has-arrow w-fit inline-block text-base md:text-lg text-inherit">
-                                            <span> View our case on {item.title} </span>
+                                            <span> View Case Studies </span>
                                             <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
                                                 <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
                                                     <use href="/webImages/icons.svg#arrow-right"></use>

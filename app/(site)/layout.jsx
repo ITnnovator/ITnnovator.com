@@ -68,7 +68,7 @@ const jsonLd = {
 export default function SiteLayout({ children }) {
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         id="js-page-body"
         className="home wp-singular page-template-default page page-id-180 bg-black group pt-[8.3rem]"

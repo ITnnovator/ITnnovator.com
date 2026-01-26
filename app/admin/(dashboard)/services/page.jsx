@@ -71,7 +71,7 @@ export default function ServicesManager() {
                 <img src={item.heroImg} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               ) : (
                 <div className="w-full h-full bg-blue-500/10 flex items-center justify-center">
-                  <img src={item.icon || '/webImages/icons.svg'} alt={item.title} className="w-16 h-16 object-contain opacity-50" onError={(e) => { e.target.onerror = null; e.target.src = '/webImages/icons.svg' }} />
+                  <img src={item.icon || '/webImages/icons.svg'} alt={item.title} className="object-cover opacity-50" onError={(e) => { e.target.onerror = null; e.target.src = '/webImages/icons.svg' }} />
                 </div>
               )}
 

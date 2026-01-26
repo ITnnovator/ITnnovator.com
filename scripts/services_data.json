@@ -1,0 +1,1015 @@
+[
+    {
+        "title": "Web Development",
+        "slug": "web-development",
+        "serviceType": "primary",
+        "isFeatured": true,
+        "sortOrder": 1,
+        "icon": "/webImages/icons.svg#code",
+        "alt": "Web Development Icon",
+        "metaTitle": "Custom Web Development Services | Itnnovator",
+        "metaDescription": "High-performance websites and web platforms built for speed, security, and growth.",
+        "hero": {
+            "headline": "Web Development That Performs",
+            "subheadline": "Scalable, secure builds—designed to convert and engineered to last.",
+            "image": "/webImages/web-dev-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                },
+                {
+                    "text": "View Services",
+                    "link": "/services",
+                    "variant": "secondary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> builds modern websites and web platforms that load fast, rank cleanly, and scale without rewrites. We focus on the fundamentals that drive results—clear information architecture, performance-first engineering, and conversion-ready interfaces—so your site works as a business asset, not just a brochure.</p><p>Whether you’re launching a new brand, rebuilding an outdated site, or moving to a modern stack, our web development service covers planning, build, QA, and launch—with practical decisions around SEO, speed, security, and maintainability baked in.</p>",
+        "features": [
+            "Custom Next.js / React Development",
+            "Performance & Core Web Vitals Focus",
+            "SEO-Ready Technical Foundations",
+            "Secure, Scalable Architecture",
+            "Clean CMS Integrations",
+            "Conversion-Optimized UI Build"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Startups launching a credible first product site",
+                "icon": "/webImages/icons.svg#rocket"
+            },
+            {
+                "text": "SMBs rebuilding for performance and conversions",
+                "icon": "/webImages/icons.svg#briefcase"
+            },
+            {
+                "text": "Teams migrating from slow legacy stacks",
+                "icon": "/webImages/icons.svg#refresh"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "Frontend Development",
+                "description": "Pixel-accurate implementation with reusable components and accessibility best practices."
+            },
+            {
+                "title": "Backend & Integrations",
+                "description": "APIs, CMS, payments, CRM, and third-party tools integrated cleanly and securely."
+            },
+            {
+                "title": "Technical SEO Setup",
+                "description": "Indexation controls, structured data (where needed), sitemaps, and performance hygiene."
+            },
+            {
+                "title": "QA & Launch",
+                "description": "Cross-device testing, analytics verification, and deployment support."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Discovery & Scope",
+                "description": "Clarify goals, pages, integrations, constraints, and launch timelines."
+            },
+            {
+                "stepName": "02 Architecture & Build",
+                "description": "Implement the stack, UI components, data models, and CMS/integration requirements."
+            },
+            {
+                "stepName": "03 QA & Performance",
+                "description": "Test, fix, optimize for speed, and validate SEO-critical settings."
+            },
+            {
+                "stepName": "04 Launch & Handover",
+                "description": "Deploy, monitor, and hand off documentation and admin guidance."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Next.js",
+                "logo": "/webImages/tech/nextjs.svg"
+            },
+            {
+                "name": "React",
+                "logo": "/webImages/tech/react.svg"
+            },
+            {
+                "name": "Node.js",
+                "logo": "/webImages/tech/nodejs.svg"
+            },
+            {
+                "name": "Tailwind CSS",
+                "logo": "/webImages/tech/tailwind.svg"
+            },
+            {
+                "name": "TypeScript",
+                "logo": "/webImages/tech/typescript.svg"
+            },
+            {
+                "name": "Vercel",
+                "logo": "/webImages/tech/vercel.svg"
+            },
+            {
+                "name": "Supabase",
+                "logo": "/webImages/tech/supabase.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Performance-first engineering",
+                "description": "We design builds to pass real-world speed and stability checks—not just look good in staging."
+            },
+            {
+                "title": "Maintainable codebase",
+                "description": "Clean structure and reusable components reduce long-term cost and friction."
+            },
+            {
+                "title": "Business outcome focus",
+                "description": "Every implementation choice supports conversion, clarity, and scale."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "How long does a web development project take?",
+                "answer": "Typical builds run 3–8 weeks depending on page count, integrations, and content readiness."
+            },
+            {
+                "question": "Can you work with our existing design?",
+                "answer": "Yes—either implement your Figma design or refine it for usability, performance, and conversion."
+            },
+            {
+                "question": "Do you support the website after launch?",
+                "answer": "Yes—maintenance, monitoring, updates, and iterations are available as ongoing support."
+            }
+        ]
+    },
+    {
+        "title": "E-commerce Solutions",
+        "slug": "ecommerce-solutions",
+        "serviceType": "primary",
+        "isFeatured": true,
+        "sortOrder": 2,
+        "icon": "/webImages/icons.svg#cart",
+        "alt": "E-commerce Solutions Icon",
+        "metaTitle": "E-commerce Development Services | Itnnovator",
+        "metaDescription": "Conversion-focused e-commerce stores with fast UX, clean integrations, and scalable operations.",
+        "hero": {
+            "headline": "E-commerce That Converts",
+            "subheadline": "Fast storefronts, clean checkout flows, and scalable operations.",
+            "image": "/webImages/ecommerce-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> builds e-commerce experiences designed to sell—fast-loading storefronts, frictionless checkout, and reliable integrations for payments, shipping, and inventory. We prioritize conversion mechanics (product discovery, trust, and checkout speed) so your store performs under real traffic and real buyers.</p><p>This service is ideal for brands launching or rebuilding a store with a strong foundation—analytics-ready, SEO-safe, and built for iterative growth.</p>",
+        "features": [
+            "Shopify / Headless Builds",
+            "WooCommerce Development",
+            "Checkout & Conversion Optimization",
+            "Payment, Shipping & Tax Setup",
+            "Product UX & Filtering",
+            "Performance & SEO Hygiene"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Brands launching a new online store",
+                "icon": "/webImages/icons.svg#tag"
+            },
+            {
+                "text": "Stores needing a speed + conversion rebuild",
+                "icon": "/webImages/icons.svg#speed"
+            },
+            {
+                "text": "Teams integrating inventory, shipping, and CRM",
+                "icon": "/webImages/icons.svg#link"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "Storefront Development",
+                "description": "Theme customization or headless storefront with product-first UX."
+            },
+            {
+                "title": "Checkout Implementation",
+                "description": "Friction reduction, trust signals, and performance-first checkout flow."
+            },
+            {
+                "title": "Integrations",
+                "description": "Payments, shipping, tax, email, CRM, analytics, and inventory tooling."
+            },
+            {
+                "title": "Tracking & Analytics",
+                "description": "Events and reporting setup to measure conversion and revenue drivers."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Store Strategy",
+                "description": "Define catalog structure, buyer journey, and conversion priorities."
+            },
+            {
+                "stepName": "02 Build & Integrate",
+                "description": "Implement storefront, checkout, and required operations integrations."
+            },
+            {
+                "stepName": "03 QA & Launch",
+                "description": "Test purchase flows, edge cases, speed, and platform settings before go-live."
+            },
+            {
+                "stepName": "04 Optimize",
+                "description": "Iterate on conversion rate, merchandising, and performance based on data."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Shopify",
+                "logo": "/webImages/tech/shopify.svg"
+            },
+            {
+                "name": "WooCommerce",
+                "logo": "/webImages/tech/woocommerce.svg"
+            },
+            {
+                "name": "Stripe",
+                "logo": "/webImages/tech/stripe.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Conversion mechanics built-in",
+                "description": "We structure the store around discovery, trust, and checkout speed."
+            },
+            {
+                "title": "Operational readiness",
+                "description": "Integrations and workflows are engineered for fulfillment, refunds, and reporting."
+            },
+            {
+                "title": "Performance discipline",
+                "description": "Fast product pages and clean UX reduce drop-off and increase AOV."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Do you build on Shopify or WooCommerce?",
+                "answer": "Both—platform choice depends on catalog complexity, integrations, and operational needs."
+            },
+            {
+                "question": "Can you migrate an existing store?",
+                "answer": "Yes—products, customers, orders, redirects, and SEO-critical elements can be migrated safely."
+            },
+            {
+                "question": "Do you handle CRO after launch?",
+                "answer": "Yes—ongoing optimization is available using analytics, testing, and UX iteration."
+            }
+        ]
+    },
+    {
+        "title": "SEO & Digital Marketing",
+        "slug": "seo-digital-marketing",
+        "serviceType": "primary",
+        "isFeatured": true,
+        "sortOrder": 3,
+        "icon": "/webImages/icons.svg#search",
+        "alt": "SEO and Digital Marketing Icon",
+        "metaTitle": "SEO & Digital Marketing Services | Itnnovator",
+        "metaDescription": "Search-driven growth: technical SEO, content strategy, and measurable acquisition systems.",
+        "hero": {
+            "headline": "Search-Driven Growth",
+            "subheadline": "Technical SEO + content systems that turn visibility into leads.",
+            "image": "/webImages/seo-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> delivers SEO and digital marketing built around measurable outcomes—qualified traffic, lead volume, and conversion improvements. We align technical foundations with content strategy and internal linking discipline to build durable rankings instead of short-term spikes.</p><p>This service is best for companies that want repeatable acquisition from search and need a clear plan: what to publish, what to improve, and how to compound authority over time.</p>",
+        "features": [
+            "Technical SEO & Indexation Hygiene",
+            "Content Strategy & Topic Support",
+            "On-page Optimization & Internal Linking",
+            "Local SEO (if applicable)",
+            "Reporting & KPI Tracking",
+            "Authority & Link Strategy"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Businesses needing consistent inbound leads",
+                "icon": "/webImages/icons.svg#target"
+            },
+            {
+                "text": "Sites with content but weak rankings",
+                "icon": "/webImages/icons.svg#chart"
+            },
+            {
+                "text": "Teams wanting a clear SEO roadmap",
+                "icon": "/webImages/icons.svg#map"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "Technical SEO Setup",
+                "description": "Crawl/index controls, canonical hygiene, and performance-related SEO fixes."
+            },
+            {
+                "title": "Content Plan",
+                "description": "Service support content mapped to intent and conversion outcomes."
+            },
+            {
+                "title": "On-Page Optimization",
+                "description": "Titles, headings, internal linking, and content upgrades for priority pages."
+            },
+            {
+                "title": "Measurement & Reporting",
+                "description": "KPIs, tracking, and monthly performance analysis tied to outcomes."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Baseline & Priorities",
+                "description": "Define goals, measure current performance, and select focus pages."
+            },
+            {
+                "stepName": "02 Content & On-Page",
+                "description": "Build and upgrade pages for intent match and conversion clarity."
+            },
+            {
+                "stepName": "03 Authority Growth",
+                "description": "Brand mention and link strategy aligned to business relevance."
+            },
+            {
+                "stepName": "04 Iterate & Compound",
+                "description": "Monthly improvements based on rankings, clicks, and conversion behavior."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Google Search Console",
+                "logo": "/webImages/tech/gsc.svg"
+            },
+            {
+                "name": "Google Analytics",
+                "logo": "/webImages/tech/ga.svg"
+            },
+            {
+                "name": "Ahrefs",
+                "logo": "/webImages/tech/ahrefs.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "No fluff, measurable SEO",
+                "description": "We tie work to rankings, qualified traffic, and conversion improvements."
+            },
+            {
+                "title": "Content quality control",
+                "description": "We write and structure content to win decision-stage intent."
+            },
+            {
+                "title": "Internal linking discipline",
+                "description": "We avoid over-linking and protect primary pages from cannibalization."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "When will we see results from SEO?",
+                "answer": "Most campaigns show movement in 6–12 weeks; compounding results typically take 3–6 months."
+            },
+            {
+                "question": "Do you provide content writing?",
+                "answer": "Yes—service support content and on-page upgrades can be included as part of delivery."
+            },
+            {
+                "question": "Do you do link building?",
+                "answer": "We focus on relevant brand-led authority growth, not spammy volume tactics."
+            }
+        ]
+    },
+    {
+        "title": "UI/UX Design",
+        "slug": "ui-ux-design",
+        "serviceType": "primary",
+        "isFeatured": true,
+        "sortOrder": 4,
+        "icon": "/webImages/icons.svg#palette",
+        "alt": "UI UX Design Icon",
+        "metaTitle": "UI/UX Design Services | Itnnovator",
+        "metaDescription": "User-first interfaces designed to reduce friction, increase trust, and drive conversion.",
+        "hero": {
+            "headline": "Design That Removes Friction",
+            "subheadline": "User-focused UI/UX for faster decisions and higher conversion.",
+            "image": "/webImages/uiux-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> designs interfaces that help users complete jobs quickly—without confusion, hesitation, or dead ends. We combine research-informed UX with modern UI execution to produce flows that feel obvious, build trust, and convert.</p><p>This service fits product teams and businesses that need redesigns, new product interfaces, or conversion improvements across key flows like onboarding, pricing, and checkout.</p>",
+        "features": [
+            "User Journey & Flow Design",
+            "Wireframes & Prototypes",
+            "UI Systems & Components",
+            "Conversion-Focused UX",
+            "Design Handoff for Dev",
+            "Accessibility Best Practices"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Products with drop-off or confusion in key flows",
+                "icon": "/webImages/icons.svg#alert"
+            },
+            {
+                "text": "Teams launching new features or platforms",
+                "icon": "/webImages/icons.svg#spark"
+            },
+            {
+                "text": "Businesses needing a modern redesign",
+                "icon": "/webImages/icons.svg#layout"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "UX Flows & Wireframes",
+                "description": "User journeys, IA, and wireframes aligned to conversion outcomes."
+            },
+            {
+                "title": "UI Design",
+                "description": "Modern UI screens with consistency, spacing, typography, and visual hierarchy."
+            },
+            {
+                "title": "Component System",
+                "description": "Reusable components and guidelines for scalable implementation."
+            },
+            {
+                "title": "Handoff & Support",
+                "description": "Developer-ready specs and iteration support during build."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Audit & Goals",
+                "description": "Clarify goals, constraints, and user intent for key flows."
+            },
+            {
+                "stepName": "02 UX & Prototype",
+                "description": "Design flows and prototypes for feedback before polishing UI."
+            },
+            {
+                "stepName": "03 UI System",
+                "description": "Create consistent screens and components for scalable dev."
+            },
+            {
+                "stepName": "04 Handoff",
+                "description": "Finalize specs and collaborate with developers for accurate implementation."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Figma",
+                "logo": "/webImages/tech/figma.svg"
+            },
+            {
+                "name": "FigJam",
+                "logo": "/webImages/tech/figjam.svg"
+            },
+            {
+                "name": "Notion",
+                "logo": "/webImages/tech/notion.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Conversion-first design",
+                "description": "We design for decisions and clarity—not just aesthetics."
+            },
+            {
+                "title": "Dev-friendly systems",
+                "description": "Components and specs reduce build time and rework."
+            },
+            {
+                "title": "Practical UX",
+                "description": "We focus on flows that make users succeed quickly."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Can you redesign only a few key pages?",
+                "answer": "Yes—pricing, landing pages, onboarding, or checkout can be redesigned independently."
+            },
+            {
+                "question": "Do you deliver a design system?",
+                "answer": "Where useful, we include components and style guidelines to keep the UI consistent."
+            },
+            {
+                "question": "Will you work with our developers?",
+                "answer": "Yes—handoff includes specs and collaboration to ensure accurate implementation."
+            }
+        ]
+    },
+    {
+        "title": "Mobile App Development",
+        "slug": "mobile-app-development",
+        "serviceType": "primary",
+        "isFeatured": false,
+        "sortOrder": 5,
+        "icon": "/webImages/icons.svg#mobile",
+        "alt": "Mobile App Development Icon",
+        "metaTitle": "Mobile App Development Services | Itnnovator",
+        "metaDescription": "iOS and Android apps built for performance, stability, and scalable growth.",
+        "hero": {
+            "headline": "Mobile Apps Built to Scale",
+            "subheadline": "Reliable iOS/Android builds with clean UX and maintainable architecture.",
+            "image": "/webImages/mobile-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> builds mobile apps that feel fast, stable, and intuitive—while staying maintainable for future releases. We handle product planning, development, testing, and deployment support to help you ship confidently.</p><p>This service is ideal for startups and businesses building MVPs, customer apps, internal tools, or feature expansions that need a reliable engineering partner.</p>",
+        "features": [
+            "iOS & Android Development",
+            "Cross-Platform (React Native) Options",
+            "API & Backend Integration",
+            "Authentication & User Flows",
+            "Testing & Release Support",
+            "App Performance Optimization"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Startups launching an MVP app",
+                "icon": "/webImages/icons.svg#rocket"
+            },
+            {
+                "text": "Businesses building customer-facing apps",
+                "icon": "/webImages/icons.svg#users"
+            },
+            {
+                "text": "Teams needing stable release cycles",
+                "icon": "/webImages/icons.svg#check"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "App Development",
+                "description": "Mobile UI implementation, state management, and app architecture."
+            },
+            {
+                "title": "Backend/API Integration",
+                "description": "Secure integration with your APIs, third-party services, and databases."
+            },
+            {
+                "title": "QA & Testing",
+                "description": "Device testing, bug fixing, and performance checks prior to release."
+            },
+            {
+                "title": "Store Deployment",
+                "description": "Support for App Store / Play Store submissions and release readiness."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Requirements & Plan",
+                "description": "Define MVP scope, flows, and technical constraints."
+            },
+            {
+                "stepName": "02 Build",
+                "description": "Develop core features with iterative check-ins."
+            },
+            {
+                "stepName": "03 Test & Stabilize",
+                "description": "QA across devices, fix bugs, and optimize performance."
+            },
+            {
+                "stepName": "04 Release",
+                "description": "Prepare store assets, submit builds, and monitor launch."
+            }
+        ],
+        "tools": [
+            {
+                "name": "React Native",
+                "logo": "/webImages/tech/reactnative.svg"
+            },
+            {
+                "name": "Flutter",
+                "logo": "/webImages/tech/flutter.svg"
+            },
+            {
+                "name": "Firebase",
+                "logo": "/webImages/tech/firebase.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Stable architecture",
+                "description": "We build for predictable releases and fewer regressions."
+            },
+            {
+                "title": "Product-minded delivery",
+                "description": "We prioritize the flows that drive retention and usage."
+            },
+            {
+                "title": "End-to-end execution",
+                "description": "From build to release support, we help you ship confidently."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Do you build native or cross-platform apps?",
+                "answer": "Both—recommendations depend on performance needs, timelines, and budget."
+            },
+            {
+                "question": "Can you integrate with our existing backend?",
+                "answer": "Yes—apps can connect to existing APIs and services with secure authentication."
+            },
+            {
+                "question": "Do you support apps after launch?",
+                "answer": "Yes—maintenance and iterative improvements are available as ongoing support."
+            }
+        ]
+    },
+    {
+        "title": "Web Apps & Dashboards",
+        "slug": "web-apps-dashboards",
+        "serviceType": "primary",
+        "isFeatured": false,
+        "sortOrder": 6,
+        "icon": "/webImages/icons.svg#dashboard",
+        "alt": "Web Apps and Dashboards Icon",
+        "metaTitle": "Custom Web Apps & Dashboards | Itnnovator",
+        "metaDescription": "Custom web applications and dashboards built for workflow speed, clarity, and scale.",
+        "hero": {
+            "headline": "Custom Web Apps That Run Your Business",
+            "subheadline": "Dashboards and internal tools built for speed, security, and usability.",
+            "image": "/webImages/webapp-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> builds custom web apps and dashboards that streamline workflows, centralize data, and reduce operational friction. Whether you need an internal tool, admin panel, analytics dashboard, or client portal, we design and engineer systems that stay reliable as usage grows.</p><p>This service is ideal when spreadsheets and off-the-shelf tools stop scaling—and you need a tailored system that matches your process.</p>",
+        "features": [
+            "Custom Admin Panels & Portals",
+            "Role-Based Access & Permissions",
+            "API Integrations & Data Sync",
+            "Reporting & Analytics Dashboards",
+            "Secure Architecture",
+            "Performance & Maintainability"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Teams replacing manual spreadsheet workflows",
+                "icon": "/webImages/icons.svg#table"
+            },
+            {
+                "text": "Operations needing reliable dashboards",
+                "icon": "/webImages/icons.svg#chart"
+            },
+            {
+                "text": "Businesses building client portals",
+                "icon": "/webImages/icons.svg#lock"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "App Architecture",
+                "description": "Data models, permissions, and scalable structure designed upfront."
+            },
+            {
+                "title": "Frontend + UX",
+                "description": "Fast interfaces that keep workflows clear and efficient."
+            },
+            {
+                "title": "Backend & Integrations",
+                "description": "APIs, third-party connections, and data pipelines implemented securely."
+            },
+            {
+                "title": "Testing & Deployment",
+                "description": "QA, monitoring setup, and launch support."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Workflow Mapping",
+                "description": "Document processes, roles, and required outcomes."
+            },
+            {
+                "stepName": "02 Build & Integrate",
+                "description": "Implement UI, backend logic, and integrations."
+            },
+            {
+                "stepName": "03 QA & Security",
+                "description": "Test edge cases, performance, and access control."
+            },
+            {
+                "stepName": "04 Deploy & Iterate",
+                "description": "Release, monitor, and improve based on user feedback."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Next.js",
+                "logo": "/webImages/tech/nextjs.svg"
+            },
+            {
+                "name": "PostgreSQL",
+                "logo": "/webImages/tech/postgresql.svg"
+            },
+            {
+                "name": "AWS",
+                "logo": "/webImages/tech/aws.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Workflow-first builds",
+                "description": "We build around how your team actually works, not generic templates."
+            },
+            {
+                "title": "Security & permissions",
+                "description": "Role-based access and data protection are treated as core features."
+            },
+            {
+                "title": "Scalable foundations",
+                "description": "Architecture designed to handle growth without rebuilds."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "Can you build an admin panel like the one we use internally?",
+                "answer": "Yes—custom admin panels are a common use-case, including roles, logs, and audit trails."
+            },
+            {
+                "question": "Do you integrate with third-party tools?",
+                "answer": "Yes—CRMs, payment platforms, analytics, and internal APIs are common integrations."
+            },
+            {
+                "question": "Can you add features after launch?",
+                "answer": "Yes—these systems are designed for iteration and ongoing enhancement."
+            }
+        ]
+    },
+    {
+        "title": "AI & Automation",
+        "slug": "ai-automation",
+        "serviceType": "primary",
+        "isFeatured": false,
+        "sortOrder": 7,
+        "icon": "/webImages/icons.svg#ai",
+        "alt": "AI and Automation Icon",
+        "metaTitle": "AI & Automation Services | Itnnovator",
+        "metaDescription": "Automation and AI workflows that reduce manual work, increase speed, and improve consistency.",
+        "hero": {
+            "headline": "Automate the Busywork",
+            "subheadline": "AI-powered workflows and integrations that save time and reduce errors.",
+            "image": "/webImages/ai-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> designs and implements AI and automation workflows that remove repetitive tasks, improve consistency, and unlock faster operations. We focus on practical automation—integrating your existing tools, defining guardrails, and deploying workflows that your team can trust.</p><p>This service is ideal for companies that want reliable automation (not hype) across lead handling, support, reporting, content ops, and internal processes.</p>",
+        "features": [
+            "Workflow Automation (Ops & Marketing)",
+            "AI Assistants & Task Agents",
+            "Tool & API Integrations",
+            "Data Extraction & Processing",
+            "Guardrails & Human-in-the-Loop",
+            "Monitoring & Iteration"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Teams wasting time on repetitive tasks",
+                "icon": "/webImages/icons.svg#timer"
+            },
+            {
+                "text": "Businesses needing system integrations",
+                "icon": "/webImages/icons.svg#link"
+            },
+            {
+                "text": "Ops teams needing reliability and guardrails",
+                "icon": "/webImages/icons.svg#shield"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "Workflow Design",
+                "description": "Define triggers, inputs, outputs, approvals, and failure handling."
+            },
+            {
+                "title": "Implementation",
+                "description": "Build integrations, automations, and AI-assisted steps with guardrails."
+            },
+            {
+                "title": "Testing & Validation",
+                "description": "Validate edge cases, error handling, and data correctness."
+            },
+            {
+                "title": "Monitoring",
+                "description": "Logging and iteration to keep workflows stable over time."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Identify & Prioritize",
+                "description": "Select high-impact workflows and define success metrics."
+            },
+            {
+                "stepName": "02 Design Guardrails",
+                "description": "Decide what is automated vs approved, and define escalation paths."
+            },
+            {
+                "stepName": "03 Build & Integrate",
+                "description": "Implement automations and connect the tools you already use."
+            },
+            {
+                "stepName": "04 Monitor & Improve",
+                "description": "Track failures, refine prompts/rules, and improve reliability."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Zapier",
+                "logo": "/webImages/tech/zapier.svg"
+            },
+            {
+                "name": "Make",
+                "logo": "/webImages/tech/make.svg"
+            },
+            {
+                "name": "OpenAI",
+                "logo": "/webImages/tech/openai.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Practical automation",
+                "description": "We automate real workflows with measurable time savings—not demos."
+            },
+            {
+                "title": "Reliability first",
+                "description": "Guardrails, logging, and failure handling are part of the build."
+            },
+            {
+                "title": "Integration expertise",
+                "description": "We connect systems cleanly so automation doesn’t create chaos."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "What kind of workflows can you automate?",
+                "answer": "Lead routing, reporting, support triage, content ops, internal approvals, and tool sync are common."
+            },
+            {
+                "question": "Is AI required for automation?",
+                "answer": "No—many workflows are best solved with rules and integrations; AI is used when it adds real value."
+            },
+            {
+                "question": "How do you prevent AI mistakes?",
+                "answer": "We use guardrails, validation steps, and human approvals where needed."
+            }
+        ]
+    },
+    {
+        "title": "Maintenance & Support",
+        "slug": "maintenance-support",
+        "serviceType": "primary",
+        "isFeatured": false,
+        "sortOrder": 8,
+        "icon": "/webImages/icons.svg#wrench",
+        "alt": "Maintenance and Support Icon",
+        "metaTitle": "Website Maintenance & Support | Itnnovator",
+        "metaDescription": "Ongoing support, updates, monitoring, and improvements to keep your site fast and reliable.",
+        "hero": {
+            "headline": "Keep Your Site Stable",
+            "subheadline": "Proactive maintenance, monitoring, and improvements—without firefighting.",
+            "image": "/webImages/maintenance-hero.jpg",
+            "ctas": [
+                {
+                    "text": "Start a Project",
+                    "link": "/contact",
+                    "variant": "primary"
+                }
+            ]
+        },
+        "overview": "<p><strong>Itnnovator</strong> provides ongoing maintenance and support to keep your website or web app secure, fast, and stable. This service is built for teams that want predictable updates, proactive monitoring, and a partner who can fix issues quickly—without risking SEO or breaking production.</p><p>Maintenance is not “just updates.” It’s operational reliability: performance checks, dependency management, backups, and a clear process for improvements.</p>",
+        "features": [
+            "Proactive Monitoring & Alerts",
+            "Security Patching & Updates",
+            "Performance Checks & Fixes",
+            "Bug Fixes & Small Enhancements",
+            "Backups & Recovery",
+            "Monthly Reporting"
+        ],
+        "whoIsFor": [
+            {
+                "text": "Businesses needing reliable uptime and updates",
+                "icon": "/webImages/icons.svg#shield"
+            },
+            {
+                "text": "Teams without in-house technical support",
+                "icon": "/webImages/icons.svg#users"
+            },
+            {
+                "text": "Products requiring ongoing iteration",
+                "icon": "/webImages/icons.svg#refresh"
+            }
+        ],
+        "whatsIncluded": [
+            {
+                "title": "Monitoring & Uptime",
+                "description": "Alerts for downtime, errors, and performance regressions."
+            },
+            {
+                "title": "Updates & Patches",
+                "description": "Dependency updates, security fixes, and platform maintenance."
+            },
+            {
+                "title": "Bug Fixes",
+                "description": "Triage, fixes, and validation with a clear turnaround process."
+            },
+            {
+                "title": "Ongoing Improvements",
+                "description": "Small enhancements and iterative refinements based on priorities."
+            }
+        ],
+        "processSteps": [
+            {
+                "stepName": "01 Baseline Review",
+                "description": "Assess current stability, risks, and immediate fixes."
+            },
+            {
+                "stepName": "02 Monitoring Setup",
+                "description": "Enable alerts, logging, and performance checks."
+            },
+            {
+                "stepName": "03 Monthly Maintenance",
+                "description": "Updates, fixes, backups, and performance hygiene."
+            },
+            {
+                "stepName": "04 Improvement Cycle",
+                "description": "Prioritize and ship small enhancements consistently."
+            }
+        ],
+        "tools": [
+            {
+                "name": "Sentry",
+                "logo": "/webImages/tech/sentry.svg"
+            },
+            {
+                "name": "UptimeRobot",
+                "logo": "/webImages/tech/uptimerobot.svg"
+            },
+            {
+                "name": "GitHub",
+                "logo": "/webImages/tech/github.svg"
+            }
+        ],
+        "whyChooseUs": [
+            {
+                "title": "Proactive reliability",
+                "description": "We reduce incidents instead of reacting late."
+            },
+            {
+                "title": "Safe changes",
+                "description": "Updates and fixes are shipped with validation to avoid breakage."
+            },
+            {
+                "title": "Predictable support",
+                "description": "Clear process and visibility instead of random firefighting."
+            }
+        ],
+        "faqs": [
+            {
+                "question": "What does maintenance include?",
+                "answer": "Monitoring, updates, bug fixes, performance hygiene, and small enhancements based on your plan."
+            },
+            {
+                "question": "Can you support a site you didn’t build?",
+                "answer": "Yes—after a baseline review to confirm risks, access, and stack details."
+            },
+            {
+                "question": "How fast is support response?",
+                "answer": "It depends on the plan; urgent incidents are prioritized with a defined SLA."
+            }
+        ]
+    }
+]

@@ -5,7 +5,12 @@ module.exports = {
         "./components/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                brand: '#f36c4a',
+                'brand-secondary': '#7c3aed', // Defaulting to Violet (User can update this)
+            }
+        },
     },
     plugins: [],
 };

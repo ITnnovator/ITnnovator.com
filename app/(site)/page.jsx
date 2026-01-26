@@ -43,31 +43,24 @@ export default async function Home() {
             style={{ mixBlendMode: "difference" }}
           >
             <span className="bg-gradient-to-t from-[#FFE99A] to-[#A1BDE7] bg-clip-text mix-blend-difference sm:whitespace-nowrap [&_.typed-cursor]:font-normal [&_.typed-cursor.typed-cursor--blink]:text-[0]">
-              Software Development Agency That Helps You <br className="block sm:hidden" />
-              <TypoAnimation />
+              <TypoAnimation /> digital products with Itnnovator.
             </span>
           </h1>
 
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 block text-left lg:text-left">
-            Building Digital Futures with Custom Web & Mobile Solutions
+            Itnnovator is a digital product and growth company helping businesses design, build, and scale high-performance web platforms.
           </h2>
 
-          <p className="w-full max-w-[57.4375rem] text-white m-0 font-200 text-lg/[1.39] md:text-xl lg:text-[1.4375rem]">
-            We are a full-service software development agency. We build custom websites, scalable apps, and growth systems that turn clicks into customers.
-          </p>
-
           {/* Trust Microcopy */}
-          <div className="flex gap-4 text-sm text-gray-400 mt-4 mb-2">
-            <span className="flex items-center gap-1">✓ Transparent Pricing</span>
-            <span className="flex items-center gap-1">✓ Human-Reviewed Estimates</span>
-            <span className="flex items-center gap-1">✓ Expert Developers</span>
+          <div className="text-sm text-gray-400 mt-4 mb-2">
+            Itnnovator (not “Innovator”) is a distinct brand focused on measurable digital outcomes.
           </div>
 
           <div className="flex flex-wrap gap-x-10 gap-y-8 pt-[1rem] lg:pt-[1.5rem]">
             <a
-              href="/estimate"
+              href="/contact"
               className="lg:min-w-[10rem] inline-flex items-center font-[400] md:text-[1.375rem] rounded-[1.25rem] md:text-xl text-malibu js-hover-circle-animation hover-child-underline-animation">
-              <span className="relative inline-block child after:!bg-malibu">Get Estimate</span>
+              <span className="relative inline-block child after:!bg-malibu">Start a Project</span>
               <span className="pl-4">
                 <svg preserveAspectRatio="none" width="13" height="13" viewBox="0 0 13 13" aria-hidden="true">
                   <use href="/webImages/icons.svg#arrow-right"></use>
@@ -78,7 +71,7 @@ export default async function Home() {
             <a
               href="/services"
               className="lg:min-w-[10rem] inline-flex justify-center items-center px-3 mx-0.5 sm:mx-2 font-[400] md:text-[1.375rem] rounded-[1.25rem] sm:px-6 md:px-2 md:text-xl text-white js-hover-circle-animation hover-child-underline-animation">
-              <span className="relative inline-block child after:!bg-white">Our services</span>
+              <span className="relative inline-block child after:!bg-white">Explore Services</span>
               <span className="pl-4">
                 <svg preserveAspectRatio="none" width="13" height="13" viewBox="0 0 13 13" aria-hidden="true">
                   <use href="/webImages/icons.svg#arrow-right"></use>
@@ -111,30 +104,18 @@ export default async function Home() {
         <div className="w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto flex flex-wrap gap-10 justify-between">
           <div className="flex flex-col gap-y-6 w-full max-w-[50rem] md:gap-y-11">
             <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-              Your End-to-End Digital Solutions Partner | Itnnovator
+              Our Primary Services
             </h2>
 
             <div
               className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit">
-              <p>Itnnovator is your dedicated team for <strong>comprehensive digital growth</strong>. We specialize in crafting results-driven online experiences, from <strong>custom web development</strong> and high-converting <strong>e-commerce stores on Shopify & WooCommerce</strong> to strategic <strong>SEO</strong> and <strong>data-driven digital marketing</strong> that generates qualified leads.</p>
-              <p>Our full-service approach means we handle your entire digital presence—<strong>strategy, design, development, and growth</strong>—ensuring a seamless, powerful, and scalable solution tailored to your business goals. Partner with us to build, launch, and grow your digital future.</p>
+              <p>These are Itnnovator’s core services.<br />Each service is designed to solve a specific business problem and is delivered end-to-end.</p>
             </div>
 
             <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-              <a href="/contact" target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                <span> Start Your Project </span>
-                <span
-                  className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
-
               <a href="/services" target="_self"
                 className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                <span> Explore Our Services </span>
+                <span> View All Services </span>
                 <span
                   className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
                   <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
@@ -184,8 +165,8 @@ export default async function Home() {
 
       {/* Testimonial */}
       <section className="pt-5 pb-4 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">What Our Partners Say</h2>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">Trusted by growing brands for reliable software development services.</p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">What Clients Say</h2>
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto">Teams partner with Itnnovator for clarity, execution, and dependable delivery.</p>
       </section>
       <Testimonial testimonials={testimonials} />
 

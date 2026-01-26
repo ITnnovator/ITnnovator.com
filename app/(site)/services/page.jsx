@@ -20,7 +20,7 @@ export default async function ServicePage() {
         <div className="block md:text-lg mb-6">
           <span>
             <span>
-              <a href="/"> Home </a>
+              <Link href="/"> Home </Link>
             </span>
             /
             <span className="breadcrumb_last" aria-current="page">
@@ -76,7 +76,7 @@ export default async function ServicePage() {
       <section className="w-full py-14 lg:py-20 xl:py-32">
         <div className="max-w-7xl px-5 xl:px-8 mx-auto">
           {services.length === 0 ? (
-             <div className="text-white text-center text-xl">No services found. Please add services in the admin panel.</div>
+            <div className="text-white text-center text-xl">No services found. Please add services in the admin panel.</div>
           ) : (
             <ul className="w-full grid gap-12 sm:grid-cols-2 md:grid-cols-3">
               {services.map((service) => (
@@ -93,13 +93,13 @@ export default async function ServicePage() {
                       decoding="async"
                     />
                   )}
-                  
+
                   {/* Title Link */}
-                  <a className="js-hover-circle-animation" target="_self" href={`/services/${service.slug}`}>
+                  <Link className="js-hover-circle-animation" href={`/services/${service.slug}`}>
                     <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
                       {service.title}
                     </h3>
-                  </a>
+                  </Link>
 
                   {/* Description */}
                   <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 line-clamp-3">
@@ -122,14 +122,14 @@ export default async function ServicePage() {
 
                   {/* Read More Link */}
                   <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                    <a href={`/services/${service.slug}`} target="_self" className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
+                    <Link href={`/services/${service.slug}`} className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
                       <span>Explore {service.title}</span>
                       <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
                         <svg className="inline-block" width="22" height="15" aria-hidden="true">
                           <use href="/webImages/icons.svg#arrow-right"></use>
                         </svg>
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </li>
               ))}
@@ -169,7 +169,7 @@ export default async function ServicePage() {
 
             <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit prose-h2:text-inherit prose-h2:text-3xl prose-h2:leading-tight md:prose-h2:text-[3.25rem] md:prose-h2:leading-[1.23] prose-h2:font-bold prose-h2:mb-[0.5em] prose-h3:text-inherit prose-h3:text-2xl prose-h3:leading-tight md:prose-h3:text-[2.18rem] md:prose-h3:leading-[1.4] prose-h3:font-bold prose-h3:mb-[0.9em] prose-h4:text-inherit prose-h4:text-xl prose-h4:leading-tight md:prose-h4:text-2xl md:prose-h4:leading-tight prose-h4:font-bold prose-h4:mb-[0.9em] prose-h5:text-inherit prose-h5:text-lg prose-h5:leading-tight md:prose-h5:text-xl md:prose-h5:leading-tight prose-h5:font-bold prose-h5:mb-[0.9em] prose-h6:text-inherit prose-h6:text-base prose-h6:leading-tight md:prose-h6:text-lg md:prose-h6:leading-tight prose-h6:font-bold prose-h6:mb-[0.9em] prose-blockquote:text-white">
               <p>
-                Exceptional digital presence requires more than just aesthetics. At <strong>Itnnovator</strong> we combine data-driven insights with expert <a href="/seo">SEO</a>, strategic UX/UI design, and robust <a href="/development">web development</a> to create experiences that deliver speed, conversions, and scalable growth.
+                Exceptional digital presence requires more than just aesthetics. At <strong>Itnnovator</strong> we combine data-driven insights with expert <Link href="/services/seo-digital-marketing">SEO</Link>, strategic UX/UI design, and robust <Link href="/services/web-development">web development</Link> to create experiences that deliver speed, conversions, and scalable growth.
               </p>
               <p>
                 Partnering with Itnnovator means gaining a collaborative team, not just a service provider. We work alongside you to develop strategic roadmaps, implement continuous testing, and ensure every decision is grounded in measurable data to transform visitors into loyal customers.
@@ -177,7 +177,7 @@ export default async function ServicePage() {
               <p>
                 Move beyond assumptions and achieve tangible results. Let's elevate your brand visibility and dominate search rankings.
                 <br />
-                <a href="/contact">Start your project →</a>
+                <Link href="/contact">Start your project →</Link>
               </p>
             </div>
           </div>

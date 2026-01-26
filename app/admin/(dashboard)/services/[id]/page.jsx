@@ -5,7 +5,7 @@ import { useRouter, useParams } from 'next/navigation';
 import ImageUploader from '@/admin-core/components/ImageUploader';
 import RichTextEditor from '@/admin-core/components/RichTextEditor';
 import toast, { Toaster } from 'react-hot-toast';
-import { Layers, Workflow, Compass, Plus, Trash2, ShieldCheck, Search, LayoutTemplate, Link2 } from 'lucide-react';
+import { Layers, Workflow, Compass, Plus, Trash2, GripVertical } from 'lucide-react';
 
 export default function ServiceForm() {
   const router = useRouter();
@@ -15,120 +15,72 @@ export default function ServiceForm() {
 
   const [loading, setLoading] = useState(!isNew);
   const [submitting, setSubmitting] = useState(false);
-  const [activeTab, setActiveTab] = useState('core'); // core | hero | offer | trust
-  const [cases, setCases] = useState([]);
-  const [allServices, setAllServices] = useState([]); // For related services
+  const [activeTab, setActiveTab] = useState('details'); // details | process | explore
 
-  // Initial Form State
   const [formData, setFormData] = useState({
-    // Core Identity
     title: '',
     slug: '',
-    serviceType: 'primary',
-    isFeatured: false,
-    sortOrder: 0,
     icon: '',
     alt: '',
+    description: '',
+    heroImg: '',
+    herotitle: '',
+    color: '#3b82f6',
+    cta: 'Explore Services',
 
-    // SEO & Search
-    metaTitle: '',
-    metaDescription: '',
-    primaryKeyword: '', // New Field
-    canonicalUrl: '',
-    noindex: false,
-    redirectFrom: [''], 
-    ogTags: {
-      title: '',
-      description: '',
-      image: ''
+    // Intro
+    intro: {
+      heading: '',
+      text: '',
+      bullets: ['']
     },
 
-    // Hero Section
-    hero: {
-      headline: '',
-      subheadline: '',
-      image: '',
-      ctas: [] 
+    // Process & Deep Dive
+    process: [], // { title, text, img, color }
+    blocktext: [], // { title, text, bullets: [] }
+
+    // Promise
+    heropromisetitle: '',
+    promisedescription: '',
+
+    // Explore
+    exploretitile: '',
+    explorepoints: {
+      points: ['']
     },
 
-    // Content Blocks
-    overview: '', 
-    
-    whoIsFor: [], 
-    whatsIncluded: [], 
-    processSteps: [], 
-    
-    tools: [], 
-    whyChooseUs: [], 
-    faqs: [], 
-    
-    relatedCaseStudies: [],
-    relatedServices: [] // New Field
+    points: [''] // Top summary points
   });
 
-  // Calculate Content Health
-  const calculateHealth = () => {
-    let wordCount = 0;
-    const textFields = [
-      formData.overview || '',
-      formData.hero.subheadline || '',
-      ...(formData.processSteps?.map(s => s.description) || []),
-      ...(formData.whatsIncluded?.map(s => s.description) || []),
-      ...(formData.whyChooseUs?.map(s => s.description) || [])
-    ];
-    wordCount = textFields.join(' ').trim().split(/\s+/).length;
-    
-    const isThin = wordCount < 800;
-    const isReady = !isThin && formData.title && formData.slug;
-
-    return { wordCount, isThin, isReady };
-  };
-
-  const health = calculateHealth();
-
-  // Fetch Data
   useEffect(() => {
-    const init = async () => {
-      try {
-        // Fetch Cases
-        const casesRes = await fetch('/api/admin/cases');
-        if (casesRes.ok) setCases(await casesRes.json());
+    if (!isNew) {
+      fetchService();
+    }
+  }, [id]);
 
-        // Fetch Services (for Relations)
-        const servicesRes = await fetch('/api/admin/services'); 
-        if (servicesRes.ok) setAllServices(await servicesRes.json());
+  const fetchService = async () => {
+    try {
+      const res = await fetch(`/api/admin/services/${id}`);
+      if (!res.ok) throw new Error('Failed to fetch');
+      const data = await res.json();
 
-        if (!isNew) {
-          const res = await fetch(`/api/admin/services/${id}`);
-          if (!res.ok) throw new Error('Failed to fetch service');
-          const data = await res.json();
-          
-          setFormData(prev => ({
-            ...prev,
-            ...data,
-            redirectFrom: data.redirectFrom?.length ? data.redirectFrom : [''],
-            hero: { ...prev.hero, ...data.hero, ctas: data.hero?.ctas || [] },
-            ogTags: { ...prev.ogTags, ...data.ogTags },
-            whoIsFor: data.whoIsFor || [],
-            whatsIncluded: data.whatsIncluded || [],
-            processSteps: data.processSteps || [],
-            tools: data.tools || [],
-            whyChooseUs: data.whyChooseUs || [],
-            faqs: data.faqs || [],
-            relatedCaseStudies: data.relatedCaseStudies || [],
-            relatedServices: data.relatedServices || []
-          }));
-        }
-      } catch (error) {
-        toast.error('Error loading data');
-        router.push('/admin/services');
-      } finally {
-        setLoading(false);
-      }
-    };
-    init();
-  }, [id, isNew]);
-
+      // Merge with defaults to ensure arrays exist
+      setFormData(prev => ({
+        ...prev,
+        ...data,
+        intro: { ...prev.intro, ...data.intro, bullets: data.intro?.bullets || [''] },
+        explorepoints: { points: data.explorepoints?.points || [''] },
+        points: data.points || [''],
+        process: data.process || [],
+        blocktext: data.blocktext || []
+      }));
+    } catch (error) {
+      toast.error('Error loading service');
+      router.push('/admin/services');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -138,15 +90,10 @@ export default function ServiceForm() {
       const url = isNew ? '/api/admin/services' : `/api/admin/services/${id}`;
       const method = isNew ? 'POST' : 'PUT';
 
-      const cleanData = {
-        ...formData,
-        redirectFrom: formData.redirectFrom.filter(u => u.trim() !== ''),
-      };
-
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(cleanData),
+        body: JSON.stringify(formData),
       });
 
       if (!res.ok) {
@@ -158,51 +105,112 @@ export default function ServiceForm() {
       router.push('/admin/services');
       router.refresh();
     } catch (error) {
-      console.error(error);
       toast.error(error.message);
       setSubmitting(false);
     }
   };
 
-  // --- Array Handlers ---
+  // Generic Array Handler
+  const handleArrayChange = (path, index, value, subIndex = null) => {
+    // Helper for deep updates
+    const updateDeep = (obj, pathParts, val) => {
+      const head = pathParts[0];
+      if (pathParts.length === 1) {
+        if (Array.isArray(obj[head])) {
+          const newArr = [...obj[head]];
+          if (subIndex !== null && typeof newArr[index] === 'object') {
+            // Nested array inside object in array (e.g. blocktext[i].bullets[j])
+            // Not generically handled here easily without more args.
+            // Special casing for bullets/points
+          } else {
+            newArr[index] = val;
+          }
+          return { ...obj, [head]: newArr };
+        }
+        return { ...obj, [head]: val };
+      }
+      return {
+        ...obj,
+        [head]: updateDeep(obj[head], pathParts.slice(1), val)
+      };
+    };
 
-  const handleArrayChange = (field, index, subField, value) => {
-    const newArr = [...formData[field]];
-    if (subField) {
-      newArr[index] = { ...newArr[index], [subField]: value };
-    } else {
+    // Simple top-level array handling
+    if (path === 'points') {
+      const newArr = [...formData.points];
       newArr[index] = value;
+      setFormData({ ...formData, points: newArr });
+    } else if (path === 'intro.bullets') {
+      const newArr = [...formData.intro.bullets];
+      newArr[index] = value;
+      setFormData({ ...formData, intro: { ...formData.intro, bullets: newArr } });
+    } else if (path === 'explorepoints.points') {
+      const newArr = [...formData.explorepoints.points];
+      newArr[index] = value;
+      setFormData({ ...formData, explorepoints: { points: newArr } });
     }
-    setFormData({ ...formData, [field]: newArr });
   };
 
-  const addItem = (field, template) => {
-    setFormData({ ...formData, [field]: [...formData[field], template] });
+  const addArrayItem = (path) => {
+    if (path === 'points') setFormData({ ...formData, points: [...formData.points, ''] });
+    if (path === 'intro.bullets') setFormData({ ...formData, intro: { ...formData.intro, bullets: [...formData.intro.bullets, ''] } });
+    if (path === 'explorepoints.points') setFormData({ ...formData, explorepoints: { points: [...formData.explorepoints.points, ''] } });
   };
 
-  const removeItem = (field, index) => {
-    setFormData({ ...formData, [field]: formData[field].filter((_, i) => i !== index) });
+  const removeArrayItem = (path, index) => {
+    if (path === 'points') setFormData({ ...formData, points: formData.points.filter((_, i) => i !== index) });
+    if (path === 'intro.bullets') setFormData({ ...formData, intro: { ...formData.intro, bullets: formData.intro.bullets.filter((_, i) => i !== index) } });
+    if (path === 'explorepoints.points') setFormData({ ...formData, explorepoints: { points: formData.explorepoints.points.filter((_, i) => i !== index) } });
   };
 
-  // --- Render Helpers ---
+
+  // Process Handler
+  const handleProcessChange = (index, field, value) => {
+    const newArr = [...formData.process];
+    newArr[index] = { ...newArr[index], [field]: value };
+    setFormData({ ...formData, process: newArr });
+  };
+  const addProcess = () => setFormData({ ...formData, process: [...formData.process, { title: '', text: '', img: '', color: formData.color }] });
+  const removeProcess = (index) => setFormData({ ...formData, process: formData.process.filter((_, i) => i !== index) });
+
+  // Block Text Handler (Deep Dive)
+  const handleBlockChange = (index, field, value) => {
+    const newArr = [...formData.blocktext];
+    newArr[index] = { ...newArr[index], [field]: value };
+    setFormData({ ...formData, blocktext: newArr });
+  };
+  const handleBlockBulletChange = (blockIndex, bulletIndex, value) => {
+    const newArr = [...formData.blocktext];
+    const newBullets = [...newArr[blockIndex].bullets];
+    newBullets[bulletIndex] = value;
+    newArr[blockIndex] = { ...newArr[blockIndex], bullets: newBullets };
+    setFormData({ ...formData, blocktext: newArr });
+  };
+  const addBlockBullet = (blockIndex) => {
+    const newArr = [...formData.blocktext];
+    newArr[blockIndex].bullets = [...(newArr[blockIndex].bullets || []), ''];
+    setFormData({ ...formData, blocktext: newArr });
+  };
+  const removeBlockBullet = (blockIndex, bulletIndex) => {
+    const newArr = [...formData.blocktext];
+    newArr[blockIndex].bullets = newArr[blockIndex].bullets.filter((_, i) => i !== bulletIndex);
+    setFormData({ ...formData, blocktext: newArr });
+  };
+
+  const addBlock = () => setFormData({ ...formData, blocktext: [...formData.blocktext, { title: '', text: '', bullets: [''] }] });
+  const removeBlock = (index) => setFormData({ ...formData, blocktext: formData.blocktext.filter((_, i) => i !== index) });
+
 
   if (loading) return <div className="p-10 text-center text-white">Loading Service Data...</div>;
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6 pb-20">
+    <div className="max-w-6xl mx-auto space-y-6">
       <Toaster />
 
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sticky top-0 bg-[#0a0a0c] z-10 py-4 border-b border-white/5">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-white">{isNew ? 'Create New Service' : `Edit: ${formData.title}`}</h1>
-          <div className="flex items-center gap-2 mt-1">
-             <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${health.isThin ? 'bg-red-500/20 text-red-500' : 'bg-emerald-500/20 text-emerald-500'}`}>
-                {health.wordCount} words
-             </span>
-             {health.isThin && <span className="text-xs text-red-400">Low Word Count (Will be set to NoIndex)</span>}
-             {!health.isThin && <span className="text-xs text-emerald-400">Content Ready for Indexing</span>}
-          </div>
+          <p className="text-gray-400 text-sm">Manage service details, SEO, and content structure.</p>
         </div>
         <div className="flex gap-3">
           <button
@@ -223,374 +231,225 @@ export default function ServiceForm() {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap items-center gap-2 p-1 bg-white/5 rounded-2xl border border-white/10">
-        {[
-          { id: 'core', label: 'Core & SEO', icon: Search },
-          { id: 'hero', label: 'Hero & Overview', icon: LayoutTemplate },
-          { id: 'offer', label: 'Offer Details', icon: Compass },
-          { id: 'trust', label: 'Trust Elements', icon: ShieldCheck },
-        ].map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex-1 min-w-[140px] flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all ${activeTab === tab.id ? 'bg-blue-600 text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-          >
-            <tab.icon size={18} /> {tab.label}
-          </button>
-        ))}
+      <div className="flex items-center gap-2 p-1 bg-white/5 rounded-2xl border border-white/10">
+        <button
+          onClick={() => setActiveTab('details')}
+          className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all ${activeTab === 'details' ? 'bg-blue-600 text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+        >
+          <Compass size={18} /> Basic Info
+        </button>
+        <button
+          onClick={() => setActiveTab('process')}
+          className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all ${activeTab === 'process' ? 'bg-blue-600 text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+        >
+          <Workflow size={18} /> Process & Strategy
+        </button>
+        <button
+          onClick={() => setActiveTab('explore')}
+          className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all ${activeTab === 'explore' ? 'bg-blue-600 text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+        >
+          <Layers size={18} /> Explore & SEO
+        </button>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8 animate-in fade-in duration-300">
 
-        {/* --- TAB 1: CORE & SEO --- */}
-        {activeTab === 'core' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            {/* Identity */}
+        {/* TAB 1: DETAILS */}
+        {activeTab === 'details' && (
+          <div className="space-y-6">
+            {/* Core Identity */}
             <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 space-y-6">
-              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Core Identity</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="col-span-2">
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Service Title</label>
-                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                    value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Identity</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Title</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} placeholder="e.g. Web Development" />
                 </div>
-                
-                <div className="col-span-2 md:col-span-1">
+                <div className="space-y-2">
                   <label className="text-xs font-semibold text-gray-400 uppercase">Slug</label>
-                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                    value={formData.slug} onChange={e => setFormData({ ...formData, slug: e.target.value })} />
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.slug} onChange={e => setFormData({ ...formData, slug: e.target.value })} placeholder="e.g. web-development" />
                 </div>
-
-                <div className="col-span-2 md:col-span-1">
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Service Type</label>
-                  <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none"
-                    value={formData.serviceType} onChange={e => setFormData({ ...formData, serviceType: e.target.value })}>
-                    <option value="primary">Primary</option>
-                    <option value="supporting">Supporting</option>
-                    <option value="hidden">Hidden</option>
-                  </select>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Theme Color (Hex)</label>
+                  <div className="flex gap-2">
+                    <input type="color" className="h-12 w-12 rounded bg-transparent cursor-pointer border-none p-0" value={formData.color} onChange={e => setFormData({ ...formData, color: e.target.value })} />
+                    <input type="text" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 text-white focus:border-blue-500/50 outline-none" value={formData.color} onChange={e => setFormData({ ...formData, color: e.target.value })} />
+                  </div>
                 </div>
-
-                <div className="col-span-2 md:col-span-1 flex items-center gap-3 bg-white/5 p-3 rounded-xl">
-                  <input type="checkbox" id="isFeatured" className="w-5 h-5 rounded border-gray-600 text-blue-600 focus:ring-blue-500 bg-gray-700"
-                    checked={formData.isFeatured} onChange={e => setFormData({ ...formData, isFeatured: e.target.checked })} />
-                  <label htmlFor="isFeatured" className="text-sm font-medium text-white cursor-pointer select-none">Show on Homepage?</label>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">CTA Text</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.cta} onChange={e => setFormData({ ...formData, cta: e.target.value })} placeholder="e.g. Explore Services" />
                 </div>
-
-                <div className="col-span-2 md:col-span-1">
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Sort Order</label>
-                  <input type="number" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                    value={formData.sortOrder} onChange={e => setFormData({ ...formData, sortOrder: parseInt(e.target.value) || 0 })} />
-                </div>
-
-                <div className="col-span-2">
-                  <ImageUploader label="Service Icon (SVG)" value={formData.icon} onChange={val => setFormData({ ...formData, icon: val })} />
-                </div>
-                <div className="col-span-2">
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Icon Alt Text</label>
-                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                    value={formData.alt} onChange={e => setFormData({ ...formData, alt: e.target.value })} />
-                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs font-semibold text-gray-400 uppercase">Short Description</label>
+                <textarea rows={3} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none resize-none" value={formData.description} onChange={e => setFormData({ ...formData, description: e.target.value })} />
               </div>
             </div>
 
-            {/* SEO Settings */}
+            {/* Media */}
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <ImageUploader label="Icon (SVG)" value={formData.icon} onChange={val => setFormData({ ...formData, icon: val })} />
+              <ImageUploader label="Hero Image" value={formData.heroImg} onChange={val => setFormData({ ...formData, heroImg: val })} />
+            </div>
+
+            {/* Intro Section */}
             <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 space-y-6">
-              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">SEO & Metadata</h3>
-              
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Intro Section</h3>
               <div className="space-y-4">
-                <div>
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Primary Keyword (Internal)</label>
-                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none font-mono text-sm" 
-                    value={formData.primaryKeyword} onChange={e => setFormData({ ...formData, primaryKeyword: e.target.value })} placeholder="Target Keyword for monitoring" />
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Intro Heading</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.intro.heading} onChange={e => setFormData({ ...formData, intro: { ...formData.intro, heading: e.target.value } })} />
                 </div>
-                
-                <div>
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Meta Title</label>
-                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                    value={formData.metaTitle} onChange={e => setFormData({ ...formData, metaTitle: e.target.value })} placeholder="Defaults to Service Title if empty" />
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Intro Text</label>
+                  <textarea rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.intro.text} onChange={e => setFormData({ ...formData, intro: { ...formData.intro, text: e.target.value } })} />
                 </div>
 
-                <div>
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Meta Description</label>
-                  <textarea rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
-                    value={formData.metaDescription} onChange={e => setFormData({ ...formData, metaDescription: e.target.value })} />
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-400 uppercase">Canonical URL (Optional)</label>
-                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                    value={formData.canonicalUrl} onChange={e => setFormData({ ...formData, canonicalUrl: e.target.value })} />
-                </div>
-
-                <div className="flex items-center gap-3 bg-white/5 p-3 rounded-xl">
-                  <input type="checkbox" id="noindex" className="w-5 h-5 rounded border-gray-600 text-red-600 focus:ring-red-500 bg-gray-700"
-                    checked={formData.noindex} onChange={e => setFormData({ ...formData, noindex: e.target.checked })} />
-                  <label htmlFor="noindex" className="text-sm font-medium text-white cursor-pointer select-none">NoIndex (Hide from Google)</label>
-                </div>
-
-                <div>
-                  <label className="text-xs font-semibold text-gray-400 uppercase mb-2 block">Redirect From (Legacy URLs)</label>
-                  {formData.redirectFrom.map((url, i) => (
-                    <div key={i} className="flex gap-2 mb-2">
-                      <input type="text" className="flex-1 bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white text-sm" 
-                        value={url} onChange={e => handleArrayChange('redirectFrom', i, null, e.target.value)} placeholder="/old-service-url" />
-                      <button type="button" onClick={() => removeItem('redirectFrom', i)} className="p-2 text-red-400 hover:bg-white/5 rounded-lg"><Trash2 size={16} /></button>
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Intro Bullets</label>
+                  {formData.intro.bullets.map((bullet, i) => (
+                    <div key={i} className="flex gap-2">
+                      <input type="text" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-white focus:border-blue-500/50 outline-none text-sm" value={bullet} onChange={e => handleArrayChange('intro.bullets', i, e.target.value)} />
+                      <button type="button" onClick={() => removeArrayItem('intro.bullets', i)} className="p-2 text-red-400 hover:bg-white/5 rounded-lg"><Trash2 size={16} /></button>
                     </div>
                   ))}
-                  <button type="button" onClick={() => addItem('redirectFrom', '')} className="text-sm text-blue-400 hover:text-blue-300 font-medium">+ Add Redirect URL</button>
+                  <button type="button" onClick={() => addArrayItem('intro.bullets')} className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1">+ Add Bullet</button>
                 </div>
               </div>
             </div>
-          </div>
-        )}
 
-        {/* --- TAB 2: HERO & OVERVIEW --- */}
-        {activeTab === 'hero' && (
-          <div className="space-y-6">
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 space-y-6">
-              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Hero Section</h3>
+            {/* Hero Promise */}
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 space-y-4">
+              <h3 className="text-lg font-bold text-white border-b border-white/5 pb-2">Our Promise</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div>
-                    <label className="text-xs font-semibold text-gray-400 uppercase">Headline</label>
-                    <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none font-bold" 
-                      value={formData.hero.headline} onChange={e => setFormData({ ...formData, hero: { ...formData.hero, headline: e.target.value } })} />
-                  </div>
-                  <div>
-                    <label className="text-xs font-semibold text-gray-400 uppercase">Subheadline</label>
-                    <textarea rows={3} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
-                      value={formData.hero.subheadline} onChange={e => setFormData({ ...formData, hero: { ...formData.hero, subheadline: e.target.value } })} />
-                  </div>
-                  
-                  {/* CTAs */}
-                  <div>
-                    <label className="text-xs font-semibold text-gray-400 uppercase mb-2 block">Hero CTAs</label>
-                    {formData.hero.ctas.map((cta, i) => (
-                      <div key={i} className="flex gap-2 mb-2 bg-white/5 p-2 rounded-lg">
-                        <input type="text" placeholder="Button Text" className="flex-1 bg-black/40 border border-white/10 rounded px-2 py-1 text-white text-sm" 
-                          value={cta.text} onChange={e => {
-                            const newCtas = [...formData.hero.ctas];
-                            newCtas[i].text = e.target.value;
-                            setFormData({ ...formData, hero: { ...formData.hero, ctas: newCtas } });
-                          }} />
-                        <input type="text" placeholder="Link (e.g. /contact)" className="flex-1 bg-black/40 border border-white/10 rounded px-2 py-1 text-white text-sm" 
-                          value={cta.link} onChange={e => {
-                            const newCtas = [...formData.hero.ctas];
-                            newCtas[i].link = e.target.value;
-                            setFormData({ ...formData, hero: { ...formData.hero, ctas: newCtas } });
-                          }} />
-                         <select className="bg-black/40 border border-white/10 rounded px-2 py-1 text-white text-sm"
-                            value={cta.variant} onChange={e => {
-                              const newCtas = [...formData.hero.ctas];
-                              newCtas[i].variant = e.target.value;
-                              setFormData({ ...formData, hero: { ...formData.hero, ctas: newCtas } });
-                            }}>
-                            <option value="primary">Primary</option>
-                            <option value="secondary">Secondary</option>
-                         </select>
-                        <button type="button" onClick={() => {
-                           const newCtas = formData.hero.ctas.filter((_, idx) => idx !== i);
-                           setFormData({ ...formData, hero: { ...formData.hero, ctas: newCtas } });
-                        }} className="p-1 text-red-400"><Trash2 size={16} /></button>
-                      </div>
-                    ))}
-                    <button type="button" onClick={() => {
-                       const newCtas = [...formData.hero.ctas, { text: '', link: '', variant: 'primary' }];
-                       setFormData({ ...formData, hero: { ...formData.hero, ctas: newCtas } });
-                    }} className="text-sm text-blue-400 hover:text-blue-300 font-medium">+ Add CTA</button>
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Promise Title</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.heropromisetitle} onChange={e => setFormData({ ...formData, heropromisetitle: e.target.value })} />
                 </div>
-
-                <div>
-                   <ImageUploader label="Hero Image" value={formData.hero.image} onChange={val => setFormData({ ...formData, hero: { ...formData.hero, image: val } })} />
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Promise Description</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.promisedescription} onChange={e => setFormData({ ...formData, promisedescription: e.target.value })} />
                 </div>
               </div>
-            </div>
-
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Service Overview (Rich Text)</h3>
-              <p className="text-gray-400 text-sm mb-4">This content appears in the main body section. Use headings properly for TOC.</p>
-              <RichTextEditor value={formData.overview} onChange={val => setFormData({ ...formData, overview: val })} />
             </div>
           </div>
         )}
 
-        {/* --- TAB 3: OFFER DETAILS --- */}
-        {activeTab === 'offer' && (
+        {/* TAB 2: PROCESS */}
+        {activeTab === 'process' && (
           <div className="space-y-6">
-            
-            {/* Who Is For */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Who This Service Is For</h3>
-              <div className="space-y-4">
-                {formData.whoIsFor.map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/5">
-                    <div className="w-16 h-16 shrink-0">
-                      <ImageUploader compact value={item.icon} onChange={val => handleArrayChange('whoIsFor', i, 'icon', val)} />
-                    </div>
-                    <div className="flex-1">
-                      <input type="text" placeholder="Description (e.g. Startups looking for growth)" className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white mb-2" 
-                        value={item.text} onChange={e => handleArrayChange('whoIsFor', i, 'text', e.target.value)} />
-                    </div>
-                    <button type="button" onClick={() => removeItem('whoIsFor', i)} className="text-red-400 p-2"><Trash2 size={20} /></button>
-                  </div>
-                ))}
-                <button type="button" onClick={() => addItem('whoIsFor', { text: '', icon: '' })} className="w-full py-3 border border-dashed border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-colors">+ Add Audience Segment</button>
-              </div>
-            </div>
-
-            {/* What's Included */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">What's Included (Scope)</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {formData.whatsIncluded.map((item, i) => (
-                  <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/5 relative group">
-                    <button type="button" onClick={() => removeItem('whatsIncluded', i)} className="absolute top-2 right-2 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={16} /></button>
-                    <ImageUploader compact className="mb-3 w-12 h-12" value={item.icon} onChange={val => handleArrayChange('whatsIncluded', i, 'icon', val)} />
-                    <input type="text" placeholder="Title" className="w-full bg-black/40 border border-white/10 rounded px-2 py-1 text-white font-bold mb-2" 
-                      value={item.title} onChange={e => handleArrayChange('whatsIncluded', i, 'title', e.target.value)} />
-                    <textarea placeholder="Description" rows={2} className="w-full bg-black/40 border border-white/10 rounded px-2 py-1 text-gray-300 text-sm" 
-                      value={item.description} onChange={e => handleArrayChange('whatsIncluded', i, 'description', e.target.value)} />
-                  </div>
-                ))}
-                <button type="button" onClick={() => addItem('whatsIncluded', { title: '', description: '', icon: '' })} className="flex items-center justify-center min-h-[200px] border border-dashed border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-colors">+ Add Scope Item</button>
-              </div>
-            </div>
 
             {/* Process Steps */}
             <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Process & Methodology</h3>
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-lg font-bold text-white">Our Method</h3>
+                <button type="button" onClick={addProcess} className="px-3 py-1.5 bg-blue-600/20 text-blue-400 rounded-lg text-sm font-medium hover:bg-blue-600/30 transition-colors">+ Add Step</button>
+              </div>
               <div className="space-y-4">
-                {formData.processSteps.map((step, i) => (
-                  <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/5 relative">
-                     <button type="button" onClick={() => removeItem('processSteps', i)} className="absolute top-4 right-4 text-red-400"><Trash2 size={18} /></button>
-                     <div className="flex gap-4">
-                        <div className="w-24 shrink-0">
-                           <ImageUploader label="Step Img" value={step.image} onChange={val => handleArrayChange('processSteps', i, 'image', val)} />
-                        </div>
-                        <div className="flex-1 space-y-2">
-                           <input type="text" placeholder="Step Name (e.g. 01 Discovery)" className="w-full bg-black/40 border border-white/10 rounded px-3 py-2 text-white font-bold" 
-                              value={step.stepName} onChange={e => handleArrayChange('processSteps', i, 'stepName', e.target.value)} />
-                           <textarea placeholder="Step Description" rows={2} className="w-full bg-black/40 border border-white/10 rounded px-3 py-2 text-gray-300 text-sm" 
-                              value={step.description} onChange={e => handleArrayChange('processSteps', i, 'description', e.target.value)} />
-                        </div>
-                     </div>
+                {formData.process.map((step, i) => (
+                  <div key={i} className="bg-white/5 rounded-xl p-4 border border-white/10 relative group">
+                    <button type="button" onClick={() => removeProcess(i)} className="absolute top-4 right-4 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={16} /></button>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-500">Step Title</label>
+                        <input type="text" className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white text-sm" value={step.title} onChange={e => handleProcessChange(i, 'title', e.target.value)} />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs text-gray-500">Image</label>
+                        <ImageUploader value={step.img} onChange={val => handleProcessChange(i, 'img', val)} />
+                      </div>
+                      <div className="md:col-span-2 space-y-2">
+                        <label className="text-xs text-gray-500">Description</label>
+                        <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white text-sm" value={step.text} onChange={e => handleProcessChange(i, 'text', e.target.value)} />
+                      </div>
+                    </div>
                   </div>
                 ))}
-                <button type="button" onClick={() => addItem('processSteps', { stepName: '', description: '', image: '' })} className="w-full py-3 border border-dashed border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-colors">+ Add Process Step</button>
+              </div>
+            </div>
+
+            {/* Detailed Blocks (Deep Dive) */}
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-lg font-bold text-white">Strategy Details (SEO Block)</h3>
+                <button type="button" onClick={addBlock} className="px-3 py-1.5 bg-emerald-600/20 text-emerald-400 rounded-lg text-sm font-medium hover:bg-emerald-600/30 transition-colors">+ Add Detail Block</button>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-sm text-gray-400 mb-2">Side Image for Blocks</label>
+                <ImageUploader value={formData.blockImg} onChange={val => setFormData({ ...formData, blockImg: val })} />
+              </div>
+
+              <div className="space-y-6">
+                {formData.blocktext.map((block, i) => (
+                  <div key={i} className="bg-emerald-900/10 rounded-xl p-4 border border-emerald-500/10 relative">
+                    <button type="button" onClick={() => removeBlock(i)} className="absolute top-4 right-4 text-red-400 hover:text-red-300"><Trash2 size={16} /></button>
+                    <div className="space-y-4 pr-8">
+                      <input type="text" placeholder="Block Title" className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white font-bold" value={block.title} onChange={e => handleBlockChange(i, 'title', e.target.value)} />
+                      <textarea rows={2} placeholder="Block Description" className="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-gray-300 text-sm" value={block.text} onChange={e => handleBlockChange(i, 'text', e.target.value)} />
+
+                      <div className="space-y-2">
+                        <label className="text-xs text-emerald-500/70 font-bold uppercase tracking-wider">Features / Bullets</label>
+                        {block.bullets && block.bullets.map((bullet, bulletIdx) => (
+                          <div key={bulletIdx} className="flex gap-2">
+                            <input type="text" className="flex-1 bg-black/40 border border-emerald-500/20 rounded-lg px-3 py-1 text-white text-xs" value={bullet} onChange={e => handleBlockBulletChange(i, bulletIdx, e.target.value)} />
+                            <button type="button" onClick={() => removeBlockBullet(i, bulletIdx)} className="text-red-400"><Trash2 size={12} /></button>
+                          </div>
+                        ))}
+                        <button type="button" onClick={() => addBlockBullet(i)} className="text-xs text-emerald-400 hover:underline">+ Add Feature</button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         )}
 
-        {/* --- TAB 4: TRUST DETAILS --- */}
-        {activeTab === 'trust' && (
+        {/* TAB 3: EXPLORE & SEO */}
+        {activeTab === 'explore' && (
           <div className="space-y-6">
-            
-            {/* Tools */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Tools & Technologies</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {formData.tools.map((tool, i) => (
-                  <div key={i} className="bg-white/5 p-3 rounded-xl border border-white/5 relative group text-center">
-                    <button type="button" onClick={() => removeItem('tools', i)} className="absolute -top-2 -right-2 bg-red-500 rounded-full p-1 text-white opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={12} /></button>
-                    <div className="mx-auto mb-2 w-12 h-12">
-                      <ImageUploader compact value={tool.logo} onChange={val => handleArrayChange('tools', i, 'logo', val)} />
-                    </div>
-                    <input type="text" placeholder="Tool Name" className="w-full bg-transparent text-center text-white text-xs border-b border-transparent focus:border-white/20 outline-none" 
-                      value={tool.name} onChange={e => handleArrayChange('tools', i, 'name', e.target.value)} />
-                  </div>
-                ))}
-                <button type="button" onClick={() => addItem('tools', { name: '', logo: '' })} className="flex flex-col items-center justify-center h-24 border border-dashed border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-colors">
-                  <Plus size={20} /> <span className="text-xs mt-1">Add Tool</span>
-                </button>
-              </div>
-            </div>
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 space-y-6">
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Footer & SEO Stats</h3>
 
-            {/* Why Choose Us */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Why Choose Us</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {formData.whyChooseUs.map((item, i) => (
-                  <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/5 relative group">
-                    <button type="button" onClick={() => removeItem('whyChooseUs', i)} className="absolute top-2 right-2 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={16} /></button>
-                    <input type="text" placeholder="Benefit Title" className="w-full bg-black/40 border border-white/10 rounded px-2 py-1 text-white font-bold mb-2" 
-                      value={item.title} onChange={e => handleArrayChange('whyChooseUs', i, 'title', e.target.value)} />
-                    <textarea placeholder="Description" rows={2} className="w-full bg-black/40 border border-white/10 rounded px-2 py-1 text-gray-300 text-sm" 
-                      value={item.description} onChange={e => handleArrayChange('whyChooseUs', i, 'description', e.target.value)} />
-                  </div>
-                ))}
-                <button type="button" onClick={() => addItem('whyChooseUs', { title: '', description: '', icon: '' })} className="flex items-center justify-center min-h-[150px] border border-dashed border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-colors">+ Add Benefit</button>
-              </div>
-            </div>
-
-            {/* FAQs */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">FAQs</h3>
               <div className="space-y-4">
-                {formData.faqs.map((faq, i) => (
-                  <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/5 relative">
-                     <button type="button" onClick={() => removeItem('faqs', i)} className="absolute top-4 right-4 text-red-400"><Trash2 size={18} /></button>
-                     <div className="space-y-2 pr-8">
-                       <input type="text" placeholder="Question" className="w-full bg-black/40 border border-white/10 rounded px-3 py-2 text-white font-bold" 
-                          value={faq.question} onChange={e => handleArrayChange('faqs', i, 'question', e.target.value)} />
-                       <textarea placeholder="Answer" rows={2} className="w-full bg-black/40 border border-white/10 rounded px-3 py-2 text-gray-300 text-sm" 
-                          value={faq.answer} onChange={e => handleArrayChange('faqs', i, 'answer', e.target.value)} />
-                     </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">SEO Alt Text</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.alt} onChange={e => setFormData({ ...formData, alt: e.target.value })} placeholder="Image Alt Text..." />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Explore Title</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" value={formData.exploretitile} onChange={e => setFormData({ ...formData, exploretitile: e.target.value })} />
+                </div>
+
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Explore Links (Sub-services)</label>
+                  {formData.explorepoints.points.map((point, i) => (
+                    <div key={i} className="flex gap-2">
+                      <input type="text" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-white focus:border-blue-500/50 outline-none text-sm" value={point} onChange={e => handleArrayChange('explorepoints.points', i, e.target.value)} />
+                      <button type="button" onClick={() => removeArrayItem('explorepoints.points', i)} className="p-2 text-red-400 hover:bg-white/5 rounded-lg"><Trash2 size={16} /></button>
+                    </div>
+                  ))}
+                  <button type="button" onClick={() => addArrayItem('explorepoints.points')} className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1">+ Add Link</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Top Overview Points */}
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6 space-y-4">
+              <h3 className="text-lg font-bold text-white mb-4">Service Card Highlights</h3>
+              <div className="space-y-3">
+                {formData.points.map((point, i) => (
+                  <div key={i} className="flex gap-2">
+                    <input type="text" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-white focus:border-blue-500/50 outline-none text-sm" value={point} onChange={e => handleArrayChange('points', i, e.target.value)} placeholder="Feature Highlight..." />
+                    <button type="button" onClick={() => removeArrayItem('points', i)} className="p-2 text-red-400 hover:bg-white/5 rounded-lg"><Trash2 size={16} /></button>
                   </div>
                 ))}
-                <button type="button" onClick={() => addItem('faqs', { question: '', answer: '' })} className="w-full py-3 border border-dashed border-white/20 rounded-xl text-gray-400 hover:text-white hover:border-white/40 transition-colors">+ Add FAQ</button>
+                <button type="button" onClick={() => addArrayItem('points')} className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1">+ Add Highlight</button>
               </div>
             </div>
-            
-            {/* Related Services (Internal Linking) */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Related Services</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                 {allServices.filter(s => s._id !== id).map(s => (
-                   <label key={s._id} className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${formData.relatedServices.includes(s._id) ? 'bg-blue-600/20 border-blue-500' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}>
-                     <input type="checkbox" className="w-5 h-5 rounded border-gray-600 text-blue-600 focus:ring-blue-500 bg-gray-700"
-                        checked={formData.relatedServices.includes(s._id)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                             setFormData({ ...formData, relatedServices: [...formData.relatedServices, s._id] });
-                          } else {
-                             setFormData({ ...formData, relatedServices: formData.relatedServices.filter(id => id !== s._id) });
-                          }
-                        }}
-                     />
-                     <span className="text-white font-medium truncate">{s.title}</span>
-                   </label>
-                 ))}
-              </div>
-            </div>
-
-            {/* Related Case Studies */}
-            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Related Case Studies</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                 {cases.map(c => (
-                   <label key={c._id} className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${formData.relatedCaseStudies.includes(c._id) ? 'bg-blue-600/20 border-blue-500' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}>
-                     <input type="checkbox" className="w-5 h-5 rounded border-gray-600 text-blue-600 focus:ring-blue-500 bg-gray-700"
-                        checked={formData.relatedCaseStudies.includes(c._id)}
-                        onChange={(e) => {
-                          if (e.target.checked) {
-                             setFormData({ ...formData, relatedCaseStudies: [...formData.relatedCaseStudies, c._id] });
-                          } else {
-                             setFormData({ ...formData, relatedCaseStudies: formData.relatedCaseStudies.filter(id => id !== c._id) });
-                          }
-                        }}
-                     />
-                     <span className="text-white font-medium truncate">{c.title}</span>
-                   </label>
-                 ))}
-                 {cases.length === 0 && <div className="text-gray-500 text-sm col-span-3">No case studies found. Create some in the Cases section first.</div>}
-              </div>
-            </div>
-
           </div>
         )}
 

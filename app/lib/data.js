@@ -6,7 +6,7 @@ import Client from '@/models/Client';
 
 export async function getServices() {
   await dbConnect();
-  const services = await Service.find({}).sort({ createdAt: -1 }).lean();
+  const services = await Service.find({ serviceType: 'primary' }).sort({ sortOrder: 1, createdAt: -1 }).lean();
   return services.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined, updatedAt: undefined }));
 }
 

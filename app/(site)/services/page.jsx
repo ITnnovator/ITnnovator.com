@@ -8,7 +8,9 @@ export const revalidate = 0; // Ensure dynamic data fetching
 
 export default async function ServicePage() {
   await dbConnect();
-  const services = await Service.find({}).sort({ createdAt: -1 }).lean();
+  const services = await Service.find({ serviceType: 'primary' })
+    .sort({ sortOrder: 1, createdAt: -1 })
+    .lean();
 
   return (
     <>

@@ -53,15 +53,8 @@ const jsonLd = {
   "url": "https://itnnovator.com",
   "logo": "https://itnnovator.com/webImages/logo.png",
   "sameAs": [
-    "https://facebook.com/itnnovator",
-    "https://instagram.com/itnnovator",
-    "https://linkedin.com/company/itnnovator"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-555-0123", // Replace with actual if known, otherwise omitted or placeholder
-    "contactType": "customer service"
-  }
+    "https://www.linkedin.com/company/itnnovator"
+  ]
 };
 
 

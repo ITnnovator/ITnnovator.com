@@ -39,7 +39,7 @@ export default async function Home() {
           {/* Hero headline */}
           {/* Hero headline */}
           <h1
-            className="w-full leading-[1.1] tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] xl:text-[6rem] font-[800] mb-4 opacity-70 -ml-[2px] md:mb-6 lg:-ml-[4px]"
+            className="w-full leading-tight md:leading-none tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-[900] md:font-bold mb-4 -ml-[4px] md:mb-6 lg:-ml-[9px] break-words"
             style={{ mixBlendMode: "difference" }}
           >
             <span className="bg-gradient-to-t from-[#FFE99A] to-[#A1BDE7] bg-clip-text mix-blend-difference sm:whitespace-nowrap [&_.typed-cursor]:font-normal [&_.typed-cursor.typed-cursor--blink]:text-[0]">
@@ -47,7 +47,7 @@ export default async function Home() {
             </span>
           </h1>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 block text-left lg:text-left">
+          <h2 className="text-2xl md:text-3xl font-medium text-white mb-4 block text-left lg:text-left" style={{ width: "70%" }}>
             Itnnovator is a digital product and growth company helping businesses design, build, and scale high-performance web platforms.
           </h2>
 

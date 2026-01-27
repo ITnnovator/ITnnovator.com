@@ -57,6 +57,33 @@ const ServiceSchema = new mongoose.Schema({
     ],
   },
 
+  // Section Metadata (for dynamic section headers/descriptions)
+  featuresSection: {
+    title: { type: String, default: 'Key Capabilities' },
+    description: { type: String },
+  },
+  audienceSection: {
+    title: { type: String, default: 'Who This Is For' },
+    description: { type: String },
+  },
+  scopeSection: {
+    title: { type: String, default: "What's Included" },
+    description: { type: String, default: 'A comprehensive scope designed to deliver complete outcomes, not just hours logged.' },
+  },
+  processSection: {
+    title: { type: String, default: 'Our Process' },
+    description: { type: String, default: 'From concept to delivery, executed with precision.' },
+  },
+  toolsSection: {
+    title: { type: String, default: 'Tools & Technologies' },
+    description: { type: String },
+  },
+  whyUsSection: {
+    title: { type: String, default: 'Why Partner With Us?' },
+    subtitle: { type: String, default: 'Our Advantage' },
+    description: { type: String, default: 'We combine technical excellence with business strategy. No black boxes, no jargon—just measurable results and transparent delivery.' },
+  },
+
   // --- Content Blocks ---
   overview: { type: String }, // Rich Text HTML
   features: [{ type: String }], // List of features for the main listing page

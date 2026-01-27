@@ -1,13 +1,13 @@
 'use client';
 
-export default function ServiceScope({ items }) {
+export default function ServiceScope({ items, section }) {
   if (!items || items.length === 0) return null;
 
   return (
     <div className="mt-32">
       <div className="mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">What's Included</h2>
-        <p className="text-lg text-gray-400 max-w-2xl">A comprehensive scope designed to deliver complete outcomes, not just hours logged.</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">{section?.title || "What's Included"}</h2>
+        <p className="text-lg text-gray-400 max-w-2xl">{section?.description || 'A comprehensive scope designed to deliver complete outcomes, not just hours logged.'}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -1,6 +1,6 @@
 'use client';
 
-export default function ServiceWhyUs({ items }) {
+export default function ServiceWhyUs({ items, section }) {
   if (!items || items.length === 0) return null;
 
   return (
@@ -10,10 +10,10 @@ export default function ServiceWhyUs({ items }) {
 
           {/* Header Copy */}
           <div className="lg:col-span-4 lg:sticky lg:top-32 self-start">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Our Advantage</span>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-[1.1]">Why Partner With Us?</h2>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-secondary font-bold uppercase tracking-widest text-sm mb-4 block">{section?.subtitle || 'Our Advantage'}</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-[1.1]">{section?.title || 'Why Partner With Us?'}</h2>
             <p className="text-xl text-gray-400 leading-relaxed">
-              We combine technical excellence with business strategy. No black boxes, no jargon—just measurable results and transparent delivery.
+              {section?.description || 'We combine technical excellence with business strategy. No black boxes, no jargon—just measurable results and transparent delivery.'}
             </p>
           </div>
 

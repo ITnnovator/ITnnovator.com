@@ -121,17 +121,17 @@ export default async function ServiceDetail({ params }) {
             {/* Overview */}
             <section id="overview" className="scroll-mt-32">
               <ServiceOverview content={service.overview || service.description} />
-              <ServiceFeatures features={service.features} />
+              <ServiceFeatures features={service.features} section={service.featuresSection} />
             </section>
 
             {/* Audience */}
             <section id="audience" className="scroll-mt-32">
-              <ServiceAudience items={service.whoIsFor} />
+              <ServiceAudience items={service.whoIsFor} section={service.audienceSection} />
             </section>
 
             {/* Scope */}
             <section id="scope" className="scroll-mt-32">
-              <ServiceScope items={service.whatsIncluded} />
+              <ServiceScope items={service.whatsIncluded} section={service.scopeSection} />
             </section>
 
           </div>
@@ -140,15 +140,15 @@ export default async function ServiceDetail({ params }) {
 
       {/* Full Width Sections */}
       <div id="process" className="scroll-mt-20">
-        <ServiceProcess steps={service.processSteps} />
+        <ServiceProcess steps={service.processSteps} section={service.processSection} />
       </div>
 
       <div id="tools" className="scroll-mt-20">
-        <ServiceTools items={service.tools} />
+        <ServiceTools items={service.tools} section={service.toolsSection} />
       </div>
 
       <div id="why-us" className="scroll-mt-20">
-        <ServiceWhyUs items={service.whyChooseUs} />
+        <ServiceWhyUs items={service.whyChooseUs} section={service.whyUsSection} />
       </div>
 
       <div id="cases" className="scroll-mt-20">

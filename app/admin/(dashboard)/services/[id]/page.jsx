@@ -54,6 +54,14 @@ export default function ServiceForm() {
     // Content Blocks
     overview: '', 
     
+    // Section Metadata
+    featuresSection: { title: '', description: '' },
+    audienceSection: { title: '', description: '' },
+    scopeSection: { title: '', description: '' },
+    processSection: { title: '', description: '' },
+    toolsSection: { title: '', description: '' },
+    whyUsSection: { title: '', subtitle: '', description: '' },
+    
     whoIsFor: [], 
     whatsIncluded: [], 
     processSteps: [], 
@@ -109,6 +117,12 @@ export default function ServiceForm() {
             redirectFrom: data.redirectFrom?.length ? data.redirectFrom : [''],
             hero: { ...prev.hero, ...data.hero, ctas: data.hero?.ctas || [] },
             ogTags: { ...prev.ogTags, ...data.ogTags },
+            featuresSection: { ...prev.featuresSection, ...data.featuresSection },
+            audienceSection: { ...prev.audienceSection, ...data.audienceSection },
+            scopeSection: { ...prev.scopeSection, ...data.scopeSection },
+            processSection: { ...prev.processSection, ...data.processSection },
+            toolsSection: { ...prev.toolsSection, ...data.toolsSection },
+            whyUsSection: { ...prev.whyUsSection, ...data.whyUsSection },
             whoIsFor: data.whoIsFor || [],
             whatsIncluded: data.whatsIncluded || [],
             processSteps: data.processSteps || [],
@@ -422,6 +436,66 @@ export default function ServiceForm() {
         {activeTab === 'offer' && (
           <div className="space-y-6">
             
+            {/* Section Metadata for Offer Tab */}
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Section Customization</h3>
+              <p className="text-gray-400 text-sm mb-6">Customize the titles and descriptions for each section below.</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Audience Section */}
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Audience Section Title</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.audienceSection.title} 
+                    onChange={e => setFormData({ ...formData, audienceSection: { ...formData.audienceSection, title: e.target.value } })} 
+                    placeholder="Who This Is For" />
+                  <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
+                    value={formData.audienceSection.description} 
+                    onChange={e => setFormData({ ...formData, audienceSection: { ...formData.audienceSection, description: e.target.value } })} 
+                    placeholder="Optional description" />
+                </div>
+
+                {/* Scope Section */}
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Scope Section Title</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.scopeSection.title} 
+                    onChange={e => setFormData({ ...formData, scopeSection: { ...formData.scopeSection, title: e.target.value } })} 
+                    placeholder="What's Included" />
+                  <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
+                    value={formData.scopeSection.description} 
+                    onChange={e => setFormData({ ...formData, scopeSection: { ...formData.scopeSection, description: e.target.value } })} 
+                    placeholder="A comprehensive scope designed to deliver complete outcomes, not just hours logged." />
+                </div>
+
+                {/* Process Section */}
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Process Section Title</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.processSection.title} 
+                    onChange={e => setFormData({ ...formData, processSection: { ...formData.processSection, title: e.target.value } })} 
+                    placeholder="Our Process" />
+                  <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
+                    value={formData.processSection.description} 
+                    onChange={e => setFormData({ ...formData, processSection: { ...formData.processSection, description: e.target.value } })} 
+                    placeholder="From concept to delivery, executed with precision." />
+                </div>
+
+                {/* Features Section */}
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Features Section Title</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.featuresSection.title} 
+                    onChange={e => setFormData({ ...formData, featuresSection: { ...formData.featuresSection, title: e.target.value } })} 
+                    placeholder="Key Capabilities" />
+                  <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
+                    value={formData.featuresSection.description} 
+                    onChange={e => setFormData({ ...formData, featuresSection: { ...formData.featuresSection, description: e.target.value } })} 
+                    placeholder="Optional description" />
+                </div>
+              </div>
+            </div>
+
             {/* Who Is For */}
             <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
               <h3 className="text-lg font-bold text-white mb-4">Who This Service Is For</h3>
@@ -490,6 +564,45 @@ export default function ServiceForm() {
         {activeTab === 'trust' && (
           <div className="space-y-6">
             
+            {/* Section Metadata for Trust Tab */}
+            <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/5 pb-2">Section Customization</h3>
+              <p className="text-gray-400 text-sm mb-6">Customize the titles and descriptions for each section below.</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Tools Section */}
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Tools Section Title</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.toolsSection.title} 
+                    onChange={e => setFormData({ ...formData, toolsSection: { ...formData.toolsSection, title: e.target.value } })} 
+                    placeholder="Tools & Technologies" />
+                  <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
+                    value={formData.toolsSection.description} 
+                    onChange={e => setFormData({ ...formData, toolsSection: { ...formData.toolsSection, description: e.target.value } })} 
+                    placeholder="Optional description" />
+                </div>
+
+                {/* Why Us Section */}
+                <div className="space-y-3">
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Why Us Section Subtitle</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.whyUsSection.subtitle} 
+                    onChange={e => setFormData({ ...formData, whyUsSection: { ...formData.whyUsSection, subtitle: e.target.value } })} 
+                    placeholder="Our Advantage" />
+                  <label className="text-xs font-semibold text-gray-400 uppercase">Why Us Section Title</label>
+                  <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none" 
+                    value={formData.whyUsSection.title} 
+                    onChange={e => setFormData({ ...formData, whyUsSection: { ...formData.whyUsSection, title: e.target.value } })} 
+                    placeholder="Why Partner With Us?" />
+                  <textarea rows={2} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-blue-500/50 outline-none text-sm" 
+                    value={formData.whyUsSection.description} 
+                    onChange={e => setFormData({ ...formData, whyUsSection: { ...formData.whyUsSection, description: e.target.value } })} 
+                    placeholder="We combine technical excellence with business strategy..." />
+                </div>
+              </div>
+            </div>
+
             {/* Tools */}
             <div className="bg-[#111116] border border-white/5 rounded-2xl p-6">
               <h3 className="text-lg font-bold text-white mb-4">Tools & Technologies</h3>
@@ -517,6 +630,9 @@ export default function ServiceForm() {
                 {formData.whyChooseUs.map((item, i) => (
                   <div key={i} className="bg-white/5 p-4 rounded-xl border border-white/5 relative group">
                     <button type="button" onClick={() => removeItem('whyChooseUs', i)} className="absolute top-2 right-2 text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"><Trash2 size={16} /></button>
+                    <div className="mb-3">
+                      <ImageUploader compact value={item.icon} onChange={val => handleArrayChange('whyChooseUs', i, 'icon', val)} />
+                    </div>
                     <input type="text" placeholder="Benefit Title" className="w-full bg-black/40 border border-white/10 rounded px-2 py-1 text-white font-bold mb-2" 
                       value={item.title} onChange={e => handleArrayChange('whyChooseUs', i, 'title', e.target.value)} />
                     <textarea placeholder="Description" rows={2} className="w-full bg-black/40 border border-white/10 rounded px-2 py-1 text-gray-300 text-sm" 

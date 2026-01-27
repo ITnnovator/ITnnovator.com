@@ -3,13 +3,13 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-export default function ServiceTools({ items }) {
+export default function ServiceTools({ items, section }) {
   if (!items || items.length === 0) return null;
 
   return (
     <section className="py-32 bg-[#050505] relative border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-white mb-16 text-center tracking-tight">Tools & Technologies</h2>
+        <h2 className="text-3xl font-bold text-white mb-16 text-center tracking-tight">{section?.title || 'Tools & Technologies'}</h2>
 
         {/* Strictly 4 columns on large screens as requested */}
         <div className="grid grid-cols-3 md:grid-cols-4 gap-6 lg:gap-8">

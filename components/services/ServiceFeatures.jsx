@@ -1,11 +1,11 @@
 'use client';
 
-export default function ServiceFeatures({ features }) {
+export default function ServiceFeatures({ features, section }) {
     if (!features || features.length === 0) return null;
 
     return (
         <div className="bg-white/5 border border-white/5 rounded-2xl p-8 mt-12">
-            <h3 className="text-xl font-bold text-white mb-6">Key Capabilities</h3>
+            <h3 className="text-xl font-bold text-white mb-6">{section?.title || 'Key Capabilities'}</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">

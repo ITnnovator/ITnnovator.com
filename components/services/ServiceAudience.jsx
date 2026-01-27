@@ -3,13 +3,13 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-export default function ServiceAudience({ items }) {
+export default function ServiceAudience({ items, section }) {
   if (!items || items.length === 0) return null;
 
   return (
     <div className="mt-20 lg:mt-32">
       <div className="flex items-end justify-between mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Who This Is For</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">{section?.title || 'Who This Is For'}</h2>
         <div className="hidden md:block w-32 h-[1px] bg-gradient-to-r from-brand to-brand-secondary mb-4 opacity-50"></div>
       </div>
 

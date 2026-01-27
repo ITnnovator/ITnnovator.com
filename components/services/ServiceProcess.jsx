@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ServiceProcess({ steps }) {
+export default function ServiceProcess({ steps, section }) {
    const containerRef = useRef(null);
 
    // Animation for timeline
@@ -69,8 +69,8 @@ export default function ServiceProcess({ steps }) {
       <section ref={containerRef} id="process" className="py-32 relative bg-black overflow-hidden">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-24">
-               <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Our Process</h2>
-               <p className="text-xl text-gray-400">From concept to delivery, executed with precision.</p>
+               <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">{section?.title || 'Our Process'}</h2>
+               <p className="text-xl text-gray-400">{section?.description || 'From concept to delivery, executed with precision.'}</p>
             </div>
 
             <div className="relative max-w-5xl mx-auto">

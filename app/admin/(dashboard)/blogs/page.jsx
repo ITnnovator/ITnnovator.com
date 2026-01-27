@@ -190,7 +190,22 @@ function BlogModal({ onClose, formData, setFormData, handleSubmit, isLoading }) 
 
                             <div className="space-y-2">
                                 <label className="text-xs font-semibold text-gray-400 uppercase">Content (HTML Supported)</label>
-                                <textarea required rows={12} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-blue-500/50 outline-none resize-none font-mono" value={formData.content || ''} onChange={e => setFormData({ ...formData, content: e.target.value })} placeholder="<p>Write your article content here...</p>" />
+                                <textarea required rows={12} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-blue-500/50 outline-none resize-none font-mono" value={formData.content || ''} onChange={e => setFormData({ ...formData, content: e.target.value })} placeholder={`<h1>Post Title</h1>
+<h2>Intro / Context</h2>
+<p>...</p>
+
+<h2>Main Section 1</h2>
+<p>...</p>
+
+<h2>How Itnnovator Approaches [Topic]</h2>
+<p>...</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Question 1?</h3>
+<p>...</p>
+
+<h2>Final Thoughts</h2>
+<p>...</p>`} />
                                 <p className="text-[10px] text-gray-500">Supports Basic HTML tags.</p>
                             </div>
                         </div>

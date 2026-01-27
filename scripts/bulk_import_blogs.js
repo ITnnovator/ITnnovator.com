@@ -15,9 +15,7 @@ if (!MONGODB_URI) {
                 if (parts.length >= 2) {
                     const key = parts[0].trim();
                     if (key === 'MONGODB_URI') {
-                        // Reconstruct value in case it contained =
                         let value = parts.slice(1).join('=').trim();
-                        // Remove quotes
                         if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
                             value = value.slice(1, -1);
                         }
@@ -28,18 +26,18 @@ if (!MONGODB_URI) {
             }
         }
     } catch (e) {
-        console.warn('Could not read .env.local file:', e.message);
+        console.warn('Could not read .env file:', e.message);
     }
 }
 
 if (!MONGODB_URI) {
-    console.error("Please define the MONGODB_URI environment variable in .env.local");
+    console.error("Please define the MONGODB_URI environment variable in .env");
     process.exit(1);
 }
 
 const BlogSchema = new mongoose.Schema({
     title: String,
-    slug: String,
+    slug: { type: String, unique: true },
     excerpt: String,
     content: String,
     coverImage: String,
@@ -51,46 +49,51 @@ const BlogSchema = new mongoose.Schema({
 
 const Blog = mongoose.models.Blog || mongoose.model('Blog', BlogSchema);
 
-async function seed() {
+async function importBlogs() {
     try {
+        // Read blogs.json from the root directory
+        const dataPath = path.resolve(__dirname, '../blogs.json');
+        if (!fs.existsSync(dataPath)) {
+            console.error('Error: blogs.json not found in the root directory.');
+            console.log('Please create blogs.json with an array of blog objects.');
+            process.exit(1);
+        }
+
+        const rawData = fs.readFileSync(dataPath, 'utf8');
+        const blogs = JSON.parse(rawData);
+
+        if (!Array.isArray(blogs)) {
+            console.error('Error: blogs.json must contain an array of objects.');
+            process.exit(1);
+        }
+
+        console.log(`Found ${blogs.length} blogs to import...`);
+
         await mongoose.connect(MONGODB_URI);
         console.log('Connected to DB');
 
-        // Read blogs.json
-        const blogsPath = path.resolve(__dirname, '../blogs.json');
-        if (!fs.existsSync(blogsPath)) {
-            throw new Error('blogs.json not found in project root');
-        }
-
-        const blogsData = JSON.parse(fs.readFileSync(blogsPath, 'utf8'));
-        console.log(`Found ${blogsData.length} blogs to seed.`);
-
-        for (const blogPost of blogsData) {
-            // Add default cover image if missing, or handle as needed
-            if (!blogPost.coverImage) {
-                blogPost.coverImage = "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop";
-            }
-            // Ensure tags are arrays if they were strings (handled by JSON parse usually, but good to be safe)
-            if (!blogPost.tags) {
-                blogPost.tags = ["General"];
+        for (const blog of blogs) {
+            if (!blog.slug || !blog.title) {
+                console.warn(`Skipping blog without title or slug: ${JSON.stringify(blog.title || 'Untitled')}`);
+                continue;
             }
 
-            const exists = await Blog.findOne({ slug: blogPost.slug });
+            const exists = await Blog.findOne({ slug: blog.slug });
             if (exists) {
-                console.log(`Updating: ${blogPost.title}`);
-                await Blog.updateOne({ slug: blogPost.slug }, blogPost);
+                console.log(`Updating: ${blog.title}`);
+                await Blog.updateOne({ slug: blog.slug }, { ...blog, updatedAt: new Date() });
             } else {
-                console.log(`Creating: ${blogPost.title}`);
-                await Blog.create(blogPost);
+                console.log(`Creating: ${blog.title}`);
+                await Blog.create(blog);
             }
         }
 
-        console.log('Seeding completed successfully');
+        console.log('Bulk import completed!');
         process.exit(0);
     } catch (error) {
-        console.error('Error seeding data:', error);
+        console.error('Error importing blogs:', error);
         process.exit(1);
     }
 }
 
-seed();
+importBlogs();

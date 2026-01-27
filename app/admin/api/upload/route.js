@@ -16,9 +16,13 @@ export async function POST(request) {
         }
 
         // 1. Check for Vercel Blob Token
-        if (process.env.BLOB_READ_WRITE_TOKEN) {
+        // Fallback to 'itnnovator_READ_WRITE_TOKEN' if 'BLOB_READ_WRITE_TOKEN' is missing
+        const blobToken = process.env.BLOB_READ_WRITE_TOKEN || process.env.itnnovator_READ_WRITE_TOKEN;
+
+        if (blobToken) {
             const blob = await put(file.name, file, {
                 access: 'public',
+                token: blobToken, // Explicitly pass the token if using the fallback
             });
 
             return NextResponse.json({ url: blob.url });

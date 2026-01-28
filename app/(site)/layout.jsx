@@ -8,6 +8,8 @@ import SparkCursor from "@/components/SparkCursor";
 import { Toaster } from "react-hot-toast";
 import ScriptRefresh from "@/components/ScriptRefresh";
 
+const GA_ID = "G-0WKTG41R6W"; // replace
+
 export const metadata = {
   metadataBase: new URL("https://itnnovator.com"),
   title: "Software Development Agency | Itnnovator",
@@ -73,6 +75,20 @@ export default function SiteLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* GA4 (place here) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', { anonymize_ip: true });
+          `}
+        </Script>
 
         {/* Missing heart-svg required by main.js */}
         <div id="heart-svg" className="heart-svg"></div>

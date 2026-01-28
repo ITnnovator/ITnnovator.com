@@ -11,7 +11,7 @@ import StepDesign from "./Steps/StepDesign";
 import StepTimeline from "./Steps/StepTimeline";
 import StepContact from "./Steps/StepContact";
 import EstimateResult from "./EstimateResult";
-import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "itnnovator_estimate_state";
 
@@ -152,6 +152,12 @@ export default function EstimatorWizard() {
                 });
 
                 if (res.ok) {
+                    trackEvent("generate_lead", {
+                        form_type: "estimate",
+                        page: window.location.pathname,
+                        method: "api"
+                    });
+                    
                     setShowResult(true);
                     window.scrollTo(0, 0);
                     // Clear storage after successful submission

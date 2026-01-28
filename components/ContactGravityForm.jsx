@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ContactGravityForm() {
     const [formData, setFormData] = useState({
@@ -49,6 +50,13 @@ export default function ContactGravityForm() {
 
             if (res.ok) {
                 toast.success("Message sent successfully!"); 
+                
+                trackEvent("generate_lead", {
+                    form_type: "contact",
+                    page: window.location.pathname,
+                    method: "api"
+                });
+
                 setFormData({
                     firstName: "",
                     lastName: "",

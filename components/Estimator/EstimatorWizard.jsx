@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, RotateCcw, Loader2 } from "lucide-react";
+import Link from "next/link";
 import { calculateEstimate, ESTIMATOR_CONFIG } from "@/lib/estimatorData";
 
 // Steps will be imported here
@@ -157,7 +158,7 @@ export default function EstimatorWizard() {
                         page: window.location.pathname,
                         method: "api"
                     });
-                    
+
                     setShowResult(true);
                     window.scrollTo(0, 0);
                     // Clear storage after successful submission

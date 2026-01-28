@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ services = [] }) {
     const pathname = usePathname();
 
     // Close menu when route changes by triggering the GSAP toggle if active
@@ -167,77 +167,16 @@ export default function Header() {
                                             </div>
 
                                             <ul className="w-full ml-[8rem] md:ml-0 py-0">
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/web-development" className="hover:text-white">
-                                                        Web Development
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Core flagship service
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/ecommerce-solutions" className="hover:text-white">
-                                                        E-commerce Solutions
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Online store development
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/seo-digital-marketing" className="hover:text-white">
-                                                        SEO & Digital Marketing
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Growth & visibility
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/mobile-app-development" className="hover:text-white">
-                                                        Mobile App Development
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – iOS & Android apps
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/ui-ux-product-design" className="hover:text-white">
-                                                        UI/UX & Product Design
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Intuitive design systems
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/growth-performance-marketing" className="hover:text-white">
-                                                        Growth & Performance
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Data-driven customer acquisition
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/content-marketing" className="hover:text-white">
-                                                        Content Marketing
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – Strategic storytelling
-                                                    </span>
-                                                </li>
-
-                                                <li className="py-1 group/item">
-                                                    <Link href="/services/strategy-analytics" className="hover:text-white">
-                                                        Strategy & Analytics
-                                                    </Link>
-                                                    <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
-                                                        – In-depth business intelligence
-                                                    </span>
-                                                </li>
+                                                {services.map((service) => (
+                                                    <li key={service._id} className="py-1 group/item">
+                                                        <Link href={`/services/${service.slug}`} className="hover:text-white">
+                                                            {service.title}
+                                                        </Link>
+                                                        <span className="hidden lg:inline text-lg 2xl:text-xl font-normal text-white/50 opacity-0 group-hover/item:opacity-100 group-hover/item:pl-2 transition-all duration-500 ease-in-out">
+                                                            – {service.intro?.heading || service.hero?.headline || service.title}
+                                                        </span>
+                                                    </li>
+                                                ))}
                                             </ul>
                                         </div>
                                     </li>

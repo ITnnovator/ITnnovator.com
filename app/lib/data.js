@@ -7,7 +7,7 @@ import Client from '@/models/Client';
 export async function getServices() {
   await dbConnect();
   const services = await Service.find({ serviceType: 'primary' }).sort({ sortOrder: 1, createdAt: -1 }).lean();
-  return services.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined, updatedAt: undefined }));
+  return JSON.parse(JSON.stringify(services));
 }
 
 export async function getCases(limit = null) {
@@ -22,17 +22,17 @@ export async function getCases(limit = null) {
   }
 
   const cases = await query.lean();
-  return cases.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined, updatedAt: undefined }));
+  return JSON.parse(JSON.stringify(cases));
 }
 
 export async function getTestimonials() {
   await dbConnect();
   const testimonials = await Testimonial.find({ isFeatured: true }).sort({ createdAt: -1 }).lean();
-  return testimonials.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined }));
+  return JSON.parse(JSON.stringify(testimonials));
 }
 
 export async function getClients() {
   await dbConnect();
   const clients = await Client.find({ isActive: true }).sort({ order: 1 }).lean();
-  return clients.map(doc => ({ ...doc, _id: doc._id.toString(), createdAt: undefined }));
+  return JSON.parse(JSON.stringify(clients));
 }

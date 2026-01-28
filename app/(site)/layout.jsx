@@ -60,7 +60,10 @@ const jsonLd = {
 };
 
 
-export default function SiteLayout({ children }) {
+import { getServices } from '@/app/lib/data';
+
+export default async function SiteLayout({ children }) {
+  const services = await getServices();
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
@@ -97,7 +100,7 @@ export default function SiteLayout({ children }) {
           id="page-wrapper"
           className="w-full flex flex-col min-h-screen overflow-hidden !filter-none"
         >
-          <Header />
+          <Header services={services} />
           <br />
           <br />
           <Toaster position="top-right" reverseOrder={false} />

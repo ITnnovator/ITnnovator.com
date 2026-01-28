@@ -15,7 +15,7 @@ const LeadSchema = new mongoose.Schema(
             features: [String],
             otherFeatures: String, // New from Step 2
 
-            step3: { type: Map, of: mongoose.Schema.Types.Mixed }, // Flexible Step 3 answers
+            step3: { type: mongoose.Schema.Types.Mixed }, // Flexible Step 3 answers
             additionalNotes: String, // New from Step 3
 
             // Legacy fields kept for compatibility or reference if needed, but step3 map supersedes
@@ -39,7 +39,7 @@ const LeadSchema = new mongoose.Schema(
         country: String,
         submissionId: { type: String, unique: true, sparse: true }, // Index for Deduplication
         step3Version: { type: String, default: "v1" },
-        step3Responses: { type: Map, of: mongoose.Schema.Types.Mixed }, // Store raw step 3 for version safety
+        step3Responses: { type: mongoose.Schema.Types.Mixed }, // Store raw step 3 for version safety
 
         status: {
             type: String,

@@ -216,6 +216,17 @@ export default function Header({ services = [] }) {
 
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
+                                            <Link
+                                                href="/estimate"
+                                                className="hover:text-white text-white md:text-silver-chalice group-[.hover]:text-white"
+                                            >
+                                                Get estimate
+                                            </Link>
+                                        </div>
+                                    </li>
+
+                                    <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
+                                        <div className="js-menu-item--wrapper flex w-full">
 
                                         </div>
                                     </li>

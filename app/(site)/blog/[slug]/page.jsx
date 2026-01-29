@@ -10,9 +10,17 @@ export async function generateMetadata({ params }) {
     if (!blog) return { title: "Blog Not Found" };
 
     return {
-        title: `${blog.title} | Itnnovator Insights`,
-        description: blog.excerpt,
+        title: blog.metaTitle || `${blog.title} | Itnnovator Insights`,
+        description: blog.metaDescription || blog.excerpt,
+        alternates: {
+            canonical: blog.canonicalUrl || `/blog/${slug}`,
+        },
+        robots: blog.noindex
+            ? { index: false, follow: true }
+            : { index: true, follow: true },
         openGraph: {
+            title: blog.metaTitle || blog.title,
+            description: blog.metaDescription || blog.excerpt,
             images: [blog.coverImage || '/og.jpg']
         }
     };

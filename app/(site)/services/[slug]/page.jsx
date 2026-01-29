@@ -29,15 +29,19 @@ export async function generateMetadata({ params }) {
   if (!service) return { title: 'Service Not Found' };
 
   // SEO Safeguards
-  const canonical = service.canonicalUrl || `https://itnnovator.com/services/${service.slug}`;
+  const canonical = service.canonicalUrl || `/services/${service.slug}`;
 
   // Robots Logic
-  let robots = 'index, follow';
+  let robots = { index: true, follow: true };
+
   if (service.noindex) {
-    robots = 'noindex, nofollow';
+    robots = { index: false, follow: true };
   } else if (service.serviceType !== 'primary' && !service.canonicalUrl) {
     // Non-primary services without explicit canonical should not be indexed to avoid cannibalization
-    robots = 'noindex, nofollow';
+    // Warning: User logic override -> User asked for always "noindex, follow" for noindex cases.
+    // For this specific 'implicity noindex' case, we can stick to the same or be stricter.
+    // Let's us consistent "noindex, follow" as per user prefernce for "noindex" concept.
+    robots = { index: false, follow: true };
   }
 
   return {

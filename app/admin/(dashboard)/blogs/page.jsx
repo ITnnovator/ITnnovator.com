@@ -6,7 +6,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import AdminList from '@/components/admin/AdminList';
 
 const initialForm = {
-    title: '', slug: '', excerpt: '', content: '', coverImage: '', tags: '', author: 'Itnnovator Team'
+    title: '', slug: '', excerpt: '', content: '', coverImage: '', tags: '', author: 'Itnnovator Team',
+    metaTitle: '', metaDescription: '', canonicalUrl: '', noindex: false
 };
 
 export default function BlogManager() {
@@ -161,7 +162,24 @@ export default function BlogManager() {
     );
 }
 
+
+
 function BlogModal({ onClose, formData, setFormData, handleSubmit, isLoading }) {
+    const [activeTab, setActiveTab] = useState('general');
+    const [initialSlug] = useState(formData.slug || ''); // Track initial slug for warning
+
+    const TabButton = ({ id, label }) => (
+        <button
+            type="button"
+            className={`flex-1 py-3 px-1 text-center border-b-2 font-medium text-sm transition-colors ${activeTab === id
+                ? 'border-blue-500 text-blue-400'
+                : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-600'
+                }`}
+            onClick={() => setActiveTab(id)}
+        >
+            {label}
+        </button>
+    );
 
     return (
         <div className="fixed inset-0 z-[100] flex justify-end">
@@ -172,43 +190,103 @@ function BlogModal({ onClose, formData, setFormData, handleSubmit, isLoading }) 
                     <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={24} /></button>
                 </div>
 
+                <div className="px-6 border-b border-white/10">
+                    <nav className="-mb-px flex space-x-4">
+                        <TabButton id="general" label="General" />
+                        <TabButton id="content" label="Content" />
+                        <TabButton id="seo" label="SEO" />
+                    </nav>
+                </div>
+
                 <div className="flex-1 overflow-y-auto p-6">
                     <form id="blogForm" onSubmit={handleSubmit} className="space-y-6">
-                        <div className="space-y-4">
-                            <ImageUpload label="Cover Image" value={formData.coverImage} onChange={v => setFormData({ ...formData, coverImage: v })} />
 
-                            <Input label="Title" value={formData.title} onChange={v => setFormData({ ...formData, title: v })} required />
+                        {/* --- GENERAL TAB --- */}
+                        {activeTab === 'general' && (
+                            <div className="space-y-4">
+                                <ImageUpload label="Cover Image" value={formData.coverImage} onChange={v => setFormData({ ...formData, coverImage: v })} />
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <Input label="Slug (URL Friendly)" value={formData.slug} onChange={v => setFormData({ ...formData, slug: v })} required />
-                                <Input label="Author" value={formData.author} onChange={v => setFormData({ ...formData, author: v })} />
+                                <Input label="Title" value={formData.title} onChange={v => setFormData({ ...formData, title: v })} required />
+
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="space-y-2">
+                                        <Input label="Slug (URL Friendly)" value={formData.slug} onChange={v => setFormData({ ...formData, slug: v })} required />
+                                        {formData._id && initialSlug && formData.slug !== initialSlug && (
+                                            <p className="text-[10px] text-yellow-500 flex items-center gap-1">
+                                                ⚠️ Changing the slug changes the URL and canonical. Avoid changing slugs after publishing.
+                                            </p>
+                                        )}
+                                    </div>
+                                    <Input label="Author" value={formData.author} onChange={v => setFormData({ ...formData, author: v })} />
+                                </div>
+
+                                <Input label="Tags (comma separated)" value={formData.tags} onChange={v => setFormData({ ...formData, tags: v })} placeholder="Tech, AI, Web Dev" />
+
+                                <Input label="Short Excerpt" textarea value={formData.excerpt} onChange={v => setFormData({ ...formData, excerpt: v })} required />
                             </div>
+                        )}
 
-                            <Input label="Tags (comma separated)" value={formData.tags} onChange={v => setFormData({ ...formData, tags: v })} placeholder="Tech, AI, Web Dev" />
-
-                            <Input label="Short Excerpt" textarea value={formData.excerpt} onChange={v => setFormData({ ...formData, excerpt: v })} required />
-
+                        {/* --- CONTENT TAB --- */}
+                        {activeTab === 'content' && (
                             <div className="space-y-2">
                                 <label className="text-xs font-semibold text-gray-400 uppercase">Content (HTML Supported)</label>
-                                <textarea required rows={12} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-blue-500/50 outline-none resize-none font-mono" value={formData.content || ''} onChange={e => setFormData({ ...formData, content: e.target.value })} placeholder={`<h1>Post Title</h1>
-<h2>Intro / Context</h2>
-<p>...</p>
-
-<h2>Main Section 1</h2>
-<p>...</p>
-
-<h2>How Itnnovator Approaches [Topic]</h2>
-<p>...</p>
-
-<h2>Frequently Asked Questions</h2>
-<h3>Question 1?</h3>
-<p>...</p>
-
-<h2>Final Thoughts</h2>
-<p>...</p>`} />
+                                <textarea required rows={20} className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-blue-500/50 outline-none resize-none font-mono" value={formData.content || ''} onChange={e => setFormData({ ...formData, content: e.target.value })} placeholder={`<h1>Post Title</h1>\n<p>...</p>`} />
                                 <p className="text-[10px] text-gray-500">Supports Basic HTML tags.</p>
                             </div>
-                        </div>
+                        )}
+
+                        {/* --- SEO TAB --- */}
+                        {activeTab === 'seo' && (
+                            <div className="space-y-6">
+                                <Input
+                                    label="Meta Title"
+                                    value={formData.metaTitle}
+                                    onChange={v => setFormData({ ...formData, metaTitle: v })}
+                                    placeholder={`Default: ${formData.title || 'Blog Title'}`}
+                                />
+
+                                <Input
+                                    label="Meta Description"
+                                    textarea
+                                    value={formData.metaDescription}
+                                    onChange={v => setFormData({ ...formData, metaDescription: v })}
+                                    placeholder={`Default: ${formData.excerpt || 'Blog Excerpt'}`}
+                                />
+
+                                <div className="space-y-2">
+                                    <Input
+                                        label="Canonical URL"
+                                        value={formData.canonicalUrl}
+                                        onChange={v => setFormData({ ...formData, canonicalUrl: v })}
+                                        placeholder={`Default: https://itnnovator.com/blog/${formData.slug || '{slug}'}`}
+                                    />
+                                    <p className="text-[10px] text-gray-500">Auto-generated from slug if left blank.</p>
+                                    {formData.canonicalUrl && !formData.canonicalUrl.startsWith('http') && (
+                                        <p className="text-[10px] text-red-400">Canonical URL must start with http:// or https://</p>
+                                    )}
+                                </div>
+
+                                <div className="flex items-center gap-3 border border-white/10 p-4 rounded bg-white/5">
+                                    <input
+                                        type="checkbox"
+                                        id="noindex"
+                                        checked={formData.noindex}
+                                        onChange={e => setFormData({ ...formData, noindex: e.target.checked })}
+                                        className="w-4 h-4 rounded border-gray-600 bg-black/40 text-blue-600 focus:ring-blue-500"
+                                    />
+                                    <div>
+                                        <label htmlFor="noindex" className="text-sm font-medium text-white block">No Index</label>
+                                        <span className="text-xs text-gray-400">Tell search engines not to index this post.</span>
+                                    </div>
+                                </div>
+                                {formData.noindex && (
+                                    <p className="text-xs text-yellow-500 bg-yellow-500/10 p-2 rounded border border-yellow-500/20">
+                                        ⚠️ Noindex will hide this post from Google.
+                                    </p>
+                                )}
+                            </div>
+                        )}
+
                     </form>
                 </div>
 

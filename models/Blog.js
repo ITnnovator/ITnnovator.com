@@ -11,6 +11,13 @@ const BlogSchema = new mongoose.Schema({
     coverImage: { type: String },
     author: { type: String, default: 'Itnnovator Team' },
     tags: [{ type: String }],
+
+    // SEO Fields
+    metaTitle: { type: String },
+    metaDescription: { type: String },
+    canonicalUrl: { type: String },
+    noindex: { type: Boolean, default: false },
+
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
 });

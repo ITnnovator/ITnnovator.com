@@ -178,6 +178,11 @@ export default function ServiceForm({ initialData = {}, isEdit = false, onSucces
               <div>
                 <label className="label">Slug</label>
                 <input type="text" name="slug" value={formData.slug} onChange={handleChange} required className="input-dark" />
+                {initialData._id && initialData.slug && formData.slug !== initialData.slug && (
+                  <p className="text-[10px] text-yellow-500 mt-1 flex items-center gap-1">
+                    ⚠️ Changing the slug changes the URL and canonical. Avoid changing slugs after publishing.
+                  </p>
+                )}
               </div>
             </div>
 
@@ -368,12 +373,28 @@ export default function ServiceForm({ initialData = {}, isEdit = false, onSucces
             </div>
             <div>
               <label className="label">Canonical URL</label>
-              <input type="text" name="canonicalUrl" value={formData.canonicalUrl} onChange={handleChange} className="input-dark" placeholder="https://..." />
+              <input
+                type="text"
+                name="canonicalUrl"
+                value={formData.canonicalUrl}
+                onChange={handleChange}
+                className="input-dark"
+                placeholder={`Default: https://itnnovator.com/services/${formData.slug || '{slug}'}`}
+              />
+              <p className="text-[10px] text-gray-500 mt-1">Auto-generated from slug if left blank.</p>
+              {formData.canonicalUrl && !formData.canonicalUrl.startsWith('http') && (
+                <p className="text-[10px] text-red-400 mt-1">Canonical URL must start with http:// or https://</p>
+              )}
             </div>
             <div className="flex items-center gap-2 border border-white/10 p-4 rounded bg-white/5">
               <input type="checkbox" name="noindex" checked={formData.noindex} onChange={handleChange} className="w-4 h-4" />
               <label className="text-sm text-red-300">No Index (Hide from Google)</label>
             </div>
+            {formData.noindex && (
+              <p className="text-xs text-yellow-500 bg-yellow-500/10 p-2 rounded border border-yellow-500/20">
+                ⚠️ Noindex will hide this post from Google.
+              </p>
+            )}
           </div>
         )}
 

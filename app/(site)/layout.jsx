@@ -59,7 +59,6 @@ const jsonLd = {
   ]
 };
 
-<script src="https://itn-annota.vercel.app/embed.js" async></script>
 import { getServices } from '@/app/lib/data';
 
 export default async function SiteLayout({ children }) {
@@ -78,6 +77,8 @@ export default async function SiteLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        <script src="https://itn-annota.vercel.app/embed.js" async></script>
 
         {/* GA4 (place here) */}
         <Script

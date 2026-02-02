@@ -59,7 +59,7 @@ const jsonLd = {
   ]
 };
 
-<script src="http://localhost:3000/embed.js" async></script>
+<script src="https://itn-annota.vercel.app/embed.js" async></script>
 import { getServices } from '@/app/lib/data';
 
 export default async function SiteLayout({ children }) {

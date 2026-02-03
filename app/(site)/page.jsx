@@ -100,62 +100,111 @@ export default async function Home() {
       </section>
 
       {/* About  */}
-      <section className="py-14 lg:py-20 xl:py-32">
-        <div className="w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto flex flex-wrap gap-10 justify-between">
-          <div className="flex flex-col gap-y-6 w-full max-w-[50rem] md:gap-y-11">
-            <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-              Our Primary Services
-            </h2>
+     <section className="py-14 lg:py-20 xl:py-32">
+  <div className="w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto flex flex-wrap gap-10 justify-between">
+    <div className="flex flex-col gap-y-6 w-full max-w-[50rem] md:gap-y-11">
+      <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
+        Our Primary Services
+      </h2>
 
-            <div
-              className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit">
-              <p>These are Itnnovator’s core services.<br />Each service is designed to solve a specific business problem and is delivered end-to-end.</p>
-            </div>
+      <div
+        className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit"
+      >
+        <p>
+          These are Itnnovator’s core digital services — built for businesses that need real outcomes, not vague “creative solutions.”<br />
+          We deliver performance-first websites, custom web applications, and SEO systems that improve speed, usability, conversions, and long-term growth.
+        </p>
+        <p>
+          If you need a reliable partner to build, optimize, or scale your digital presence end-to-end, start here.
+        </p>
+      </div>
 
-            <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-              <a href="/services" target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu">
-                <span> View All Services </span>
-                <span
-                  className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
+      <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
+        <a
+          href="/services"
+          target="_self"
+          className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
+        >
+          <span> View All Services </span>
+          <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
+            <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
+              <use href="/webImages/icons.svg#arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
 
-          <ul className="flex flex-col gap-y-10 w-full max-w-[40rem] md:gap-y-11 lg:flex-1">
-            <li className="flex items-start gap-x-6 md:gap-x-11">
-              <img width="55" height="55" src="/webImages/branding-design-icon.svg"
-                className="block w-8 sm:w-[3.5rem]" alt="Itnnovator Branding and UI/UX Design Services - Create a memorable brand" decoding="async" />
-              <div className="flex flex-col gap-y-2.5 md:pt-2.5">
-                <h2 className="text-xl md:text-2xl font-bold">Brand & Digital Design</h2>
-                <p className="md:text-lg">We build memorable brand identities and intuitive UI/UX designs that engage users and drive conversions for your business.</p>
-              </div>
-            </li>
-
-            <li className="flex items-start gap-x-6 md:gap-x-11">
-              <img width="55" height="55" src="/webImages/webbutveckling-ehandel-icon.svg"
-                className="block w-8 sm:w-[3.5rem]" alt="Itnnovator Web Development & E-commerce - Fast, secure websites and online stores" decoding="async" />
-              <div className="flex flex-col gap-y-2.5 md:pt-2.5">
-                <h2 className="text-xl md:text-2xl font-bold">Web & E-commerce Development</h2>
-                <p className="md:text-lg">Our developers build fast, secure, and scalable websites and e-commerce solutions on WordPress, Shopify, and modern stacks.</p>
-              </div>
-            </li>
-
-            <li className="flex items-start gap-x-6 md:gap-x-11">
-              <img width="56" height="56" src="/webImages/analys-seo-growth-icon.svg"
-                className="block w-8 sm:w-[3.5rem]" alt="Itnnovator SEO & Digital Marketing - Grow your traffic and leads" decoding="async" />
-              <div className="flex flex-col gap-y-2.5 md:pt-2.5">
-                <h2 className="text-xl md:text-2xl font-bold">SEO & Digital Marketing</h2>
-                <p className="md:text-lg">We amplify your online visibility with expert SEO strategies and targeted digital marketing campaigns that deliver measurable growth and ROI.</p>
-              </div>
-            </li>
-          </ul>
+    <ul className="flex flex-col gap-y-10 w-full max-w-[40rem] md:gap-y-11 lg:flex-1">
+      {/* 1) Web Development */}
+      <li className="flex items-start gap-x-6 md:gap-x-11">
+        <img
+          width="55"
+          height="55"
+          src="/webImages/webbutveckling-ehandel-icon.svg"
+          className="block w-8 sm:w-[3.5rem]"
+          alt="Web Development - High-performance websites built for speed, security, and conversions"
+          decoding="async"
+        />
+        <div className="flex flex-col gap-y-2.5 md:pt-2.5">
+          <h3 className="text-xl md:text-2xl font-bold">
+            <a className="text-white hover:text-malibu transition-colors" href="/services/web-development">
+              Web Development
+            </a>
+          </h3>
+          <p className="md:text-lg">
+            High-performance websites built for speed, security, and conversion. Clean code, scalable architecture, and SEO-ready foundations from day one.
+          </p>
         </div>
-      </section>
+      </li>
+
+      {/* 2) Custom Web Apps & Dashboards */}
+      <li className="flex items-start gap-x-6 md:gap-x-11">
+        <img
+          width="55"
+          height="55"
+          src="/webImages/branding-design-icon.svg"
+          className="block w-8 sm:w-[3.5rem]"
+          alt="Custom Web Apps and Dashboards - Admin panels, portals, and workflow tools"
+          decoding="async"
+        />
+        <div className="flex flex-col gap-y-2.5 md:pt-2.5">
+          <h3 className="text-xl md:text-2xl font-bold">
+            <a className="text-white hover:text-malibu transition-colors" href="/services/web-apps-dashboards">
+              Web Apps & Dashboards
+            </a>
+          </h3>
+          <p className="md:text-lg">
+            Custom admin panels, dashboards, portals, and internal tools built to reduce manual work, centralize data, and speed up operations securely.
+          </p>
+        </div>
+      </li>
+
+      {/* 3) SEO & Digital Marketing */}
+      <li className="flex items-start gap-x-6 md:gap-x-11">
+        <img
+          width="56"
+          height="56"
+          src="/webImages/analys-seo-growth-icon.svg"
+          className="block w-8 sm:w-[3.5rem]"
+          alt="SEO and Digital Marketing - Technical SEO, content systems, and measurable growth"
+          decoding="async"
+        />
+        <div className="flex flex-col gap-y-2.5 md:pt-2.5">
+          <h3 className="text-xl md:text-2xl font-bold">
+            <a className="text-white hover:text-malibu transition-colors" href="/services/seo-digital-marketing">
+              SEO & Digital Marketing
+            </a>
+          </h3>
+          <p className="md:text-lg">
+            Technical SEO, on-page improvements, and content systems designed to increase qualified traffic and turn that traffic into leads — tracked and measurable.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
 
       {/* Cases */}
       <HomeCases cases={cases} />

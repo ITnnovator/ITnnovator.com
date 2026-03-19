@@ -3,6 +3,8 @@ import OurClients from "@/components/OurClients";
 import AboutContent from "./AboutContent";
 import { getClients } from "@/app/lib/data";
 
+export const revalidate = 0; // Ensure dynamic data fetching
+
 export default async function About() {
   const clients = await getClients();
 

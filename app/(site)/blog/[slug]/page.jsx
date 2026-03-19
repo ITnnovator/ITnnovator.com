@@ -3,6 +3,8 @@ import dbConnect from "@/lib/db";
 import Blog from "@/models/Blog";
 import { notFound } from "next/navigation";
 
+export const revalidate = 0; // Ensure dynamic data fetching
+
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     await dbConnect();

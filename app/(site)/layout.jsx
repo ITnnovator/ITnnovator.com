@@ -61,6 +61,8 @@ const jsonLd = {
 
 import { getServices } from '@/app/lib/data';
 
+export const revalidate = 0; // Ensure dynamic data fetching globally
+
 export default async function SiteLayout({ children }) {
   const services = await getServices();
 

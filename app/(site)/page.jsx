@@ -136,71 +136,27 @@ export default async function Home() {
     </div>
 
     <ul className="flex flex-col gap-y-10 w-full max-w-[40rem] md:gap-y-11 lg:flex-1">
-      {/* 1) Web Development */}
-      <li className="flex items-start gap-x-6 md:gap-x-11">
-        <img
-          width="55"
-          height="55"
-          src="/webImages/webbutveckling-ehandel-icon.svg"
-          className="block w-8 sm:w-[3.5rem]"
-          alt="Web Development - High-performance websites built for speed, security, and conversions"
-          decoding="async"
-        />
-        <div className="flex flex-col gap-y-2.5 md:pt-2.5">
-          <h3 className="text-xl md:text-2xl font-bold">
-            <a className="text-white hover:text-malibu transition-colors" href="/services/web-development">
-              Web Development
-            </a>
-          </h3>
-          <p className="md:text-lg">
-            High-performance websites built for speed, security, and conversion. Clean code, scalable architecture, and SEO-ready foundations from day one.
-          </p>
-        </div>
-      </li>
-
-      {/* 2) Custom Web Apps & Dashboards */}
-      <li className="flex items-start gap-x-6 md:gap-x-11">
-        <img
-          width="55"
-          height="55"
-          src="/webImages/branding-design-icon.svg"
-          className="block w-8 sm:w-[3.5rem]"
-          alt="Custom Web Apps and Dashboards - Admin panels, portals, and workflow tools"
-          decoding="async"
-        />
-        <div className="flex flex-col gap-y-2.5 md:pt-2.5">
-          <h3 className="text-xl md:text-2xl font-bold">
-            <a className="text-white hover:text-malibu transition-colors" href="/services/web-apps-dashboards">
-              Web Apps & Dashboards
-            </a>
-          </h3>
-          <p className="md:text-lg">
-            Custom admin panels, dashboards, portals, and internal tools built to reduce manual work, centralize data, and speed up operations securely.
-          </p>
-        </div>
-      </li>
-
-      {/* 3) SEO & Digital Marketing */}
-      <li className="flex items-start gap-x-6 md:gap-x-11">
-        <img
-          width="56"
-          height="56"
-          src="/webImages/analys-seo-growth-icon.svg"
-          className="block w-8 sm:w-[3.5rem]"
-          alt="SEO and Digital Marketing - Technical SEO, content systems, and measurable growth"
-          decoding="async"
-        />
-        <div className="flex flex-col gap-y-2.5 md:pt-2.5">
-          <h3 className="text-xl md:text-2xl font-bold">
-            <a className="text-white hover:text-malibu transition-colors" href="/services/seo-digital-marketing">
-              SEO & Digital Marketing
-            </a>
-          </h3>
-          <p className="md:text-lg">
-            Technical SEO, on-page improvements, and content systems designed to increase qualified traffic and turn that traffic into leads — tracked and measurable.
-          </p>
-        </div>
-      </li>
+      {services.slice(0, 3).map((service, idx) => (
+        <li key={service._id} className="flex items-start gap-x-6 md:gap-x-11">
+          <img
+            width="55"
+            height="55"
+            src={service.icon || "/webImages/webbutveckling-ehandel-icon.svg"}
+            className="block w-8 sm:w-[3.5rem] object-contain"
+            alt={service.title}
+          />
+          <div className="flex flex-col gap-y-2.5 md:pt-2.5">
+            <h3 className="text-xl md:text-2xl font-bold">
+              <a className="text-white hover:text-malibu transition-colors" href={`/services/${service.slug}`}>
+                {service.title}
+              </a>
+            </h3>
+            <p className="md:text-lg line-clamp-2">
+              {service.description || service.hero?.subheadline || "Custom digital solutions built for modern business needs."}
+            </p>
+          </div>
+        </li>
+      ))}
     </ul>
   </div>
 </section>
@@ -219,218 +175,55 @@ export default async function Home() {
       </section>
       <Testimonial testimonials={testimonials} />
 
-      {/* Everything in Web development */}
-      <section className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
-        <div className="max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex md:flex-row justify-end md:flex-row-reverse md:pl-6">
-          <div className="md:w-1/2 overflow-x-visible">
-            <figure className="js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden w-full md:w-max">
-              <img
-                width="900"
-                height="530"
-                src="/webImages/hemsidor-wordpress-900x530.png"
-                className="w-full h-auto rounded-xl"
-                alt="Itnnovator WordPress Development - Custom, fast, and scalable websites built by experts."
-              />
-            </figure>
-          </div>
-
-          <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
-            <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
-              <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                Smarter Learning for Modern Schools
-              </h2>
-
-              <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
-                <p>Deliver engaging digital classrooms with a secure and scalable Learning Management System designed for schools. Manage courses, students, teachers, and progress—all in one platform.</p>
+      {/* Promotional Services Highlight Reel (Dynamic) */}
+      {(services.filter(s => s.isFeatured).length > 0 ? services.filter(s => s.isFeatured) : services.slice(0, 5)).map((service, index) => {
+        const isReversed = index % 2 === 0;
+        return (
+          <section key={service._id} className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
+            <div className={`max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex ${isReversed ? 'md:flex-row-reverse md:pl-6' : 'md:flex-row md:pr-6 justify-end'}`}>
+              <div className="md:w-1/2 overflow-x-visible">
+                <figure className={`js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden w-full md:w-max ${isReversed ? '' : 'float-right'}`}>
+                  <img
+                    width="900"
+                    height="530"
+                    src={service.hero?.image || service.blockImg || service.icon || "/webImages/hemsidor-wordpress-900x530.png"}
+                    className="w-full h-auto rounded-xl object-cover"
+                    alt={`${service.title} - ${service.hero?.headline || ''}`}
+                  />
+                </figure>
               </div>
 
-              <a
-                href="/web-development"
-                target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
-              >
-                <span> Explore Learning</span>
-                <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
+                <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
+                  <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
+                    {service.hero?.headline || service.herotitle || service.title}
+                  </h2>
 
-      {/* E-commerce in WooCommerce */}
-      <section className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
-        <div className="max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex md:flex-row justify-end md:pr-6">
-          <div className="md:w-1/2 overflow-x-visible">
-            <figure className="js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden float-right w-full md:w-max">
-              <img
-                width="900"
-                height="546"
-                src="/webImages/e-commerce-woocomerce-900x546.png"
-                className="w-full h-auto rounded-xl"
-                alt="Itnnovator WooCommerce Development - Scalable online stores with secure payments and seamless WordPress integration."
-              />
-            </figure>
-          </div>
+                  <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
+                    <p>{service.description || service.hero?.subheadline || 'Professional digital services to scale your operations.'}</p>
+                  </div>
 
-          <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
-            <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
-              <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                Scalable WooCommerce Solutions
-              </h2>
-
-              <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
-                <p>Launch a powerful online store with WooCommerce. We build scalable e-commerce platforms with seamless WordPress integration, secure payments, and flexible shipping—perfect for growing businesses.</p>
+                  <a
+                    href={`/services/${service.slug}`}
+                    target="_self"
+                    className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
+                  >
+                    <span> {service.cta || `Explore ${service.title}`} </span>
+                    <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
+                      <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
+                        <use href="/webImages/icons.svg#arrow-right"></use>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
               </div>
-
-              <a
-                href="/e-commerce"
-                target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
-              >
-                <span> Build Your Online Store </span>
-                <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
             </div>
-          </div>
-        </div>
-      </section >
-
-      {/* Applications in Laravel */}
-      <section className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
-        <div className="max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex md:flex-row justify-end md:flex-row-reverse md:pl-6">
-          <div className="md:w-1/2 overflow-x-visible">
-            <figure className="js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden w-full md:w-max">
-              <img
-                width="900"
-                height="553"
-                src="/webImages/laravel-applikationer-900x553.png"
-                className="w-full h-auto rounded-xl"
-                alt="Itnnovator Custom Application Development - Secure, scalable web applications and APIs built by experts."
-              />
-            </figure>
-          </div>
-
-          <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
-            <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
-              <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                Custom Web Applications
-              </h2>
-
-              <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
-                <p>We build secure, scalable custom applications—from API backends and customer portals to booking systems and internal tools. Our experts deliver clean code, seamless third-party integrations, and robust solutions tailored to your business needs.</p>
-              </div>
-
-              <a
-                href="/custom-development"
-                target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
-              >
-                <span> Start Your Project </span>
-                <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEO agency */}
-      <section className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
-        <div className="max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex md:flex-row justify-end md:pr-6">
-          <div className="md:w-1/2 overflow-x-visible">
-            <figure className="js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden float-right w-full md:w-max">
-              <img
-                width="900"
-                height="473"
-                src="/webImages/wordwide-seo.jpg"
-                className="w-full h-auto rounded-xl"
-                alt="Itnnovator SEO Services - Technical SEO, content strategy, and growth optimization for higher rankings"
-              />
-            </figure>
-          </div>
-
-          <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
-            <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
-              <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                SEO & Growth Marketing
-              </h2>
-
-              <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
-                <p>Drive sustainable growth with our full-funnel SEO strategy. We optimize technical performance, create search-driven content, and build authority to increase your visibility, traffic, and conversions.</p>
-              </div>
-
-              <a
-                href="/seo-services"
-                target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
-              >
-                <span> Boost Your Visibility </span>
-                <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Data-driven web agency */}
-      <section className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
-        <div className="max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex md:flex-row justify-end md:flex-row-reverse md:pl-6">
-          <div className="md:w-1/2 overflow-x-visible">
-            <figure className="js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden w-full md:w-max">
-              <img
-                width="900"
-                height="473"
-                src="/webImages/data-driven-website.jpg"
-                className="w-full h-auto rounded-xl"
-                alt="Itnnovator Data-Driven Digital Agency - Analytics, conversion optimization, and growth strategies"
-              />
-            </figure>
-          </div>
-
-          <div className="py-6 md:w-1/2 w-full flex md:flex-1 md:shrink-0 lg:max-w-[28.75rem] only:mx-auto only:py-0">
-            <div className="flex flex-col gap-y-3 md:gap-y-[2.37rem] my-auto text-white">
-              <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-                Data-Driven Digital Strategy
-              </h2>
-
-              <div className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white">
-                <p>We leverage analytics and insights to design and optimize every digital experience. From research and tracking to experiments and reporting—we ensure your website converts better and scales with confidence.</p>
-              </div>
-
-              <a
-                href="/data-analytics"
-                target="_self"
-                className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
-              >
-                <span> Optimize Your Performance </span>
-                <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                  <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
-                    <use href="/webImages/icons.svg#arrow-right"></use>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })}
 
       {/* Our Offer */}
-      <OurOffer />
+      <OurOffer services={services} />
 
       {/* CTA */}
       <CTA />

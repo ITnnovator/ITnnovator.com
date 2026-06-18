@@ -100,15 +100,20 @@ export default async function Home() {
       </section>
 
       {/* About  */}
-     <section className="py-14 lg:py-20 xl:py-32">
+     <section className="py-14 lg:py-20 xl:py-32 relative">
   <div className="w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto flex flex-wrap gap-10 justify-between">
+    
     <div className="flex flex-col gap-y-6 w-full max-w-[50rem] md:gap-y-11">
-      <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white">
-        Our Primary Services
-      </h2>
+      <div>
+        <h2 className="text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white mb-4">
+          Our Primary Services
+        </h2>
+        {/* Animated colorful line */}
+        <div className="h-1.5 w-24 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.5)] animate-pulse"></div>
+      </div>
 
       <div
-        className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-inherit"
+        className="prose max-w-none text-base md:text-xl font-light leading-[1.4] md:leading-[1.4] lg:leading-[1.4] text-white/80 prose-a:text-malibu prose-a:no-underline prose-a:font-light hover:prose-a:underline prose-p:mb-[1.38em] prose-ul:text-inherit prose-ul:list-disc prose-ul:list-outside prose-strong:text-white"
       >
         <p>
           These are Itnnovator’s core digital services — built for businesses that need real outcomes, not vague “creative solutions.”<br />
@@ -123,11 +128,11 @@ export default async function Home() {
         <a
           href="/services"
           target="_self"
-          className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
+          className="group inline-flex items-center px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
         >
           <span> View All Services </span>
-          <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-            <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
+          <span className="pl-3 transform group-hover:translate-x-1 transition-transform duration-200">
+            <svg className="inline-block w-4 h-4" viewBox="0 0 13 13" fill="currentColor">
               <use href="/webImages/icons.svg#arrow-right"></use>
             </svg>
           </span>
@@ -135,23 +140,35 @@ export default async function Home() {
       </div>
     </div>
 
-    <ul className="flex flex-col gap-y-10 w-full max-w-[40rem] md:gap-y-11 lg:flex-1">
+    <ul className="flex flex-col gap-y-6 w-full max-w-[40rem] lg:flex-1 mt-4 lg:mt-0">
       {services.slice(0, 3).map((service, idx) => (
-        <li key={service._id} className="flex items-start gap-x-6 md:gap-x-11">
-          <img
-            width="55"
-            height="55"
-            src={service.icon || "/webImages/webbutveckling-ehandel-icon.svg"}
-            className="block w-8 sm:w-[3.5rem] object-contain"
-            alt={service.title}
-          />
-          <div className="flex flex-col gap-y-2.5 md:pt-2.5">
+        <li key={service._id} className="group relative flex items-start gap-x-6 md:gap-x-8 p-6 rounded-2xl transition-all duration-500 hover:bg-white/[0.03] border border-transparent hover:border-white/10 overflow-hidden">
+          {/* Animated left border on hover */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transition-all duration-500 group-hover:h-full rounded-r-full shadow-[0_0_10px_rgba(139,92,246,0.6)]"></div>
+          
+          <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors duration-300 shadow-lg shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16">
+            {service.icon?.includes('.svg#') ? (
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-malibu opacity-80 group-hover:opacity-100 transition-opacity" fill="currentColor">
+                <use href={service.icon}></use>
+              </svg>
+            ) : (
+              <img
+                width="55"
+                height="55"
+                src={service.icon || "/webImages/webbutveckling-ehandel-icon.svg"}
+                className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                alt={service.title}
+              />
+            )}
+          </div>
+          
+          <div className="flex flex-col gap-y-2.5 pt-1">
             <h3 className="text-xl md:text-2xl font-bold">
-              <a className="text-white hover:text-malibu transition-colors" href={`/services/${service.slug}`}>
+              <a className="text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300" href={`/services/${service.slug}`}>
                 {service.title}
               </a>
             </h3>
-            <p className="md:text-lg line-clamp-2">
+            <p className="text-gray-400 text-base md:text-lg line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
               {service.description || service.hero?.subheadline || "Custom digital solutions built for modern business needs."}
             </p>
           </div>

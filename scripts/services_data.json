@@ -5,14 +5,14 @@
         "serviceType": "primary",
         "isFeatured": true,
         "sortOrder": 1,
-        "icon": "/webImages/icons.svg#code",
+        "icon": "/webImages/web-dev-icon.png",
         "alt": "Web Development Icon",
         "metaTitle": "Custom Web Development Services | Itnnovator",
         "metaDescription": "High-performance websites and web platforms built for speed, security, and growth.",
         "hero": {
             "headline": "Web Development That Performs",
             "subheadline": "Scalable, secure builds—designed to convert and engineered to last.",
-            "image": "/webImages/web-dev-hero.jpg",
+            "image": "/webImages/web-dev-hero.png",
             "ctas": [
                 {
                     "text": "Start a Project",
@@ -150,14 +150,14 @@
         "serviceType": "primary",
         "isFeatured": true,
         "sortOrder": 2,
-        "icon": "/webImages/icons.svg#cart",
+        "icon": "/webImages/ecommerce-icon.png",
         "alt": "E-commerce Solutions Icon",
         "metaTitle": "E-commerce Development Services | Itnnovator",
         "metaDescription": "Conversion-focused e-commerce stores with fast UX, clean integrations, and scalable operations.",
         "hero": {
             "headline": "E-commerce That Converts",
             "subheadline": "Fast storefronts, clean checkout flows, and scalable operations.",
-            "image": "/webImages/ecommerce-hero.jpg",
+            "image": "/webImages/ecommerce-hero.png",
             "ctas": [
                 {
                     "text": "Start a Project",
@@ -274,14 +274,14 @@
         "serviceType": "primary",
         "isFeatured": true,
         "sortOrder": 3,
-        "icon": "/webImages/icons.svg#search",
+        "icon": "/webImages/seo-icon.png",
         "alt": "SEO and Digital Marketing Icon",
         "metaTitle": "SEO & Digital Marketing Services | Itnnovator",
         "metaDescription": "Search-driven growth: technical SEO, content strategy, and measurable acquisition systems.",
         "hero": {
             "headline": "Search-Driven Growth",
             "subheadline": "Technical SEO + content systems that turn visibility into leads.",
-            "image": "/webImages/seo-hero.jpg",
+            "image": "/webImages/seo-hero.png",
             "ctas": [
                 {
                     "text": "Start a Project",
@@ -405,7 +405,7 @@
         "hero": {
             "headline": "Design That Removes Friction",
             "subheadline": "User-focused UI/UX for faster decisions and higher conversion.",
-            "image": "/webImages/uiux-hero.jpg",
+            "image": "/webImages/uiux-hero.png",
             "ctas": [
                 {
                     "text": "Start a Project",

@@ -1,4 +1,4 @@
-# Itnnovator – Innovating the Future of Tech 
+# Itnnovator – Innovating the Future of Tech  
    
 Welcome to the codebase for **Itnnovator**, a digital solutions agency specializing in: 
 

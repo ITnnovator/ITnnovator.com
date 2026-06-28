@@ -106,7 +106,7 @@ export default function ServiceHero({ service }) {
                   href={cta.link || '/contact'}
                   className={`hero-btn group relative px-8 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 overflow-hidden ${cta.variant === 'secondary'
                     ? 'bg-transparent border border-white/20 text-white hover:bg-white/10'
-                    : 'bg-white text-black hover:bg-orange-50 hover:text-brand shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(243,108,74,0.3)]'
+                    : 'bg-white text-black hover:bg-white hover:text-brand shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(130,157,255,0.3)]'
                     }`}
                 >
                   <span className="relative z-10 flex items-center gap-2">

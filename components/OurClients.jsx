@@ -16,44 +16,31 @@ export default async function OurClients({ clients }) {
                     Itnnovator works with startups, growing companies, and established teams across multiple industries.
                 </p>
 
-                {/* Desktop Grid (Hidden on Mobile) */}
-                <div className="hidden md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-12 md:gap-y-16 mt-4">
-                    {displayClients && displayClients.length > 0 ? (
-                        displayClients.map((client) => (
-                            <div key={client._id} className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%] group">
-                                <img
-                                    src={client.logo}
-                                    className="object-contain max-w-[5rem] max-h-[2.5rem] md:max-w-[7rem] md:max-h-[3rem] xl:max-w-[7.5rem] opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-all duration-300 ease-out"
-                                    style={{ filter: 'brightness(0) invert(1)' }}
-                                    alt={`Client logo: ${client.name}`}
-                                />
-                            </div>
-                        ))
-                    ) : (
-                        <div className="text-white">No clients found.</div>
-                    )}
-                </div>
+                {/* Unified Marquee Slider (Desktop & Mobile) */}
+                <div className="w-full overflow-hidden relative mt-8 flex items-center">
+                    {/* Fade edges */}
+                    <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-                {/* Mobile Marquee (Hidden on Desktop) */}
-                <div className="md:hidden w-full overflow-hidden relative">
-                    <div className="animate-marquee flex items-center gap-10">
+                    <div className="animate-marquee flex items-center gap-12 md:gap-24">
                         {/* First Set */}
-                        {displayClients && displayClients.length > 0 && displayClients.map((client) => (
-                            <div key={`mobile-${client._id}`} className="flex justify-center items-center shrink-0 w-[8rem]">
+                        {displayClients && displayClients.length > 0 ? displayClients.map((client) => (
+                            <div key={`set1-${client._id}`} className="flex justify-center items-center shrink-0 w-[120px] md:w-[160px] group">
                                 <img
                                     src={client.logo}
-                                    className="object-contain w-full h-auto max-h-[3rem]"
+                                    className="object-contain w-full h-auto max-h-[2.5rem] md:max-h-[3.5rem] opacity-40 group-hover:opacity-100 transition-opacity duration-300"
                                     style={{ filter: 'brightness(0) invert(1)' }}
                                     alt={`Client logo: ${client.name}`}
                                 />
                             </div>
-                        ))}
+                        )) : <div className="text-white">No clients found.</div>}
+                        
                         {/* Duplicate Set for Seamless Loop */}
                         {displayClients && displayClients.length > 0 && displayClients.map((client) => (
-                            <div key={`mobile-duplicate-${client._id}`} className="flex justify-center items-center shrink-0 w-[8rem]">
+                            <div key={`set2-${client._id}`} className="flex justify-center items-center shrink-0 w-[120px] md:w-[160px] group">
                                 <img
                                     src={client.logo}
-                                    className="object-contain w-full h-auto max-h-[3rem]"
+                                    className="object-contain w-full h-auto max-h-[2.5rem] md:max-h-[3.5rem] opacity-40 group-hover:opacity-100 transition-opacity duration-300"
                                     style={{ filter: 'brightness(0) invert(1)' }}
                                     alt={`Client logo: ${client.name}`}
                                 />

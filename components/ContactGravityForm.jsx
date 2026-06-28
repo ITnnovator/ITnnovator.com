@@ -49,8 +49,8 @@ export default function ContactGravityForm() {
             const data = await res.json();
 
             if (res.ok) {
-                toast.success("Message sent successfully!"); 
-                
+                toast.success("Message sent successfully!");
+
                 trackEvent("generate_lead", {
                     form_type: "contact",
                     page: window.location.pathname,
@@ -76,228 +76,122 @@ export default function ContactGravityForm() {
         }
     };
 
+    const inputClass = "w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 text-lg focus:outline-none focus:border-malibu/60 focus:bg-malibu/5 transition-all duration-300";
+
     return (
-        <form
-            onSubmit={handleSubmit}
-            id="gform_1"
-            className="gform"
-            method="post"
-            action="#"
-            data-formid="1"
-        >
-            <div className="gform-body gform_body">
-                <div
-                    id="gform_fields_1"
-                    className="gform_fields top_label form_sublabel_below description_below validation_below"
-                >
-                    <div
-                        id="field_1_1"
-                        className="gfield gfield--type-text gfield--width-half label-hidden gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"
-                    >
-                        <label
-                            className="gfield_label gform-field-label"
-                            htmlFor="input_1_1"
-                        >
-                            First Name
-                            <span className="gfield_required">
-                                <span className="gfield_required gfield_required_text">
-                                    (Required)
-                                </span>
-                            </span>
-                        </label>
-                        <div className="ginput_container ginput_container_text">
-                            <input
-                                name="firstName"
-                                type="text"
-                                className="large"
-                                placeholder="First Name"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                    </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
 
-                    <div
-                        id="field_1_3"
-                        className="gfield gfield--type-text gfield--width-half label-hidden gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"
-                    >
-                        <label
-                            className="gfield_label gform-field-label"
-                            htmlFor="input_1_3"
-                        >
-                            Last Name
-                            <span className="gfield_required">
-                                <span className="gfield_required gfield_required_text">
-                                    (Required)
-                                </span>
-                            </span>
-                        </label>
-                        <div className="ginput_container ginput_container_text">
-                            <input
-                                name="lastName"
-                                type="text"
-                                className="large"
-                                placeholder="Last Name"
-                                value={formData.lastName}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div
-                        id="field_1_4"
-                        className="gfield gfield--type-email gfield--width-half label-hidden gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"
-                    >
-                        <label
-                            className="gfield_label gform-field-label"
-                            htmlFor="input_1_4"
-                        >
-                            Email
-                            <span className="gfield_required">
-                                <span className="gfield_required gfield_required_text">
-                                    (Required)
-                                </span>
-                            </span>
-                        </label>
-                        <div className="ginput_container ginput_container_email">
-                            <input
-                                name="email"
-                                type="email"
-                                className="large"
-                                placeholder="E-mail"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div
-                        id="field_1_5"
-                        className="gfield gfield--type-phone gfield--width-half label-hidden gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"
-                    >
-                        <label
-                            className="gfield_label gform-field-label"
-                            htmlFor="input_1_5"
-                        >
-                            Mobile
-                            <span className="gfield_required">
-                                <span className="gfield_required gfield_required_text">
-                                    (Required)
-                                </span>
-                            </span>
-                        </label>
-                        <div className="ginput_container ginput_container_phone">
-                            <input
-                                name="phone"
-                                type="tel"
-                                className="large"
-                                placeholder="Phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    <div
-                        id="field_1_6"
-                        className="gfield gfield--type-textarea gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"
-                    >
-                        <label
-                            className="gfield_label gform-field-label"
-                            htmlFor="input_1_6"
-                        >
-                            Message
-                            <span className="gfield_required">
-                                <span className="gfield_required gfield_required_text">
-                                    (Required)
-                                </span>
-                            </span>
-                        </label>
-                        <div className="ginput_container ginput_container_textarea">
-                            <textarea
-                                name="message"
-                                id="input_1_6"
-                                className="textarea large"
-                                placeholder="How can we help?"
-                                value={formData.message}
-                                onChange={handleChange}
-                                required
-                                rows="10"
-                                cols="50"
-                            ></textarea>
-                        </div>
-                    </div>
-
-                    <fieldset
-                        id="field_1_7"
-                        className="gfield gfield--type-consent gfield--type-choice legend-hidden gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"
-                    >
-                        <legend className="gfield_label gform-field-label gfield_label_before_complex">
-                            Consent
-                            <span className="gfield_required">
-                                <span className="gfield_required gfield_required_text">
-                                    (Required)
-                                </span>
-                            </span>
-                        </legend>
-                        <div className="ginput_container ginput_container_consent">
-                            <input
-                                name="consent"
-                                id="input_1_7_1"
-                                type="checkbox"
-                                checked={formData.consent}
-                                onChange={handleChange}
-                                required
-                            />
-                            <label
-                                className="gform-field-label gform-field-label--type-inline gfield_consent_label"
-                                htmlFor="input_1_7_1"
-                            >
-                                I have read Itnnovator’s &nbsp;
-                                <a className="underline" href="/privacy-policy">
-                                    privacy policy
-                                </a>
-                                .
-                            </label>
-                            <input type="hidden" name="input_7.2" />
-                            <input
-                                type="hidden"
-                                name="input_7.3"
-                                value="1"
-                                className="gform_hidden"
-                            />
-                        </div>
-                    </fieldset>
+            {/* Name row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-2">
+                    <label className="text-xs text-white/40 uppercase tracking-widest font-mono">First Name <span className="text-malibu">*</span></label>
+                    <input
+                        name="firstName"
+                        type="text"
+                        className={inputClass}
+                        placeholder="John"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <label className="text-xs text-white/40 uppercase tracking-widest font-mono">Last Name <span className="text-malibu">*</span></label>
+                    <input
+                        name="lastName"
+                        type="text"
+                        className={inputClass}
+                        placeholder="Doe"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                    />
                 </div>
             </div>
-            <div className="gform-footer gform_footer top_label">
-                <button
-                    className="js-hover-circle-animation inline-block text-base md:text-lg text-malibu contact-submit-button js-contact-submit-button"
-                    id="gform_submit_button_1"
-                    type="submit"
-                    disabled={loading}
-                >
-                    <span className="text-xl">
-                        {" "}
-                        {loading ? "Sending..." : "Send Message"}
-                    </span>
-                    <span className="pl-1 pr-1 transition-all duration-200 ease-linear">
-                        <svg
-                            className="inline-block"
-                            preserveAspectRatio="none"
-                            width="22"
-                            height="15"
-                            aria-hidden="true"
-                        >
-                            <use href="/webImages/icons.svg#arrow-right"></use>
-                        </svg>
-                    </span>
-                </button>
+
+            {/* Contact row */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-2">
+                    <label className="text-xs text-white/40 uppercase tracking-widest font-mono">Email <span className="text-malibu">*</span></label>
+                    <input
+                        name="email"
+                        type="email"
+                        className={inputClass}
+                        placeholder="john@company.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <label className="text-xs text-white/40 uppercase tracking-widest font-mono">Phone <span className="text-malibu">*</span></label>
+                    <input
+                        name="phone"
+                        type="tel"
+                        className={inputClass}
+                        placeholder="+1 234 567 890"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
             </div>
+
+            {/* Message */}
+            <div className="flex flex-col gap-2">
+                <label className="text-xs text-white/40 uppercase tracking-widest font-mono">Message <span className="text-malibu">*</span></label>
+                <textarea
+                    name="message"
+                    className={`${inputClass} resize-none`}
+                    placeholder="Tell us about your project, goals, or challenges..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={7}
+                />
+            </div>
+
+            {/* Consent */}
+            <div className="flex items-start gap-3">
+                <button
+                    type="button"
+                    onClick={() => setFormData(p => ({ ...p, consent: !p.consent }))}
+                    className={`mt-0.5 w-5 h-5 rounded shrink-0 border transition-all duration-200 flex items-center justify-center ${formData.consent ? 'bg-malibu border-malibu' : 'border-white/20 bg-white/5'}`}
+                >
+                    {formData.consent && (
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                    )}
+                </button>
+                <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} className="sr-only" />
+                <p className="text-sm text-white/40 leading-relaxed">
+                    I have read Itnnovator's{" "}
+                    <a href="/contact" className="text-malibu hover:text-white transition-colors underline underline-offset-2">
+                        privacy policy
+                    </a>
+                    .
+                </p>
+            </div>
+
+            {/* Submit */}
+            <button
+                type="submit"
+                disabled={loading}
+                className="group w-full relative overflow-hidden px-8 py-4 rounded-xl font-bold text-base transition-all duration-300 bg-malibu text-black hover:shadow-[0_0_40px_rgba(130,157,255,0.5)] hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+            >
+                <span className="relative z-10 flex items-center justify-center gap-3">
+                    {loading ? (
+                        <>
+                            <svg className="animate-spin w-5 h-5" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                            Sending...
+                        </>
+                    ) : (
+                        <>
+                            Send Message
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        </>
+                    )}
+                </span>
+            </button>
         </form>
     );
 }

@@ -52,7 +52,11 @@ export default function CaseSection({ cases: initialCases = [] }) {
     const filtered = useMemo(() => {
         if (!cases) return [];
         if (activeCat === "all") return cases;
-        return cases.filter((c) => c.categories && c.categories.includes(activeCat));
+        // Normalize both sides to lowercase for reliable comparison
+        return cases.filter((c) =>
+            c.categories &&
+            c.categories.some((cat) => cat.toLowerCase() === activeCat.toLowerCase())
+        );
     }, [activeCat, cases]);
 
     if (loading) return <div className="py-20 flex justify-center"><Loader2 className="animate-spin text-white" /></div>;
@@ -63,7 +67,7 @@ export default function CaseSection({ cases: initialCases = [] }) {
                 {/* Mobile select */}
                 <div className="md:hidden relative mb-8 js-case-filtering-mobile-dropdown">
                     <select
-                        className="w-full px-6 py-3 text-sm font-medium rounded-full border border-[rgba(255,255,255,0.2)] bg-black text-white appearance-none outline-none"
+                        className="w-full px-6 py-4 text-base font-semibold rounded-full border border-white/20 bg-black text-white appearance-none outline-none"
                         value={toHashFromCategory(activeCat)}
                         onChange={(e) => setCategory(normalizeCategoryId(e.target.value))}
                     >
@@ -84,7 +88,7 @@ export default function CaseSection({ cases: initialCases = [] }) {
                 </div>
 
                 {/* Desktop tabs */}
-                <div className="hidden md:flex flex-wrap gap-4 mb-12">
+                <div className="hidden md:flex flex-wrap gap-3 mb-14">
                     {CATEGORIES.map((c) => {
                         const cat = normalizeCategoryId(`#${c.id}`);
                         const active = activeCat === cat;
@@ -93,8 +97,11 @@ export default function CaseSection({ cases: initialCases = [] }) {
                                 key={c.id}
                                 type="button"
                                 onClick={() => setCategory(cat)}
-                                data-active={active}
-                                className="px-6 py-3 text-sm font-medium rounded-full border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.5)] transition-all duration-300 bg-[rgba(19,19,20,0.5)] hover:bg-[rgba(19,19,20,0.8)] data-[active=true]:border-[rgba(255,255,255,0.8)] data-[active=true]:bg-[rgba(19,19,20,1)] data-[active=true]:translate-y-[-2px] data-[active=true]:shadow-[0_5px_15px_rgba(0,0,0,0.15)] text-white hover:text-white no-underline"
+                                className={`px-8 py-3.5 text-base font-semibold rounded-full border transition-all duration-300 ${
+                                    active
+                                        ? 'bg-malibu border-malibu text-black shadow-[0_0_25px_rgba(130,157,255,0.5)] scale-105'
+                                        : 'border-white/10 bg-white/5 text-white/60 hover:border-malibu/40 hover:text-white hover:bg-white/10'
+                                }`}
                                 aria-pressed={active}
                             >
                                 {c.label}
@@ -104,72 +111,88 @@ export default function CaseSection({ cases: initialCases = [] }) {
                 </div>
 
                 {/* Grid */}
-                <div className="w-full grid gap-[3.125rem] md:grid-cols-2 xl:grid-cols-3">
-                    {filtered.map((item) => (
-                        <CaseCard key={item.slug} item={item} />
-                    ))}
-                </div>
+                {filtered.length === 0 ? (
+                    <div className="text-center py-24 text-white/30">
+                        <p className="text-5xl mb-4">🔍</p>
+                        <p className="text-lg">No projects found in this category.</p>
+                    </div>
+                ) : (
+                    <div className="w-full grid gap-8 md:grid-cols-2">
+                        {filtered.map((item) => (
+                            <CaseCard key={item.slug} item={item} />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );
 }
 
 function CaseCard({ item }) {
-    // Ensure fallback for topImg from imageDesktop if needed
     const coverImg = item.imageDesktop || item.topImg;
 
     return (
-        <div className="flex flex-col">
+        <div className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-white/10 to-white/5 hover:from-malibu/50 hover:to-purple-500/50 transition-all duration-500">
             <a
                 href={`/cases/${item.slug}`}
-                className="relative flex flex-col justify-between h-full overflow-hidden rounded-[1.25rem] transition duration-300 border border-solid border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.5)] shadow-[0_0_50px_rgba(12,32,58,0.2)] group/img"
+                className="relative flex flex-col h-full overflow-hidden rounded-[23px] bg-[#0a0a0c] block"
             >
-                {/* Background/cover image */}
-                <img
-                    src={coverImg}
-                    width={868}
-                    height={640}
-                    className="absolute h-full w-full left-0 top-0 object-cover transition duration-500 blur-[0px] grayscale opacity-10 group-hover/img:opacity-20 group-hover/img:grayscale-0 group-hover/img:blur-[0px] transform scale-[1.1] group-hover/img:scale-[1.3]"
-                    alt={item.title}
-                    loading="lazy"
-                    decoding="async"
-                />
+                {/* Background cover image — subtle */}
+                {coverImg && (
+                    <img
+                        src={coverImg}
+                        width={868}
+                        height={640}
+                        className="absolute h-full w-full left-0 top-0 object-cover opacity-10 group-hover:opacity-20 scale-110 group-hover:scale-125 transition-all duration-700"
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/80 to-transparent" />
 
                 {/* Text block */}
-                <div className="pr-[2rem] pt-[3rem] pb-[3rem] md:pr-[2.75rem] md:pt-[3.5rem] md:pb-[4rem] w-[85.5%] ml-auto">
-                    <h3 className="mb-[0.75rem] text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
+                <div className="relative z-10 p-10 md:p-12">
+                    {/* Category tags */}
+                    <div className="flex flex-wrap gap-2 mb-6 pr-14">
+                        {item.categories && item.categories.map((t) => (
+                            <span key={t} className="px-3 py-1.5 rounded-full text-xs font-bold bg-malibu/10 border border-malibu/20 text-malibu uppercase tracking-widest">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight group-hover:text-malibu transition-colors duration-300 mb-3">
                         {item.title}
                     </h3>
-                    <ul className="flex flex-wrap font-bold text-[0.8125rem]" style={{ color: "#829dff" }}>
-                        {item.categories && item.categories.map((t) => (
-                            <li className="mr-3" key={t}>
-                                {t}
-                            </li>
-                        ))}
-                        {/* Fallback for tags if categories not present in existing data format? 
-                            The model logic uses categories.
-                        */}
-                    </ul>
+                    {item.description && (
+                        <p className="text-white/40 text-base leading-relaxed line-clamp-2">{item.description}</p>
+                    )}
                 </div>
 
-                {/* Device frame + inner image */}
-                <div className="flex flex-col items-center w-full relative justify-center">
-                    <div className="relative w-full h-full">
-                        <div className="w-[94%] ml-auto relative before:content-[''] before:absolute before:bg-[#131314] before:h-[25px] before:rounded-tl before:-top-[1.5625rem] before:left-0 before:right-0 shadow-[-5px_-20px_30px_rgba(0,0,0,1)]">
-                            <div className="absolute bg-[#ccc] opacity-20 w-[0.375rem] h-[0.375rem] rounded-full -top-4 left-[0.625rem]" />
-                            <div className="absolute bg-[#ccc] opacity-20 w-[0.375rem] h-[0.375rem] rounded-full -top-4 left-5" />
-                            <div className="absolute bg-[#ccc] opacity-20 w-[0.375rem] h-[0.375rem] rounded-full -top-4 left-[1.875rem]" />
-                            <img
-                                src={item.innerImg}
-                                width={680}
-                                height={480}
-                                className="rounded-br-[1.20rem] object-cover w-full shadow-[0_0_100px_rgba(0,0,0,1)]"
-                                alt={item.title}
-                                loading="lazy"
-                                decoding="async"
-                            />
+                {/* Browser frame + inner image */}
+                <div className="relative z-10 mt-auto">
+                    <div className="mx-6 md:mx-10">
+                        {/* Browser chrome */}
+                        <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1a1a1e] rounded-t-xl border-t border-l border-r border-white/10">
+                            <span className="w-3 h-3 rounded-full bg-white/10" />
+                            <span className="w-3 h-3 rounded-full bg-white/10" />
+                            <span className="w-3 h-3 rounded-full bg-white/10" />
                         </div>
+                        <img
+                            src={item.innerImg}
+                            width={860}
+                            height={600}
+                            className="w-full object-cover object-top rounded-br-xl border-b border-l border-r border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.8)] group-hover:shadow-[0_20px_60px_rgba(130,157,255,0.2)] transition-shadow duration-500"
+                            alt={item.title}
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </div>
+                </div>
+
+                {/* Hover arrow */}
+                <div className="absolute top-8 right-8 w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/40 group-hover:bg-malibu group-hover:border-malibu group-hover:text-black transition-all duration-300 z-20">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
                 </div>
             </a>
         </div>

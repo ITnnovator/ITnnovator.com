@@ -7,6 +7,7 @@ import Script from "next/script";
 import SparkCursor from "@/components/SparkCursor";
 import { Toaster } from "react-hot-toast";
 import ScriptRefresh from "@/components/ScriptRefresh";
+import BackToTop from "@/components/BackToTop";
 
 const GA_ID = "G-0WKTG41R6W"; // replace
 
@@ -101,7 +102,7 @@ export default async function SiteLayout({ children }) {
 
         <div
           id="page-wrapper"
-          className="w-full flex flex-col min-h-screen overflow-hidden !filter-none"
+          className="w-full flex flex-col min-h-screen !filter-none"
         >
           <Header services={services} />
           <br />
@@ -112,6 +113,7 @@ export default async function SiteLayout({ children }) {
           <main className="grow">{children}</main>
 
           <Footer />
+          <BackToTop />
         </div>
 
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" />

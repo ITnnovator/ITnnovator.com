@@ -4,7 +4,7 @@ export default function ServiceScope({ items, section }) {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="mt-32">
+    <div>
       <div className="mb-12">
         <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">{section?.title || "What's Included"}</h2>
         <p className="text-lg text-gray-400 max-w-2xl">{section?.description || 'A comprehensive scope designed to deliver complete outcomes, not just hours logged.'}</p>
@@ -26,7 +26,7 @@ export default function ServiceScope({ items, section }) {
                       <img src={item.icon} alt="" className="w-full h-full object-contain filter invert" />
                     </div>
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-500 group-hover:bg-brand group-hover:text-white transition-all duration-300">
+                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white-500 group-hover:bg-brand group-hover:text-white transition-all duration-300">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </div>
                   )}

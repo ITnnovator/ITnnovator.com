@@ -11,14 +11,14 @@ export default async function sitemap() {
 
     // 1. Static Pages
     const staticRoutes = [
-        { url: `${baseUrl}`, changeFrequency: 'weekly', priority: 1.0 },
-        { url: `${baseUrl}/about`, changeFrequency: 'monthly', priority: 0.6 },
-        { url: `${baseUrl}/services`, changeFrequency: 'weekly', priority: 0.8 },
-        { url: `${baseUrl}/cases`, changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${baseUrl}/blog`, changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.6 },
-        // Include /team if it exists
-        { url: `${baseUrl}/team`, changeFrequency: 'monthly', priority: 0.6 },
+        { url: `${baseUrl}`,            changeFrequency: 'weekly',  priority: 1.0 },
+        { url: `${baseUrl}/about`,      changeFrequency: 'monthly', priority: 0.7 },
+        { url: `${baseUrl}/services`,   changeFrequency: 'weekly',  priority: 0.9 },
+        { url: `${baseUrl}/cases`,      changeFrequency: 'weekly',  priority: 0.8 },
+        { url: `${baseUrl}/blog`,       changeFrequency: 'weekly',  priority: 0.7 },
+        { url: `${baseUrl}/contact`,    changeFrequency: 'yearly',  priority: 0.6 },
+        { url: `${baseUrl}/estimate`,   changeFrequency: 'monthly', priority: 0.5 },
+        // /team temporarily removed — page is down
     ].map(route => ({
         ...route,
         lastModified: new Date(),

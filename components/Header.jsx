@@ -37,7 +37,7 @@ export default function Header({ services = [] }) {
 
     return (
         <>
-            <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex items-center justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
+            <div className="fixed h-[6rem] left-0 top-0 z-[70] flex items-center justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
                 <div className="flex items-center pointer-events-auto">
                     <a
                         href="/"
@@ -60,9 +60,9 @@ export default function Header({ services = [] }) {
                 </div>
             </div>
 
-            <nav className="hidden md:flex fixed h-[8rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: "99" }}>
+            <nav className="hidden md:flex fixed h-[6rem] right-32 top-0 z-[60] md:ml-auto max-w-[calc(100%-30rem)] justify-end items-center text-white mix-blend-difference" style={{ zIndex: "99" }}>
                 <ul className="flex justify-end text-normal text-lg">
-                    <li className="px-5 relative">
+                    <li className="px-2 relative">
                         <Link
                             className="transition-colors duration-300 ease-in-out hover:text-gray-300"
                             href="/estimate"
@@ -70,7 +70,7 @@ export default function Header({ services = [] }) {
                             Get estimate
                         </Link>
                     </li>
-                    <li className="px-5 relative">
+                    <li className="px-2 relative">
                         <Link
                             className="transition-colors duration-300 ease-in-out hover:text-gray-300"
                             href="/contact"
@@ -81,7 +81,7 @@ export default function Header({ services = [] }) {
                 </ul>
             </nav>
 
-            <div className="fixed h-[4rem] md:h-[8rem] right-6 md:right-12 top-0 z-[70] flex justify-between items-center py-10 text-white mix-blend-difference pointer-events-auto">
+            <div className="fixed h-[6rem] right-6 md:right-12 top-0 z-[70] flex justify-between items-center py-10 text-white mix-blend-difference pointer-events-auto">
                 <button
                     type="button"
                     id="js-menu-toggler"
@@ -192,6 +192,7 @@ export default function Header({ services = [] }) {
                                         </div>
                                     </li>
 
+                                    {/* Team link — temporarily disabled
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">
                                             <Link
@@ -202,6 +203,7 @@ export default function Header({ services = [] }) {
                                             </Link>
                                         </div>
                                     </li>
+                                    */}
 
                                     <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
                                         <div className="js-menu-item--wrapper flex w-full">

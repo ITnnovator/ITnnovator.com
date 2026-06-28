@@ -86,7 +86,7 @@ export default function ServiceProcess({ steps, section }) {
 
                         {/* Timeline Node */}
                         <div className="absolute left-[20px] md:left-[50%] top-0 md:top-8 w-10 h-10 -ml-5 flex items-center justify-center z-10">
-                           <div className="step-circle w-4 h-4 rounded-full bg-brand border-4 border-black box-content shadow-[0_0_15px_rgba(243,108,74,0.5)]"></div>
+                           <div className="step-circle w-4 h-4 rounded-full bg-brand border-4 border-black box-content shadow-[0_0_15px_rgba(130,157,255,0.5)]"></div>
                         </div>
 
                         {/* Content Side */}

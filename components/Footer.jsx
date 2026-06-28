@@ -67,7 +67,7 @@ export default function Footer() {
                             <li className="mb-1.5">
                                 <Link
                                     className="hover-underline-animation inline-block relative"
-                                    href="/careers"
+                                    href="/contact"
                                 >
                                     Careers
                                 </Link>

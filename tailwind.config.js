@@ -7,8 +7,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                brand: '#f36c4a',
-                'brand-secondary': '#7c3aed', // Defaulting to Violet (User can update this)
+                brand: '#829dff', // Malibu
+                'brand-secondary': '#a855f7', // Purple
+                malibu: '#829dff', // Alias for brand used in recent updates
             }
         },
     },

@@ -235,24 +235,56 @@ export default function AboutContent() {
             </section>
 
             {/* --- WHAT WE ACTUALLY DO --- */}
-            <section className="py-20 lg:py-32 px-6 lg:px-12 bg-black z-10 relative">
+            <section className="py-20 lg:py-32 px-6 lg:px-12 bg-black z-10 relative overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[1px] bg-gradient-to-r from-transparent via-malibu/40 to-transparent" />
                 <div className="max-w-[100rem] mx-auto">
-                    <div className="max-w-4xl mx-auto text-center md:text-left">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white">What We Actually Do</h2>
-                        <div className="text-lg md:text-xl text-white/80 font-light leading-relaxed space-y-6">
-                            <p>
-                                Itnnovator works with startups, growing companies, and internal teams to build and improve digital products that support real business operations.
-                            </p>
-                            <p>
-                                Our services include <Link href="/services/web-development" className="text-white hover:text-malibu transition-colors underline decoration-malibu/50">custom web development</Link>, <Link href="/services/ecommerce-solutions" className="text-white hover:text-malibu transition-colors underline decoration-malibu/50">e-commerce platform development</Link>, <Link href="/services/ui-ux-design" className="text-white hover:text-malibu transition-colors underline decoration-malibu/50">UI/UX design</Link> for conversion and usability, <Link href="/services/seo-digital-marketing" className="text-white hover:text-malibu transition-colors underline decoration-malibu/50">SEO and digital marketing systems</Link>, <Link href="/services/ai-automation" className="text-white hover:text-malibu transition-colors underline decoration-malibu/50">automation workflows</Link>, and <Link href="/contact" className="text-white hover:text-malibu transition-colors underline decoration-malibu/50">ongoing maintenance and support</Link>.
-                            </p>
-                            <p>
-                                We are often brought in when existing websites become slow, hard to maintain, or ineffective at generating leads or sales. Our role is to simplify complex systems, improve performance, and create digital foundations that teams can confidently build on.
-                            </p>
-                            <p>
-                                Itnnovator is a digital services company providing web development, e-commerce solutions, UI/UX design, SEO and digital marketing, automation, and ongoing technical support. We work with startups, growing businesses, and established teams to build reliable digital systems that support real business operations.
-                            </p>
-                        </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16 lg:mb-24"
+                    >
+                        <span className="text-malibu font-mono uppercase tracking-widest text-sm mb-4 block">Services</span>
+                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50 mb-6">
+                            What We Actually <span className="italic font-serif font-light text-malibu">Do</span>
+                        </h2>
+                        <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+                            From concept to production — we build, grow, and maintain digital systems that work.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            { icon: "🌐", title: "Custom Web Development", desc: "Production-ready websites and web apps built for performance, scalability, and real business traffic.", link: "/services/web-development" },
+                            { icon: "🛒", title: "E-commerce Solutions", desc: "Full-stack e-commerce platforms with payment integrations, inventory management, and conversion-first UX.", link: "/services/ecommerce-solutions" },
+                            { icon: "🎨", title: "UI/UX Design", desc: "Interfaces designed for usability and conversion — from wireframes to polished, interactive prototypes.", link: "/services/ui-ux-design" },
+                            { icon: "📈", title: "SEO & Digital Marketing", desc: "Data-driven SEO strategies and marketing systems that generate sustainable organic growth.", link: "/services/seo-digital-marketing" },
+                            { icon: "⚡", title: "AI & Automation", desc: "Workflow automation, AI integrations, and custom scripts that eliminate repetitive work and scale operations.", link: "/services/ai-automation" },
+                            { icon: "🔧", title: "Maintenance & Support", desc: "Long-term technical partnership — keeping your systems fast, secure, and up-to-date as your business grows.", link: "/contact" },
+                        ].map((item, i) => (
+                            <motion.a
+                                key={i}
+                                href={item.link}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.08 }}
+                                whileHover={{ y: -6 }}
+                                className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-white/10 to-white/5 hover:from-malibu/60 hover:to-purple-500/60 transition-all duration-500 block"
+                            >
+                                <div className="h-full bg-[#0a0a0c] rounded-[15px] p-8 flex flex-col gap-5 hover:bg-[#0d0d10] transition-colors duration-500">
+                                    <div className="text-4xl">{item.icon}</div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-malibu transition-colors duration-300">{item.title}</h3>
+                                        <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                                    </div>
+                                    <div className="mt-auto flex items-center gap-2 text-xs font-semibold text-white/30 group-hover:text-malibu transition-colors duration-300 uppercase tracking-wider">
+                                        Learn more
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </div>
+                                </div>
+                            </motion.a>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -273,7 +305,9 @@ export default function AboutContent() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
                         {[
                             { num: 5, suffix: "+", label: "Years Building Production Systems" },
-                            { num: 50, suffix: "+", label: "Digital Projects Delivered" }
+                            { num: 50, suffix: "+", label: "Digital Projects Delivered" },
+                            { num: 98, suffix: "%", label: "Client Satisfaction Rate" },
+                            { num: 12, suffix: "+", label: "Industries Served" },
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}

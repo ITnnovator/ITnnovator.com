@@ -67,7 +67,7 @@ export default function ServiceTOC({ sections }) {
                       }`}
                   >
                     <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 shrink-0 ${isActive
-                      ? 'bg-brand shadow-[0_0_10px_rgba(243,108,74,0.8)] scale-125'
+                      ? 'bg-brand shadow-[0_0_10px_rgba(130,157,255,0.8)] scale-125'
                       : 'bg-gray-800 border border-gray-700 group-hover:border-gray-500'
                       }`}></span>
                     <span className="truncate">{label}</span>

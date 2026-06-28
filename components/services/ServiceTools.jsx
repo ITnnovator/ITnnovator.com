@@ -110,7 +110,13 @@ function TiltToolCard({ tool }) {
 
         <div ref={contentRef} className="relative z-10 flex flex-col items-center">
           <div className="w-14 h-14 mb-4 flex items-center justify-center grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110">
-            <img src={tool.logo} alt={tool.name} className="max-w-full max-h-full object-contain" />
+            {tool.logo ? (
+              <img src={tool.logo} alt={tool.name} className="max-w-full max-h-full object-contain" />
+            ) : (
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-malibu/20 to-brand-secondary/20 border border-white/10 flex items-center justify-center text-2xl font-bold text-white/60 group-hover:text-white group-hover:from-malibu/40 group-hover:to-brand-secondary/40 transition-all">
+                {tool.name?.charAt(0)?.toUpperCase() || '?'}
+              </div>
+            )}
           </div>
           <span className="text-sm font-bold text-gray-500 uppercase tracking-wider group-hover:text-white transition-colors">
             {tool.name}

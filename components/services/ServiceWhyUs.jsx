@@ -23,7 +23,7 @@ export default function ServiceWhyUs({ items, section }) {
               <div key={i} className="group relative p-[1px] rounded-3xl bg-gradient-to-r from-white/10 to-transparent hover:from-brand hover:to-brand-secondary transition-all duration-500">
                 <div className="bg-[#0a0a0c] p-8 md:p-10 rounded-[23px] relative z-10 h-full">
                   <div className="flex flex-col md:flex-row gap-6 md:items-start">
-                    <div className="w-12 h-12 shrink-0 rounded-full bg-brand/10 flex items-center justify-center border border-brand/20 text-brand group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all duration-300 shadow-[0_0_15px_rgba(243,108,74,0.1)] group-hover:shadow-[0_0_20px_rgba(243,108,74,0.4)]">
+                    <div className="w-12 h-12 shrink-0 rounded-full bg-brand/10 flex items-center justify-center border border-brand/20 text-brand group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all duration-300 shadow-[0_0_15px_rgba(130,157,255,0.1)] group-hover:shadow-[0_0_20px_rgba(130,157,255,0.4)]">
                       {item.icon ? (
                         <img src={item.icon} alt="" className="w-6 h-6 object-contain" />
                       ) : (

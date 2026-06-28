@@ -1,6 +1,6 @@
 "use client";
 
-import NotFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import CTA from "@/components/CTA";
 import { use, useEffect, useState } from "react";
 import { Loader2 } from 'lucide-react';
@@ -97,7 +97,10 @@ export default function CaseDetail({ params }) {
 
   // 3. Conditional Rendering (JSX)
   if (loading) return <div className="h-screen flex items-center justify-center bg-black text-white"><Loader2 className="animate-spin w-10 h-10 text-blue-500" /></div>;
-  if (error || !caseData) return <NotFound />;
+  if (error || !caseData) {
+    notFound();
+    return null;
+  }
 
   return (
     <>

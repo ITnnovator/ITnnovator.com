@@ -37,8 +37,8 @@ export default function Header({ services = [] }) {
 
     return (
         <>
-            <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
-                <div className="lg:flex lg:items-center pointer-events-auto">
+            <div className="fixed h-[6rem] md:h-[8rem] left-0 top-0 z-[70] flex items-center justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
+                <div className="flex items-center pointer-events-auto">
                     <a
                         href="/"
                         className="block w-52 main_logo animated-lg heart-svg-large-wrapper"
@@ -53,7 +53,7 @@ export default function Header({ services = [] }) {
                     </a>
                     <h1
                         id="js-heading-one-scroll"
-                        className="leading-none relative lg:top-0.5 mt-3 lg:ml-4 ml-1"
+                        className="leading-none relative lg:top-0.5 lg:ml-4 ml-2"
                     >
                         Digital Partner / Build. Launch. Grow.
                     </h1>

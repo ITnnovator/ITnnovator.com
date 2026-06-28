@@ -6,6 +6,7 @@ import OurOffer from "@/components/OurOffer";
 import OurServices from "@/components/OurServices";
 import Testimonial from "@/components/Testimonial";
 import TypoAnimation from "@/components/TypoAnimation";
+import { Code2, ShoppingCart, TrendingUp, Palette, Smartphone, MonitorDot, Bot } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
 
@@ -47,12 +48,13 @@ export default async function Home() {
             </span>
           </h1>
 
-          <h2 className="text-2xl md:text-3xl font-medium text-white mb-4 block text-left lg:text-left" style={{ width: "70%" }}>
+          <h2 className="text-2xl md:text-3xl font-light text-gray-300 mb-6 block text-left lg:text-left leading-relaxed" style={{ width: "70%" }}>
             Itnnovator is a digital product and growth company helping businesses design, build, and scale high-performance web platforms.
           </h2>
 
           {/* Trust Microcopy */}
-          <div className="text-sm text-gray-400 mt-4 mb-2">
+          <div className="text-xs md:text-sm text-gray-500 uppercase tracking-[0.15em] font-medium mt-8 mb-2 flex items-center gap-4">
+            <span className="w-12 h-[1px] bg-gradient-to-r from-malibu to-transparent block opacity-70"></span>
             Itnnovator (not “Innovator”) is a distinct brand focused on measurable digital outcomes.
           </div>
 
@@ -141,25 +143,26 @@ export default async function Home() {
     </div>
 
     <ul className="flex flex-col gap-y-6 w-full max-w-[40rem] lg:flex-1 mt-4 lg:mt-0">
-      {services.slice(0, 3).map((service, idx) => (
+      {services.slice(0, 3).map((service, idx) => {
+        let IconComponent = Code2;
+        let iconColor = "text-blue-400";
+        if (service.slug === "ecommerce-solutions" || service.slug === "ecommerce") {
+            IconComponent = ShoppingCart;
+            iconColor = "text-purple-400 group-hover:text-purple-300";
+        } else if (service.slug === "seo-digital-marketing" || service.slug === "marketing") {
+            IconComponent = TrendingUp;
+            iconColor = "text-pink-400 group-hover:text-pink-300";
+        } else {
+            iconColor = "text-blue-400 group-hover:text-blue-300";
+        }
+
+        return (
         <li key={service._id} className="group relative flex items-start gap-x-6 md:gap-x-8 p-6 rounded-2xl transition-all duration-500 hover:bg-white/[0.03] border border-transparent hover:border-white/10 overflow-hidden">
           {/* Animated left border on hover */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transition-all duration-500 group-hover:h-full rounded-r-full shadow-[0_0_10px_rgba(139,92,246,0.6)]"></div>
           
           <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors duration-300 shadow-lg shrink-0 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16">
-            {service.icon?.includes('.svg#') ? (
-              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-malibu opacity-80 group-hover:opacity-100 transition-opacity" fill="currentColor">
-                <use href={service.icon}></use>
-              </svg>
-            ) : (
-              <img
-                width="55"
-                height="55"
-                src={service.icon || "/webImages/webbutveckling-ehandel-icon.svg"}
-                className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                alt={service.title}
-              />
-            )}
+             <IconComponent className={`w-8 h-8 sm:w-10 sm:h-10 opacity-80 group-hover:opacity-100 transition-all duration-300 ${iconColor}`} strokeWidth={1.5} />
           </div>
           
           <div className="flex flex-col gap-y-2.5 pt-1">
@@ -173,7 +176,8 @@ export default async function Home() {
             </p>
           </div>
         </li>
-      ))}
+        );
+      })}
     </ul>
   </div>
 </section>
@@ -186,9 +190,10 @@ export default async function Home() {
       <OurClients clients={clients} />
 
       {/* Testimonial */}
-      <section className="pt-5 pb-4 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">What Clients Say</h2>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">Teams partner with Itnnovator for clarity, execution, and dependable delivery.</p>
+      <section className="pt-24 pb-12 w-[94%] wider:max-w-[90rem] px-5 xl:px-8 mx-auto text-center flex flex-col items-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">What Clients Say</h2>
+        <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-8 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+        <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">Teams partner with Itnnovator for clarity, execution, and dependable delivery.</p>
       </section>
       <Testimonial testimonials={testimonials} />
 
@@ -198,13 +203,13 @@ export default async function Home() {
         return (
           <section key={service._id} className="py-14 lg:py-20 xl:py-32" style={{ background: "#000000" }}>
             <div className={`max-w-7xl px-6 xl:px-8 mx-auto md:gap-x-14 xl:gap-x-20 flex-col flex ${isReversed ? 'md:flex-row-reverse md:pl-6' : 'md:flex-row md:pr-6 justify-end'}`}>
-              <div className="md:w-1/2 overflow-x-visible">
-                <figure className={`js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 overflow-hidden w-full md:w-max ${isReversed ? '' : 'float-right'}`}>
+              <div className="md:w-1/2 overflow-x-visible perspective-1000">
+                <figure className={`group js-animate-up block relative z-10 h-auto max-w-7xl mx-auto xl:px-0 rounded-2xl overflow-hidden w-full md:w-max ${isReversed ? '' : 'float-right'} shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5`}>
                   <img
                     width="900"
                     height="530"
                     src={service.hero?.image || service.blockImg || service.icon || "/webImages/hemsidor-wordpress-900x530.png"}
-                    className="w-full h-auto rounded-xl object-cover"
+                    className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                     alt={`${service.title} - ${service.hero?.headline || ''}`}
                   />
                 </figure>
@@ -223,11 +228,11 @@ export default async function Home() {
                   <a
                     href={`/services/${service.slug}`}
                     target="_self"
-                    className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
+                    className="group inline-flex items-center px-6 py-3 mt-4 w-max rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                   >
                     <span> {service.cta || `Explore ${service.title}`} </span>
-                    <span className="pl-1 pr-1 group-hover/link-has-arrow:pl-2 group-hover/link-has-arrow:pr-0 transition-all duration-200 ease-linear">
-                      <svg className="inline-block" preserveAspectRatio="none" width="22" height="15" aria-hidden="true">
+                    <span className="pl-3 transform group-hover:translate-x-1 transition-transform duration-200">
+                      <svg className="inline-block w-4 h-4" viewBox="0 0 13 13" fill="currentColor">
                         <use href="/webImages/icons.svg#arrow-right"></use>
                       </svg>
                     </span>

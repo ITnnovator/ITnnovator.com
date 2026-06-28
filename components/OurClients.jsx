@@ -7,22 +7,23 @@ export default async function OurClients({ clients }) {
 
     return (
         <section className="pb-14 lg:pb-20 xl:pb-32 lg:pt-20">
-            <div className="max-w-7xl px-5 xl:px-8 mx-auto flex text-center flex-col gap-y-10 md:gap-y-20">
-                <h2 className="0 text-3xl md:text-[2.62rem] lg:text-[3.25rem] leading-[1.28] md:leading-[1.1] font-bold text-white text-center">
+            <div className="max-w-7xl px-5 xl:px-8 mx-auto flex flex-col items-center gap-y-6 md:gap-y-12">
+                <h2 className="0 text-3xl md:text-5xl font-bold text-white text-center tracking-tight">
                     Clients & Partners
                 </h2>
-                <p className="text-xl text-gray-400 max-w-2xl mx-auto text-center -mt-6">
+                <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] animate-pulse"></div>
+                <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto text-center font-light leading-relaxed mb-6">
                     Itnnovator works with startups, growing companies, and established teams across multiple industries.
                 </p>
 
                 {/* Desktop Grid (Hidden on Mobile) */}
-                <div className="hidden md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-10 md:gap-y-20">
+                <div className="hidden md:flex md:flex-wrap md:justify-center md:items-center md:gap-x-12 md:gap-y-16 mt-4">
                     {displayClients && displayClients.length > 0 ? (
                         displayClients.map((client) => (
-                            <div key={client._id} className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%]">
+                            <div key={client._id} className="js-logo-item flex justify-center items-center shrink-0 md:basis-auto md:shrink md:w-[20%] xl:w-[16.66%] group">
                                 <img
                                     src={client.logo}
-                                    className="object-contain max-w-[5rem] max-h-[2.5rem] md:max-w-[6rem] md:max-h-[2.925rem] xl:max-w-[6.5rem]"
+                                    className="object-contain max-w-[5rem] max-h-[2.5rem] md:max-w-[7rem] md:max-h-[3rem] xl:max-w-[7.5rem] opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-all duration-300 ease-out"
                                     style={{ filter: 'brightness(0) invert(1)' }}
                                     alt={`Client logo: ${client.name}`}
                                 />

@@ -2,8 +2,15 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/db";
 import Service from "@/models/Service";
 import { SERVICES_DATA } from "@/lib/servicesData";
+import { verifyAdminAuth } from "@/lib/auth-middleware";
 
-export async function GET() {
+export async function GET(req) {
+    // Verify admin authentication - seed endpoint is admin only
+    const auth = await verifyAdminAuth(req);
+    if (!auth.valid) {
+        return NextResponse.json({ error: auth.error }, { status: auth.status });
+    }
+
     try {
         await dbConnect();
 

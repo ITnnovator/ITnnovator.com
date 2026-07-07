@@ -6,7 +6,11 @@ import { NextResponse } from 'next/server';
 // OR (better) I will just check if the cookie is present.
 // Validating strictly in middleware requires 'jose' or 'vercel/edge'.
 
-export function middleware(request) {
+import { jwtVerify } from 'jose';
+
+const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'fallback-secret');
+
+export async function middleware(request) {
   const path = request.nextUrl.pathname;
 
   // Define paths to protect
@@ -14,6 +18,18 @@ export function middleware(request) {
   const isLoginPath = path === '/admin/login';
 
   const token = request.cookies.get('admin_token')?.value;
+
+  // Verify token signature if it exists
+  if (token && isProtectedPath && !isLoginPath) {
+    try {
+      await jwtVerify(token, secret);
+    } catch (err) {
+      // Token is invalid, redirect to login
+      const url = request.nextUrl.clone();
+      url.pathname = '/admin/login';
+      return NextResponse.redirect(url);
+    }
+  }
 
   // Redirect to login if accessing protected admin route without token
   if (isProtectedPath && !isLoginPath && !token) {

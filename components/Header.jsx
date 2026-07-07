@@ -216,7 +216,7 @@ export default function Header({ services = [] }) {
                                         </div>
                                     </li>
 
-                                    <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5">
+                                    <li className="js-menu-item flex py-2 mt-0 last:text-2xl last:mt-5 md:hidden">
                                         <div className="js-menu-item--wrapper flex w-full">
                                             <Link
                                                 href="/estimate"

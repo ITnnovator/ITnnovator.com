@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Testimonial from '@/models/Testimonial';
+import { verifyAdminAuth } from '@/lib/auth-middleware';
 
 export async function GET() {
     await dbConnect();
@@ -9,6 +10,12 @@ export async function GET() {
 }
 
 export async function POST(req) {
+    // Verify admin authentication
+    const auth = await verifyAdminAuth(req);
+    if (!auth.valid) {
+        return NextResponse.json({ error: auth.error }, { status: auth.status });
+    }
+
     try {
         await dbConnect();
         const body = await req.json();

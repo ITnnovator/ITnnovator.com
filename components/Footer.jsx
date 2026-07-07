@@ -153,112 +153,30 @@ export default function Footer() {
                 </div>
 
                 <div className="lg:flex justify-between items-start border-t border-[#565252] mt-9 pt-9">
-                    {/* <nav className="flex flex-wrap justify-between gap-8 md:gap-12 xl:gap-16 text-xs">
-                        <ul className="text-white/50">
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Environment Policy
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Quality Policy
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Privacy Policy
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Cookies
-                                </Link>
-                            </li>
-                        </ul>
-                        <ul className="text-white/50">
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Web Development
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    App Development
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    SEO Services
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    WordPress Agency
-                                </Link>
-                            </li>
-                        </ul>
-                        <ul className="text-white/50">
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Glossary
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Blog
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    Careers
-                                </Link>
-                            </li>
-                            <li className="mb-0.5">
-                                <Link
-                                    className="hover-underline-animation inline-block relative"
-                                    href="#"
-                                >
-                                    About Itnnovator
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav> */}
 
-                    <p>&copy; Itnnovator — Digital Services for Web, Product, and Growth</p>
+                    <div className="flex-1">
+                        <p className="text-white/70 text-sm mb-4">
+                            &copy; {currentYear} Itnnovator — Digital Services for Web, Product, and Growth
+                        </p>
+                        <div className="flex flex-wrap gap-4 text-xs text-white/50">
+                            <Link href="/privacy" className="hover:text-white/80 transition-colors">
+                                Privacy Policy
+                            </Link>
+                            <span className="text-white/30">•</span>
+                            <Link href="/terms" className="hover:text-white/80 transition-colors">
+                                Terms of Service
+                            </Link>
+                            <span className="text-white/30">•</span>
+                            <a href="mailto:info@itnnovator.com" className="hover:text-white/80 transition-colors">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+
+                    <div className="text-right text-xs text-white/50">
+                        <p className="mb-2">🌍 Serving clients worldwide</p>
+                        <p>Remote-first • Quality-driven • Innovation-focused</p>
+                    </div>
 
                     {/* Optional award badges — replace/remove as needed */}
                     <div className="flex items-center justify-end flex-wrap gap-y-6 gap-x-5 md:gap-x-6 mt-10 lg:mt-0 hidden">

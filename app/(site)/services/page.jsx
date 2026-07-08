@@ -143,7 +143,7 @@ export default async function ServicePage() {
 
                     {/* Description */}
                     <p className="text-base text-white/50 leading-relaxed line-clamp-3 mb-8 flex-grow">
-                      {service.description}
+                      {service.description || (service.overview ? service.overview.replace(/<[^>]+>/g, '').trim() : 'More details coming soon.')}
                     </p>
 
                     {/* Features */}

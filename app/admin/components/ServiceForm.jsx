@@ -37,6 +37,7 @@ export default function ServiceForm({ initialData = {}, isEdit = false, onSucces
     },
 
     // Content
+    description: initialData.description || '',
     overview: initialData.overview || '',
     features: initialData.features || [''], // New Features list
 
@@ -204,6 +205,18 @@ export default function ServiceForm({ initialData = {}, isEdit = false, onSucces
             <div className="flex items-center gap-2 border border-white/10 p-4 rounded bg-white/5">
               <input type="checkbox" name="isFeatured" checked={formData.isFeatured} onChange={handleChange} className="w-4 h-4" />
               <label className="text-sm">Featured on Homepage</label>
+            </div>
+
+            <div>
+              <label className="label">Short Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                rows={3}
+                className="input-dark h-24"
+                placeholder="Short description shown on service cards and listing pages"
+              />
             </div>
 
             <div>

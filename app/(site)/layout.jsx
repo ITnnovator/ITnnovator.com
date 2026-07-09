@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Script from "next/script";
 import SparkCursor from "@/components/SparkCursor";
+import RouteTransitionLoader from "@/components/RouteTransitionLoader";
 import { Toaster } from "react-hot-toast";
 import ScriptRefresh from "@/components/ScriptRefresh";
 import BackToTop from "@/components/BackToTop";
@@ -62,7 +63,7 @@ const jsonLd = {
 
 import { getServices } from '@/app/lib/data';
 
-export const revalidate = 0; // Ensure dynamic data fetching globally
+export const revalidate = 60;
 
 export default async function SiteLayout({ children }) {
   const services = await getServices();
@@ -105,6 +106,7 @@ export default async function SiteLayout({ children }) {
           className="w-full flex flex-col min-h-screen !filter-none"
         >
           <Header services={services} />
+          <RouteTransitionLoader />
           <br />
           <br />
           <Toaster position="top-right" reverseOrder={false} />
@@ -116,8 +118,8 @@ export default async function SiteLayout({ children }) {
           <BackToTop />
         </div>
 
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" />
-        <Script src="/lib/main.js" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" strategy="afterInteractive" />
+        <Script src="/lib/main.js" strategy="afterInteractive" />
       </body>
     </html>
   );

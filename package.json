@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:dns": "set \"NODE_OPTIONS=--require ./dns-fix.js\" && next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "seed-blog": "node scripts/seed-blog.js"

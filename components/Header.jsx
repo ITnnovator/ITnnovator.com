@@ -39,7 +39,7 @@ export default function Header({ services = [] }) {
         <>
             <div className="fixed h-[6rem] left-0 top-0 z-[70] flex items-center justify-between pl-5 md:pl-12 text-white mix-blend-difference pointer-events-none">
                 <div className="flex items-center pointer-events-auto">
-                    <a
+                    <Link
                         href="/"
                         className="block w-52 main_logo animated-lg heart-svg-large-wrapper"
                     >
@@ -50,7 +50,7 @@ export default function Header({ services = [] }) {
                             width="82"
                             height="47"
                         />
-                    </a>
+                    </Link>
                     <h1
                         id="js-heading-one-scroll"
                         className="leading-none relative lg:top-0.5 lg:ml-4 ml-2"

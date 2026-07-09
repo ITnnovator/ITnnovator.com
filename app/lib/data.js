@@ -3,12 +3,13 @@ import Service from '@/models/Service';
 import Case from '@/models/Case';
 import Testimonial from '@/models/Testimonial';
 import Client from '@/models/Client';
+import { cache } from 'react';
 
-export async function getServices() {
+export const getServices = cache(async () => {
   await dbConnect();
   const services = await Service.find({ serviceType: 'primary' }).sort({ sortOrder: 1, createdAt: -1 }).lean();
   return JSON.parse(JSON.stringify(services));
-}
+});
 
 export async function getCases(limit = null) {
   await dbConnect();

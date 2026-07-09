@@ -4,6 +4,7 @@ import OurServices from "@/components/OurServices";
 import dbConnect from "@/lib/db";
 import { getServices } from '@/app/lib/data';
 import Case from "@/models/Case";
+import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -42,9 +43,9 @@ export default async function CasesPage() {
             <div className="lg:max-w-md">
               <p className="text-xl text-white/60 font-light leading-relaxed mb-6">
                 We are constantly adding new projects and case studies to our portfolio.{" "}
-                <a href="/contact" className="text-malibu hover:text-white transition-colors border-b border-malibu/30 hover:border-white">
+                <Link href="/contact" className="text-malibu hover:text-white transition-colors border-b border-malibu/30 hover:border-white">
                   Contact us
-                </a>{" "}
+                </Link>{" "}
                 if you'd like to explore more of our work.
               </p>
               {/* Stats row */}
@@ -82,13 +83,13 @@ export default async function CasesPage() {
               <p className="text-white/50 text-lg leading-relaxed max-w-xl mx-auto mb-8">
                 We're constantly updating our portfolio. Want to see more work or discuss a custom project?
               </p>
-              <a
+              <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-malibu text-black font-bold hover:shadow-[0_0_30px_rgba(130,157,255,0.5)] hover:scale-105 transition-all duration-300"
               >
                 Contact Us
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

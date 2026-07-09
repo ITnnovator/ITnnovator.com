@@ -13,6 +13,7 @@ export const dynamic = 'force-dynamic';
 // ... imports
 import HeroModel from '@/models/Hero';
 import dbConnect from '@/lib/db';
+import Link from "next/link";
 
 async function getHeroData() {
   await dbConnect();
@@ -59,7 +60,7 @@ export default async function Home() {
           </div>
 
           <div className="flex flex-wrap gap-x-10 gap-y-8 pt-[1rem] lg:pt-[1.5rem]">
-            <a
+            <Link
               href="/contact"
               className="lg:min-w-[10rem] inline-flex items-center font-[400] md:text-[1.375rem] rounded-[1.25rem] md:text-xl text-malibu js-hover-circle-animation hover-child-underline-animation">
               <span className="relative inline-block child after:!bg-malibu">Start a Project</span>
@@ -68,9 +69,9 @@ export default async function Home() {
                   <use href="/webImages/icons.svg#arrow-right"></use>
                 </svg>
               </span>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/services"
               className="lg:min-w-[10rem] inline-flex justify-center items-center px-3 mx-0.5 sm:mx-2 font-[400] md:text-[1.375rem] rounded-[1.25rem] sm:px-6 md:px-2 md:text-xl text-white js-hover-circle-animation hover-child-underline-animation">
               <span className="relative inline-block child after:!bg-white">Explore Services</span>
@@ -79,7 +80,7 @@ export default async function Home() {
                   <use href="/webImages/icons.svg#arrow-right"></use>
                 </svg>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -127,7 +128,7 @@ export default async function Home() {
             </div>
 
             <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-              <a
+              <Link
                 href="/services"
                 target="_self"
                 className="group inline-flex items-center px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
@@ -138,7 +139,7 @@ export default async function Home() {
                     <use href="/webImages/icons.svg#arrow-right"></use>
                   </svg>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -167,9 +168,9 @@ export default async function Home() {
 
                   <div className="flex flex-col gap-y-2.5 pt-1">
                     <h3 className="text-xl md:text-2xl font-bold">
-                      <a className="text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300" href={`/services/${service.slug}`}>
+                      <Link className="text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300" href={`/services/${service.slug}`}>
                         {service.title}
-                      </a>
+                      </Link>
                     </h3>
                     <p className="text-gray-400 text-base md:text-lg line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
                       {service.description || service.hero?.subheadline || "Custom digital solutions built for modern business needs."}
@@ -225,7 +226,7 @@ export default async function Home() {
                     <p>{service.description || service.hero?.subheadline || 'Professional digital services to scale your operations.'}</p>
                   </div>
 
-                  <a
+                  <Link
                     href={`/services/${service.slug}`}
                     target="_self"
                     className="group inline-flex items-center px-6 py-3 mt-4 w-max rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
@@ -236,7 +237,7 @@ export default async function Home() {
                         <use href="/webImages/icons.svg#arrow-right"></use>
                       </svg>
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

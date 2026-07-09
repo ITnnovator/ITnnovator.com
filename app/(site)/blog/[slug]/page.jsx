@@ -132,12 +132,12 @@ export default async function BlogPost({ params }) {
                             <div>
                                 <p className="text-white/60 text-sm mb-4">Share this article</p>
                                 <div className="flex gap-4">
-                                    <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://itnnovator.com/blog/${slug}`)}&text=${encodeURIComponent(blog.title)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-malibu/20 hover:border-malibu/40 transition-all duration-300">
+                                    <Link href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://itnnovator.com/blog/${slug}`)}&text=${encodeURIComponent(blog.title)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-malibu/20 hover:border-malibu/40 transition-all duration-300">
                                         Twitter
-                                    </a>
-                                    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://itnnovator.com/blog/${slug}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-malibu/20 hover:border-malibu/40 transition-all duration-300">
+                                    </Link>
+                                    <Link href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://itnnovator.com/blog/${slug}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white hover:bg-malibu/20 hover:border-malibu/40 transition-all duration-300">
                                         LinkedIn
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <Link href="/blog" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all duration-300 group">

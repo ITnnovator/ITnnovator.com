@@ -133,7 +133,7 @@ function CaseCard({ item }) {
 
     return (
         <div className="group relative p-[1px] rounded-3xl bg-gradient-to-br from-white/10 to-white/5 hover:from-malibu/50 hover:to-purple-500/50 transition-all duration-500">
-            <a
+            <Link
                 href={`/cases/${item.slug}`}
                 className="relative flex flex-col h-full overflow-hidden rounded-[23px] bg-[#0a0a0c] block"
             >
@@ -194,7 +194,7 @@ function CaseCard({ item }) {
                 <div className="absolute top-8 right-8 w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/40 group-hover:bg-malibu group-hover:border-malibu group-hover:text-black transition-all duration-300 z-20">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
                 </div>
-            </a>
+            </Link>
         </div>
     );
 }

@@ -17,7 +17,7 @@ export default function ServiceSection() {
                                 loading="lazy"
                                 decoding="async"
                             />
-                            <a
+                            <Link
                                 className="js-hover-circle-animation"
                                 target="_self"
                                 href={`/services/${service.slug}`}
@@ -25,7 +25,7 @@ export default function ServiceSection() {
                                 <h3 className="mb-4 inline-block text-2xl md:text-3xl leading-tight md:leading-[1.4] font-bold text-white">
                                     {service.title}
                                 </h3>
-                            </a>
+                            </Link>
 
                             <div className="prose max-w-none text-base md:text-lg font-light leading-[1.4] text-white/80">
                                 {service.description}
@@ -49,7 +49,7 @@ export default function ServiceSection() {
                             </ul>
 
                             <div className="flex flex-wrap gap-x-10 gap-y-2 lg:gap-x-[4.25rem] xl:pt-4">
-                                <a
+                                <Link
                                     href={`/services/${service.slug}`}
                                     target="_self"
                                     className="js-hover-circle-animation group/link-has-arrow w-max inline-block text-base md:text-lg text-malibu"
@@ -66,7 +66,7 @@ export default function ServiceSection() {
                                             <use href="/webImages/icons.svg#arrow-right"></use>
                                         </svg>
                                     </span>
-                                </a>
+                                </Link>
                             </div>
                         </li>
                     ))}

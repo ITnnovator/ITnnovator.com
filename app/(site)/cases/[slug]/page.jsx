@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import CTA from "@/components/CTA";
 import { use, useEffect, useState } from "react";
 import { Loader2 } from 'lucide-react';
+import Link from "next/link";
 
 export default function CaseDetail({ params }) {
   const { slug } = use(params);
@@ -112,7 +113,7 @@ export default function CaseDetail({ params }) {
           <picture className="flex items-end w-full relative z-0 rounded-xl mx-auto overflow-hidden aspect-[15/12] md:aspect-[9/4] xl:max-h-[calc(100vh_-_150px)]">
             <div className="block md:text-lg text-black absolute text-black left-4 top-4 z-20 md:top-8 md:left-10">
               <span>
-                <a href="/"> Home </a> / <a href="/cases"> Case</a> /
+                <Link href="/"> Home </Link> / <Link href="/cases"> Case</Link> /
                 <span className="breadcrumb_last" aria-current="page">
                   <strong>{caseData.title}</strong>
                 </span>
@@ -167,7 +168,7 @@ export default function CaseDetail({ params }) {
                 )}
               </div>
               <h4>Visit</h4>
-              <p><a href={caseData.link} target="_blank" rel="noopener">{caseData.link}</a></p>
+              <p><Link href={caseData.link} target="_blank" rel="noopener">{caseData.link}</Link></p>
             </div>
           </aside>
         </div>
@@ -238,7 +239,7 @@ export default function CaseDetail({ params }) {
       {/* Prev / Next (Hidden for dynamic for now, or implement fetch logic) */}
       <section className="flex flex-col w-full px-6 mx-auto mb-12 text-white md:flex-row justify-items-center max-w-7xl xl:px-8 gap-x-8 md:mb-16 xl:mb-24">
         <div className="flex flex-col md:flex-row gap-4 w-full pt-3 mt-10">
-          <a
+          <Link
             href="/cases"
             className="flex items-center justify-center border border-white/40 text-base md:text-lg py-6 md:py-8 lg:py-12 w-full md:w-[calc(33.3333%_-_(2rem/3))] hover:text-malibu hover:border-malibu/70 transition-colors mx-auto"
           >
@@ -251,7 +252,7 @@ export default function CaseDetail({ params }) {
               <use href="/webImages/icons.svg#case-icon"></use>
             </svg>
             <span>All Case</span>
-          </a>
+          </Link>
         </div>
       </section>
     </>

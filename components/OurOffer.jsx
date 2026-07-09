@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -124,10 +125,10 @@ export default function OurOffer({ services = [] }) {
                                 <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-8 max-w-lg">
                                     {service.description || service.hero?.subheadline}
                                 </p>
-                                <a href={`/services/${service.slug}`} className="group inline-flex items-center w-max px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white">
+                                <Link href={`/services/${service.slug}`} className="group inline-flex items-center w-max px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white">
                                     {service.cta || `Explore ${service.title}`}
                                     <svg className="ml-3 w-4 h-4 transform group-hover:translate-x-1 transition-transform" viewBox="0 0 13 13" fill="currentColor"><use href="/webImages/icons.svg#arrow-right"></use></svg>
-                                </a>
+                                </Link>
                             </div>
                         ))}
                     </div>

@@ -24,14 +24,14 @@ export default function CTA() {
                     Talk to Itnnovator about your project and get a clear, practical plan forward.
                 </p>
                 <p className="mt-8 flex justify-center">
-                    <a href="/contact" className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white transition-all duration-300 bg-white/5 border border-white/20 rounded-full hover:bg-malibu hover:border-malibu hover:text-black hover:shadow-[0_0_30px_rgba(130,157,255,0.6)] hover:scale-105">
+                    <Link href="/contact" className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white transition-all duration-300 bg-white/5 border border-white/20 rounded-full hover:bg-malibu hover:border-malibu hover:text-black hover:shadow-[0_0_30px_rgba(130,157,255,0.6)] hover:scale-105">
                         <span className="relative z-10 flex items-center">
                             <span>Contact Itnnovator</span>
                             <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </span>
-                    </a>
+                    </Link>
                 </p>
             </div>
         </section>

@@ -176,15 +176,15 @@ export default function LeadDetailPage() {
                             </div>
                             <div>
                                 <p className="text-gray-400 text-xs uppercase font-bold mb-1">Email</p>
-                                <a href={`mailto:${lead.contact.email}`} className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
+                                <Link href={`mailto:${lead.contact.email}`} className="text-blue-400 hover:text-blue-300 flex items-center gap-1">
                                     {lead.contact.email} <ExternalLink size={14} />
-                                </a>
+                                </Link>
                             </div>
                             <div>
                                 <p className="text-gray-400 text-xs uppercase font-bold mb-1">Phone</p>
-                                <a href={`tel:${lead.contact.phone}`} className="text-blue-400 hover:text-blue-300">
+                                <Link href={`tel:${lead.contact.phone}`} className="text-blue-400 hover:text-blue-300">
                                     {lead.contact.phone}
-                                </a>
+                                </Link>
                             </div>
                             <div>
                                 <p className="text-gray-400 text-xs uppercase font-bold mb-1">Company</p>

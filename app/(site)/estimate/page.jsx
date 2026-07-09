@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EstimatorWizard from "@/components/Estimator/EstimatorWizard";
 
 export const metadata = {
@@ -36,7 +37,7 @@ export default function EstimatePage() {
             <div className="max-w-4xl mx-auto mt-20 pt-10 border-t border-white/10 text-center">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Why Trust Itnnovator?</h2>
                 <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                    We don't just guess numbers. As a leading <a href="/" className="text-malibu hover:underline">software development agency</a>, our estimates are backed by years of experience delivering <a href="/services" className="text-malibu hover:underline">custom software development services</a> for clients worldwide.
+                    We don't just guess numbers. As a leading <Link href="/" className="text-malibu hover:underline">software development agency</Link>, our estimates are backed by years of experience delivering <Link href="/services" className="text-malibu hover:underline">custom software development services</Link> for clients worldwide.
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-6 text-left">

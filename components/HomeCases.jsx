@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function HomeCases({ cases = [] }) {
     const pathname = usePathname();
@@ -187,7 +188,7 @@ export default function HomeCases({ cases = [] }) {
                                     <div className="mt-3 md:mt-4 text-base text-100 md:text-xl" style={{ color: '#ffffff' }} dangerouslySetInnerHTML={{ __html: item.description }}>
                                     </div>
                                     <div className="mt-8 mb-5 md:mb-0 md:mt-12" style={{ color: '#ffffff' }}>
-                                        <a
+                                        <Link
                                             href={`/cases/${item.slug}`}
                                             target="_self"
                                             className="group inline-flex items-center px-6 py-3 w-max rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm text-lg font-medium text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
@@ -197,7 +198,7 @@ export default function HomeCases({ cases = [] }) {
                                                     <use href="/webImages/icons.svg#arrow-right"></use>
                                                 </svg>
                                             </span>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             ))

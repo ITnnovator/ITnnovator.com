@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { toast } from "react-hot-toast";
 import { trackEvent } from "@/lib/analytics";
 
@@ -165,9 +166,9 @@ export default function ContactGravityForm() {
                 <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} className="sr-only" />
                 <p className="text-sm text-white/40 leading-relaxed">
                     I have read Itnnovator's{" "}
-                    <a href="/contact" className="text-malibu hover:text-white transition-colors underline underline-offset-2">
+                    <Link href="/contact" className="text-malibu hover:text-white transition-colors underline underline-offset-2">
                         privacy policy
-                    </a>
+                    </Link>
                     .
                 </p>
             </div>

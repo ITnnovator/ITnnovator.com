@@ -48,9 +48,9 @@ export default async function ServicePage() {
                 Start a Project
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
-              <a href="#services" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white font-semibold hover:bg-white/10 transition-all duration-300 text-base">
+              <Link href="#services" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white font-semibold hover:bg-white/10 transition-all duration-300 text-base">
                 Explore Services
-              </a>
+              </Link>
             </div>
 
             {/* Mini stats */}

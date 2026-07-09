@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function ServiceTOC({ sections }) {
@@ -58,7 +59,7 @@ export default function ServiceTOC({ sections }) {
               const isActive = activeId === id;
               return (
                 <li key={id}>
-                  <a
+                  <Link
                     href={`#${id}`}
                     onClick={(e) => scrollToSection(e, id)}
                     className={`group flex items-center gap-4 py-2 text-sm transition-all duration-300 rounded-lg px-2 -ml-2 ${isActive
@@ -71,7 +72,7 @@ export default function ServiceTOC({ sections }) {
                       : 'bg-gray-800 border border-gray-700 group-hover:border-gray-500'
                       }`}></span>
                     <span className="truncate">{label}</span>
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -80,9 +81,9 @@ export default function ServiceTOC({ sections }) {
 
         {/* CTA in TOC */}
         <div className="mt-8 pt-6 border-t border-white/5">
-          <a href="#contact" className="block text-center w-full py-3 rounded-lg bg-brand hover:brightness-110 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-brand/20">
+          <Link href="#contact" className="block text-center w-full py-3 rounded-lg bg-brand hover:brightness-110 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-brand/20">
             Get Started
-          </a>
+          </Link>
         </div>
       </div>
     </div>

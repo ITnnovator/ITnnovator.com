@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ServiceFAQ({ items }) {
@@ -36,7 +37,7 @@ export default function ServiceFAQ({ items }) {
             Common <br className="hidden lg:block" /><span className="text-malibu italic font-serif font-light">Questions</span>
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed max-w-sm">
-            Everything you need to know about this service. Can't find the answer you're looking for? Feel free to <a href="/contact" className="text-malibu hover:text-white transition-colors border-b border-malibu/30 hover:border-white">contact our team</a>.
+            Everything you need to know about this service. Can't find the answer you're looking for? Feel free to <Link href="/contact" className="text-malibu hover:text-white transition-colors border-b border-malibu/30 hover:border-white">contact our team</Link>.
           </p>
         </div>
 
